@@ -1,0 +1,79 @@
+---
+import { Image } from 'astro:assets';
+
+interface Props {
+  titulo: string;
+  etiqueta: string;
+  icono: string;
+  descripcion: string;
+  items: string[];
+  href: string;
+  image?: string;
+  imageAlt?: string;
+  badge?: string;
+}
+
+const { titulo, etiqueta, icono, descripcion, items, href, image, imageAlt, badge } = Astro.props;
+const isTestimonialCard = Boolean(image);
+---
+
+{isTestimonialCard ? (
+  <div class="bg-surface-container-lowest border border-outline-variant/50 rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-all flex flex-col justify-between">
+    <div class="relative h-52 w-full overflow-hidden bg-surface-container-low">
+      <!-- TODO: Descargar la imagen correspondiente y colocarla en src/assets/ -->
+      <img src={image} alt={imageAlt || titulo} class="w-full h-full object-cover object-center" />
+      <div class="absolute top-3 left-3">
+        <span class="font-technical-code text-xs px-2.5 py-1 rounded bg-primary-container text-white font-bold shadow">{badge}</span>
+      </div>
+    </div>
+    <div class="p-space-lg flex flex-col flex-1 justify-between gap-4">
+      <div>
+        <div class="flex items-center gap-1 text-secondary-container mb-3">
+          <span class="material-symbols-outlined text-lg">star</span>
+          <span class="material-symbols-outlined text-lg">star</span>
+          <span class="material-symbols-outlined text-lg">star</span>
+          <span class="material-symbols-outlined text-lg">star</span>
+          <span class="material-symbols-outlined text-lg">star</span>
+        </div>
+        <p class="font-body-md text-body-md text-on-surface leading-relaxed italic mb-4">{descripcion}</p>
+      </div>
+      <div class="pt-4 border-t border-outline-variant/30 flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+        <div class="flex flex-col">
+          <span class="font-headline-sm text-sm font-bold text-primary">{titulo}</span>
+          <span class="font-technical-code text-xs text-on-surface-variant">Sector Gastronómico / Logístico Neuquén</span>
+        </div>
+        <span class="font-technical-code text-xs px-2.5 py-1 rounded bg-surface-container-high text-primary font-semibold self-start sm:self-center">{etiqueta}</span>
+      </div>
+    </div>
+  </div>
+) : (
+  <div class="bg-surface-container-lowest border border-outline-variant/50 rounded-xl p-space-lg flex flex-col justify-between hover:border-secondary-container transition-all duration-200 shadow-sm hover:shadow-md">
+    <div>
+      <div class="flex items-center justify-between mb-4">
+        <span class="font-technical-code text-technical-code px-2 py-0.5 rounded bg-surface-container-low text-on-surface-variant font-bold">
+          {etiqueta}
+        </span>
+        <div class="w-12 h-12 rounded-lg bg-surface-container-low flex items-center justify-center text-primary-container">
+          <span class="material-symbols-outlined text-2xl">{icono}</span>
+        </div>
+      </div>
+      <h3 class="font-headline-md text-headline-md text-primary mb-3">
+        {titulo}
+      </h3>
+      <p class="font-body-sm text-body-sm text-on-surface-variant mb-6">{descripcion}</p>
+      <ul class="space-y-3 mb-6">
+        {items.map((item) => (
+          <li class="flex items-start gap-2.5">
+            <span class="material-symbols-outlined text-secondary-container text-lg mt-0.5">check_circle</span>
+            <span class="font-body-sm text-body-sm text-on-surface">{item}</span>
+          </li>
+        ))}
+      </ul>
+    </div>
+    <div class="pt-4 border-t border-outline-variant/30 flex items-center justify-between font-technical-code text-technical-code">
+      <a class="text-secondary-container font-bold hover:underline inline-flex items-center gap-1 focus:outline-none focus:ring-2 focus:ring-secondary-container rounded p-1" href={href}>
+        Ver servicio de {titulo} <span class="material-symbols-outlined text-sm">arrow_forward</span>
+      </a>
+    </div>
+  </div>
+)}

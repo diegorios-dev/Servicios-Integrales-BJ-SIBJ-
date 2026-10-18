@@ -1,0 +1,97 @@
+---
+import { siteConfig } from '../data/site';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import '../styles/global.css';
+
+interface Props {
+  title?: string;
+  description?: string;
+  canonical?: string;
+  ogImage?: string;
+}
+
+const {
+  title = "Mantenimiento Industrial y Climatización en Neuquén | SIBJ",
+  description = "Servicios integrales de mantenimiento industrial, climatización comercial, electricidad y obras civiles para empresas y comercios en Neuquén. Contactanos.",
+  canonical = siteConfig.url,
+  ogImage = `${siteConfig.url}assets/og-image.jpg`,
+} = Astro.props;
+
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "HomeAndConstructionBusiness",
+  "name": siteConfig.name,
+  "alternateName": siteConfig.shortName,
+  "url": siteConfig.url,
+  "telephone": siteConfig.telephoneDisplay,
+  "email": siteConfig.email,
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": siteConfig.city,
+    "addressRegion": siteConfig.region,
+    "addressCountry": siteConfig.addressCountry
+  },
+  "areaServed": {
+    "@type": "City",
+    "name": siteConfig.city
+  },
+  "openingHoursSpecification": [
+    {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": siteConfig.openingHours.days,
+      "opens": siteConfig.openingHours.opens,
+      "closes": siteConfig.openingHours.closes
+    }
+  ],
+  "hasOfferCatalog": {
+    "@type": "OfferCatalog",
+    "name": "Servicios Técnicos Integrales",
+    "itemListElement": [
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Climatización y Refrigeración" } },
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Mantenimiento Edilicio" } },
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Electricidad y Tableros" } },
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Obras y Trabajos Civiles" } }
+    ]
+  }
+};
+---
+
+<!DOCTYPE html>
+<html class="scroll-smooth" lang="es-AR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{title}</title>
+  <meta name="description" content={description}>
+  
+  <meta property="og:title" content={siteConfig.name}>
+  <meta property="og:description" content="Soluciones técnicas integrales para empresas, comercios e industrias.">
+  <meta property="og:type" content="website">
+  <link rel="canonical" href={canonical}>
+  <meta property="og:url" content={canonical}>
+  <meta property="og:locale" content="es_AR">
+  <meta property="og:site_name" content={siteConfig.shortName}>
+  <meta property="og:image" content={ogImage}>
+  <meta name="twitter:card" content="summary_large_image">
+
+  <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
+
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+
+  <!-- Google Fonts: Hanken Grotesk & Manrope -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:ital,wght@0,300..900;1,300..900&family=Manrope:wght@300..800&display=swap" rel="stylesheet">
+  
+  <!-- Material Symbols Outlined -->
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet">
+</head>
+<body class="bg-background text-on-surface antialiased selection:bg-secondary-container selection:text-on-primary">
+  <Header />
+  <main>
+    <slot />
+  </main>
+  <Footer />
+</body>
+</html>

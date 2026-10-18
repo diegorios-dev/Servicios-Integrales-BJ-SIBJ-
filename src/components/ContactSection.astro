@@ -1,0 +1,77 @@
+---
+import { siteConfig, getWhatsAppLink } from '../data/site';
+---
+
+<section class="py-space-2xl bg-surface-bright" id="contacto">
+  <div class="max-w-7xl mx-auto px-margin-mobile md:px-margin">
+    <div class="grid grid-cols-1 gap-space-xl">
+      
+      <!-- Canales Directos e Información de Guardia -->
+      <div class="flex flex-col justify-between gap-space-lg w-full">
+        <div class="bg-primary-container text-on-primary rounded-xl p-space-lg md:p-space-xl border border-primary-container shadow-lg flex flex-col gap-6">
+          <div>
+            <span class="px-2.5 py-1 text-xs font-technical-code font-bold bg-secondary-container text-white rounded">
+              CANALES DIRECTOS
+            </span>
+            <h3 class="font-headline-md text-headline-md text-surface-container-lowest mt-2">
+              Atención Inmediata
+            </h3>
+            <p class="font-body-sm text-body-sm text-on-primary-container mt-1">
+              Líneas directas de guardia técnica e ingeniería para atención ágil de requerimientos operativos.
+            </p>
+          </div>
+          
+          <div class="space-y-4">
+            <!-- Teléfono -->
+            <a class="flex items-start gap-3 p-3 rounded-lg bg-surface-container-low/10 hover:bg-surface-container-low/20 transition-colors focus:outline-none focus:ring-2 focus:ring-secondary-container" href={`tel:${siteConfig.telephoneRaw}`}>
+              <span class="material-symbols-outlined text-secondary-container text-2xl mt-0.5">call</span>
+              <div>
+                <span class="font-technical-code text-xs text-surface-variant block uppercase font-bold">Teléfono comercial / guardia</span>
+                <span class="font-headline-sm text-headline-sm text-white font-semibold">{siteConfig.telephoneDisplay}</span>
+              </div>
+            </a>
+            
+            <!-- WhatsApp -->
+            <a class="flex gap-3 p-3 rounded-lg bg-surface-container-low/10 hover:bg-surface-container-low/20 transition-colors items-center focus:outline-none focus:ring-2 focus:ring-secondary-container" href={getWhatsAppLink("Hola SIBJ, solicito asistencia técnica inmediata")} rel="noopener noreferrer" target="_blank">
+              <span class="material-symbols-outlined text-2xl text-green-400">chat</span>
+              <div>
+                <span class="font-technical-code text-xs text-surface-variant block uppercase font-bold">Canal Directo</span>
+                <span class="font-headline-sm text-headline-sm text-white font-semibold">WhatsApp</span>
+              </div>
+            </a>
+            
+            <!-- Email -->
+            <a class="flex items-start gap-3 p-3 rounded-lg bg-surface-container-low/10 hover:bg-surface-container-low/20 transition-colors focus:outline-none focus:ring-2 focus:ring-secondary-container" href={`mailto:${siteConfig.email}`}>
+              <span class="material-symbols-outlined text-secondary-container text-2xl mt-0.5">mail</span>
+              <div>
+                <span class="font-technical-code text-xs text-surface-variant block uppercase font-bold">Email Institucional</span>
+                <span class="font-body-md text-body-md text-white font-semibold">{siteConfig.email}</span>
+              </div>
+            </a>
+          </div>
+
+          <div class="pt-4 border-t border-surface-variant/20 space-y-2">
+            <div class="flex items-center gap-2 text-surface-variant text-sm">
+              <span class="material-symbols-outlined text-base">schedule</span>
+              <span class="font-body-sm text-body-sm">Lunes a Viernes 8:00 a 18:00 hs | Atención ágil y programada</span>
+            </div>
+            <div class="flex items-center gap-2 text-surface-variant text-sm">
+              <span class="material-symbols-outlined text-base">location_on</span>
+              <span class="font-body-sm text-body-sm">Neuquén, Neuquén (Cobertura en toda la región)</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Quality assurance note -->
+        <div class="p-4 rounded-xl bg-surface-container border border-outline-variant/50 flex items-center gap-3">
+          <span class="material-symbols-outlined text-primary text-3xl">verified_user</span>
+          <div>
+            <h3 class="font-headline-sm text-headline-sm text-primary text-sm font-bold">Compromiso Operativo y Comercial</h3>
+            <p class="font-body-sm text-body-sm text-on-surface-variant text-xs">Acuerdos de servicio claros, facturación formal y cumplimiento responsable en cada intervención corporativa.</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>

@@ -1,0 +1,62 @@
+---
+import { siteConfig, getWhatsAppLink } from '../data/site';
+---
+
+<section class="relative overflow-hidden pt-space-xl md:pt-space-2xl pb-space-2xl bg-surface-bright" id="inicio">
+  <div class="max-w-7xl mx-auto px-margin-mobile md:px-margin">
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-space-xl items-center">
+      
+      <!-- Left Hero Content -->
+      <div class="lg:col-span-7 flex flex-col items-start gap-space-md">
+        <!-- Industrial Technical Tag -->
+        <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-lg bg-surface-container-high border border-outline-variant/40">
+          <span class="w-2 h-2 rounded-full bg-secondary-container animate-pulse"></span>
+          <span class="font-technical-code text-technical-code text-primary font-bold tracking-wider">Mantenimiento Industrial & Servicio Integrales</span>
+        </div>
+        
+        <!-- Main H1 SEO Title -->
+        <h1 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-primary tracking-tight leading-tight">
+          Mantenimiento, climatización y electricidad para empresas e industrias en Neuquén
+        </h1>
+
+        <!-- Subtitle -->
+        <p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl">
+          Centralizamos el mantenimiento preventivo y correctivo, obras civiles y climatización para comercios, empresas e industrias con cobertura técnica integral 360°.
+        </p>
+
+        <!-- Dual CTAs -->
+        <div class="flex flex-col sm:flex-row items-stretch sm:items-center gap-space-md w-full pt-space-xs">
+          <a class="inline-flex justify-center items-center gap-2 bg-primary-container text-on-primary px-6 py-3.5 rounded-xl font-label-md text-label-md font-semibold border border-primary-container hover:bg-tertiary-container transition-all duration-150 focus:outline-none focus:ring-4 focus:ring-secondary-container/40" href={getWhatsAppLink("Hola SIBJ, requiero asistencia técnica")} rel="noopener noreferrer" target="_blank">
+            <span class="material-symbols-outlined text-secondary-container text-xl">chat</span>
+            <span>Contactar por WhatsApp</span>
+          </a>
+        </div>
+
+        <!-- Micro Confidence Badges Matrix -->
+        <div class="grid grid-cols-2 sm:grid-cols-4 gap-space-sm pt-space-lg border-t border-outline-variant/30 w-full mt-2">
+          <div class="flex items-center gap-2">
+            <span class="material-symbols-outlined text-secondary-container" data-icon="verified">verified</span>
+            <span class="font-technical-code text-technical-code font-bold text-on-surface">Equipo técnico experimentado</span>
+          </div>
+          <div class="flex items-center gap-2">
+            <span class="material-symbols-outlined text-secondary-container" data-icon="engineering">engineering</span>
+            <span class="font-technical-code text-technical-code font-bold text-on-surface">Compromiso de Calidad</span>
+          </div>
+          <div class="flex items-center gap-2 col-span-2 sm:col-span-1">
+            <span class="material-symbols-outlined text-secondary-container">location_on</span>
+            <span class="font-technical-code text-technical-code font-bold text-on-surface">Neuquén, Neuquén</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right Hero Image with Precision Overlay -->
+      <div class="lg:col-span-5 relative mt-6 lg:mt-0">
+        <div class="relative rounded-xl overflow-hidden border border-outline-variant/50 bg-surface-container-low">
+          <img src="/assets/hero-industrial.jpg" alt="Personal técnico industrial SIBJ realizando mantenimiento y monitoreo en tableros y plantas de climatización" class="w-full h-[460px] object-cover object-center" width="600" height="460" />
+          <div class="absolute inset-0 bg-gradient-to-t from-primary/70 via-transparent to-transparent"></div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
