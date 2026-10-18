@@ -1,0 +1,31 @@
+sibj-astro/
+├── public/
+│   └── favicon.png
+├── src/
+│   ├── assets/
+│   │   ├── logo.png
+│   │   ├── hero-industrial.jpg
+│   │   ├── testimonio-gastronomico.jpg
+│   │   └── testimonio-logistico.jpg
+│   ├── components/
+│   │   ├── ContactSection.astro
+│   │   ├── CtaBanner.astro
+│   │   ├── Footer.astro
+│   │   ├── Header.astro
+│   │   ├── Hero.astro
+│   │   ├── PillarCard.astro
+│   │   ├── ServiceCard.astro
+│   │   ├── TestimonialCard.astro
+│   │   └── WhatsAppFloat.astro
+│   ├── data/
+│   │   ├── services.ts
+│   │   └── site.ts
+│   ├── layouts/
+│   │   └── Layout.astro
+│   ├── pages/
+│   │   └── index.astro
+│   └── styles/
+│       └── global.css
+├── astro.config.mjs
+├── package.json
+└── tailwind.config.mjs
