@@ -1,0 +1,43 @@
+---
+import { url } from '../data/site';
+
+const trustItems = [
+  ['verified_user', 'Protocolos de seguridad', 'Trabajo planificado con documentación operativa y criterios HSE para cada intervención.'],
+  ['engineering', 'Equipo técnico especializado', 'Cuadrillas preparadas para mantenimiento industrial, HVAC, electricidad y obras.'],
+  ['location_on', 'Cobertura local', 'Atención en Neuquén capital, Añelo, Confluencia y zonas operativas cercanas.'],
+];
+
+const workImages = [
+  ['/assets/mostaza.webp', 'Mantenimiento de climatización en sucursal gastronómica de Neuquén'],
+  ['/assets/instalacion.png', 'Instalación de sistema sanitario y tratamiento de aguas residuales'],
+];
+---
+
+<section class="py-space-2xl bg-surface-container-low border-y border-outline-variant/30" id="confianza">
+  <div class="max-w-7xl mx-auto px-margin-mobile md:px-margin">
+    <div class="max-w-3xl mb-space-xl">
+      <span class="font-technical-code text-technical-code text-secondary-container font-bold uppercase tracking-wider block mb-1">Confianza y respaldo operativo</span>
+      <h2 class="font-headline-xl text-headline-xl text-primary">Clientes, seguridad y trabajos realizados</h2>
+      <p class="font-body-md text-body-md text-on-surface-variant mt-2">Una forma de trabajo orientada a la continuidad operativa de comercios, depósitos, industrias y bases de la región.</p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-space-lg mb-space-xl">
+      {trustItems.map(([icon, title, description]) => (
+        <article class="bg-surface-container-lowest border border-outline-variant/60 rounded-xl p-6">
+          <span class="material-symbols-outlined text-secondary-container text-3xl mb-4" aria-hidden="true">{icon}</span>
+          <h3 class="font-headline-sm text-headline-sm text-primary mb-2">{title}</h3>
+          <p class="font-body-sm text-body-sm text-on-surface-variant">{description}</p>
+        </article>
+      ))}
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+      {workImages.map(([image, alt]) => (
+        <figure class="overflow-hidden rounded-xl border border-outline-variant/60 bg-surface-container-lowest">
+          <img src={url(image)} alt={alt} class="w-full h-56 object-cover" width="800" height="448" loading="lazy" />
+          <figcaption class="p-4 font-label-md text-label-md text-primary">Trabajo realizado por SIBJ en la región de Neuquén</figcaption>
+        </figure>
+      ))}
+    </div>
+  </div>
+</section>

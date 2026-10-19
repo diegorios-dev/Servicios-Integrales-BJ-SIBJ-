@@ -14,6 +14,34 @@
 }
 
 @layer components {
+  .cta-button {
+    min-height: 2.75rem;
+    border-radius: 0.5rem;
+    font-weight: 700;
+  }
+
+  .cta-button-dark {
+    background-color: #0f2137;
+    border-color: #0f2137;
+    color: #ffffff;
+  }
+
+  .cta-button-dark:hover {
+    background-color: #263143;
+  }
+
+  .cta-button-whatsapp {
+    background-color: #c2410c !important;
+    border-color: #c2410c !important;
+    color: #ffffff !important;
+  }
+
+  .cta-button-whatsapp:hover {
+    background-color: #9a3412 !important;
+  }
+}
+
+@layer components {
   .service-page h1 {
     font-family: 'Hanken Grotesk', sans-serif;
     font-size: 2.25rem;

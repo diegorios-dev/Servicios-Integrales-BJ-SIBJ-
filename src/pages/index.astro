@@ -6,10 +6,14 @@ import PillarCard from '../components/PillarCard.astro';
 import TestimonialCard from '../components/TestimonialCard.astro';
 import ContactSection from '../components/ContactSection.astro';
 import CtaBanner from '../components/CtaBanner.astro';
+import TrustSection from '../components/TrustSection.astro';
 import { servicesData, pillarsData, testimonialsData } from '../data/services';
 ---
 
-<Layout>
+<Layout
+  title="Mantenimiento Industrial y HVAC en Neuquén | SIBJ"
+  description="SIBJ brinda mantenimiento industrial, HVAC y climatización comercial en Neuquén, Añelo y Vaca Muerta, con electricidad, obras civiles y asistencia técnica para empresas."
+>
   <Hero />
 
   <!-- SERVICIOS SECTION -->
@@ -22,7 +26,7 @@ import { servicesData, pillarsData, testimonialsData } from '../data/services';
             Módulos Especializados
           </span>
           <h2 class="font-headline-xl text-headline-xl text-primary">
-            Servicios Técnicos Integrales
+            Servicios integrales de mantenimiento industrial
           </h2>
           <p class="font-body-md text-body-md text-on-surface-variant mt-2">
             Mantenimiento preventivo, correctivo e ingeniería de infraestructura edilicia industrial bajo protocolos estrictos de calidad y seguridad ocupacional.
@@ -55,7 +59,7 @@ import { servicesData, pillarsData, testimonialsData } from '../data/services';
           Propuesta de Valor Corporativa
         </span>
         <h2 class="font-headline-xl text-headline-xl text-primary">
-          Por qué confiar en SIBJ
+          Climatización industrial en Añelo y Vaca Muerta
         </h2>
         <p class="font-body-lg text-body-lg text-on-surface-variant mt-2">
           Eficiencia operativa, un solo interlocutor y estándares industriales de calidad.
@@ -75,6 +79,8 @@ import { servicesData, pillarsData, testimonialsData } from '../data/services';
       </div>
     </div>
   </section>
+
+  <TrustSection />
 
   <!-- TESTIMONIOS SECTION (Independiente y sin duplicación en servicios) -->
   <section class="bg-surface border-b border-outline-variant/30 py-space-2xl">
