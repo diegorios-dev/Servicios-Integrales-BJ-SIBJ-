@@ -1,5 +1,5 @@
 ---
-import { siteConfig, getWhatsAppLink } from '../data/site';
+import { siteConfig, getWhatsAppLink, url } from '../data/site';
 ---
 
 <section class="relative overflow-hidden pt-space-xl md:pt-space-2xl pb-space-2xl bg-surface-bright" id="inicio">
@@ -52,7 +52,7 @@ import { siteConfig, getWhatsAppLink } from '../data/site';
       <!-- Right Hero Image with Precision Overlay -->
       <div class="lg:col-span-5 relative mt-6 lg:mt-0">
         <div class="relative rounded-xl overflow-hidden border border-outline-variant/50 bg-surface-container-low">
-          <img src="/assets/hero-industrial.jpg" alt="Personal técnico industrial SIBJ realizando mantenimiento y monitoreo en tableros y plantas de climatización" class="w-full h-[460px] object-cover object-center" width="600" height="460" />
+          <img src={url('/assets/hero-industrial.jpg')} alt="Personal técnico industrial SIBJ realizando mantenimiento y monitoreo en tableros y plantas de climatización" class="w-full h-[460px] object-cover object-center" width="600" height="460" />
           <div class="absolute inset-0 bg-gradient-to-t from-primary/70 via-transparent to-transparent"></div>
         </div>
       </div>

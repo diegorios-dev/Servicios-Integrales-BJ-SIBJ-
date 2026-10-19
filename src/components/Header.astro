@@ -1,5 +1,5 @@
 ---
-import { siteConfig } from '../data/site';
+import { siteConfig, url } from '../data/site';
 ---
 
 <header class="bg-surface-container-lowest sticky top-0 z-50 shadow-sm w-full">
@@ -7,7 +7,7 @@ import { siteConfig } from '../data/site';
     
     <!-- Brand Logo / Product Identifier -->
     <a class="flex items-center gap-space-sm group focus:outline-none focus:ring-2 focus:ring-secondary-container rounded-lg p-1" href="#inicio">
-      <img src="/assets/logo1.png" alt="SIBJ Logo" class="h-10 w-10 object-contain rounded-lg" width="40" height="40" />
+      <img src={url('/assets/logo1.png')} alt="SIBJ Logo" class="h-10 w-10 object-contain rounded-lg" width="40" height="40" />
       <div class="flex flex-col">
         <span class="font-headline-md text-headline-md tracking-tight font-extrabold text-primary">{siteConfig.name}</span>
         <span class="font-technical-code text-technical-code text-on-surface-variant text-xs -mt-1 hidden sm:block">&nbsp; &nbsp; Mantenimiento Técnico Corporativo</span>
@@ -16,7 +16,7 @@ import { siteConfig } from '../data/site';
 
     <!-- Desktop Navigation Links -->
     <nav class="hidden md:flex items-center gap-space-lg" aria-label="Navegación principal">
-      <a class="text-secondary-container border-b-2 border-secondary-container pb-1 font-label-md text-label-md focus:outline-none focus:ring-2 focus:ring-secondary-container" href="/">Inicio</a>
+      <a class="text-secondary-container border-b-2 border-secondary-container pb-1 font-label-md text-label-md focus:outline-none focus:ring-2 focus:ring-secondary-container" href={url('/')}>Inicio</a>
       
       <!-- Desplegable de Servicios con soporte de teclado y hover -->
       <div class="relative group" tabindex="0">
@@ -24,10 +24,10 @@ import { siteConfig } from '../data/site';
           Servicios <span class="material-symbols-outlined text-sm">expand_more</span>
         </a>
         <div class="absolute left-0 top-full hidden group-hover:block group-focus-within:block bg-surface-container-lowest shadow-lg rounded-xl border border-outline-variant/40 py-2 w-64 z-50">
-          <a class="block px-4 py-2 text-sm text-on-surface hover:bg-surface-container-low transition-colors" href="/climatizacion-refrigeracion-neuquen">Climatización y Refrigeración</a>
-          <a class="block px-4 py-2 text-sm text-on-surface hover:bg-surface-container-low transition-colors" href="/mantenimiento-edilicio-neuquen">Mantenimiento Edilicio</a>
-          <a class="block px-4 py-2 text-sm text-on-surface hover:bg-surface-container-low transition-colors" href="/electricidad-tableros-neuquen">Electricidad y Tableros</a>
-          <a class="block px-4 py-2 text-sm text-on-surface hover:bg-surface-container-low transition-colors" href="/obras-trabajos-civiles-neuquen">Obras y Trabajos Civiles</a>
+          <a class="block px-4 py-2 text-sm text-on-surface hover:bg-surface-container-low transition-colors" href={url('/climatizacion-refrigeracion-neuquen')}>Climatización y Refrigeración</a>
+          <a class="block px-4 py-2 text-sm text-on-surface hover:bg-surface-container-low transition-colors" href={url('/mantenimiento-edilicio-neuquen')}>Mantenimiento Edilicio</a>
+          <a class="block px-4 py-2 text-sm text-on-surface hover:bg-surface-container-low transition-colors" href={url('/electricidad-tableros-neuquen')}>Electricidad y Tableros</a>
+          <a class="block px-4 py-2 text-sm text-on-surface hover:bg-surface-container-low transition-colors" href={url('/obras-trabajos-civiles-neuquen')}>Obras y Trabajos Civiles</a>
         </div>
       </div>
 

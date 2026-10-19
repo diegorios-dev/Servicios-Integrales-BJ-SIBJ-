@@ -26,7 +26,7 @@ export const siteConfig: SiteConfig = {
   city: "Neuquén",
   region: "Neuquén",
   addressCountry: "AR",
-  url: "https://sibj.com.ar/",
+  url: "https://diegorios-dev.github.io/Servicios-Integrales-BJ-SIBJ-/",
   openingHours: {
     days: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
     opens: "08:00",
@@ -36,4 +36,12 @@ export const siteConfig: SiteConfig = {
 
 export function getWhatsAppLink(message: string): string {
   return `https://wa.me/${siteConfig.whatsappNumber}?text=${encodeURIComponent(message)}`;
+}
+
+export function url(path: string): string {
+  const normalizedPath = path.replace(/^\/+/, '');
+  const baseUrl = import.meta.env.BASE_URL.endsWith('/')
+    ? import.meta.env.BASE_URL
+    : `${import.meta.env.BASE_URL}/`;
+  return `${baseUrl}${normalizedPath}`;
 }

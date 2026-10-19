@@ -1,3 +1,5 @@
+import { url } from './site';
+
 export interface ServiceItem {
   title: string;
   tag: string;
@@ -22,7 +24,7 @@ export const servicesData: ServiceItem[] = [
       "Detección y reparación de fugas de refrigerante y fallas compresoras.",
       "Atención de urgencias operativas para locales, salones y plantas."
     ],
-    href: "/climatizacion-refrigeracion-neuquen",
+    href: url("/climatizacion-refrigeracion-neuquen"),
   },
   {
     title: "Mantenimiento Edilicio",
@@ -37,7 +39,7 @@ export const servicesData: ServiceItem[] = [
       "Pintura institucional, tratamiento anticorrosivo y revestimientos protectores.",
       "Gestión integral de mantenimiento correctivo y programado para predios."
     ],
-    href: "/mantenimiento-edilicio-neuquen",
+    href: url("/mantenimiento-edilicio-neuquen"),
   },
   {
     title: "Electricidad y Tableros",
@@ -52,7 +54,7 @@ export const servicesData: ServiceItem[] = [
       "Mantenimiento preventivo, balanceo de cargas y medición de puesta a tierra (PAT).",
       "Sistemas de respaldo energético: UPS y grupos electrógenos."
     ],
-    href: "/electricidad-tableros-neuquen",
+    href: url("/electricidad-tableros-neuquen"),
   },
   {
     title: "Obras y Trabajos Civiles",
@@ -67,7 +69,7 @@ export const servicesData: ServiceItem[] = [
       "Obras de construcción menor y consolidación de infraestructura.",
       "Montaje de portones industriales, pasarelas y herrería pesada."
     ],
-    href: "/obras-trabajos-civiles-neuquen",
+    href: url("/obras-trabajos-civiles-neuquen"),
   },
 ];
 
@@ -115,7 +117,7 @@ export const testimonialsData: TestimonialItem[] = [
     author: "Gerencia Operativa de Sucursal",
     role: "Encargado ",
     badge: "Mostaza S.A.",
-    image: "/assets/mostaza.webp",
+    image: url("/assets/mostaza.webp"),
     imageAlt: "Sucursal gastronómica Mostaza atendida por SIBJ",
     category: "Climatización & Mantenimiento Edilicio"
   },
@@ -124,7 +126,7 @@ export const testimonialsData: TestimonialItem[] = [
     author: "Coordinación de Mantenimiento e Infraestructura",
     role: "Daniel González",
     badge: "Mada s.r.l",
-    image: "/assets/instalacion.png",
+    image: url("/assets/instalacion.png"),
     imageAlt: "Instalación de sistema de tratamiento y drenaje hidrosanitario",
     category: "Obras Civiles & Redes Sanitarias"
   }

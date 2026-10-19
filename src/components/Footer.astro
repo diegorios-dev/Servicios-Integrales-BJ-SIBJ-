@@ -1,5 +1,5 @@
 ---
-import { siteConfig } from '../data/site';
+import { siteConfig, url } from '../data/site';
 ---
 
 <footer class="bg-primary relative">
@@ -9,7 +9,7 @@ import { siteConfig } from '../data/site';
     <div class="flex flex-col md:flex-row justify-between items-start gap-space-xl w-full">
       <div class="flex flex-col gap-space-md max-w-lg">
         <div class="flex items-center gap-3">
-          <img src="/assets/logo1.png" alt="SIBJ Logo" class="h-12 w-12 object-contain rounded-lg brightness-110" width="48" height="48" />
+          <img src={url('/assets/logo1.png')} alt="SIBJ Logo" class="h-12 w-12 object-contain rounded-lg brightness-110" width="48" height="48" />
           <span class="font-headline-lg text-headline-lg font-extrabold text-surface-container-lowest tracking-tight">{siteConfig.name}</span>
         </div>
         <p class="font-body-sm text-body-sm text-on-primary-container leading-relaxed">
@@ -19,10 +19,10 @@ import { siteConfig } from '../data/site';
 
       <div class="flex flex-col gap-2 md:items-end md:text-right">
         <h3 class="font-headline-sm text-headline-sm text-surface-container-lowest mb-2">Servicios Principales</h3>
-        <a class="text-on-primary-container font-body-sm text-body-sm hover:underline hover:text-surface-container-lowest transition-colors" href="/climatizacion-refrigeracion-neuquen">Climatización & Refrigeración</a>
-        <a class="text-on-primary-container font-body-sm text-body-sm hover:underline hover:text-surface-container-lowest transition-colors" href="/mantenimiento-edilicio-neuquen">Mantenimiento Edilicio</a>
-        <a class="text-on-primary-container font-body-sm text-body-sm hover:underline hover:text-surface-container-lowest transition-colors" href="/electricidad-tableros-neuquen">Electricidad & Tableros</a>
-        <a class="text-on-primary-container font-body-sm text-body-sm hover:underline hover:text-surface-container-lowest transition-colors" href="/obras-trabajos-civiles-neuquen">Obras & Trabajos Civiles</a>
+        <a class="text-on-primary-container font-body-sm text-body-sm hover:underline hover:text-surface-container-lowest transition-colors" href={url('/climatizacion-refrigeracion-neuquen')}>Climatización & Refrigeración</a>
+        <a class="text-on-primary-container font-body-sm text-body-sm hover:underline hover:text-surface-container-lowest transition-colors" href={url('/mantenimiento-edilicio-neuquen')}>Mantenimiento Edilicio</a>
+        <a class="text-on-primary-container font-body-sm text-body-sm hover:underline hover:text-surface-container-lowest transition-colors" href={url('/electricidad-tableros-neuquen')}>Electricidad & Tableros</a>
+        <a class="text-on-primary-container font-body-sm text-body-sm hover:underline hover:text-surface-container-lowest transition-colors" href={url('/obras-trabajos-civiles-neuquen')}>Obras & Trabajos Civiles</a>
       </div>
     </div>
 
