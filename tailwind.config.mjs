@@ -1,4 +1,4 @@
-import baseConfig from '../tailwind.config.mjs.js';
+import baseConfig from './tailwind.config.mjs.js';
 
 export default {
   ...baseConfig,
