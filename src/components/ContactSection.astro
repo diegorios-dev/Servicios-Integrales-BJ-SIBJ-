@@ -1,5 +1,5 @@
 ---
-import { siteConfig, getWhatsAppLink } from '../data/site';
+import { siteConfig, getWhatsAppLink, url } from '../data/site';
 ---
 
 <section class="py-space-2xl bg-surface-bright" id="contacto">
@@ -26,14 +26,14 @@ import { siteConfig, getWhatsAppLink } from '../data/site';
             <a class="flex items-start gap-3 p-3 rounded-lg bg-surface-container-low/10 hover:bg-surface-container-low/20 transition-colors focus:outline-none focus:ring-2 focus:ring-secondary-container" href={`tel:${siteConfig.telephoneRaw}`}>
               <span class="material-symbols-outlined text-secondary-container text-2xl mt-0.5">call</span>
               <div>
-                <span class="font-technical-code text-xs text-surface-variant block uppercase font-bold">Teléfono comercial / guardia</span>
+                <span class="font-technical-code text-xs text-surface-variant block uppercase font-bold">Teléfono</span>
                 <span class="font-headline-sm text-headline-sm text-white font-semibold">{siteConfig.telephoneDisplay}</span>
               </div>
             </a>
             
             <!-- WhatsApp -->
             <a class="flex gap-3 p-3 rounded-lg bg-surface-container-low/10 hover:bg-surface-container-low/20 transition-colors items-center focus:outline-none focus:ring-2 focus:ring-secondary-container" href={getWhatsAppLink("Hola SIBJ, solicito asistencia técnica inmediata")} rel="noopener noreferrer" target="_blank">
-              <span class="material-symbols-outlined text-2xl text-green-400">chat</span>
+              <img src={url('/assets/whatsapp.png')} alt="WhatsApp" class="w-6 h-6" width="24" height="24" />
               <div>
                 <span class="font-technical-code text-xs text-surface-variant block uppercase font-bold">Canal Directo</span>
                 <span class="font-headline-sm text-headline-sm text-white font-semibold">WhatsApp</span>
@@ -57,7 +57,7 @@ import { siteConfig, getWhatsAppLink } from '../data/site';
             </div>
             <div class="flex items-center gap-2 text-surface-variant text-sm">
               <span class="material-symbols-outlined text-base">location_on</span>
-              <span class="font-body-sm text-body-sm">Neuquén, Neuquén (Cobertura en toda la región)</span>
+              <span class="font-body-sm text-body-sm">Neuquén, Neuquén</span>
             </div>
           </div>
         </div>

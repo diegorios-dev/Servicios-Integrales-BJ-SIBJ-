@@ -1,0 +1,125 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { getWhatsAppLink, url } from '../data/site';
+
+const services = [
+  ['troubleshoot', 'Diagnóstico de fallas electromecánicas y cortocircuitos', 'Localización de anomalías, derivaciones a tierra, sobrecargas y desbalances de línea con instrumental específico.', 'Diagnóstico de precisión'],
+  ['schema', 'Armado, cableado y relevamiento térmico de tableros TGBT y seccionales', 'Montaje, peinado ordenado de conductores, rotulado técnico y termografía infrarroja para detectar puntos calientes.', 'Termografía aplicada'],
+  ['toggle_on', 'Reemplazo de termomagnéticas, diferenciales y contactores', 'Actualización de aparamenta de maniobra y corte, con calibración y dimensionamiento según el equipamiento.', 'Protecciones coordinadas'],
+  ['electrical_services', 'Instalaciones y adecuaciones en media y baja tensión', 'Tendido de bandejas portacables, cañerías rígidas, acometidas industriales y modernización de redes.', 'Infraestructura MT / BT'],
+  ['bolt', 'Mantenimiento preventivo de instalaciones eléctricas', 'Ajuste de bornes, limpieza de gabinetes, pruebas de protecciones y revisión de sistemas UPS y generadores.', 'Continuidad operativa'],
+  ['grounding', 'Medición de puesta a tierra y continuidad de masas', 'Medición de resistencia de jabalinas, continuidad de conductores y emisión de informes para auditorías.', 'Seguridad eléctrica'],
+];
+
+const segments = [
+  ['factory', 'Industrias', 'Líneas de manufactura y talleres con demandas electromecánicas intensivas.'],
+  ['oil_barrel', 'Plantas de procesamiento', 'Instalaciones de tratamiento, separación y bombeo con altos estándares de seguridad.'],
+  ['warehouse', 'Galpones de acopio', 'Bases operativas de almacenamiento de herramientas, químicos e insumos de cuenca.'],
+  ['store', 'Centros comerciales', 'Grandes superficies con distribución trifásica e iluminación masiva.'],
+  ['local_shipping', 'Depósitos de Neuquén', 'Hubs de transferencia logística en el Parque Industrial y zonas aledañas.'],
+];
+
+const faqs = [
+  ['¿Qué alcance tiene el servicio de relevamiento térmico en tableros?', 'Realizamos inspecciones con cámaras termográficas de grado industrial para detectar puntos calientes generados por bornes flojos, conductores sobrecargados o fallas internas, con la instalación en funcionamiento normal.'],
+  ['¿Con qué periodicidad se recomienda medir la puesta a tierra?', 'Para establecimientos industriales y comerciales se recomienda una verificación anual mediante telurímetro calibrado y una nueva medición después de períodos prolongados de sequía.'],
+  ['¿Ofrecen planes de mantenimiento preventivo para empresas y galpones?', 'Sí. Diseñamos acuerdos periódicos con revisión y ajuste de bornes, limpieza de gabinetes, pruebas de accionamiento diferencial y emisión de informes técnicos.'],
+  ['¿Cómo gestionan la seguridad durante trabajos en baja y media tensión?', 'Aplicamos las 5 reglas de oro de la electricidad, procedimientos LOTO y elementos de protección dieléctricos certificados.'],
+];
+---
+
+<Layout title="Electricidad y Tableros en Neuquén | SIBJ">
+  <div class="service-page">
+  <nav aria-label="Miga de pan" class="w-full bg-surface-container-low border-b border-outline-variant/40">
+    <div class="max-w-7xl mx-auto px-margin-mobile md:px-margin py-2.5">
+      <ol class="flex items-center gap-2 text-body-sm text-on-surface-variant">
+        <li><a class="hover:text-primary transition-colors" href={url('/')}>Inicio</a></li>
+        <li><span class="material-symbols-outlined text-xs text-outline">chevron_right</span></li>
+        <li><span>Servicios</span></li>
+        <li><span class="material-symbols-outlined text-xs text-outline">chevron_right</span></li>
+        <li aria-current="page" class="font-semibold text-primary">Electricidad y Tableros</li>
+      </ol>
+    </div>
+  </nav>
+
+  <section class="relative bg-surface py-20 lg:py-28 border-b border-outline-variant/30">
+    <div class="max-w-7xl mx-auto px-6 sm:px-8 lg:px-16">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-center">
+        <div class="lg:col-span-7 flex flex-col items-start">
+          <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-surface-container-high border border-outline-variant/50 text-label-sm text-primary mb-4">
+            <span class="material-symbols-outlined text-secondary-container text-sm">offline_bolt</span>
+            <span>Servicio Eléctrico Especializado</span>
+          </div>
+          <h1 class="text-4xl lg:text-5xl font-display-lg font-extrabold text-primary tracking-tight leading-tight mb-5">Electricidad industrial y tableros eléctricos en Neuquén</h1>
+          <p class="text-body-lg font-body-lg text-on-surface-variant max-w-2xl mb-8">Garantizamos la continuidad operativa y la máxima seguridad en instalaciones eléctricas comerciales e industriales de alta exigencia técnica en toda la cuenca.</p>
+          <div class="flex flex-col sm:flex-row items-stretch sm:items-center gap-4 w-full sm:w-auto mb-10">
+            <a class="inline-flex items-center justify-center gap-3 bg-secondary-container hover:bg-secondary text-on-secondary px-6 py-3.5 rounded-lg font-label-md text-label-md transition-all duration-150 shadow-md active:scale-95" href={getWhatsAppLink('Hola SIBJ, necesito presupuesto para Electricidad y Tableros en Neuquén')} target="_blank" rel="noopener noreferrer">
+              <img src={url('/assets/whatsapp.png')} alt="WhatsApp SIBJ" class="w-6 h-6 object-contain" width="24" height="24" />
+              <span>Pedir presupuesto por WhatsApp</span>
+            </a>
+            <a class="inline-flex items-center justify-center gap-2 px-5 py-3.5 rounded-lg border border-outline-variant bg-surface-container-lowest text-primary hover:border-primary font-label-md text-label-md transition-all duration-150" href="tel:+5492994622512">
+              <span class="material-symbols-outlined text-base">call</span><span>+54 9 299 462-2512</span>
+            </a>
+          </div>
+          <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 w-full border-t border-outline-variant/40 pt-6">
+            <div class="flex items-center gap-2.5 p-2 bg-surface-container-lowest rounded-lg border border-outline-variant/40"><span class="material-symbols-outlined text-secondary-container">domain</span><span class="text-label-md text-primary font-bold">Atención a empresas</span></div>
+            <div class="flex items-center gap-2.5 p-2 bg-surface-container-lowest rounded-lg border border-outline-variant/40"><span class="material-symbols-outlined text-secondary-container">location_on</span><span class="text-label-md text-primary font-bold">Cobertura en Neuquén</span></div>
+            <div class="flex items-center gap-2.5 p-2 bg-surface-container-lowest rounded-lg border border-outline-variant/40"><span class="material-symbols-outlined text-secondary-container">verified_user</span><span class="text-label-md text-primary font-bold">Normas de seguridad</span></div>
+          </div>
+        </div>
+        <div class="lg:col-span-5 w-full">
+          <div class="bg-surface-container-lowest border border-outline-variant rounded-xl p-6 shadow-sm relative overflow-hidden">
+            <div class="flex items-center justify-between border-b border-outline-variant/30 pb-4 mb-4">
+              <div class="flex items-center gap-2"><span class="inline-block w-2.5 h-2.5 rounded-full bg-emerald-600 animate-pulse"></span><span class="text-label-sm uppercase tracking-wider text-on-surface-variant font-bold">Disponibilidad Operativa SIBJ</span></div>
+              <span class="px-2 py-0.5 rounded text-label-sm bg-emerald-50 text-emerald-700 border border-emerald-200">En Servicio</span>
+            </div>
+            <div class="space-y-4">
+              <div class="p-3 bg-surface-container-low rounded-lg border border-outline-variant/30 flex items-start gap-3"><span class="material-symbols-outlined text-secondary-container text-xl">electric_meter</span><div><h4 class="text-label-md text-primary">Intervención en Planta</h4><p class="text-body-sm text-on-surface-variant">Instrumental calibrado para mediciones térmicas y relevamiento de cargas en media y baja tensión.</p></div></div>
+              <div class="p-3 bg-surface-container-low rounded-lg border border-outline-variant/30 flex items-start gap-3"><span class="material-symbols-outlined text-secondary-container text-xl">security</span><div><h4 class="text-label-md text-primary">Protocolos de Desconexión Segura</h4><p class="text-body-sm text-on-surface-variant">Procedimientos estrictos de bloqueo y etiquetado (LOTO) para el rubro industrial.</p></div></div>
+              <div class="p-3 bg-surface-container-low rounded-lg border border-outline-variant/30 flex items-start gap-3"><span class="material-symbols-outlined text-secondary-container text-xl">fact_check</span><div><h4 class="text-label-md text-primary">Informes Técnicos de Estado</h4><p class="text-body-sm text-on-surface-variant">Planillas con balances de fase, resistividad de jabalinas e inventario de componentes.</p></div></div>
+            </div>
+            <div class="mt-5 pt-4 border-t border-outline-variant/30 flex justify-between items-center text-label-sm text-on-surface-variant"><span>Base Operativa: Neuquén Capital</span><span class="text-primary font-bold">Confluencia y Añelo</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-16 lg:py-24 bg-surface-container-low border-b border-outline-variant/30">
+    <div class="max-w-7xl mx-auto px-6 sm:px-8 lg:px-16">
+      <div class="max-w-3xl mb-12"><div class="text-label-sm uppercase tracking-wider text-secondary font-bold mb-2">Alcance Técnico Integral</div><h2 class="text-headline-lg-mobile lg:text-headline-lg font-headline-lg font-bold text-primary tracking-tight">Qué hacemos</h2><p class="text-body-lg font-body-lg text-on-surface-variant mt-2">Desarrollamos soluciones eléctricas enfocadas en estabilidad productiva, protección de activos críticos y cumplimiento riguroso de normativas vigentes.</p></div>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {services.map(([icon, title, description, label]) => <div class="bg-surface-container-lowest p-6 rounded-xl border border-outline-variant/60 shadow-sm hover:border-outline hover:shadow-md transition-all flex flex-col justify-between"><div><div class="w-12 h-12 rounded-lg bg-surface-container-high flex items-center justify-center text-primary mb-4"><span class="material-symbols-outlined text-2xl text-secondary-container">{icon}</span></div><h3 class="text-headline-sm font-headline-sm text-primary mb-2.5">{title}</h3><p class="text-body-md text-on-surface-variant">{description}</p></div><div class="mt-6 pt-3 border-t border-outline-variant/20 flex items-center text-label-sm text-secondary font-semibold"><span class="material-symbols-outlined text-sm mr-1">check_circle</span>{label}</div></div>)}
+      </div>
+    </div>
+  </section>
+
+  <section class="py-16 lg:py-20 bg-surface-container-low border-b border-outline-variant/30">
+    <div class="max-w-7xl mx-auto px-6 sm:px-8 lg:px-16">
+      <div class="max-w-3xl mb-12"><div class="text-label-sm uppercase tracking-wider text-secondary font-bold mb-2">Segmentos Atendidos</div><h2 class="text-headline-lg-mobile lg:text-headline-lg font-headline-lg font-bold text-primary tracking-tight">Para quién trabajamos</h2><p class="text-body-lg font-body-lg text-on-surface-variant mt-2">Nuestra estructura responde a infraestructuras con demandas operativas continuas en la provincia de Neuquén.</p></div>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4">
+        {segments.map(([icon, title, description]) => <div class="bg-surface-container-lowest p-5 rounded-xl border border-outline-variant/50"><div class="p-2.5 rounded-lg bg-surface-container-high text-primary mb-3 w-fit"><span class="material-symbols-outlined text-2xl text-secondary-container">{icon}</span></div><h3 class="text-label-md text-primary mb-1">{title}</h3><p class="text-body-sm text-on-surface-variant">{description}</p></div>)}
+      </div>
+    </div>
+  </section>
+
+  <section class="py-16 lg:py-24 bg-surface border-b border-outline-variant/30">
+    <div class="max-w-7xl mx-auto px-6 sm:px-8 lg:px-16">
+      <div class="max-w-3xl mb-12"><div class="text-label-sm uppercase tracking-wider text-secondary font-bold mb-2">Intervención de Campo</div><h2 class="text-headline-lg-mobile lg:text-headline-lg font-headline-lg font-bold text-primary tracking-tight">Caso realizado</h2><p class="text-body-lg font-body-lg text-on-surface-variant mt-2">Registro de adecuación y resolución de contingencias en instalaciones operativas.</p></div>
+      <div class="bg-surface-container-lowest border border-outline-variant rounded-xl overflow-hidden shadow-sm max-w-4xl">
+        <div class="grid grid-cols-1 md:grid-cols-12">
+          <div class="md:col-span-5 relative min-h-[260px] bg-surface-container"><img src={url('/assets/hero-industrial.jpg')} alt="Técnico de SIBJ inspeccionando una instalación eléctrica industrial" class="w-full h-full object-cover" /><div class="absolute top-3 left-3 bg-primary-container text-surface-container-lowest px-2.5 py-1 rounded text-label-sm">Neuquén Industrial</div></div>
+          <div class="md:col-span-7 p-6 sm:p-8 flex flex-col justify-between"><div><div class="inline-block px-2.5 py-0.5 rounded text-label-sm bg-surface-container-high text-primary font-bold mb-3">Cliente del rubro industrial en Neuquén</div><h3 class="text-headline-md font-headline-md font-bold text-primary mb-3">Adecuación de tablero seccional y balanceo de cargas</h3><p class="text-body-md text-on-surface-variant mb-4">Se intervino un tablero secundario que presentaba disparos térmicos recurrentes. Se reemplazaron conductores subdimensionados, se redistribuyeron las ramas monofásicas y se realizó el relevamiento termográfico final.</p><div class="grid grid-cols-2 gap-3 p-3 bg-surface-container-low rounded-lg text-body-sm text-on-surface-variant"><div><span class="block font-semibold text-primary">Intervención:</span><span>Reemplazo y rebalanceo</span></div><div><span class="block font-semibold text-primary">Resultado:</span><span>Operación estable bajo carga</span></div></div></div><div class="pt-4 border-t border-outline-variant/30 flex items-center justify-between text-body-sm text-on-surface-variant mt-4"><span>Registro técnico de ejecución</span><span class="font-semibold text-secondary">SIBJ Servicios de Campo</span></div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-16 lg:py-24 bg-surface-container-low border-b border-outline-variant/30">
+    <div class="max-w-4xl mx-auto px-margin-mobile md:px-margin"><div class="text-center max-w-2xl mx-auto mb-12"><div class="text-label-sm uppercase tracking-wider text-secondary font-bold mb-2">Respuestas Técnicas</div><h2 class="text-headline-lg-mobile lg:text-headline-lg font-headline-lg font-bold text-primary tracking-tight">Preguntas frecuentes</h2><p class="text-body-lg font-body-lg text-on-surface-variant mt-2">Aclaraciones sobre metodología, mantenimiento y seguridad eléctrica.</p></div><div class="space-y-4">{faqs.map(([question, answer]) => <details class="group bg-surface-container-lowest border border-outline-variant/60 rounded-xl overflow-hidden"><summary class="w-full px-6 py-4 flex items-center justify-between gap-4 text-label-md text-primary cursor-pointer list-none"><span>{question}</span><span class="material-symbols-outlined text-outline group-open:rotate-180 transition-transform">expand_more</span></summary><div class="px-6 pb-5 text-body-md text-on-surface-variant border-t border-outline-variant/20 pt-3">{answer}</div></details>)}</div></div>
+  </section>
+
+  <section class="py-16 bg-primary-container text-surface-container-lowest" id="contacto">
+    <div class="max-w-7xl mx-auto px-6 sm:px-8 lg:px-16"><div class="bg-tertiary-container/60 border border-on-primary-container/20 rounded-2xl p-8 lg:p-12 flex flex-col lg:flex-row items-center justify-between gap-8"><div class="max-w-2xl text-center lg:text-left"><h2 class="text-headline-lg-mobile lg:text-headline-lg font-headline-lg font-bold tracking-tight mb-3">¿Necesitás asistencia técnica ahora?</h2><p class="text-body-lg text-on-primary-container">Atendemos urgencias electromecánicas y planificamos obras eléctricas para establecimientos y plantas operativas en Neuquén.</p></div><div class="flex flex-col sm:flex-row items-center gap-4 w-full lg:w-auto"><a class="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-secondary-container hover:bg-secondary text-on-secondary px-6 py-3.5 rounded-lg font-label-md transition-all shadow-md" href={getWhatsAppLink('Hola SIBJ, necesito asistencia técnica para Electricidad y Tableros en Neuquén')} target="_blank" rel="noopener noreferrer"><img src={url('/assets/whatsapp.png')} alt="WhatsApp" class="w-5 h-5" width="20" height="20" /><span>WhatsApp Directo</span></a><a class="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-lg border border-on-primary-container/40 text-surface-container-lowest hover:bg-surface-container-lowest/10 font-label-md transition-all" href="tel:+5492994622512"><span class="material-symbols-outlined text-lg">call</span><span>+54 9 299 462-2512</span></a></div></div></div>
+  </section>
+  </div>
+</Layout>

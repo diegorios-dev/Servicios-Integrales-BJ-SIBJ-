@@ -1,0 +1,100 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { getWhatsAppLink, url } from '../data/site';
+
+const services = [
+  ['mode_fan', 'Aire acondicionado split, multisplit y sistemas centrales VRF/Chillers', 'Montaje, interconexión frigorífica y calibración térmica en recintos comerciales, naves y plantas de oficinas corporativas.', 'Comercios y oficinas'],
+  ['ac_unit', 'Cámaras y precámaras frigoríficas de media y baja temperatura', 'Intervención en tabiques modulares, evaporadores cúbicos, sistemas de descongelamiento y burletes.', 'Cadena de frío alimentaria'],
+  ['search_check', 'Detección electrónica de micro-fugas y presurización con nitrógeno', 'Localización exacta de pérdidas en uniones, condensadoras y cañerías mediante sniffer de alta sensibilidad.', 'Diagnóstico de estanqueidad'],
+  ['propane_tank', 'Carga y balance de gas refrigerante (R410A, R134a, R404A)', 'Recuperación, vacío profundo, pesaje de carga y control de recalentamiento y subenfriamiento.', 'Carga por balanza y vacío'],
+  ['cleaning_services', 'Mantenimiento preventivo de condensadoras, evaporadoras y turbinas', 'Limpieza química no corrosiva, desobstrucción de drenajes, verificación de forzadores y lubricación.', 'Eficiencia y calidad de aire'],
+  ['engineering', 'Diagnóstico y reparación urgente de compresores', 'Medición de aislación dieléctrica, revisión eléctrica y recambio de motocompresores herméticos o semi-herméticos.', 'Reemplazo y puesta a punto'],
+];
+
+const steps = [
+  ['01', 'Consulta por WhatsApp', 'Recibimos el requerimiento inicial, los datos del equipamiento y coordinamos la visita.'],
+  ['02', 'Relevamiento técnico', 'Inspeccionamos el equipo, tomamos parámetros operativos y confeccionamos la cotización.'],
+  ['03', 'Ejecución de trabajos', 'Realizamos el servicio conforme a las normas de seguridad y con repuestos adecuados.'],
+  ['04', 'Entrega y seguimiento', 'Verificamos el funcionamiento, documentamos la intervención y acordamos el seguimiento.'],
+];
+---
+
+<Layout title="Climatización y Refrigeración en Neuquén | SIBJ">
+  <div class="service-page">
+  <nav aria-label="Miga de pan" class="bg-surface border-b border-outline-variant/40">
+    <div class="max-w-7xl mx-auto px-margin-mobile md:px-margin py-3">
+      <ol class="flex items-center gap-2 text-body-sm text-on-surface-variant">
+        <li><a class="hover:text-primary transition-colors" href={url('/')}>Inicio</a></li>
+        <li><span class="material-symbols-outlined text-[14px]">chevron_right</span></li>
+        <li><span>Servicios</span></li>
+        <li><span class="material-symbols-outlined text-[14px]">chevron_right</span></li>
+        <li aria-current="page" class="text-primary font-semibold">Climatización y Refrigeración</li>
+      </ol>
+    </div>
+  </nav>
+
+  <section class="relative bg-surface py-12 md:py-16 lg:py-20 border-b border-outline-variant/60">
+    <div class="max-w-7xl mx-auto px-margin-mobile md:px-margin">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
+        <div class="lg:col-span-7 flex flex-col gap-6">
+          <div class="inline-flex items-center gap-2 px-3 py-1 bg-surface-container rounded-lg border border-outline-variant/80 w-fit">
+            <span class="material-symbols-outlined text-[18px] text-secondary">hvac</span>
+            <span class="font-label-sm text-on-surface uppercase tracking-wide">Servicio Técnico Especializado</span>
+          </div>
+          <h1 class="font-headline-lg text-headline-xl-mobile md:text-headline-lg text-primary font-extrabold tracking-tight">Climatización y refrigeración para empresas y comercios en Neuquén</h1>
+          <p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl leading-relaxed">Mantenimiento preventivo, correctivo e instalación de sistemas de frío comercial y climatización centralizada con asistencia técnica calificada en toda la región.</p>
+          <div class="pt-2 flex flex-col sm:flex-row items-stretch sm:items-center gap-4">
+            <a class="bg-secondary-container hover:bg-[#EA580C] text-on-secondary px-6 py-3.5 rounded-lg font-label-md text-label-md flex items-center justify-center gap-3 shadow-md hover:shadow-lg transition-all active:scale-95" href={getWhatsAppLink('Hola SIBJ, necesito presupuesto para Climatización y Refrigeración en Neuquén')} target="_blank" rel="noopener noreferrer">
+              <img src={url('/assets/whatsapp.png')} alt="WhatsApp" class="w-5 h-5 object-contain" width="20" height="20" />
+              <span>Pedir presupuesto por WhatsApp</span>
+            </a>
+            <a class="bg-surface-container-lowest border border-outline-variant hover:border-primary text-primary px-5 py-3.5 rounded-lg font-label-md text-label-md text-center transition-colors" href="tel:+5492994622512">Llamar: +54 9 299 462-2512</a>
+          </div>
+          <div class="pt-4 grid grid-cols-1 sm:grid-cols-3 gap-3 border-t border-outline-variant/40">
+            <div class="flex items-center gap-2.5 p-2 bg-surface-container-lowest rounded-lg border border-outline-variant/60"><span class="material-symbols-outlined text-[20px] text-secondary">business</span><span class="font-label-md text-xs text-on-surface">Atención a empresas</span></div>
+            <div class="flex items-center gap-2.5 p-2 bg-surface-container-lowest rounded-lg border border-outline-variant/60"><span class="material-symbols-outlined text-[20px] text-secondary">location_on</span><span class="font-label-md text-xs text-on-surface">Cobertura en Neuquén</span></div>
+            <div class="flex items-center gap-2.5 p-2 bg-surface-container-lowest rounded-lg border border-outline-variant/60"><span class="material-symbols-outlined text-[20px] text-secondary">shield</span><span class="font-label-md text-xs text-on-surface">Normas de seguridad</span></div>
+          </div>
+        </div>
+        <div class="lg:col-span-5">
+          <div class="relative rounded-xl overflow-hidden border border-outline-variant bg-surface-container-lowest shadow-sm">
+            <img src={url('/assets/climatizacion.png')} alt="Técnico de SIBJ realizando mantenimiento en sistemas de climatización" class="w-full h-80 sm:h-96 object-cover object-center" width="600" height="460" />
+            <div class="p-3 bg-surface-container-lowest border-t border-outline-variant flex items-center justify-between text-on-surface-variant font-label-sm"><span class="flex items-center gap-1.5"><span class="w-2 h-2 rounded-full bg-emerald-600 inline-block"></span>Relevamiento y diagnóstico en terreno</span><span>SIBJ Neuquén</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-16 md:py-20 bg-surface-container-lowest">
+    <div class="max-w-7xl mx-auto px-margin-mobile md:px-margin">
+      <div class="max-w-3xl mb-12"><span class="font-label-sm uppercase tracking-wider text-secondary font-bold">Servicios Especializados</span><h2 class="font-headline-lg text-headline-md md:text-headline-lg text-primary font-bold mt-1">Qué hacemos</h2><p class="font-body-md text-body-md text-on-surface-variant mt-2">Soluciones integrales de refrigeración comercial e industrial diseñadas para garantizar la continuidad operativa y la eficiencia energética.</p></div>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {services.map(([icon, title, description, label]) => (
+          <div class="bg-surface rounded-xl border border-outline-variant/80 p-6 flex flex-col justify-between hover:border-outline hover:shadow-md transition-all">
+            <div><div class="w-12 h-12 rounded-lg bg-surface-container-high flex items-center justify-center text-primary mb-5"><span class="material-symbols-outlined text-[28px]">{icon}</span></div><h3 class="font-headline-sm text-headline-sm text-primary mb-3">{title}</h3><p class="font-body-md text-body-md text-on-surface-variant">{description}</p></div>
+            <div class="mt-6 pt-4 border-t border-outline-variant/40 flex items-center text-secondary font-label-md"><span class="material-symbols-outlined text-[16px] mr-1">check_circle</span>{label}</div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="py-16 md:py-20 bg-surface border-y border-outline-variant/60">
+    <div class="max-w-7xl mx-auto px-margin-mobile md:px-margin">
+      <div class="max-w-3xl mb-12"><span class="font-label-sm uppercase tracking-wider text-secondary font-bold">Proceso Operativo</span><h2 class="font-headline-lg text-headline-md md:text-headline-lg text-primary font-bold mt-1">Cómo trabajamos</h2><p class="font-body-md text-body-md text-on-surface-variant mt-2">Un esquema simple, ordenado y transparente desde el primer contacto hasta el cierre.</p></div>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        {steps.map(([number, title, description]) => <div class="bg-surface-container-lowest p-6 rounded-xl border border-outline-variant"><span class="text-4xl font-headline-lg font-extrabold text-secondary/30 mb-2 block">{number}</span><h3 class="font-label-md text-label-md text-primary mb-2">{title}</h3><p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed">{description}</p></div>)}
+      </div>
+    </div>
+  </section>
+
+  <section class="py-14 bg-primary-container text-inverse-on-surface">
+    <div class="max-w-7xl mx-auto px-margin-mobile md:px-margin text-center">
+      <h2 class="font-headline-lg text-headline-md md:text-headline-lg font-bold text-surface-container-lowest mb-3">¿Necesitás asistencia técnica ahora?</h2>
+      <p class="font-body-lg text-body-lg text-on-primary-container max-w-2xl mx-auto mb-8">Contactate con nuestro equipo en Neuquén para coordinar un relevamiento o solicitar cotización.</p>
+      <a class="inline-flex items-center justify-center gap-3 bg-secondary-container text-on-secondary px-6 py-3.5 rounded-lg font-label-md text-label-md font-bold" href={getWhatsAppLink('Hola SIBJ, necesito presupuesto para Climatización y Refrigeración en Neuquén')} target="_blank" rel="noopener noreferrer"><img src={url('/assets/whatsapp.png')} alt="WhatsApp" class="w-5 h-5" width="20" height="20" />Solicitar presupuesto</a>
+    </div>
+  </section>
+  </div>
+</Layout>

@@ -17,7 +17,7 @@ export interface SiteConfig {
 }
 
 export const siteConfig: SiteConfig = {
-  name: "Servicios Integrales BJ (SIBJ)",
+  name: "Servicios Integrales BJ",
   shortName: "SIBJ",
   telephoneDisplay: "+54 9 299-462-2512",
   telephoneRaw: "+5492994622512",
@@ -39,9 +39,13 @@ export function getWhatsAppLink(message: string): string {
 }
 
 export function url(path: string): string {
-  const normalizedPath = path.replace(/^\/+/, '');
+  const [pathPart, hashPart] = path.split('#', 2);
+  const normalizedPath = pathPart.replace(/^\/+/, '').replace(/\/+$/, '');
   const baseUrl = import.meta.env.BASE_URL.endsWith('/')
     ? import.meta.env.BASE_URL
     : `${import.meta.env.BASE_URL}/`;
-  return `${baseUrl}${normalizedPath}`;
+  const route = normalizedPath ? `${normalizedPath}/` : '';
+  const hash = hashPart === undefined ? '' : `#${hashPart}`;
+
+  return `${baseUrl}${route}${hash}`;
 }

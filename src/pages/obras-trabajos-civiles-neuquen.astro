@@ -1,0 +1,164 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { getWhatsAppLink, url } from '../data/site';
+
+const services = [
+  ['file_open', 'Albañilería integral, tabiquería y muros divisorios', 'Construcción y modificación de cerramientos, tabiquería en seco, muros portantes y mampostería para talleres, oficinas y naves industriales.', 'Estructuras sólidas', 'build'],
+  ['grid_goldenratio', 'Nivelación de pisos, carpetas y estructuras de hormigón', 'Colocación de contrapisos armados, carpetas niveladoras y bases de hormigón para equipos pesados y tránsito operativo continuo.', 'Resistencia y nivelación', 'square_foot'],
+  ['store', 'Reformas comerciales, modernizaciones y refacciones de espacios', 'Adecuación y remodelación de áreas de atención, oficinas, vestuarios y comedores con terminaciones profesionales.', 'Optimización espacial', 'design_services'],
+  ['water_damage', 'Instalación de sistemas sanitarios con biodigestor para aguas residuales', 'Dimensionamiento, excavación y montaje de biodigestores junto a cámaras de decantación y zanjas de infiltración.', 'Solución sanitaria ecológica', 'recycling'],
+  ['roofing', 'Impermeabilizaciones de techos, cubiertas y sellado de filtraciones', 'Aplicación de membranas, cubiertas líquidas y sellado de uniones estructurales para garantizar estanqueidad.', 'Aislamiento hídrico', 'umbrella'],
+  ['ramp_right', 'Adecuaciones edilicias para accesos de carga y rampas industriales', 'Construcción de rampas de hormigón armado, refuerzo de umbrales y adaptación de ingresos para rodados pesados.', 'Logística y carga pesada', 'local_shipping'],
+];
+
+const steps = [
+  ['01', 'Consulta por WhatsApp', 'Recepción del requerimiento, análisis preliminar y coordinación inicial.'],
+  ['02', 'Visita técnica y relevamiento', 'Inspección en Neuquén, toma de mediciones y verificación de interferencias.'],
+  ['03', 'Cómputo de obra y ejecución', 'Desglose transparente de materiales y mano de obra conforme al plan acordado.'],
+  ['04', 'Control de calidad y entrega', 'Verificación dimensional, limpieza técnica y entrega formal de la obra.'],
+];
+
+const segments = [
+  ['business', 'Empresas de servicios', 'Adecuación de bases administrativas, talleres y facilidades operativas.'],
+  ['precision_manufacturing', 'Yacimientos y bases logísticas', 'Obras de saneamiento, plataformas de contención y sendas peatonales seguras.'],
+  ['warehouse', 'Depósitos y centros de distribución', 'Pisos industriales, muelles de carga y reparación de soleras.'],
+  ['storefront', 'Locales comerciales', 'Refacciones, tabiquería liviana, pintura técnica y núcleos húmedos.'],
+  ['factory', 'Industrias de Neuquén', 'Infraestructura civil para plantas, naves y recintos técnicos.'],
+];
+
+const faqs = [
+  ['¿Cómo funciona el sistema sanitario con biodigestor en zonas sin red cloacal?', 'El biodigestor realiza un tratamiento primario anaeróbico de las aguas residuales, separa sólidos y líquidos y permite infiltrar el efluente tratado según el tipo de suelo.'],
+  ['¿Qué factores influyen en el cómputo y cotización de una obra civil?', 'El presupuesto considera metros cuadrados, espesor y resistencia de hormigones o muros, accesibilidad, retiro de escombros y materiales solicitados.'],
+  ['¿Realizan tareas de impermeabilización sobre cubiertas existentes?', 'Sí. Relevamos filtraciones, grietas y pendientes para definir el tratamiento adecuado con membranas o sistemas elastoméricos.'],
+  ['¿Cómo se gestiona el plazo de ejecución en reformas de locales o bases activas?', 'Coordinamos cronogramas por etapas u horarios programados para no interferir con la operación del cliente.'],
+];
+---
+
+<Layout title="Obras y Trabajos Civiles en Neuquén | SIBJ">
+  <div class="service-page">
+  <nav aria-label="Ruta de navegación" class="bg-surface border-b border-outline-variant">
+    <div class="max-w-7xl mx-auto px-6 sm:px-8 lg:px-16 py-3">
+      <div class="flex items-center text-body-sm text-on-surface-variant gap-2">
+        <a class="hover:text-primary transition-colors" href={url('/')}>Inicio</a>
+        <span class="text-outline-variant">›</span>
+        <a class="hover:text-primary transition-colors" href={url('/#servicios')}>Servicios</a>
+        <span class="text-outline-variant">›</span>
+        <span class="text-primary font-semibold">Obras y Trabajos Civiles</span>
+      </div>
+    </div>
+  </nav>
+
+  <section class="bg-surface-container-lowest border-b border-outline-variant py-16 lg:py-24">
+    <div class="w-full max-w-7xl mx-auto px-6 sm:px-8 lg:px-16">
+      <div class="civil-hero-grid">
+        <div class="min-w-0 w-full flex flex-col items-start">
+          <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded bg-surface-container border border-outline-variant text-label-sm text-primary mb-4">
+            <span class="material-symbols-outlined text-secondary text-sm">apartment</span>
+            Servicios Industriales & Edilicios
+          </span>
+          <h1 class="w-full max-w-4xl text-4xl lg:text-5xl font-headline-lg font-extrabold text-primary tracking-tight leading-tight mb-5">Obras civiles, reformas y saneamiento para empresas en Neuquén</h1>
+          <p class="text-body-lg text-on-surface-variant mb-8 max-w-3xl">Ejecutamos obras civiles con rigor técnico, adecuación integral de espacios comerciales y soluciones sanitarias avanzadas con biodigestores para plantas y bases operativas.</p>
+          <div class="flex flex-col sm:flex-row gap-4 w-full sm:w-auto mb-8">
+            <a class="bg-secondary-container hover:bg-secondary text-on-secondary font-label-md px-6 py-3.5 rounded flex items-center justify-center gap-3 transition-all shadow-sm" href={getWhatsAppLink('Hola SIBJ, necesito presupuesto para Obras y Trabajos Civiles en Neuquén')} target="_blank" rel="noopener noreferrer">
+              <img src={url('/assets/whatsapp.png')} alt="WhatsApp" class="w-5 h-5 object-contain" width="20" height="20" />
+              <span>Pedir presupuesto por WhatsApp</span>
+            </a>
+            <a class="border border-outline-variant hover:border-primary bg-surface-container-lowest text-primary font-label-md px-6 py-3.5 rounded flex items-center justify-center gap-2 transition-all" href="tel:+5492994622512">
+              <span class="material-symbols-outlined text-secondary">call</span><span>Llamar a operaciones</span>
+            </a>
+          </div>
+          <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 w-full border-t border-outline-variant pt-6">
+            <div class="flex items-center gap-2.5"><span class="material-symbols-outlined text-secondary">corporate_fare</span><span class="font-label-md text-on-surface">Atención a empresas</span></div>
+            <div class="flex items-center gap-2.5"><span class="material-symbols-outlined text-secondary">location_on</span><span class="font-label-md text-on-surface">Cobertura en Neuquén</span></div>
+            <div class="flex items-center gap-2.5"><span class="material-symbols-outlined text-secondary">verified_user</span><span class="font-label-md text-on-surface">Normas de seguridad</span></div>
+          </div>
+        </div>
+        <div class="civil-panel-column min-w-0 w-full">
+          <div class="civil-panel w-full min-w-0 bg-surface-container border border-outline-variant p-6 rounded">
+            <div class="flex justify-end mb-4">
+              <span class="bg-primary text-surface-container-lowest text-label-sm px-2.5 py-1 rounded uppercase tracking-wider">Infraestructura</span>
+            </div>
+            <h3 class="font-headline-sm text-primary mb-3">Relevamiento en terreno</h3>
+            <p class="text-body-md text-on-surface-variant mb-4">Visitas técnicas coordinadas para evaluar especificaciones estructurales, cubicación de materiales y pendientes sanitarias.</p>
+            <ul class="space-y-2 border-t border-outline-variant/60 pt-4 text-body-sm text-on-surface">
+              <li class="flex items-center gap-2"><span class="material-symbols-outlined text-secondary text-base">check_circle</span>Cálculo de cargas y resistencia</li>
+              <li class="flex items-center gap-2"><span class="material-symbols-outlined text-secondary text-base">check_circle</span>Topografía y drenajes</li>
+              <li class="flex items-center gap-2"><span class="material-symbols-outlined text-secondary text-base">check_circle</span>Supervisión técnica de cuadrilla</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-16 lg:py-24 max-w-7xl mx-auto px-6 sm:px-8 lg:px-16">
+    <div class="text-left mb-10 max-w-3xl"><span class="text-label-sm text-secondary uppercase tracking-wider">Especialidades Operativas</span><h2 class="text-3xl lg:text-4xl font-headline-lg font-bold text-primary mt-1">Qué hacemos</h2><p class="text-body-md text-on-surface-variant mt-2">Soluciones integrales de obra civil y sanitaria proyectadas bajo normas técnicas de construcción y seguridad operativa.</p></div>
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      {services.map(([icon, title, description, label, footerIcon]) => <div class="bg-surface-container-lowest border border-outline-variant rounded p-6 hover:border-outline transition-all flex flex-col justify-between"><div><div class="w-12 h-12 rounded bg-surface-container-low flex items-center justify-center text-secondary mb-4"><span class="material-symbols-outlined text-2xl">{icon}</span></div><h3 class="font-label-md text-primary mb-2">{title}</h3><p class="text-body-md text-on-surface-variant">{description}</p></div><div class="mt-6 pt-4 border-t border-surface-container flex items-center justify-between text-label-sm text-outline"><span>{label}</span><span class="material-symbols-outlined text-sm">{footerIcon}</span></div></div>)}
+    </div>
+  </section>
+
+  <section class="bg-surface-container-lowest border-y border-outline-variant py-16 lg:py-24">
+    <div class="max-w-7xl mx-auto px-6 sm:px-8 lg:px-16">
+      <div class="text-left mb-12 max-w-3xl"><span class="text-label-sm text-secondary uppercase tracking-wider">Metodología de Trabajo</span><h2 class="text-3xl lg:text-4xl font-headline-lg text-primary mt-1">Cómo trabajamos</h2><p class="text-body-md text-on-surface-variant mt-2">Un proceso ordenado y transparente que prioriza la precisión y el cumplimiento de cada etapa técnica.</p></div>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        {steps.map(([number, title, description]) => <div class="border border-outline-variant rounded p-6 bg-surface relative"><span class="font-display-lg text-secondary opacity-30 absolute right-4 top-2">{number}</span><div class="flex items-center gap-2 mb-3"><span class="w-8 h-8 rounded-full bg-primary text-surface-container-lowest flex items-center justify-center font-bold text-sm">{number.replace('0', '')}</span><h3 class="font-label-md text-primary">{title}</h3></div><p class="text-body-md text-on-surface-variant mt-2">{description}</p></div>)}
+      </div>
+    </div>
+  </section>
+
+  <section class="py-16 lg:py-24 max-w-7xl mx-auto px-6 sm:px-8 lg:px-16">
+    <div class="text-left mb-10 max-w-3xl"><span class="text-label-sm text-secondary uppercase tracking-wider">Sectores y Rubros</span><h2 class="text-3xl lg:text-4xl font-headline-lg text-primary mt-1">Para quién trabajamos</h2><p class="text-body-md text-on-surface-variant mt-2">Atendemos las necesidades operativas e infraestructurales de organizaciones en toda la cuenca neuquina.</p></div>
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+      {segments.map(([icon, title, description]) => <div class="border border-outline-variant bg-surface-container-lowest p-6 rounded flex items-start gap-4"><span class="material-symbols-outlined text-secondary text-3xl">{icon}</span><div><h3 class="font-label-md text-primary mb-1">{title}</h3><p class="text-body-md text-on-surface-variant">{description}</p></div></div>)}
+    </div>
+  </section>
+
+  <section class="bg-surface-container border-y border-outline-variant py-16 lg:py-24">
+    <div class="max-w-7xl mx-auto px-6 sm:px-8 lg:px-16">
+      <div class="text-left mb-8 max-w-3xl"><span class="text-label-sm text-secondary uppercase tracking-wider">Registro Técnico</span><h2 class="text-3xl lg:text-4xl font-headline-lg text-primary mt-1">Caso realizado</h2><p class="text-body-md text-on-surface-variant mt-2">Referencia técnica de ejecución de obra civil y saneamiento.</p></div>
+      <div class="bg-surface-container-lowest border border-outline-variant rounded-xl overflow-hidden max-w-4xl">
+        <div class="grid grid-cols-1 md:grid-cols-12">
+          <div class="md:col-span-5 relative min-h-[260px] bg-surface-container"><img src={url('/assets/hero-industrial.jpg')} alt="Obra y mantenimiento de infraestructura industrial SIBJ" class="w-full h-full object-cover" /><div class="absolute top-3 left-3 bg-primary text-surface-container-lowest px-2.5 py-1 rounded text-label-sm">Obra en Base Operativa</div></div>
+          <div class="md:col-span-7 p-6 md:p-8 flex flex-col justify-between"><div><span class="text-label-sm px-2 py-0.5 rounded bg-surface-container text-on-surface-variant">Infraestructura Sanitaria & Civil</span><h3 class="font-headline-sm text-primary mt-3 mb-3">Adecuación de solera y montaje de biodigestor sanitario</h3><p class="text-body-md text-on-surface-variant mb-4">Se realizó la nivelación y excavación técnica para un biodigestor autolimpiable, complementada con un contrapiso de hormigón armado para tránsito de personal y sector de lavado.</p><div class="grid grid-cols-2 gap-4 border-t border-outline-variant/60 pt-4"><div><span class="block text-label-sm text-outline uppercase">Destinatario</span><span class="text-body-md font-semibold text-primary">Cliente de servicios en Neuquén</span></div><div><span class="block text-label-sm text-outline uppercase">Alcance</span><span class="text-body-md font-semibold text-primary">Saneamiento y albañilería</span></div></div></div><div class="flex items-center gap-2 text-on-surface-variant text-body-sm mt-5"><span class="material-symbols-outlined text-secondary text-sm">info</span>Proyecto ejecutado bajo normas de seguridad y medio ambiente.</div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-16 lg:py-24 max-w-4xl mx-auto px-6 sm:px-8 lg:px-12">
+    <div class="text-left mb-10"><span class="text-label-sm text-secondary uppercase tracking-wider">Aclaraciones Operativas</span><h2 class="text-3xl lg:text-4xl font-headline-lg text-primary mt-1">Preguntas frecuentes</h2><p class="text-body-md text-on-surface-variant mt-2">Respuestas sobre intervenciones civiles y sistemas de tratamiento de aguas residuales.</p></div>
+    <div class="space-y-4">{faqs.map(([question, answer]) => <details class="border border-outline-variant rounded bg-surface-container-lowest overflow-hidden"><summary class="w-full px-6 py-4 flex justify-between items-center gap-4 hover:bg-surface-container transition-colors text-label-md text-primary cursor-pointer list-none"><span>{question}</span><span class="material-symbols-outlined text-secondary">expand_more</span></summary><div class="px-6 pb-4 pt-3 text-body-md text-on-surface-variant border-t border-surface-container">{answer}</div></details>)}</div>
+  </section>
+
+  <section class="bg-primary-container text-surface-container-lowest border-t border-outline-variant py-16" id="contacto">
+    <div class="max-w-7xl mx-auto px-6 sm:px-8 lg:px-16"><div class="flex flex-col md:flex-row items-start md:items-center justify-between gap-6 bg-tertiary-container/50 border border-outline/30 p-8 rounded"><div><span class="text-label-sm text-secondary-container uppercase tracking-wider">Atención Directa</span><h2 class="text-2xl lg:text-3xl font-headline-lg font-bold mt-1">¿Necesitás asistencia técnica ahora?</h2><p class="text-body-md text-on-primary-container mt-1 max-w-xl">Coordiná una visita técnica o enviá el plano de tu obra civil para un análisis y cotización.</p></div><div class="flex flex-col sm:flex-row gap-4 w-full md:w-auto"><a class="bg-secondary-container hover:bg-secondary text-on-secondary font-label-md px-5 py-3 rounded flex items-center justify-center gap-2 transition-all shadow-sm" href={getWhatsAppLink('Hola SIBJ, necesito presupuesto para Obras y Trabajos Civiles en Neuquén')} target="_blank" rel="noopener noreferrer"><img src={url('/assets/whatsapp.png')} alt="WhatsApp" class="w-5 h-5" width="20" height="20" />WhatsApp Directo</a><a class="border border-outline/40 text-surface-container-lowest px-5 py-3 rounded flex items-center justify-center gap-2" href="tel:+5492994622512"><span class="material-symbols-outlined text-lg">call</span>+54 9 299-462-2512</a></div></div></div>
+  </section>
+  </div>
+</Layout>
+
+<style>
+  .civil-hero-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    gap: 3rem;
+    align-items: center;
+    width: 100%;
+  }
+
+  @media (min-width: 1024px) {
+    .civil-hero-grid {
+      grid-template-columns: minmax(0, 2fr) minmax(320px, 1fr);
+      gap: 5rem;
+    }
+
+    .civil-panel-column {
+      display: flex;
+      justify-content: flex-end;
+    }
+
+    .civil-panel {
+      max-width: 360px;
+    }
+  }
+</style>

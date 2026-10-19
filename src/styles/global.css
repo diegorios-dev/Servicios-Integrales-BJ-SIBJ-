@@ -12,3 +12,45 @@
 .custom-ring:focus-within {
   box-shadow: 0 0 0 2px #ea580c;
 }
+
+@layer components {
+  .service-page h1 {
+    font-family: 'Hanken Grotesk', sans-serif;
+    font-size: 2.25rem;
+    line-height: 2.75rem;
+    letter-spacing: -0.02em;
+    font-weight: 800;
+  }
+
+  .service-page h2 {
+    font-family: 'Hanken Grotesk', sans-serif;
+    font-size: 2.5rem;
+    line-height: 3rem;
+    letter-spacing: -0.025em;
+    font-weight: 700;
+  }
+
+  .service-page h3 {
+    font-family: 'Hanken Grotesk', sans-serif;
+    font-size: 1.5rem;
+    line-height: 2rem;
+    letter-spacing: -0.015em;
+    font-weight: 600;
+  }
+
+  .service-page p {
+    font-family: 'Manrope', sans-serif;
+    font-size: 1rem;
+    line-height: 1.5rem;
+    letter-spacing: 0;
+    font-weight: 400;
+  }
+}
+
+@media (min-width: 1024px) {
+  .service-page h1 {
+    font-size: 3.5rem;
+    line-height: 4rem;
+    letter-spacing: -0.03em;
+  }
+}
