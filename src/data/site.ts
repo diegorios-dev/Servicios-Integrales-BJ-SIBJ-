@@ -44,7 +44,8 @@ export function url(path: string): string {
   const baseUrl = import.meta.env.BASE_URL.endsWith('/')
     ? import.meta.env.BASE_URL
     : `${import.meta.env.BASE_URL}/`;
-  const route = normalizedPath ? `${normalizedPath}/` : '';
+  const isFile = /(^|\/)[^/]+\.[^/]+$/.test(normalizedPath);
+  const route = normalizedPath && !isFile ? `${normalizedPath}/` : normalizedPath;
   const hash = hashPart === undefined ? '' : `#${hashPart}`;
 
   return `${baseUrl}${route}${hash}`;
