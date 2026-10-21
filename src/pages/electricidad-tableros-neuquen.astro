@@ -3,27 +3,25 @@ import Layout from '../layouts/Layout.astro';
 import { getWhatsAppLink, url } from '../data/site';
 
 const services = [
-  ['troubleshoot', 'Diagnóstico de fallas electromecánicas y cortocircuitos', 'Localización de anomalías, derivaciones a tierra, sobrecargas y desbalances de línea con instrumental específico.', 'Diagnóstico de precisión'],
-  ['schema', 'Armado, cableado y relevamiento térmico de tableros TGBT y seccionales', 'Montaje, peinado ordenado de conductores, rotulado técnico y termografía infrarroja para detectar puntos calientes.', 'Termografía aplicada'],
-  ['toggle_on', 'Reemplazo de termomagnéticas, diferenciales y contactores', 'Actualización de aparamenta de maniobra y corte, con calibración y dimensionamiento según el equipamiento.', 'Protecciones coordinadas'],
-  ['electrical_services', 'Instalaciones y adecuaciones en media y baja tensión', 'Tendido de bandejas portacables, cañerías rígidas, acometidas industriales y modernización de redes.', 'Infraestructura MT / BT'],
-  ['bolt', 'Mantenimiento preventivo de instalaciones eléctricas', 'Ajuste de bornes, limpieza de gabinetes, pruebas de protecciones y revisión de sistemas UPS y generadores.', 'Continuidad operativa'],
-  ['troubleshoot', 'Medición de puesta a tierra y continuidad de masas', 'Medición de resistencia de jabalinas, continuidad de conductores y emisión de informes para auditorías.', 'Seguridad eléctrica'],
+  ['troubleshoot', 'Diagnóstico de fallas', 'Diagnóstico de fallas en instalaciones eléctricas.', 'Diagnóstico'],
+  ['schema', 'Tableros', 'Revisión y trabajos en tableros.', 'Tableros'],
+  ['toggle_on', 'Térmicas y contactores', 'Atención de térmicas y contactores.', 'Protecciones'],
+  ['electrical_services', 'Instalaciones y reparaciones eléctricas', 'Instalaciones y reparaciones eléctricas para locales, comercios y empresas.', 'Electricidad'],
+  ['bolt', 'Mantenimiento preventivo', 'Mantenimiento preventivo de instalaciones eléctricas.', 'Prevención'],
 ];
 
 const segments = [
-  ['factory', 'Industrias', 'Líneas de manufactura y talleres con demandas electromecánicas intensivas.'],
-  ['oil_barrel', 'Plantas de procesamiento', 'Instalaciones de tratamiento, separación y bombeo con altos estándares de seguridad.'],
-  ['warehouse', 'Galpones de acopio', 'Bases operativas de almacenamiento de herramientas, químicos e insumos de cuenca.'],
-  ['store', 'Centros comerciales', 'Grandes superficies con distribución trifásica e iluminación masiva.'],
-  ['local_shipping', 'Depósitos de Neuquén', 'Hubs de transferencia logística en el Parque Industrial y zonas aledañas.'],
+  ['factory', 'Empresas', 'Instalaciones eléctricas para empresas en Neuquén capital.'],
+  ['oil_barrel', 'Comercios', 'Atención de instalaciones eléctricas de comercios.'],
+  ['warehouse', 'Locales', 'Trabajos eléctricos para locales.'],
+  ['store', 'Locales y comercios', 'Trabajos eléctricos para locales y comercios.'],
+  ['local_shipping', 'Locales y empresas', 'Mantenimiento eléctrico para locales y empresas.'],
 ];
 
 const faqs = [
-  ['¿Qué alcance tiene el servicio de relevamiento térmico en tableros?', 'Realizamos inspecciones con cámaras termográficas de grado industrial para detectar puntos calientes generados por bornes flojos, conductores sobrecargados o fallas internas, con la instalación en funcionamiento normal.'],
-  ['¿Con qué periodicidad se recomienda medir la puesta a tierra?', 'Para establecimientos industriales y comerciales se recomienda una verificación anual mediante telurímetro calibrado y una nueva medición después de períodos prolongados de sequía.'],
-  ['¿Ofrecen planes de mantenimiento preventivo para empresas y galpones?', 'Sí. Diseñamos acuerdos periódicos con revisión y ajuste de bornes, limpieza de gabinetes, pruebas de accionamiento diferencial y emisión de informes técnicos.'],
-  ['¿Cómo gestionan la seguridad durante trabajos en baja y media tensión?', 'Aplicamos las 5 reglas de oro de la electricidad, procedimientos LOTO y elementos de protección dieléctricos certificados.'],
+  ['¿Qué trabajos realizan en tableros?', 'Realizamos revisión y trabajos en tableros, térmicas y contactores.'],
+  ['¿Ofrecen mantenimiento preventivo?', 'Sí. Realizamos mantenimiento preventivo de instalaciones eléctricas.'],
+  ['¿Realizan instalaciones y reparaciones eléctricas?', 'Sí. Realizamos instalaciones y reparaciones eléctricas para locales, comercios y empresas.'],
 ];
 
 const faqBackgroundImage = url('/assets/imagen-seccion-preguntas.webp');
@@ -31,14 +29,14 @@ const faqBackgroundImage = url('/assets/imagen-seccion-preguntas.webp');
 
 <Layout
   title="Electricidad y Tableros en Neuquén | SIBJ"
-  description="Electricidad industrial y tableros eléctricos en Neuquén. Diagnóstico, mantenimiento preventivo y seguridad para instalaciones comerciales e industriales."
+  description="Diagnóstico de fallas, tableros, térmicas y contactores, instalaciones y reparaciones eléctricas y mantenimiento preventivo en Neuquén."
   ogTitle="Electricidad y Tableros en Neuquén | SIBJ"
-  ogDescription="Electricidad industrial y tableros eléctricos en Neuquén. Diagnóstico, mantenimiento preventivo y seguridad para instalaciones comerciales e industriales."
-  ogImage="/assets/hero-industrial.jpg"
-  ogImageAlt="Instalación eléctrica industrial atendida por SIBJ en Neuquén"
+  ogDescription="Diagnóstico de fallas, tableros, térmicas y contactores, instalaciones y reparaciones eléctricas y mantenimiento preventivo en Neuquén."
+  ogImage="/assets/hero-comercios.jpg"
+  ogImageAlt="Instalación eléctrica atendida por SIBJ en Neuquén"
   ogImageWidth={862}
   ogImageHeight={841}
-  service={{ name: "Electricidad y Tableros", description: "Garantizamos la continuidad operativa y la máxima seguridad en instalaciones eléctricas comerciales e industriales de alta exigencia técnica en toda la cuenca." }}
+  service={{ name: "Electricidad y Tableros", description: "Diagnóstico de fallas, tableros, térmicas y contactores, instalaciones y reparaciones eléctricas y mantenimiento preventivo en Neuquén capital." }}
   faqItems={faqs.map(([question, answer]) => ({ question, answer }))}
 >
   <div class="service-page">
@@ -62,8 +60,8 @@ const faqBackgroundImage = url('/assets/imagen-seccion-preguntas.webp');
             <span class="material-symbols-outlined text-secondary-container text-sm" aria-hidden="true">offline_bolt</span>
             <span>Servicio Eléctrico Especializado</span>
           </div>
-          <h1 id="electricidad-hero-title" class="text-4xl lg:text-5xl font-display-lg font-extrabold text-primary tracking-tight leading-tight mb-5">Electricidad industrial y tableros eléctricos en Neuquén</h1>
-          <p class="text-body-lg font-body-lg text-on-surface-variant max-w-2xl mb-8">Garantizamos la continuidad operativa y la máxima seguridad en instalaciones eléctricas comerciales e industriales de alta exigencia técnica en toda la cuenca.</p>
+          <h1 id="electricidad-hero-title" class="text-4xl lg:text-5xl font-display-lg font-extrabold text-primary tracking-tight leading-tight mb-5">Electricidad y tableros para locales, comercios y empresas en Neuquén</h1>
+          <p class="text-body-lg font-body-lg text-on-surface-variant max-w-2xl mb-8">Diagnóstico de fallas, tableros, térmicas y contactores, instalaciones y reparaciones eléctricas y mantenimiento preventivo.</p>
           <div class="flex flex-col sm:flex-row items-stretch sm:items-center gap-4 w-full sm:w-auto mb-10">
             <a class="cta-button-whatsapp inline-flex items-center justify-center gap-3 bg-secondary-container hover:bg-secondary text-on-secondary px-6 py-3.5 rounded-lg font-label-md text-label-md transition-all duration-150 shadow-md active:scale-95" href={getWhatsAppLink('Hola SIBJ, necesito presupuesto para Electricidad y Tableros en Neuquén')} target="_blank" rel="noopener noreferrer">
               <img src={url('/assets/whatsapp.png')} alt="" aria-hidden="true" class="w-6 h-6 object-contain" width="24" height="24" />
@@ -86,9 +84,9 @@ const faqBackgroundImage = url('/assets/imagen-seccion-preguntas.webp');
               <span class="px-2 py-0.5 rounded text-label-sm bg-emerald-50 text-emerald-700 border border-emerald-200">En Servicio</span>
             </div>
             <div class="space-y-4">
-              <div class="p-3 bg-surface-container-low rounded-lg border border-outline-variant/30 flex items-start gap-3"><span class="material-symbols-outlined text-secondary-container text-xl" aria-hidden="true">electric_meter</span><div><h4 class="text-label-md text-primary">Intervención en Planta</h4><p class="text-body-sm text-on-surface-variant">Instrumental calibrado para mediciones térmicas y relevamiento de cargas en media y baja tensión.</p></div></div>
-              <div class="p-3 bg-surface-container-low rounded-lg border border-outline-variant/30 flex items-start gap-3"><span class="material-symbols-outlined text-secondary-container text-xl" aria-hidden="true">security</span><div><h4 class="text-label-md text-primary">Protocolos de Desconexión Segura</h4><p class="text-body-sm text-on-surface-variant">Procedimientos estrictos de bloqueo y etiquetado (LOTO) para el rubro industrial.</p></div></div>
-              <div class="p-3 bg-surface-container-low rounded-lg border border-outline-variant/30 flex items-start gap-3"><span class="material-symbols-outlined text-secondary-container text-xl" aria-hidden="true">fact_check</span><div><h4 class="text-label-md text-primary">Informes Técnicos de Estado</h4><p class="text-body-sm text-on-surface-variant">Planillas con balances de fase, resistividad de jabalinas e inventario de componentes.</p></div></div>
+              <div class="p-3 bg-surface-container-low rounded-lg border border-outline-variant/30 flex items-start gap-3"><span class="material-symbols-outlined text-secondary-container text-xl" aria-hidden="true">electric_meter</span><div><h4 class="text-label-md text-primary">Diagnóstico de fallas</h4><p class="text-body-sm text-on-surface-variant">Revisión de instalaciones eléctricas para localizar fallas.</p></div></div>
+              <div class="p-3 bg-surface-container-low rounded-lg border border-outline-variant/30 flex items-start gap-3"><span class="material-symbols-outlined text-secondary-container text-xl" aria-hidden="true">security</span><div><h4 class="text-label-md text-primary">Mantenimiento preventivo</h4><p class="text-body-sm text-on-surface-variant">Tareas coordinadas de mantenimiento preventivo.</p></div></div>
+              <div class="p-3 bg-surface-container-low rounded-lg border border-outline-variant/30 flex items-start gap-3"><span class="material-symbols-outlined text-secondary-container text-xl" aria-hidden="true">fact_check</span><div><h4 class="text-label-md text-primary">Instalaciones y reparaciones eléctricas</h4><p class="text-body-sm text-on-surface-variant">Trabajos eléctricos para locales, comercios y empresas.</p></div></div>
             </div>
             <div class="mt-5 pt-4 border-t border-outline-variant/30 flex justify-between items-center text-label-sm text-on-surface-variant"><span>Base Operativa: Neuquén Capital</span></div>
           </div>
@@ -99,7 +97,7 @@ const faqBackgroundImage = url('/assets/imagen-seccion-preguntas.webp');
 
   <section class="py-16 lg:py-24 bg-surface-container-low border-b border-outline-variant/30" aria-labelledby="electricidad-services-title">
     <div class="max-w-7xl mx-auto px-6 sm:px-8 lg:px-16">
-      <div class="max-w-3xl mb-12"><p class="text-label-sm uppercase tracking-wider text-secondary font-bold mb-2">Alcance Técnico Integral</p><h2 id="electricidad-services-title" class="text-headline-lg-mobile lg:text-headline-lg font-headline-lg font-bold text-primary tracking-tight">Qué hacemos</h2><p class="text-body-lg font-body-lg text-on-surface-variant mt-2">Desarrollamos soluciones eléctricas enfocadas en estabilidad productiva, protección de activos críticos y cumplimiento riguroso de normativas vigentes.</p></div>
+      <div class="max-w-3xl mb-12"><p class="text-label-sm uppercase tracking-wider text-secondary font-bold mb-2">Servicios eléctricos</p><h2 id="electricidad-services-title" class="text-headline-lg-mobile lg:text-headline-lg font-headline-lg font-bold text-primary tracking-tight">Qué hacemos</h2><p class="text-body-lg font-body-lg text-on-surface-variant mt-2">Trabajos eléctricos para locales, comercios y empresas en Neuquén capital.</p></div>
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         {services.map(([icon, title, description, label]) => <div class="bg-surface-container-lowest p-6 rounded-xl border border-outline-variant/60 shadow-sm hover:border-outline hover:shadow-md transition-all flex flex-col justify-between"><div><div class="w-12 h-12 rounded-lg bg-surface-container-high flex items-center justify-center text-primary mb-4"><span class="material-symbols-outlined text-2xl text-secondary-container" aria-hidden="true">{icon}</span></div><h3 class="text-headline-sm font-headline-sm text-primary mb-2.5">{title}</h3><p class="text-body-md text-on-surface-variant">{description}</p></div><div class="mt-6 pt-3 border-t border-outline-variant/20 flex items-center text-label-sm text-secondary font-semibold"><span class="material-symbols-outlined text-sm mr-1" aria-hidden="true">check_circle</span>{label}</div></div>)}
       </div>
@@ -108,7 +106,7 @@ const faqBackgroundImage = url('/assets/imagen-seccion-preguntas.webp');
 
   <section class="py-16 lg:py-20 bg-surface-container-low border-b border-outline-variant/30" aria-labelledby="electricidad-segments-title">
     <div class="max-w-7xl mx-auto px-6 sm:px-8 lg:px-16">
-      <div class="max-w-3xl mb-12"><p class="text-label-sm uppercase tracking-wider text-secondary font-bold mb-2">Segmentos Atendidos</p><h2 id="electricidad-segments-title" class="text-headline-lg-mobile lg:text-headline-lg font-headline-lg font-bold text-primary tracking-tight">Para quién trabajamos</h2><p class="text-body-lg font-body-lg text-on-surface-variant mt-2">Nuestra estructura responde a infraestructuras con demandas operativas continuas en la provincia de Neuquén.</p></div>
+      <div class="max-w-3xl mb-12"><p class="text-label-sm uppercase tracking-wider text-secondary font-bold mb-2">Clientes atendidos</p><h2 id="electricidad-segments-title" class="text-headline-lg-mobile lg:text-headline-lg font-headline-lg font-bold text-primary tracking-tight">Para quién trabajamos</h2><p class="text-body-lg font-body-lg text-on-surface-variant mt-2">Atención para locales, comercios y empresas en Neuquén capital.</p></div>
       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4">
         {segments.map(([icon, title, description]) => <div class="bg-surface-container-lowest p-5 rounded-xl border border-outline-variant/50"><div class="p-2.5 rounded-lg bg-surface-container-high text-primary mb-3 w-fit"><span class="material-symbols-outlined text-2xl text-secondary-container" aria-hidden="true">{icon}</span></div><h3 class="text-label-md text-primary mb-1">{title}</h3><p class="text-body-sm text-on-surface-variant">{description}</p></div>)}
       </div>
@@ -120,7 +118,7 @@ const faqBackgroundImage = url('/assets/imagen-seccion-preguntas.webp');
   </section>
 
   <section class="py-16 bg-primary-container text-surface-container-lowest" id="contacto" aria-labelledby="electricidad-contact-title">
-    <div class="max-w-7xl mx-auto px-6 sm:px-8 lg:px-16"><div class="bg-tertiary-container/60 border border-on-primary-container/20 rounded-2xl p-8 lg:p-12 flex flex-col lg:flex-row items-center justify-between gap-8"><div class="max-w-2xl text-center lg:text-left"><h2 id="electricidad-contact-title" class="text-headline-lg-mobile lg:text-headline-lg font-headline-lg font-bold tracking-tight mb-3">¿Necesitás asistencia técnica ahora?</h2><p class="text-body-lg text-on-primary-container">Atendemos urgencias electromecánicas y planificamos obras eléctricas para establecimientos y plantas operativas en Neuquén.</p></div><div class="flex flex-col sm:flex-row items-center gap-4 w-full lg:w-auto">    <a class="cta-button-whatsapp w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-secondary-container hover:bg-secondary text-on-secondary px-6 py-3.5 rounded-lg font-label-md transition-all shadow-md" href={getWhatsAppLink('Hola SIBJ, necesito asistencia técnica para Electricidad y Tableros en Neuquén')} target="_blank" rel="noopener noreferrer"><img src={url('/assets/whatsapp.png')} alt="" aria-hidden="true" class="w-5 h-5" width="20" height="20" /><span>WhatsApp</span></a><a class="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-lg border border-on-primary-container/40 text-surface-container-lowest hover:bg-surface-container-lowest/10 font-label-md transition-all" href="tel:+5492994622512"><span class="material-symbols-outlined text-lg" aria-hidden="true">call</span><span>+54 9 299 462-2512</span></a></div></div></div>
+    <div class="max-w-7xl mx-auto px-6 sm:px-8 lg:px-16"><div class="bg-tertiary-container/60 border border-on-primary-container/20 rounded-2xl p-8 lg:p-12 flex flex-col lg:flex-row items-center justify-between gap-8"><div class="max-w-2xl text-center lg:text-left"><h2 id="electricidad-contact-title" class="text-headline-lg-mobile lg:text-headline-lg font-headline-lg font-bold tracking-tight mb-3">¿Necesitás asistencia técnica ahora?</h2><p class="text-body-lg text-on-primary-container">Atendemos requerimientos eléctricos para locales, comercios y empresas en Neuquén.</p></div><div class="flex flex-col sm:flex-row items-center gap-4 w-full lg:w-auto">    <a class="cta-button-whatsapp w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-secondary-container hover:bg-secondary text-on-secondary px-6 py-3.5 rounded-lg font-label-md transition-all shadow-md" href={getWhatsAppLink('Hola SIBJ, necesito asistencia técnica para Electricidad y Tableros en Neuquén')} target="_blank" rel="noopener noreferrer"><img src={url('/assets/whatsapp.png')} alt="" aria-hidden="true" class="w-5 h-5" width="20" height="20" /><span>WhatsApp</span></a><a class="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-lg border border-on-primary-container/40 text-surface-container-lowest hover:bg-surface-container-lowest/10 font-label-md transition-all" href="tel:+5492994622512"><span class="material-symbols-outlined text-lg" aria-hidden="true">call</span><span>+54 9 299 462-2512</span></a></div></div></div>
   </section>
   </div>
 </Layout>

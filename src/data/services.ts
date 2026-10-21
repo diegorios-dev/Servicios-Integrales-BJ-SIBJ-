@@ -13,31 +13,31 @@ export interface ServiceItem {
 export const servicesData: ServiceItem[] = [
   {
     title: "Climatización y Refrigeración",
-    tag: "Climatización & Mantenimiento Edilicio",
+    tag: "Climatización y refrigeración",
     icon: "ac_unit",
-    description: "Mantenimiento preventivo y correctivo de sistemas de climatización, aire acondicionado comercial e industrial y extracción forzada.",
+    description: "Mantenimiento de climatización y refrigeración para locales, comercios y empresas en Neuquén.",
     items: [
-      "Instalación y service integral de equipos VRV, Rooftop y splits comerciales.",
-      "Mantenimiento preventivo de sistemas de extracción y ventilación forzada.",
-      "Control de parámetros de refrigeración y estanqueidad en conductos.",
-      "Optimización de eficiencia energética en climatización central.",
-      "Detección y reparación de fugas de refrigerante y fallas compresoras.",
-      "Atención de urgencias operativas para locales, salones y plantas."
+      "Aire acondicionado.",
+      "Cámaras y precámaras de frío.",
+      "Detección de fugas.",
+      "Carga de refrigerante.",
+      "Mantenimiento de condensadoras y evaporadoras.",
+      "Diagnóstico y reparación de fallas."
     ],
     href: url("/climatizacion-refrigeracion-neuquen"),
   },
   {
     title: "Mantenimiento Edilicio",
-    tag: "Obras Civiles & Redes Sanitarias",
+    tag: "Mantenimiento de locales",
     icon: "apartment",
-    description: "Gestión integral de infraestructura corporativa, hidrosanitaria y correctiva para asegurar la operatividad edilicia continua.",
+    description: "Mantenimiento edilicio preventivo y correctivo para locales, comercios y empresas en Neuquén.",
     items: [
-      "Relevamiento e intervención integral sobre redes de distribución de agua y colectores.",
-      "Reparación, presurización y mantenimiento de conductos hidrosanitarios.",
-      "Impermeabilización de cubiertas, techos y sellado de juntas estructurales.",
-      "Mantenimiento preventivo y correctivo de carpintería, aberturas y herrajes.",
-      "Pintura institucional, tratamiento anticorrosivo y revestimientos protectores.",
-      "Gestión integral de mantenimiento correctivo y programado para predios."
+      "Reparaciones generales.",
+      "Pintura.",
+      "Cambio de pisos/baldosas.",
+      "Plomería.",
+      "Destapes y pérdidas.",
+      "Mantenimiento preventivo de locales."
     ],
     href: url("/mantenimiento-edilicio-neuquen"),
   },
@@ -45,14 +45,13 @@ export const servicesData: ServiceItem[] = [
     title: "Electricidad y Tableros",
     tag: "ELECTROTECNIA",
     icon: "",
-    description: "Instalaciones y mantenimiento eléctrico integral para garantizar continuidad operativa y resguardo de maquinaria.",
+    description: "Electricidad y tableros para locales, comercios y empresas en Neuquén.",
     items: [
-      "Diagnóstico integral de fallas electromecánicas y cortocircuitos.",
-      "Armado, cableado y relevamiento térmico de tableros TGBT y seccionales.",
-      "Reemplazo de protecciones termomagnéticas, diferenciales y contactores.",
-      "Instalaciones y adecuaciones de redes en media y baja tensión.",
-      "Mantenimiento preventivo, balanceo de cargas y medición de puesta a tierra (PAT).",
-      "Sistemas de respaldo energético: UPS y grupos electrógenos."
+      "Diagnóstico de fallas.",
+      "Tableros.",
+      "Térmicas y contactores.",
+      "Instalaciones y reparaciones eléctricas.",
+      "Mantenimiento preventivo."
     ],
     href: url("/electricidad-tableros-neuquen"),
   },
@@ -60,14 +59,13 @@ export const servicesData: ServiceItem[] = [
     title: "Obras y Trabajos Civiles",
     tag: "CONSTRUCCIÓN",
     icon: "construction",
-    description: "Ejecución precisa de reformas, adecuaciones funcionales y obra civil menor con cumplimiento de plazos estrictos.",
+    description: "Obras y trabajos civiles para locales, comercios y empresas en Neuquén.",
     items: [
-      "Albañilería integral, nivelación de pisos y estructuras de hormigón.",
-      "Reformas, modernizaciones y refacciones edilicias integrales.",
-      "Adecuación funcional de locales comerciales, depósitos y oficinas corporativas.",
-      "Instalaciones de durlock, tabiquería divisoria y cielorrasos acústicos/ignífugos.",
-      "Obras de construcción menor y consolidación de infraestructura.",
-      "Montaje de portones industriales, pasarelas y herrería pesada."
+      "Albañilería.",
+      "Reparaciones.",
+      "Adecuaciones de locales.",
+      "Instalaciones.",
+      "Trabajos relacionados con construcción e infraestructura."
     ],
     href: url("/obras-trabajos-civiles-neuquen"),
   },
@@ -91,13 +89,13 @@ export const pillarsData: PillarItem[] = [
     number: "02 // EXPERIENCIA",
     icon: "badge",
     title: "Personal Capacitado y con Experiencia",
-    text: "Personal técnico idóneo y con sólida experiencia de campo, aplicando buenas prácticas y protocolos de seguridad operacional en cada trabajo."
+    text: "Personal técnico idóneo y con experiencia para atender cada trabajo."
   },
   {
     number: "03 // AGILIDAD",
     icon: "",
     title: "Respuesta Rápida para Empresas",
-    text: "Atención dedicada con unidades móviles equipadas para comercios, plantas industriales, centros logísticos y oficinas corporativas de alta demanda."
+    text: "Atención dedicada para locales, comercios y empresas."
   }
 ];
 
@@ -109,25 +107,27 @@ export interface TestimonialItem {
   image: string;
   imageAlt: string;
   category: string;
+  isWork?: boolean;
 }
 
 export const testimonialsData: TestimonialItem[] = [
   {
-    quote: "“SIBJ resolvió con máxima agilidad el mantenimiento preventivo y correctivo de nuestros sistemas de climatización y extracción en sucursal. Gracias a su rápida respuesta mantuvimos la continuidad de cocina y salón sin interrumpir la operación comercial ni un solo día.”",
-    author: "Gerencia Operativa de Sucursal",
-    role: "Encargado ",
-    badge: "Mostaza S.A.",
+    quote: "Con el equipo de Servicios Integrales B.J venimos trabajando tranquilos. Cuando surge un problema en los locales, responden y acompañan. Estamos conformes con el servicio.",
+    author: "Alex Ugarte",
+    role: "responsable de mantenimiento",
+    badge: "Mostaza (Neuquén y Comodoro)",
     image: url("/assets/mostaza.webp"),
     imageAlt: "Sucursal gastronómica Mostaza atendida por SIBJ",
-    category: "Climatización & Mantenimiento Edilicio"
+    category: "Testimonio real"
   },
   {
-    quote: "Nos instalaron el biodigestor y resolvieron por completo el tratamiento de nuestras aguas residuales. Un trabajo técnico ordenado, en tiempo y respetando las normas de seguridad.",
-    author: "Coordinación de Mantenimiento e Infraestructura",
-    role: "Daniel González",
-    badge: "Mada s.r.l",
-    image: url("/assets/instalacion.png"),
+    quote: "Instalación de sistema sanitario con biodigestor para el tratamiento de aguas residuales",
+    author: "Daniel González",
+    role: "Propietario de la empresa",
+    badge: "Mada S.R.L.",
+    image: url("/assets/biodigestor.png"),
     imageAlt: "Instalación de sistema de tratamiento y drenaje hidrosanitario",
-    category: "Obras Civiles & Redes Sanitarias"
+    category: "Obras y Trabajos Civiles",
+    isWork: true
   }
 ];

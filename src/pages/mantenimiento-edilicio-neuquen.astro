@@ -3,12 +3,12 @@ import Layout from '../layouts/Layout.astro';
 import { getWhatsAppLink, url } from '../data/site';
 
 const services = [
-  ['handyman', 'Reparaciones generales y conservación estética corporativa', 'Intervención de tabiquería, techos, cerramientos, herrajes y carpinterías metálicas para preservar la imagen y habitabilidad institucional.', 'Solución para sucursales'],
-  ['format_paint', 'Pintura comercial e industrial de alto tránsito', 'Aplicación de recubrimientos epoxídicos resistentes a químicos, demarcación vial y látex antihumedad para salones comerciales.', 'Acabados técnicos'],
-  ['grid_view', 'Reparación y mantenimiento de cubiertas y canaletas', 'Revisión de filtraciones, limpieza de canaletas, sellado de juntas y mantenimiento de cubiertas para evitar daños estructurales.', 'Protección edilicia'],
-  ['plumbing', 'Mantenimiento hidrosanitario y desobstrucción de desagües', 'Reparación de pérdidas, mantenimiento de bombas, griferías, sanitarios y desobstrucciones sin roturas innecesarias.', 'Desobstrucción sin rotura'],
-  ['door_front', 'Mantenimiento de accesos, portones y cerramientos', 'Ajuste de herrajes, reparación de portones, cerraduras y elementos de seguridad en accesos comerciales e industriales.', 'Accesos funcionales'],
-  ['assignment_turned_in', 'Planes de mantenimiento preventivo para redes de sucursales', 'Cronogramas periódicos con inspecciones de servicios críticos e informes ejecutivos del estado edilicio.', 'Continuidad operativa'],
+  ['handyman', 'Reparaciones generales', 'Reparaciones generales para locales, comercios y empresas.', 'Mantenimiento edilicio'],
+  ['format_paint', 'Pintura', 'Trabajos de pintura para renovar y mantener los espacios.', 'Terminaciones'],
+  ['grid_view', 'Cambio de pisos/baldosas', 'Cambio de pisos/baldosas según las necesidades del local.', 'Locales'],
+  ['plumbing', 'Plomería', 'Trabajos de plomería para el mantenimiento de las instalaciones.', 'Instalaciones'],
+  ['water_damage', 'Destapes y pérdidas', 'Atención de destapes y pérdidas.', 'Mantenimiento'],
+  ['assignment_turned_in', 'Mantenimiento preventivo de locales', 'Mantenimiento preventivo de locales con tareas coordinadas.', 'Prevención'],
 ];
 
 const steps = [
@@ -20,15 +20,15 @@ const steps = [
 
 const segments = [
   ['storefront', 'Comercios y Locales', 'Salones de venta, franquicias gastronómicas y locales que requieren respuesta rápida.'],
-  ['warehouse', 'Depósitos Logísticos', 'Naves y centros de distribución con exigencia en pisos, portones y canaletas.'],
-  ['factory', 'Industrias y Bases', 'Parques industriales y bases operativas con protocolos de seguridad laboral.'],
+  ['warehouse', 'Locales comerciales', 'Espacios comerciales que requieren mantenimiento coordinado.'],
+  ['factory', 'Empresas', 'Mantenimiento para empresas en Neuquén capital.'],
   ['domain', 'Oficinas Corporativas', 'Sedes administrativas y sucursales con mantenimiento silencioso y prolijo.'],
 ];
 
 const faqs = [
-  ['¿Qué tipo de mantenimiento edilicio realizan?', 'Atendemos reparaciones generales, pintura, cubiertas, canaletas, desagües, accesos, portones y planes preventivos para comercios, depósitos y plantas.'],
+  ['¿Qué tipo de mantenimiento edilicio realizan?', 'Atendemos reparaciones generales, pintura, cambio de pisos/baldosas, plomería, destapes y pérdidas, y mantenimiento preventivo de locales.'],
   ['¿Trabajan con planes preventivos para empresas?', 'Sí, diseñamos rutinas periódicas de revisión hidrosanitaria, cerramientos, cubiertas y pintura, con informes y prioridad para urgencias.'],
-  ['¿Qué zona geográfica cubren?', 'Nuestra base está en Neuquén capital y cubrimos Plottier, Centenario, Cipolletti y sectores industriales del Comahue y Vaca Muerta.'],
+  ['¿Qué zona geográfica cubren?', 'Nuestra cobertura es Neuquén capital.'],
   ['¿Pueden trabajar sin interrumpir la actividad?', 'Coordinamos las tareas por etapas u horarios programados para minimizar la interferencia con la operación del cliente.'],
 ];
 
@@ -37,14 +37,14 @@ const faqBackgroundImage = url('/assets/imagen-seccion-preguntas.webp');
 
 <Layout
   title="Mantenimiento Edilicio en Neuquén | SIBJ"
-  description="Mantenimiento edilicio preventivo y correctivo en Neuquén para comercios, depósitos e industrias. Coordiná reparaciones y planes técnicos con SIBJ."
+  description="Reparaciones generales, pintura, cambio de pisos/baldosas, plomería, destapes y pérdidas, y mantenimiento preventivo de locales en Neuquén."
   ogTitle="Mantenimiento Edilicio en Neuquén | SIBJ"
-  ogDescription="Mantenimiento edilicio preventivo y correctivo en Neuquén para comercios, depósitos e industrias. Coordiná reparaciones y planes técnicos con SIBJ."
+  ogDescription="Reparaciones generales, pintura, cambio de pisos/baldosas, plomería, destapes y pérdidas, y mantenimiento preventivo de locales en Neuquén."
   ogImage="/assets/mantenimiento_edilicio.jpg"
   ogImageAlt="Técnico de SIBJ realizando mantenimiento edilicio en Neuquén"
   ogImageWidth={2560}
   ogImageHeight={1435}
-  service={{ name: "Mantenimiento Edilicio", description: "Preservamos la funcionalidad y estética estructural de sus instalaciones comerciales e industriales con cuadrillas operativas en Neuquén capital y zona de influencia." }}
+  service={{ name: "Mantenimiento Edilicio", description: "Reparaciones generales, pintura, cambio de pisos/baldosas, plomería, destapes y pérdidas, y mantenimiento preventivo de locales en Neuquén capital." }}
   faqItems={faqs.map(([question, answer]) => ({ question, answer }))}
 >
   <div class="service-page">
@@ -64,8 +64,8 @@ const faqBackgroundImage = url('/assets/imagen-seccion-preguntas.webp');
     <div class="max-w-7xl mx-auto px-6 sm:px-8 lg:px-16">
       <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-center">
         <div class="lg:col-span-6 flex flex-col items-start gap-6">
-          <h1 id="edilicio-hero-title" class="text-4xl lg:text-5xl font-display-lg font-bold text-primary tracking-tight leading-tight">Mantenimiento edilicio para comercios, depósitos e industrias en Neuquén</h1>
-          <p class="text-body-lg text-on-surface-variant max-w-2xl leading-relaxed">Preservamos la funcionalidad y estética estructural de sus instalaciones comerciales e industriales con cuadrillas operativas en Neuquén capital y zona de influencia.</p>
+          <h1 id="edilicio-hero-title" class="text-4xl lg:text-5xl font-display-lg font-bold text-primary tracking-tight leading-tight">Mantenimiento edilicio para locales, comercios y empresas en Neuquén</h1>
+          <p class="text-body-lg text-on-surface-variant max-w-2xl leading-relaxed">Reparaciones generales, pintura, cambio de pisos/baldosas, plomería, destapes y pérdidas, y mantenimiento preventivo de locales.</p>
           <div class="flex flex-col sm:flex-row items-stretch sm:items-center gap-4 w-full sm:w-auto pt-2">
             <a class="cta-button-whatsapp bg-secondary-container hover:bg-secondary text-on-secondary px-6 py-3.5 rounded-lg font-label-md flex items-center justify-center gap-3 transition-all shadow-sm" href={getWhatsAppLink('Hola SIBJ, necesito presupuesto para Mantenimiento Edilicio en Neuquén')} target="_blank" rel="noopener noreferrer">
               <img src={url('/assets/whatsapp.png')} alt="" aria-hidden="true" class="w-5 h-5" width="20" height="20" />
@@ -90,7 +90,7 @@ const faqBackgroundImage = url('/assets/imagen-seccion-preguntas.webp');
 
   <section class="py-16 lg:py-24 bg-background" id="servicios" aria-labelledby="edilicio-services-title">
     <div class="max-w-7xl mx-auto px-6 sm:px-8 lg:px-16">
-      <div class="max-w-3xl mb-12"><p class="text-label-md uppercase tracking-wider text-secondary font-bold">Cobertura Integral</p><h2 id="edilicio-services-title" class="text-3xl lg:text-4xl font-headline-lg font-bold text-primary mt-2">Qué hacemos: soluciones estructurales e hidrosanitarias</h2><p class="text-body-md text-on-surface-variant mt-2">Ejecución técnica adaptada a requerimientos de operación continua en locales, naves y plantas industriales.</p></div>
+      <div class="max-w-3xl mb-12"><p class="text-label-md uppercase tracking-wider text-secondary font-bold">Mantenimiento edilicio</p><h2 id="edilicio-services-title" class="text-3xl lg:text-4xl font-headline-lg font-bold text-primary mt-2">Qué hacemos</h2><p class="text-body-md text-on-surface-variant mt-2">Ejecución técnica adaptada a locales, comercios y empresas en Neuquén capital.</p></div>
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         {services.map(([icon, title, description, label]) => <div class="bg-surface-container-lowest border border-outline-variant p-6 rounded-xl transition-all hover:shadow-md flex flex-col justify-between"><div><div class="w-12 h-12 rounded-lg bg-surface-container flex items-center justify-center text-primary mb-4"><span class="material-symbols-outlined text-[26px]" aria-hidden="true">{icon}</span></div><h3 class="text-label-md font-bold text-primary mb-2">{title}</h3><p class="text-body-md text-on-surface-variant">{description}</p></div><div class="pt-4 mt-4 border-t border-surface-container flex items-center gap-1.5 text-label-sm text-secondary font-semibold"><span class="material-symbols-outlined text-[16px]" aria-hidden="true">check_circle</span>{label}</div></div>)}
       </div>

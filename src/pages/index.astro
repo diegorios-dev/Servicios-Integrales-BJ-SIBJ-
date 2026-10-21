@@ -11,12 +11,12 @@ import { servicesData, pillarsData, testimonialsData } from '../data/services';
 ---
 
 <Layout
-  title="Mantenimiento Industrial y HVAC en Neuquén | SIBJ"
-  description="Mantenimiento industrial, HVAC y climatización para empresas de Neuquén, Cipolletti y Añelo. Coordiná asistencia técnica especializada con SIBJ."
-  ogTitle="Mantenimiento Industrial y HVAC en Neuquén | SIBJ"
-  ogDescription="Mantenimiento industrial, HVAC y climatización para empresas de Neuquén, Cipolletti y Añelo. Coordiná asistencia técnica especializada con SIBJ."
-  ogImage="/assets/hero-industrial.jpg"
-  ogImageAlt="Personal técnico industrial realizando mantenimiento para SIBJ"
+  title="Mantenimiento integral para locales, comercios y empresas en Neuquén | SIBJ"
+  description="Mantenimiento integral para locales, comercios y empresas en Neuquén. Climatización, mantenimiento edilicio, electricidad y obras civiles."
+  ogTitle="Mantenimiento integral para locales, comercios y empresas en Neuquén | SIBJ"
+  ogDescription="Mantenimiento integral para locales, comercios y empresas en Neuquén. Climatización, mantenimiento edilicio, electricidad y obras civiles."
+  ogImage="/assets/hero-comercios.jpg"
+  ogImageAlt="Personal técnico realizando mantenimiento para comercios en Neuquén"
   ogImageWidth={862}
   ogImageHeight={841}
 >
@@ -32,10 +32,10 @@ import { servicesData, pillarsData, testimonialsData } from '../data/services';
             Módulos Especializados
           </p>
           <h2 id="services-title" class="font-headline-xl text-headline-xl text-primary">
-            Servicios integrales de mantenimiento industrial
+            Mantenimiento integral para locales, comercios y empresas
           </h2>
           <p class="font-body-md text-body-md text-on-surface-variant mt-2">
-            Mantenimiento preventivo, correctivo e ingeniería de infraestructura edilicia industrial bajo protocolos estrictos de calidad y seguridad ocupacional.
+            Mantenimiento preventivo y correctivo de climatización, mantenimiento edilicio, electricidad y obras civiles en Neuquén.
           </p>
         </div>
       </div>
@@ -65,10 +65,10 @@ import { servicesData, pillarsData, testimonialsData } from '../data/services';
           Propuesta de Valor Corporativa
         </p>
         <h2 id="about-title" class="font-headline-xl text-headline-xl text-primary">
-          Climatización industrial en Añelo y Vaca Muerta
+          Soluciones para la continuidad de locales y comercios
         </h2>
         <p class="font-body-lg text-body-lg text-on-surface-variant mt-2">
-          Eficiencia operativa, un solo interlocutor y estándares industriales de calidad.
+          Un solo interlocutor para coordinar mantenimiento y trabajos necesarios en Neuquén.
         </p>
       </div>
 
@@ -88,23 +88,6 @@ import { servicesData, pillarsData, testimonialsData } from '../data/services';
 
   <TrustSection />
 
-  <section class="coverage-section py-space-2xl bg-primary text-white" id="cobertura" aria-labelledby="coverage-title">
-    <div class="max-w-7xl mx-auto px-margin-mobile md:px-margin">
-      <div class="max-w-3xl mb-space-xl">
-        <p class="font-technical-code text-technical-code text-secondary-fixed font-bold uppercase tracking-wider block mb-1">Cobertura operativa</p>
-        <h2 id="coverage-title" class="font-headline-xl text-headline-xl text-white">Zona de cobertura</h2>
-        <p class="font-body-md text-on-primary-container mt-2">Coordinamos servicios técnicos para empresas en los principales puntos del Alto Valle y Vaca Muerta.</p>
-      </div>
-      <div class="coverage-map" role="img" aria-label="Cobertura de SIBJ en Neuquén Capital, Parque Industrial, Cipolletti y Añelo, con alcance a Vaca Muerta">
-        <div class="coverage-line" aria-hidden="true"></div>
-        <div class="coverage-point coverage-point-neuquen"><span>Neuquén Capital</span></div>
-        <div class="coverage-point coverage-point-parque"><span>Parque Industrial</span></div>
-        <div class="coverage-point coverage-point-cipolletti"><span>Cipolletti</span></div>
-        <div class="coverage-point coverage-point-anelo"><span>Añelo / Vaca Muerta</span></div>
-      </div>
-    </div>
-  </section>
-
   <!-- TESTIMONIOS SECTION (Independiente y sin duplicación en servicios) -->
   <section class="bg-surface border-b border-outline-variant/30 py-space-2xl" aria-labelledby="testimonials-title">
     <div class="max-w-7xl mx-auto px-margin-mobile md:px-margin text-center">
@@ -123,6 +106,7 @@ import { servicesData, pillarsData, testimonialsData } from '../data/services';
             rubro={testi.badge}
             imagen={testi.image}
             imagenAlt={testi.imageAlt}
+            esTrabajo={testi.isWork}
           />
         ))}
       </div>

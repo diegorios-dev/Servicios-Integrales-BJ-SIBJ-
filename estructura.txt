@@ -4,7 +4,7 @@ sibj-astro/
 ├── src/
 │   ├── assets/
 │   │   ├── logo.png
-│   │   ├── hero-industrial.jpg
+│   │   ├── hero-comercios.jpg
 │   │   ├── testimonio-gastronomico.jpg
 │   │   └── testimonio-logistico.jpg
 │   ├── components/

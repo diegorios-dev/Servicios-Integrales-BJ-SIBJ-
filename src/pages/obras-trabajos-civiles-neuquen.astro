@@ -3,12 +3,12 @@ import Layout from '../layouts/Layout.astro';
 import { getWhatsAppLink, url } from '../data/site';
 
 const services = [
-  ['file_open', 'Albañilería integral, tabiquería y muros divisorios', 'Construcción y modificación de cerramientos, tabiquería en seco, muros portantes y mampostería para talleres, oficinas y naves industriales.', 'Estructuras sólidas', 'build'],
-  ['grid_goldenratio', 'Nivelación de pisos, carpetas y estructuras de hormigón', 'Colocación de contrapisos armados, carpetas niveladoras y bases de hormigón para equipos pesados y tránsito operativo continuo.', 'Resistencia y nivelación', 'square_foot'],
-  ['store', 'Reformas comerciales, modernizaciones y refacciones de espacios', 'Adecuación y remodelación de áreas de atención, oficinas, vestuarios y comedores con terminaciones profesionales.', 'Optimización espacial', 'design_services'],
+  ['file_open', 'Albañilería', 'Trabajos de albañilería para locales, comercios y empresas.', 'Obra civil', 'build'],
+  ['grid_goldenratio', 'Reparaciones', 'Reparaciones relacionadas con obras y trabajos civiles.', 'Obra civil', 'square_foot'],
+  ['store', 'Adecuaciones de locales', 'Adecuaciones de locales para sus necesidades de funcionamiento.', 'Locales', 'design_services'],
   ['water_damage', 'Instalación de sistemas sanitarios con biodigestor para aguas residuales', 'Dimensionamiento, excavación y montaje de biodigestores junto a cámaras de decantación y zanjas de infiltración.', 'Solución sanitaria ecológica', 'recycling'],
-  ['roofing', 'Impermeabilizaciones de techos, cubiertas y sellado de filtraciones', 'Aplicación de membranas, cubiertas líquidas y sellado de uniones estructurales para garantizar estanqueidad.', 'Aislamiento hídrico', 'umbrella'],
-  ['ramp_right', 'Adecuaciones edilicias para accesos de carga y rampas industriales', 'Construcción de rampas de hormigón armado, refuerzo de umbrales y adaptación de ingresos para rodados pesados.', 'Logística y carga pesada', 'local_shipping'],
+  ['roofing', 'Instalaciones', 'Instalaciones relacionadas con obras y trabajos civiles.', 'Obra civil', 'umbrella'],
+  ['ramp_right', 'Construcción e infraestructura', 'Trabajos relacionados con construcción e infraestructura.', 'Infraestructura', 'local_shipping'],
 ];
 
 const steps = [
@@ -19,18 +19,18 @@ const steps = [
 ];
 
 const segments = [
-  ['business', 'Empresas de servicios', 'Adecuación de bases administrativas, talleres y facilidades operativas.'],
-  ['precision_manufacturing', 'Yacimientos y bases logísticas', 'Obras de saneamiento, plataformas de contención y sendas peatonales seguras.'],
-  ['warehouse', 'Depósitos y centros de distribución', 'Pisos industriales, muelles de carga y reparación de soleras.'],
-  ['storefront', 'Locales comerciales', 'Refacciones, tabiquería liviana, pintura técnica y núcleos húmedos.'],
-  ['factory', 'Industrias de Neuquén', 'Infraestructura civil para plantas, naves y recintos técnicos.'],
+  ['business', 'Empresas', 'Trabajos civiles para empresas en Neuquén capital.'],
+  ['precision_manufacturing', 'Empresas', 'Trabajos civiles para empresas en Neuquén capital.'],
+  ['warehouse', 'Locales y comercios', 'Adecuaciones y reparaciones para locales y comercios.'],
+  ['storefront', 'Locales comerciales', 'Trabajos para locales comerciales.'],
+  ['factory', 'Infraestructura', 'Trabajos relacionados con construcción e infraestructura.'],
 ];
 
 const faqs = [
-  ['¿Cómo funciona el sistema sanitario con biodigestor en zonas sin red cloacal?', 'El biodigestor realiza un tratamiento primario anaeróbico de las aguas residuales, separa sólidos y líquidos y permite infiltrar el efluente tratado según el tipo de suelo.'],
-  ['¿Qué factores influyen en el cómputo y cotización de una obra civil?', 'El presupuesto considera metros cuadrados, espesor y resistencia de hormigones o muros, accesibilidad, retiro de escombros y materiales solicitados.'],
-  ['¿Realizan tareas de impermeabilización sobre cubiertas existentes?', 'Sí. Relevamos filtraciones, grietas y pendientes para definir el tratamiento adecuado con membranas o sistemas elastoméricos.'],
-  ['¿Cómo se gestiona el plazo de ejecución en reformas de locales o bases activas?', 'Coordinamos cronogramas por etapas u horarios programados para no interferir con la operación del cliente.'],
+  ['¿Qué trabajos civiles realizan?', 'Realizamos albañilería, reparaciones, adecuaciones de locales, instalaciones y trabajos relacionados con construcción e infraestructura.'],
+  ['¿Realizan instalaciones?', 'Sí. Realizamos instalaciones relacionadas con obras y trabajos civiles.'],
+  ['¿Cómo se coordinan los trabajos en locales?', 'Coordinamos las tareas y los horarios con el cliente.'],
+  ['¿Tienen un trabajo realizado con biodigestor?', 'Sí. Instalación de sistema sanitario con biodigestor para el tratamiento de aguas residuales'],
 ];
 
 const faqBackgroundImage = url('/assets/imagen-seccion-preguntas.webp');
@@ -38,14 +38,14 @@ const faqBackgroundImage = url('/assets/imagen-seccion-preguntas.webp');
 
 <Layout
   title="Obras y Trabajos Civiles en Neuquén | SIBJ"
-  description="Obras civiles, reformas y saneamiento para empresas en Neuquén. Ejecutamos adecuaciones edilicias y soluciones sanitarias con rigor técnico."
+  description="Albañilería, reparaciones, adecuaciones de locales, instalaciones y trabajos relacionados con construcción e infraestructura en Neuquén."
   ogTitle="Obras y Trabajos Civiles en Neuquén | SIBJ"
   ogDescription="Obras civiles, reformas y saneamiento para empresas en Neuquén. Ejecutamos adecuaciones edilicias y soluciones sanitarias con rigor técnico."
   ogImage="/assets/civiles.jpeg"
   ogImageAlt="Técnico de SIBJ realizando trabajos civiles en Neuquén"
   ogImageWidth={1280}
   ogImageHeight={960}
-  service={{ name: "Obras y Trabajos Civiles", description: "Ejecutamos obras civiles con rigor técnico, adecuación integral de espacios comerciales y soluciones sanitarias avanzadas con biodigestores para plantas y bases operativas." }}
+  service={{ name: "Obras y Trabajos Civiles", description: "Albañilería, reparaciones, adecuaciones de locales, instalaciones y trabajos relacionados con construcción e infraestructura en Neuquén capital." }}
   faqItems={faqs.map(([question, answer]) => ({ question, answer }))}
 >
   <div class="service-page">
@@ -67,10 +67,10 @@ const faqBackgroundImage = url('/assets/imagen-seccion-preguntas.webp');
         <div class="min-w-0 w-full flex flex-col items-start">
           <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded bg-surface-container border border-outline-variant text-label-sm text-primary mb-4">
             <span class="material-symbols-outlined text-secondary text-sm" aria-hidden="true">apartment</span>
-            Servicios Industriales & Edilicios
+            Obras y trabajos civiles
           </span>
-          <h1 id="obras-hero-title" class="w-full max-w-4xl text-4xl lg:text-5xl font-headline-lg font-extrabold text-primary tracking-tight leading-tight mb-5">Obras civiles, reformas y saneamiento para empresas en Neuquén</h1>
-          <p class="text-body-lg text-on-surface-variant mb-8 max-w-3xl">Ejecutamos obras civiles con rigor técnico, adecuación integral de espacios comerciales y soluciones sanitarias avanzadas con biodigestores para plantas y bases operativas.</p>
+          <h1 id="obras-hero-title" class="w-full max-w-4xl text-4xl lg:text-5xl font-headline-lg font-extrabold text-primary tracking-tight leading-tight mb-5">Obras y trabajos civiles para locales, comercios y empresas en Neuquén</h1>
+          <p class="text-body-lg text-on-surface-variant mb-8 max-w-3xl">Albañilería, reparaciones, adecuaciones de locales, instalaciones y trabajos relacionados con construcción e infraestructura.</p>
           <div class="flex flex-col sm:flex-row gap-4 w-full sm:w-auto mb-8">
             <a class="cta-button-whatsapp bg-secondary-container hover:bg-secondary text-on-secondary font-label-md px-6 py-3.5 rounded flex items-center justify-center gap-3 transition-all shadow-sm" href={getWhatsAppLink('Hola SIBJ, necesito presupuesto para Obras y Trabajos Civiles en Neuquén')} target="_blank" rel="noopener noreferrer">
               <img src={url('/assets/whatsapp.png')} alt="" aria-hidden="true" class="w-5 h-5 object-contain" width="20" height="20" />

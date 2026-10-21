@@ -7,12 +7,12 @@ interface Props {
   rubro: string;
   imagen: string;
   imagenAlt: string;
+  esTrabajo?: boolean;
 }
 
-const { etiqueta, texto, cargo, empresa, rubro, imagen, imagenAlt } = Astro.props;
+const { etiqueta, texto, cargo, empresa, rubro, imagen, imagenAlt, esTrabajo = false } = Astro.props;
 ---
 
-<!-- CONFIRMAR: real + autorización del cliente -->
 <div class="bg-surface-container-lowest border border-outline-variant/50 rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-all flex flex-col justify-between">
   <div class="relative h-52 w-full overflow-hidden bg-surface-container-low">
     <!-- TODO: Descargar la imagen correspondiente y colocarla en src/assets/ -->
@@ -23,21 +23,18 @@ const { etiqueta, texto, cargo, empresa, rubro, imagen, imagenAlt } = Astro.prop
   </div>
   <div class="p-space-lg flex flex-col flex-1 justify-between gap-4">
     <div>
-      <div class="flex items-center gap-1 text-secondary-container mb-3">
-        <span class="material-symbols-outlined text-lg" aria-hidden="true">star</span>
-        <span class="material-symbols-outlined text-lg" aria-hidden="true">star</span>
-        <span class="material-symbols-outlined text-lg" aria-hidden="true">star</span>
-        <span class="material-symbols-outlined text-lg" aria-hidden="true">star</span>
-        <span class="material-symbols-outlined text-lg" aria-hidden="true">star</span>
-      </div>
-      <p class="font-body-md text-body-md text-on-surface leading-relaxed italic mb-4">{texto}</p>
+      <p class:list={["font-body-md text-body-md text-on-surface leading-relaxed mb-4", { italic: !esTrabajo }]}>{texto}</p>
     </div>
     <div class="pt-4 border-t border-outline-variant/30 flex flex-col sm:flex-row sm:items-center justify-between gap-2">
-      <div class="flex flex-col">
-        <span class="font-headline-sm text-sm font-bold text-primary">{cargo}</span>
-        <span class="font-technical-code text-xs text-on-surface-variant">{empresa}</span>
-      </div>
-      <span class="font-technical-code text-xs px-2.5 py-1 rounded bg-surface-container-high text-primary font-semibold self-start sm:self-center">{etiqueta}</span>
+      {esTrabajo ? (
+        <span class="font-technical-code text-xs text-on-surface-variant">{etiqueta}</span>
+      ) : (
+        <div class="flex flex-col">
+          <span class="font-headline-sm text-sm font-bold text-primary">{cargo}</span>
+          <span class="font-technical-code text-xs text-on-surface-variant">{empresa}, {rubro}</span>
+        </div>
+      )}
+      {!esTrabajo && <span class="font-technical-code text-xs px-2.5 py-1 rounded bg-surface-container-high text-primary font-semibold self-start sm:self-center">{etiqueta}</span>}
     </div>
   </div>
 </div>
