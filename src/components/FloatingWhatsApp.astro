@@ -1,0 +1,13 @@
+---
+import { getWhatsAppLink, url } from '../data/site';
+---
+
+<a
+  class="floating-whatsapp"
+  href={getWhatsAppLink("Hola SIBJ, quisiera solicitar asistencia técnica")}
+  target="_blank"
+  rel="noopener noreferrer"
+  aria-label="Solicitar asistencia técnica por WhatsApp"
+>
+  <img src={url('/assets/whatsapp.png')} alt="" aria-hidden="true" width="28" height="28" />
+</a>

@@ -17,9 +17,9 @@ import { getWhatsAppLink, url } from '../data/site';
           Centralizamos el mantenimiento preventivo y correctivo, obras civiles y climatización para comercios, empresas e industrias con cobertura técnica integral 360°.
         </p>
         <div class="flex flex-col sm:flex-row items-stretch sm:items-center gap-space-md w-full pt-space-xs">
-          <a class="cta-button cta-button-dark inline-flex justify-center items-center gap-2 px-6 py-3.5 rounded-xl font-label-md text-label-md font-semibold border transition-all duration-150 focus:outline-none focus:ring-4 focus:ring-secondary-container/40" href={getWhatsAppLink("Hola SIBJ, requiero asistencia técnica")} rel="noopener noreferrer" target="_blank">
-            <img src={url('/assets/whatsapp.png')} alt="WhatsApp" class="w-5 h-5" width="20" height="20" />
-            <span>Contactenos</span>
+          <a class="cta-button cta-button-whatsapp inline-flex justify-center items-center gap-2 px-6 py-3.5 rounded-xl font-label-md text-label-md font-semibold border transition-all duration-150 focus:outline-none focus:ring-4 focus:ring-secondary-container/40" href={getWhatsAppLink("Hola SIBJ, requiero asistencia técnica")} rel="noopener noreferrer" target="_blank">
+            <img src={url('/assets/whatsapp.png')} alt="" aria-hidden="true" class="w-5 h-5" width="20" height="20" />
+            <span>Contáctenos</span>
           </a>
         </div>
         <div class="grid grid-cols-2 sm:grid-cols-4 gap-space-sm pt-space-lg border-t border-outline-variant/30 w-full mt-2">
@@ -39,7 +39,10 @@ import { getWhatsAppLink, url } from '../data/site';
       </div>
       <div class="lg:col-span-5 relative mt-6 lg:mt-0">
         <div class="relative rounded-xl overflow-hidden">
-          <img src={url('/assets/hero-industrial.jpg')} alt="Personal técnico industrial SIBJ realizando mantenimiento y monitoreo en tableros y plantas de climatización" class="w-full h-[460px] object-cover object-center" width="600" height="460" />
+          <picture>
+            <source srcset={url('/assets/hero-industrial.webp')} type="image/webp" />
+            <img src={url('/assets/hero-industrial.jpg')} alt="Personal técnico industrial SIBJ realizando mantenimiento y monitoreo en tableros y plantas de climatización" class="w-full h-[460px] object-cover object-center" width="600" height="460" fetchpriority="high" />
+          </picture>
         </div>
       </div>
     </div>

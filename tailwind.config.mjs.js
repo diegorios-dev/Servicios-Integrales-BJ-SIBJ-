@@ -31,7 +31,7 @@ export default {
         "on-background": "#111c2d",
         "surface-tint": "#4f5f78",
         "primary-container": "#0f2137",
-        "secondary-container": "#fd651e",
+        "secondary-container": "#a73a00",
         "error-container": "#ffdad6",
         "surface-container-highest": "#d8e3fb",
         "on-secondary": "#ffffff",

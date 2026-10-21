@@ -1,6 +1,4 @@
 ---
-import { Image } from 'astro:assets';
-
 interface Props {
   titulo: string;
   etiqueta: string;
@@ -21,7 +19,7 @@ const isTestimonialCard = Boolean(image);
   <div class="bg-surface-container-lowest border border-outline-variant/50 rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-all flex flex-col justify-between">
     <div class="relative h-52 w-full overflow-hidden bg-surface-container-low">
       <!-- TODO: Descargar la imagen correspondiente y colocarla en src/assets/ -->
-      <img src={image} alt={imageAlt || titulo} class="w-full h-full object-cover object-center" />
+      <img src={image} alt={imageAlt || titulo} class="w-full h-full object-cover object-center" width="800" height="520" loading="lazy" />
       <div class="absolute top-3 left-3">
         <span class="font-technical-code text-xs px-2.5 py-1 rounded bg-primary-container text-white font-bold shadow">{badge}</span>
       </div>
@@ -29,11 +27,11 @@ const isTestimonialCard = Boolean(image);
     <div class="p-space-lg flex flex-col flex-1 justify-between gap-4">
       <div>
         <div class="flex items-center gap-1 text-secondary-container mb-3">
-          <span class="material-symbols-outlined text-lg">star</span>
-          <span class="material-symbols-outlined text-lg">star</span>
-          <span class="material-symbols-outlined text-lg">star</span>
-          <span class="material-symbols-outlined text-lg">star</span>
-          <span class="material-symbols-outlined text-lg">star</span>
+          <span class="material-symbols-outlined text-lg" aria-hidden="true">star</span>
+          <span class="material-symbols-outlined text-lg" aria-hidden="true">star</span>
+          <span class="material-symbols-outlined text-lg" aria-hidden="true">star</span>
+          <span class="material-symbols-outlined text-lg" aria-hidden="true">star</span>
+          <span class="material-symbols-outlined text-lg" aria-hidden="true">star</span>
         </div>
         <p class="font-body-md text-body-md text-on-surface leading-relaxed italic mb-4">{descripcion}</p>
       </div>
@@ -54,7 +52,7 @@ const isTestimonialCard = Boolean(image);
           {etiqueta}
         </span>
         <div class="w-12 h-12 rounded-lg bg-surface-container-low flex items-center justify-center text-primary-container">
-          <span class="material-symbols-outlined text-2xl">{icono}</span>
+          <span class="material-symbols-outlined text-2xl" aria-hidden="true">{icono}</span>
         </div>
       </div>
       <h3 class="font-headline-md text-headline-md text-primary mb-3">
@@ -64,7 +62,7 @@ const isTestimonialCard = Boolean(image);
       <ul class="space-y-3 mb-6">
         {items.map((item) => (
           <li class="flex items-start gap-2.5">
-            <span class="material-symbols-outlined text-secondary-container text-lg mt-0.5">check_circle</span>
+            <span class="material-symbols-outlined text-secondary-container text-lg mt-0.5" aria-hidden="true">check_circle</span>
             <span class="font-body-sm text-body-sm text-on-surface">{item}</span>
           </li>
         ))}
@@ -72,7 +70,7 @@ const isTestimonialCard = Boolean(image);
     </div>
     <div class="pt-4 border-t border-outline-variant/30 flex items-center justify-between font-technical-code text-technical-code">
       <a class="text-secondary-container font-bold hover:underline inline-flex items-center gap-1 focus:outline-none focus:ring-2 focus:ring-secondary-container rounded p-1" href={href}>
-        Ver servicio de {titulo} <span class="material-symbols-outlined text-sm">arrow_forward</span>
+        Ver servicio de {titulo} <span class="material-symbols-outlined text-sm" aria-hidden="true">arrow_forward</span>
       </a>
     </div>
   </div>

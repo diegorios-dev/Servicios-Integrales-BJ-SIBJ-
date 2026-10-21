@@ -31,13 +31,98 @@
   }
 
   .cta-button-whatsapp {
-    background-color: #c2410c !important;
-    border-color: #c2410c !important;
+    background-color: #15803d !important;
+    border-color: #15803d !important;
     color: #ffffff !important;
   }
 
   .cta-button-whatsapp:hover {
-    background-color: #9a3412 !important;
+    background-color: #166534 !important;
+  }
+
+  .cta-button-whatsapp:active {
+    background-color: #14532d !important;
+  }
+
+  .cta-button-whatsapp:focus-visible,
+  .cta-button:focus-visible,
+  .floating-whatsapp:focus-visible {
+    outline: 3px solid #facc15;
+    outline-offset: 3px;
+  }
+
+  .floating-whatsapp {
+    position: fixed;
+    right: max(1rem, env(safe-area-inset-right));
+    bottom: max(1rem, env(safe-area-inset-bottom));
+    z-index: 60;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 3.5rem;
+    height: 3.5rem;
+    border: 2px solid #ffffff;
+    border-radius: 9999px;
+    background: #15803d;
+    box-shadow: 0 8px 24px rgb(0 0 0 / 25%);
+    transition: background-color 150ms ease, transform 150ms ease;
+  }
+
+  .floating-whatsapp:hover {
+    background: #166534;
+    transform: translateY(-2px);
+  }
+
+  .coverage-map {
+    position: relative;
+    min-height: 15rem;
+    overflow: hidden;
+    border: 1px solid rgb(255 255 255 / 20%);
+    border-radius: 1rem;
+    background: linear-gradient(135deg, #172b45, #0f2137);
+  }
+
+  .coverage-line {
+    position: absolute;
+    top: 50%;
+    right: 10%;
+    left: 10%;
+    height: 2px;
+    background: #15803d;
+    transform: rotate(-12deg);
+  }
+
+  .coverage-point {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: #ffffff;
+    font-weight: 700;
+  }
+
+  .coverage-point::before {
+    display: block;
+    width: 0.75rem;
+    height: 0.75rem;
+    border: 3px solid #ffffff;
+    border-radius: 9999px;
+    background: #15803d;
+    content: '';
+  }
+
+  .coverage-point-neuquen { top: 33%; left: 14%; }
+  .coverage-point-parque { top: 22%; left: 42%; }
+  .coverage-point-cipolletti { top: 65%; left: 28%; }
+  .coverage-point-anelo { top: 22%; right: 10%; }
+
+  @media (max-width: 640px) {
+    .coverage-map { min-height: 19rem; }
+    .coverage-point { font-size: 0.875rem; }
+    .coverage-point-neuquen { top: 25%; left: 7%; }
+    .coverage-point-parque { top: 44%; left: 34%; }
+    .coverage-point-cipolletti { top: 70%; left: 7%; }
+    .coverage-point-anelo { top: 15%; right: 5%; }
   }
 }
 

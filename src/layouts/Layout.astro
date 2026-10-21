@@ -2,6 +2,7 @@
 import { siteConfig, url } from '../data/site';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
+import FloatingWhatsApp from '../components/FloatingWhatsApp.astro';
 import '../styles/global.css';
 
 interface Props {
@@ -12,32 +13,43 @@ interface Props {
 }
 
 const {
-  title = "Mantenimiento Industrial y Climatización en Neuquén | SIBJ",
-  description = "Mantenimiento industrial, HVAC y climatización comercial en Neuquén, Añelo y Vaca Muerta. Electricidad, obras civiles y asistencia técnica para empresas.",
+  title = "Mantenimiento Industrial y HVAC en Neuquén | SIBJ",
+  description = "Mantenimiento industrial, HVAC y climatización en Neuquén, Cipolletti y Añelo. Solicitá asistencia técnica para tu empresa.",
   canonical,
-  ogImage = `${siteConfig.url}assets/og-image.jpg`,
+  ogImage = `${siteConfig.url}assets/logo1.png`,
 } = Astro.props;
 
 const canonicalUrl = canonical ?? new URL(Astro.url.pathname, siteConfig.url).toString();
 
 const jsonLd = {
   "@context": "https://schema.org",
-  "@type": "HomeAndConstructionBusiness",
+  "@type": "HVACBusiness",
   "name": siteConfig.name,
   "alternateName": siteConfig.shortName,
   "url": siteConfig.url,
   "telephone": siteConfig.telephoneDisplay,
   "email": siteConfig.email,
+  "logo": `${siteConfig.url}assets/logo1.png`,
+  "serviceType": [
+    "Mantenimiento industrial",
+    "HVAC y climatización",
+    "Mantenimiento edilicio",
+    "Electricidad y tableros",
+    "Obras y trabajos civiles"
+  ],
   "address": {
     "@type": "PostalAddress",
     "addressLocality": siteConfig.city,
     "addressRegion": siteConfig.region,
     "addressCountry": siteConfig.addressCountry
   },
-  "areaServed": {
-    "@type": "City",
-    "name": siteConfig.city
-  },
+  "areaServed": [
+    { "@type": "City", "name": "Neuquén" },
+    { "@type": "Place", "name": "Parque Industrial de Neuquén" },
+    { "@type": "City", "name": "Cipolletti" },
+    { "@type": "City", "name": "Añelo" },
+    { "@type": "Place", "name": "Vaca Muerta" }
+  ],
   "openingHoursSpecification": [
     {
       "@type": "OpeningHoursSpecification",
@@ -95,5 +107,6 @@ const jsonLd = {
     <slot />
   </main>
   <Footer />
+  <FloatingWhatsApp />
 </body>
 </html>
