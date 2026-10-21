@@ -18,7 +18,7 @@ export default {
         "surface-container": "#e7eeff",
         "on-surface": "#111c2d",
         "on-error-container": "#93000a",
-        "on-primary-container": "#7889a4",
+        "on-primary-container": "#c4d2e9",
         "surface-dim": "#cfdaf2",
         "on-secondary-fixed-variant": "#7f2b00",
         "outline-variant": "#c4c6cd",

@@ -28,7 +28,7 @@ import { siteConfig, getWhatsAppLink, url } from '../data/site';
           
           <div class="space-y-4">
             <!-- Teléfono -->
-            <a class="flex items-start gap-3 p-3 rounded-lg bg-surface-container-low/10 hover:bg-surface-container-low/20 transition-colors focus:outline-none focus:ring-2 focus:ring-secondary-container" href={`tel:${siteConfig.telephoneRaw}`}>
+            <a class="touch-target flex items-start gap-3 p-3 rounded-lg bg-surface-container-low/10 hover:bg-surface-container-low/20 transition-colors focus:outline-none focus:ring-2 focus:ring-secondary-container" href={`tel:${siteConfig.telephoneRaw}`} aria-label={`Llamar al ${siteConfig.telephoneDisplay}`}>
               <span class="material-symbols-outlined text-secondary-container text-2xl mt-0.5" aria-hidden="true">call</span>
               <div>
                 <span class="font-technical-code text-xs text-surface-variant block uppercase font-bold">Teléfono</span>
@@ -46,7 +46,7 @@ import { siteConfig, getWhatsAppLink, url } from '../data/site';
             </a>
             
             <!-- Email -->
-            <a class="flex items-start gap-3 p-3 rounded-lg bg-surface-container-low/10 hover:bg-surface-container-low/20 transition-colors focus:outline-none focus:ring-2 focus:ring-secondary-container" href={`mailto:${siteConfig.email}`}>
+            <a class="touch-target flex items-start gap-3 p-3 rounded-lg bg-surface-container-low/10 hover:bg-surface-container-low/20 transition-colors focus:outline-none focus:ring-2 focus:ring-secondary-container" href={`mailto:${siteConfig.email}`} aria-label={`Enviar un correo a ${siteConfig.email}`}>
               <span class="material-symbols-outlined text-secondary-container text-2xl mt-0.5" aria-hidden="true">mail</span>
               <div>
                 <span class="font-technical-code text-xs text-surface-variant block uppercase font-bold">Email Institucional</span>

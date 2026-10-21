@@ -27,7 +27,7 @@ const isCurrent = (path: string) => currentPath === new URL(url(path), Astro.url
           <a class="text-on-surface-variant font-label-md text-label-md hover:text-secondary-container transition-colors duration-150 inline-flex items-center gap-1 py-2 focus:outline-none focus:ring-2 focus:ring-secondary-container rounded" href={url('/#servicios')}>
             Servicios
           </a>
-          <button type="button" class="dropdown-toggle text-on-surface-variant p-2 focus:outline-none focus:ring-2 focus:ring-secondary-container rounded" aria-label="Mostrar servicios" aria-expanded="false" aria-controls="services-menu">
+          <button type="button" class="dropdown-toggle touch-target text-on-surface-variant p-2 focus:outline-none focus:ring-2 focus:ring-secondary-container rounded" aria-label="Mostrar servicios" aria-expanded="false" aria-controls="services-menu">
             <span class="material-symbols-outlined text-sm" aria-hidden="true">expand_more</span>
           </button>
         </div>
@@ -44,7 +44,7 @@ const isCurrent = (path: string) => currentPath === new URL(url(path), Astro.url
 
     <!-- Trailing Action Group -->
     <div class="flex items-center gap-space-md">
-      <a class="hidden lg:flex items-center gap-2 font-technical-code text-technical-code text-on-surface-variant hover:text-primary transition-colors focus:outline-none focus:ring-2 focus:ring-secondary-container rounded p-1" href={`tel:${siteConfig.telephoneRaw}`}>
+      <a class="hidden lg:flex touch-target items-center gap-2 font-technical-code text-technical-code text-on-surface-variant hover:text-primary transition-colors focus:outline-none focus:ring-2 focus:ring-secondary-container rounded p-1" href={`tel:${siteConfig.telephoneRaw}`} aria-label={`Llamar al ${siteConfig.telephoneDisplay}`}>
         <span class="material-symbols-outlined text-secondary-container text-base" data-icon="phone" aria-hidden="true">phone</span>
         <span class="font-semibold">{siteConfig.telephoneDisplay}</span>
       </a>
