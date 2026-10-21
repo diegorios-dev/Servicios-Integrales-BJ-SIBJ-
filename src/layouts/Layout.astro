@@ -6,69 +6,104 @@ import FloatingWhatsApp from '../components/FloatingWhatsApp.astro';
 import '../styles/global.css';
 
 interface Props {
-  title?: string;
-  description?: string;
-  canonical?: string;
+  title: string;
+  description: string;
+  ogTitle?: string;
+  ogDescription?: string;
   ogImage?: string;
+  ogImageAlt?: string;
+  ogImageWidth?: number;
+  ogImageHeight?: number;
+  service?: {
+    name: string;
+    description: string;
+  };
+  faqItems?: Array<{
+    question: string;
+    answer: string;
+  }>;
 }
 
 const {
-  title = "Mantenimiento Industrial y HVAC en Neuquén | SIBJ",
-  description = "Mantenimiento industrial, HVAC y climatización en Neuquén, Cipolletti y Añelo. Solicitá asistencia técnica para tu empresa.",
-  canonical,
-  ogImage = `${siteConfig.url}assets/logo1.png`,
+  title,
+  description,
+  ogTitle = title,
+  ogDescription = description,
+  ogImage,
+  ogImageAlt = "Logo de Servicios Integrales BJ",
+  ogImageWidth = 862,
+  ogImageHeight = 841,
+  service,
+  faqItems = [],
 } = Astro.props;
 
-const canonicalUrl = canonical ?? new URL(Astro.url.pathname, siteConfig.url).toString();
+const siteRoot = new URL(import.meta.env.BASE_URL, Astro.site);
+const basePath = siteRoot.pathname.endsWith('/') ? siteRoot.pathname : `${siteRoot.pathname}/`;
+const routePath = Astro.url.pathname.startsWith(basePath)
+  ? Astro.url.pathname.slice(basePath.length)
+  : Astro.url.pathname.replace(/^\/+/, '');
+const absoluteUrl = (path: string) => new URL(path.replace(/^\/+/, ''), siteRoot).toString();
+const canonicalUrl = absoluteUrl(routePath);
+const logoUrl = absoluteUrl('assets/logo1.png');
+const socialImageUrl = ogImage ? absoluteUrl(ogImage) : logoUrl;
 
 const jsonLd = {
   "@context": "https://schema.org",
-  "@type": "HVACBusiness",
+  "@type": "ProfessionalService",
   "name": siteConfig.name,
-  "alternateName": siteConfig.shortName,
-  "url": siteConfig.url,
-  "telephone": siteConfig.telephoneDisplay,
-  "email": siteConfig.email,
-  "logo": `${siteConfig.url}assets/logo1.png`,
-  "serviceType": [
-    "Mantenimiento industrial",
-    "HVAC y climatización",
-    "Mantenimiento edilicio",
-    "Electricidad y tableros",
-    "Obras y trabajos civiles"
-  ],
-  "address": {
-    "@type": "PostalAddress",
-    "addressLocality": siteConfig.city,
-    "addressRegion": siteConfig.region,
-    "addressCountry": siteConfig.addressCountry
-  },
+  "url": absoluteUrl(''),
+  "logo": logoUrl,
+  "telephone": "+54 9 299 462 2512",
   "areaServed": [
     { "@type": "City", "name": "Neuquén" },
     { "@type": "Place", "name": "Parque Industrial de Neuquén" },
     { "@type": "City", "name": "Cipolletti" },
     { "@type": "City", "name": "Añelo" },
     { "@type": "Place", "name": "Vaca Muerta" }
-  ],
-  "openingHoursSpecification": [
-    {
-      "@type": "OpeningHoursSpecification",
-      "dayOfWeek": siteConfig.openingHours.days,
-      "opens": siteConfig.openingHours.opens,
-      "closes": siteConfig.openingHours.closes
-    }
-  ],
-  "hasOfferCatalog": {
-    "@type": "OfferCatalog",
-    "name": "Servicios Técnicos Integrales",
-    "itemListElement": [
-      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Climatización y Refrigeración" } },
-      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Mantenimiento Edilicio" } },
-      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Electricidad y Tableros" } },
-      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Obras y Trabajos Civiles" } }
-    ]
-  }
+  ]
 };
+
+const serviceJsonLd = service
+  ? {
+      "@context": "https://schema.org",
+      "@type": "Service",
+      "name": service.name,
+      "description": service.description,
+      "url": canonicalUrl,
+      "provider": {
+        "@type": "ProfessionalService",
+        "name": siteConfig.name,
+        "url": absoluteUrl(''),
+        "telephone": "+54 9 299 462 2512"
+      },
+    }
+  : null;
+
+const breadcrumbJsonLd = service
+  ? {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Inicio", "item": absoluteUrl('') },
+        { "@type": "ListItem", "position": 2, "name": "Servicios", "item": absoluteUrl('#servicios') },
+        { "@type": "ListItem", "position": 3, "name": service.name, "item": canonicalUrl }
+      ]
+    }
+  : null;
+
+const faqJsonLd = faqItems.length
+  ? {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": faqItems.map(({ question, answer }) => ({
+        "@type": "Question",
+        "name": question,
+        "acceptedAnswer": { "@type": "Answer", "text": answer }
+      }))
+    }
+  : null;
+
+const structuredData = [jsonLd, serviceJsonLd, breadcrumbJsonLd, faqJsonLd].filter(Boolean);
 ---
 
 <!DOCTYPE html>
@@ -78,20 +113,28 @@ const jsonLd = {
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>{title}</title>
   <meta name="description" content={description}>
+  <meta name="theme-color" content="#000919">
   
-  <meta property="og:title" content={siteConfig.name}>
-  <meta property="og:description" content="Soluciones técnicas integrales para empresas, comercios e industrias.">
+  <meta property="og:title" content={ogTitle}>
+  <meta property="og:description" content={ogDescription}>
   <meta property="og:type" content="website">
   <link rel="canonical" href={canonicalUrl}>
   <meta property="og:url" content={canonicalUrl}>
   <meta property="og:locale" content="es_AR">
   <meta property="og:site_name" content={siteConfig.shortName}>
-  <meta property="og:image" content={ogImage}>
+  <meta property="og:image" content={socialImageUrl}>
+  <meta property="og:image:alt" content={ogImageAlt}>
+  <meta property="og:image:width" content={ogImageWidth}>
+  <meta property="og:image:height" content={ogImageHeight}>
   <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content={ogTitle}>
+  <meta name="twitter:description" content={ogDescription}>
+  <meta name="twitter:image" content={socialImageUrl}>
 
-  <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
+  {structuredData.map((schema) => <script type="application/ld+json" set:html={JSON.stringify(schema)} />)}
 
   <link rel="icon" type="image/svg+xml" href={url('/favicon.svg')}>
+  <link rel="sitemap" href={absoluteUrl('sitemap-index.xml')}>
 
   <!-- Google Fonts: Hanken Grotesk & Manrope -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -99,11 +142,12 @@ const jsonLd = {
   <link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:ital,wght@0,300..900;1,300..900&family=Manrope:wght@300..800&display=swap" rel="stylesheet">
   
   <!-- Material Symbols Outlined -->
-  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL@20..48,100..700,0..1&icon_names=ac_unit,apartment,arrow_forward,assignment_turned_in,badge,business,call,check_circle,chevron_right,cleaning_services,corporate_fare,construction,design_services,domain,door_front,electrical_services,engineering,expand_more,factory,file_open,format_paint,grid_goldenratio,grid_view,handyman,location_on,local_shipping,mail,mode_fan,offline_bolt,oil_barrel,phone,plumbing,precision_manufacturing,propane_tank,ramp_right,recycling,roofing,schedule,schema,search_check,security,shield,square_foot,star,store,storefront,sync,toggle_on,troubleshoot,umbrella,verified,verified_user,water_damage,warehouse&display=swap" rel="stylesheet">
 </head>
 <body class="bg-background text-on-surface antialiased selection:bg-secondary-container selection:text-on-primary">
+  <a class="skip-link" href="#contenido">Saltar al contenido</a>
   <Header />
-  <main>
+  <main id="contenido">
     <slot />
   </main>
   <Footer />

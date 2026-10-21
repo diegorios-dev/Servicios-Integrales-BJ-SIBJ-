@@ -1,5 +1,8 @@
 ---
 import { siteConfig, getWhatsAppLink, url } from '../data/site';
+
+const currentPath = Astro.url.pathname;
+const isCurrent = (path: string) => currentPath === new URL(url(path), Astro.url).pathname;
 ---
 
 <header class="bg-surface-container-lowest sticky top-0 z-50 shadow-sm w-full">
@@ -15,8 +18,8 @@ import { siteConfig, getWhatsAppLink, url } from '../data/site';
     </a>
 
     <!-- Desktop Navigation Links -->
-    <nav class="hidden md:flex items-center gap-space-lg" aria-label="Navegación principal">
-      <a class="text-secondary-container border-b-2 border-secondary-container pb-1 font-label-md text-label-md focus:outline-none focus:ring-2 focus:ring-secondary-container" href={url('/')}>Inicio</a>
+    <nav class="hidden md:flex items-center gap-space-lg" aria-label="Principal">
+      <a class="text-secondary-container border-b-2 border-secondary-container pb-1 font-label-md text-label-md focus:outline-none focus:ring-2 focus:ring-secondary-container" href={url('/')} aria-current={isCurrent('/') ? 'page' : undefined}>Inicio</a>
       
       <!-- Desplegable de Servicios con soporte de teclado y hover -->
       <div class="relative group">
@@ -29,10 +32,10 @@ import { siteConfig, getWhatsAppLink, url } from '../data/site';
           </button>
         </div>
         <div id="services-menu" class="dropdown-menu absolute left-0 top-full hidden group-hover:block group-focus-within:block bg-surface-container-lowest shadow-lg rounded-xl border border-outline-variant/40 py-2 w-64 z-50">
-          <a class="block px-4 py-2 text-sm text-on-surface hover:bg-surface-container-low transition-colors" href={url('/climatizacion-refrigeracion-neuquen')}>Climatización y Refrigeración</a>
-          <a class="block px-4 py-2 text-sm text-on-surface hover:bg-surface-container-low transition-colors" href={url('/mantenimiento-edilicio-neuquen')}>Mantenimiento Edilicio</a>
-          <a class="block px-4 py-2 text-sm text-on-surface hover:bg-surface-container-low transition-colors" href={url('/electricidad-tableros-neuquen')}>Electricidad y Tableros</a>
-          <a class="block px-4 py-2 text-sm text-on-surface hover:bg-surface-container-low transition-colors" href={url('/obras-trabajos-civiles-neuquen')}>Obras y Trabajos Civiles</a>
+          <a class="block px-4 py-2 text-sm text-on-surface hover:bg-surface-container-low transition-colors" href={url('/climatizacion-refrigeracion-neuquen')} aria-current={isCurrent('/climatizacion-refrigeracion-neuquen') ? 'page' : undefined}>Climatización y Refrigeración</a>
+          <a class="block px-4 py-2 text-sm text-on-surface hover:bg-surface-container-low transition-colors" href={url('/mantenimiento-edilicio-neuquen')} aria-current={isCurrent('/mantenimiento-edilicio-neuquen') ? 'page' : undefined}>Mantenimiento Edilicio</a>
+          <a class="block px-4 py-2 text-sm text-on-surface hover:bg-surface-container-low transition-colors" href={url('/electricidad-tableros-neuquen')} aria-current={isCurrent('/electricidad-tableros-neuquen') ? 'page' : undefined}>Electricidad y Tableros</a>
+          <a class="block px-4 py-2 text-sm text-on-surface hover:bg-surface-container-low transition-colors" href={url('/obras-trabajos-civiles-neuquen')} aria-current={isCurrent('/obras-trabajos-civiles-neuquen') ? 'page' : undefined}>Obras y Trabajos Civiles</a>
         </div>
       </div>
 
@@ -52,10 +55,22 @@ import { siteConfig, getWhatsAppLink, url } from '../data/site';
 
 <script>
   document.querySelectorAll<HTMLButtonElement>('.dropdown-toggle').forEach((toggle) => {
+    const menu = toggle.closest('.group')?.querySelector<HTMLElement>('.dropdown-menu');
     toggle.addEventListener('click', () => {
       const expanded = toggle.getAttribute('aria-expanded') === 'true';
       toggle.setAttribute('aria-expanded', String(!expanded));
-      toggle.nextElementSibling?.classList.toggle('hidden', expanded);
+      if (menu) {
+        menu.hidden = expanded;
+      }
+    });
+    document.addEventListener('keydown', (event) => {
+      if (event.key === 'Escape') {
+        toggle.setAttribute('aria-expanded', 'false');
+        if (menu) {
+          menu.hidden = true;
+        }
+        toggle.focus();
+      }
     });
   });
 </script>

@@ -12,20 +12,26 @@ import { servicesData, pillarsData, testimonialsData } from '../data/services';
 
 <Layout
   title="Mantenimiento Industrial y HVAC en Neuquén | SIBJ"
-  description="Mantenimiento industrial, HVAC y climatización en Neuquén, Cipolletti y Añelo. Solicitá asistencia técnica para tu empresa."
+  description="Mantenimiento industrial, HVAC y climatización para empresas de Neuquén, Cipolletti y Añelo. Coordiná asistencia técnica especializada con SIBJ."
+  ogTitle="Mantenimiento Industrial y HVAC en Neuquén | SIBJ"
+  ogDescription="Mantenimiento industrial, HVAC y climatización para empresas de Neuquén, Cipolletti y Añelo. Coordiná asistencia técnica especializada con SIBJ."
+  ogImage="/assets/hero-industrial.jpg"
+  ogImageAlt="Personal técnico industrial realizando mantenimiento para SIBJ"
+  ogImageWidth={862}
+  ogImageHeight={841}
 >
   <Hero />
 
   <!-- SERVICIOS SECTION -->
-  <section class="py-space-2xl bg-surface" id="servicios">
+  <section class="py-space-2xl bg-surface" id="servicios" aria-labelledby="services-title">
     <div class="max-w-7xl mx-auto px-margin-mobile md:px-margin">
       <!-- Section Header -->
       <div class="flex flex-col md:flex-row md:items-end justify-between mb-space-2xl border-b border-outline-variant/30 pb-space-lg">
         <div class="max-w-2xl">
-          <span class="font-technical-code text-technical-code text-secondary-container font-bold uppercase tracking-wider block mb-1">
+          <p class="font-technical-code text-technical-code text-secondary-container font-bold uppercase tracking-wider block mb-1">
             Módulos Especializados
-          </span>
-          <h2 class="font-headline-xl text-headline-xl text-primary">
+          </p>
+          <h2 id="services-title" class="font-headline-xl text-headline-xl text-primary">
             Servicios integrales de mantenimiento industrial
           </h2>
           <p class="font-body-md text-body-md text-on-surface-variant mt-2">
@@ -51,14 +57,14 @@ import { servicesData, pillarsData, testimonialsData } from '../data/services';
   </section>
 
   <!-- POR QUÉ ELEGIRNOS SECTION -->
-  <section class="py-space-2xl bg-surface-container-low border-y border-outline-variant/30" id="nosotros">
+  <section class="py-space-2xl bg-surface-container-low border-y border-outline-variant/30" id="nosotros" aria-labelledby="about-title">
     <div class="max-w-7xl mx-auto px-margin-mobile md:px-margin">
       <!-- Section Intro -->
       <div class="max-w-3xl mb-space-2xl">
-        <span class="font-technical-code text-technical-code text-secondary-container font-bold uppercase tracking-wider block mb-1">
+        <p class="font-technical-code text-technical-code text-secondary-container font-bold uppercase tracking-wider block mb-1">
           Propuesta de Valor Corporativa
-        </span>
-        <h2 class="font-headline-xl text-headline-xl text-primary">
+        </p>
+        <h2 id="about-title" class="font-headline-xl text-headline-xl text-primary">
           Climatización industrial en Añelo y Vaca Muerta
         </h2>
         <p class="font-body-lg text-body-lg text-on-surface-variant mt-2">
@@ -85,7 +91,7 @@ import { servicesData, pillarsData, testimonialsData } from '../data/services';
   <section class="coverage-section py-space-2xl bg-primary text-white" id="cobertura" aria-labelledby="coverage-title">
     <div class="max-w-7xl mx-auto px-margin-mobile md:px-margin">
       <div class="max-w-3xl mb-space-xl">
-        <span class="font-technical-code text-technical-code text-secondary-container font-bold uppercase tracking-wider block mb-1">Cobertura operativa</span>
+        <p class="font-technical-code text-technical-code text-secondary-fixed font-bold uppercase tracking-wider block mb-1">Cobertura operativa</p>
         <h2 id="coverage-title" class="font-headline-xl text-headline-xl text-white">Zona de cobertura</h2>
         <p class="font-body-md text-on-primary-container mt-2">Coordinamos servicios técnicos para empresas en los principales puntos del Alto Valle y Vaca Muerta.</p>
       </div>
@@ -100,11 +106,11 @@ import { servicesData, pillarsData, testimonialsData } from '../data/services';
   </section>
 
   <!-- TESTIMONIOS SECTION (Independiente y sin duplicación en servicios) -->
-  <section class="bg-surface border-b border-outline-variant/30 py-space-2xl">
+  <section class="bg-surface border-b border-outline-variant/30 py-space-2xl" aria-labelledby="testimonials-title">
     <div class="max-w-7xl mx-auto px-margin-mobile md:px-margin text-center">
       <div class="max-w-3xl mb-space-xl text-center mx-auto">
-        <span class="font-technical-code text-technical-code text-secondary-container font-bold uppercase tracking-wider block mb-1">Casos de Éxito y Testimonios</span>
-        <h2 class="font-headline-xl text-headline-xl text-primary">Testimonios de Clientes</h2>
+        <p class="font-technical-code text-technical-code text-secondary-container font-bold uppercase tracking-wider block mb-1">Casos de Éxito y Testimonios</p>
+        <h2 id="testimonials-title" class="font-headline-xl text-headline-xl text-primary">Testimonios de Clientes</h2>
         <p class="font-body-md text-body-md text-on-surface-variant mt-2">Empresas y organizaciones que confían en nuestras soluciones técnicas para garantizar la continuidad operativa de sus instalaciones.</p>
       </div>
       <div class="grid grid-cols-1 md:grid-cols-2 gap-8 w-full text-left">

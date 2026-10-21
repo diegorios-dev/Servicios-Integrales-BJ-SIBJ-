@@ -16,7 +16,7 @@ const { etiqueta, texto, cargo, empresa, rubro, imagen, imagenAlt } = Astro.prop
 <div class="bg-surface-container-lowest border border-outline-variant/50 rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-all flex flex-col justify-between">
   <div class="relative h-52 w-full overflow-hidden bg-surface-container-low">
     <!-- TODO: Descargar la imagen correspondiente y colocarla en src/assets/ -->
-    <img src={imagen} alt={imagenAlt} class="w-full h-full object-cover object-center" width="800" height="520" loading="lazy" />
+    <img src={imagen} alt={imagenAlt} class="w-full h-full object-cover object-center" width="800" height="520" loading="lazy" decoding="async" />
     <div class="absolute top-3 left-3">
       <span class="font-technical-code text-xs px-2.5 py-1 rounded bg-primary-container text-white font-bold shadow">{rubro}</span>
     </div>

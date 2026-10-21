@@ -44,7 +44,7 @@ export const servicesData: ServiceItem[] = [
   {
     title: "Electricidad y Tableros",
     tag: "ELECTROTECNIA",
-    icon: "bolt",
+    icon: "",
     description: "Instalaciones y mantenimiento eléctrico integral para garantizar continuidad operativa y resguardo de maquinaria.",
     items: [
       "Diagnóstico integral de fallas electromecánicas y cortocircuitos.",
@@ -95,7 +95,7 @@ export const pillarsData: PillarItem[] = [
   },
   {
     number: "03 // AGILIDAD",
-    icon: "speed",
+    icon: "",
     title: "Respuesta Rápida para Empresas",
     text: "Atención dedicada con unidades móviles equipadas para comercios, plantas industriales, centros logísticos y oficinas corporativas de alta demanda."
   }

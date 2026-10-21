@@ -2,10 +2,10 @@
 import { siteConfig, getWhatsAppLink, url } from '../data/site';
 ---
 
-<section class="bg-[#ea580c] text-white py-space-xl full-width">
+<section class="bg-[#ea580c] text-white py-space-xl full-width" aria-labelledby="cta-title">
   <div class="max-w-7xl mx-auto px-margin-mobile md:px-margin flex flex-col md:flex-row items-center justify-between gap-6">
     <div>
-      <h2 class="font-headline-lg text-2xl md:text-3xl font-extrabold tracking-tight text-white">¿Necesitás asistencia técnica ahora?</h2>
+      <h2 id="cta-title" class="font-headline-lg text-2xl md:text-3xl font-extrabold tracking-tight text-white">¿Necesitás asistencia técnica ahora?</h2>
       <p class="font-body-md text-white/90 mt-1">Atención ágil para comercios e industrias.</p>
     </div>
     <a href={getWhatsAppLink("Hola SIBJ, necesito asistencia técnica ahora")} target="_blank" rel="noopener noreferrer" class="cta-button-whatsapp inline-flex items-center gap-3 px-6 py-3.5 rounded-xl font-label-md font-bold transition-all duration-150 shadow-md shrink-0">
