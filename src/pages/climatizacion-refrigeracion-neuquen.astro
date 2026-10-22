@@ -3,10 +3,10 @@ import Layout from '../layouts/Layout.astro';
 import { getWhatsAppLink, url } from '../data/site';
 
 const services = [
-  ['mode_fan', 'Aire acondicionado', 'Mantenimiento y atención de equipos de aire acondicionado para locales, comercios y empresas.', 'Climatización'],
-  ['ac_unit', 'Cámaras y precámaras de frío', 'Atención de equipos y espacios destinados a la conservación de productos.', 'Refrigeración'],
-  ['search_check', 'Detección de fugas', 'Localización de fugas en equipos y circuitos de refrigeración.', 'Diagnóstico'],
-  ['propane_tank', 'Carga de refrigerante', 'Carga de refrigerante según las necesidades del equipo.', 'Refrigeración'],
+  ['mode_fan', 'Service y mantenimiento de aire acondicionado', 'Mantenimiento y atención de equipos de aire acondicionado para locales, comercios y empresas.', 'Climatización'],
+  ['ac_unit', 'Reparación de cámaras y precámaras de frío', 'Atención de equipos y espacios destinados a la conservación de productos.', 'Refrigeración'],
+  ['search_check', 'Detección y reparación de fugas', 'Localización de fugas en equipos y circuitos de refrigeración.', 'Diagnóstico'],
+  ['propane_tank', 'Carga de gas refrigerante', 'Carga de refrigerante según las necesidades del equipo.', 'Refrigeración'],
   ['cleaning_services', 'Mantenimiento de condensadoras y evaporadoras', 'Limpieza y mantenimiento de condensadoras y evaporadoras.', 'Mantenimiento'],
   ['engineering', 'Diagnóstico y reparación de fallas', 'Diagnóstico y reparación de fallas en equipos de climatización y refrigeración.', 'Reparación'],
 ];
@@ -16,6 +16,14 @@ const steps = [
   ['02', 'Relevamiento técnico', 'Inspeccionamos el equipo, tomamos parámetros operativos y confeccionamos la cotización.'],
   ['03', 'Ejecución de trabajos', 'Realizamos el servicio conforme a las normas de seguridad y con repuestos adecuados.'],
   ['04', 'Entrega y seguimiento', 'Verificamos el funcionamiento, documentamos la intervención y acordamos el seguimiento.'],
+];
+
+const faqs = [
+  ['¿Cómo se coordina una visita?', 'Podés contactarnos por WhatsApp para compartir el requerimiento, los datos del equipamiento y coordinar una visita en Neuquén.'],
+  ['¿Qué incluye el relevamiento técnico?', 'Inspeccionamos el equipo, tomamos parámetros operativos y confeccionamos la cotización.'],
+  ['¿Qué tipos de equipos atienden?', 'Atendemos equipos de aire acondicionado, cámaras y precámaras de frío, condensadoras y evaporadoras.'],
+  ['¿Cuál es la diferencia entre mantenimiento preventivo y correctivo?', 'El mantenimiento preventivo se realiza de forma programada para conservar el funcionamiento del equipo; el correctivo aborda fallas que requieren diagnóstico y reparación.'],
+  ['¿Realizan detección de fugas y carga de gas refrigerante?', 'Sí, realizamos detección y reparación de fugas y carga de gas refrigerante según las necesidades del equipo.'],
 ];
 ---
 
@@ -29,6 +37,7 @@ const steps = [
   ogImageWidth={1448}
   ogImageHeight={1086}
   service={{ name: "Climatización y Refrigeración", description: "Aire acondicionado, cámaras y precámaras de frío, detección de fugas, carga de refrigerante, mantenimiento de condensadoras y evaporadoras, y diagnóstico y reparación de fallas en Neuquén." }}
+  faqItems={faqs.map(([question, answer]) => ({ question, answer }))}
 >
   <div class="service-page">
   <nav aria-label="Miga de pan" class="bg-surface border-b border-outline-variant/40">
@@ -43,28 +52,28 @@ const steps = [
     </div>
   </nav>
 
-  <section class="relative bg-surface py-12 md:py-16 lg:py-20 border-b border-outline-variant/60" aria-labelledby="clima-hero-title">
+  <section class="clima-hero relative bg-surface py-10 md:py-14 lg:py-16 border-b border-outline-variant/60" aria-labelledby="clima-hero-title">
     <div class="max-w-7xl mx-auto px-margin-mobile md:px-margin">
-      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
-        <div class="lg:col-span-6 flex flex-col gap-6">
+      <div class="grid grid-cols-1 md:grid-cols-12 gap-8 lg:gap-12 items-center">
+        <div class="md:col-span-6 flex flex-col gap-5">
           <h1 id="clima-hero-title" class="font-headline-lg text-headline-xl-mobile md:text-headline-lg text-primary font-extrabold tracking-tight">Climatización y refrigeración para locales, comercios y empresas en Neuquén</h1>
           <p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl leading-relaxed">Aire acondicionado, cámaras y precámaras de frío, mantenimiento y reparación de fallas para locales, comercios y empresas.</p>
-          <div class="pt-2 flex flex-col sm:flex-row items-stretch sm:items-center gap-4">
+          <div class="pt-1 flex flex-col sm:flex-row items-stretch sm:items-center gap-3">
             <a class="cta-button-whatsapp bg-secondary-container hover:bg-[#EA580C] text-on-secondary px-6 py-3.5 rounded-lg font-label-md text-label-md flex items-center justify-center gap-3 shadow-md hover:shadow-lg transition-all active:scale-95" href={getWhatsAppLink('Hola SIBJ, necesito presupuesto para Climatización y Refrigeración en Neuquén')} target="_blank" rel="noopener noreferrer">
               <img src={url('/assets/whatsapp.png')} alt="" aria-hidden="true" class="w-5 h-5 object-contain" width="20" height="20" />
               <span>Pedir presupuesto por WhatsApp</span>
             </a>
             <a class="bg-surface-container-lowest border border-outline-variant hover:border-primary text-primary px-5 py-3.5 rounded-lg font-label-md text-label-md text-center transition-colors" href="tel:+5492994622512">Llamar: +54 9 299 462-2512</a>
           </div>
-          <div class="pt-4 grid grid-cols-1 sm:grid-cols-3 gap-3 border-t border-outline-variant/40">
-            <div class="flex items-center gap-2.5 p-2 bg-surface-container-lowest rounded-lg border border-outline-variant/60"><span class="material-symbols-outlined text-[20px] text-secondary" aria-hidden="true">business</span><span class="font-label-md text-xs text-on-surface">Atención a empresas</span></div>
-            <div class="flex items-center gap-2.5 p-2 bg-surface-container-lowest rounded-lg border border-outline-variant/60"><span class="material-symbols-outlined text-[20px] text-secondary" aria-hidden="true">location_on</span><span class="font-label-md text-xs text-on-surface">Cobertura en Neuquén</span></div>
-            <div class="flex items-center gap-2.5 p-2 bg-surface-container-lowest rounded-lg border border-outline-variant/60"><span class="material-symbols-outlined text-[20px] text-secondary" aria-hidden="true">shield</span><span class="font-label-md text-xs text-on-surface">Normas de seguridad</span></div>
+          <div class="pt-3 grid grid-cols-1 sm:grid-cols-3 gap-2 border-t border-outline-variant/40">
+            <div class="flex items-center gap-2.5 p-2.5 bg-surface-container-lowest rounded-lg border border-outline-variant/60"><span class="material-symbols-outlined text-[20px] text-secondary" aria-hidden="true">business</span><span class="font-label-md text-xs text-on-surface">Atención a empresas</span></div>
+            <div class="flex items-center gap-2.5 p-2.5 bg-surface-container-lowest rounded-lg border border-outline-variant/60"><span class="material-symbols-outlined text-[20px] text-secondary" aria-hidden="true">location_on</span><span class="font-label-md text-xs text-on-surface">Cobertura en Neuquén</span></div>
+            <div class="flex items-center gap-2.5 p-2.5 bg-surface-container-lowest rounded-lg border border-outline-variant/60"><span class="material-symbols-outlined text-[20px] text-secondary" aria-hidden="true">shield</span><span class="font-label-md text-xs text-on-surface">Normas de seguridad</span></div>
           </div>
         </div>
-        <div class="lg:col-span-6">
-          <div class="relative rounded-xl overflow-hidden border border-outline-variant bg-surface-container-lowest shadow-sm">
-            <img src={url('/assets/climatizacion.png')} alt="Técnico de SIBJ realizando mantenimiento en sistemas de climatización" class="w-full h-[420px] sm:h-[500px] lg:h-[560px] object-cover object-center" width="800" height="560" fetchpriority="high" />
+        <div class="md:col-span-6">
+          <div class="relative rounded-2xl overflow-hidden border border-outline-variant bg-surface-container-lowest shadow-lg">
+            <img src={url('/assets/climatizacion.png')} alt="Técnico de SIBJ realizando mantenimiento en sistemas de climatización" class="w-full h-[320px] sm:h-[420px] md:h-[500px] object-cover object-center" width="800" height="560" fetchpriority="high" />
           </div>
         </div>
       </div>
@@ -91,6 +100,76 @@ const steps = [
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
         {steps.map(([number, title, description]) => <div class="bg-surface-container-lowest p-6 rounded-xl border border-outline-variant"><span class="text-4xl font-headline-lg font-extrabold text-secondary/30 mb-2 block">{number}</span><h3 class="font-label-md text-label-md text-primary mb-2">{title}</h3><p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed">{description}</p></div>)}
       </div>
+    </div>
+  </section>
+
+  <section class="py-16 md:py-20 bg-surface-container-lowest border-b border-outline-variant/60" aria-labelledby="clima-coverage-title">
+    <div class="max-w-7xl mx-auto px-margin-mobile md:px-margin">
+      <div class="max-w-3xl">
+        <p class="font-label-sm uppercase tracking-wider text-secondary font-bold">Cobertura local</p>
+        <h2 id="clima-coverage-title" class="font-headline-lg text-headline-md md:text-headline-lg text-primary font-bold mt-1">Climatización en Neuquén</h2>
+        <p class="font-body-md text-body-md text-on-surface-variant mt-2">Atendemos locales, comercios y empresas en Neuquén capital.</p>
+        <!-- TODO: Confirmar con el cliente las localidades adicionales antes de publicarlas. -->
+      </div>
+    </div>
+  </section>
+
+  <section class="py-16 md:py-20 bg-surface border-b border-outline-variant/60" aria-labelledby="clima-cases-title">
+    <div class="max-w-7xl mx-auto px-margin-mobile md:px-margin">
+      <div class="max-w-3xl mb-12">
+        <p class="font-label-sm uppercase tracking-wider text-secondary font-bold">Casos y testimonios</p>
+        <h2 id="clima-cases-title" class="font-headline-lg text-headline-md md:text-headline-lg text-primary font-bold mt-1">Trabajos y clientes</h2>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <figure class="bg-surface-container-lowest border border-outline-variant/60 rounded-xl p-6">
+          <blockquote class="font-body-md text-body-md text-on-surface leading-relaxed">
+            <!-- TODO: Incorporar únicamente una cita autorizada por Mostaza. -->
+          </blockquote>
+          <figcaption class="mt-5 pt-4 border-t border-outline-variant/40 font-body-sm text-body-sm text-on-surface-variant">
+            Alex Ugarte, responsable de mantenimiento, Mostaza (Neuquén y Comodoro).
+          </figcaption>
+        </figure>
+        <figure class="bg-surface-container-lowest border border-outline-variant/60 rounded-xl p-6">
+          <blockquote class="font-body-md text-body-md text-on-surface leading-relaxed">
+            <!-- TODO: Completar la descripción autorizada del trabajo realizado para Mada s.r.l. (biodigestor). -->
+          </blockquote>
+          <figcaption class="mt-5 pt-4 border-t border-outline-variant/40 font-body-sm text-body-sm text-on-surface-variant">
+            Trabajo realizado para Mada s.r.l.: biodigestor.
+          </figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-16 md:py-20 bg-surface-container-lowest border-b border-outline-variant/60" aria-labelledby="clima-faq-title">
+    <div class="max-w-4xl mx-auto px-margin-mobile md:px-margin">
+      <div class="text-center max-w-2xl mx-auto mb-12">
+        <p class="font-label-sm uppercase tracking-wider text-secondary font-bold">Preguntas frecuentes</p>
+        <h2 id="clima-faq-title" class="font-headline-lg text-headline-md md:text-headline-lg text-primary font-bold mt-1">Preguntas frecuentes sobre climatización</h2>
+      </div>
+      <div class="space-y-4">
+        {faqs.map(([question, answer]) => (
+          <details class="bg-surface border border-outline-variant/60 rounded-xl overflow-hidden shadow-sm">
+            <summary class="min-h-11 w-full px-6 py-4 flex items-center justify-between gap-4 text-label-md text-primary cursor-pointer list-none">
+              <span>{question}</span>
+              <span class="material-symbols-outlined text-secondary" aria-hidden="true">expand_more</span>
+            </summary>
+            <div class="px-6 pb-5 text-body-md text-on-surface-variant border-t border-outline-variant/20 pt-3">{answer}</div>
+          </details>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="py-12 bg-surface border-b border-outline-variant/60" aria-labelledby="clima-related-title">
+    <div class="max-w-7xl mx-auto px-margin-mobile md:px-margin">
+      <h2 id="clima-related-title" class="font-headline-lg text-headline-md text-primary font-bold">Otros servicios para tu empresa</h2>
+      <p class="font-body-md text-body-md text-on-surface-variant mt-2">
+        Para complementar el mantenimiento de tu local, también podés consultar nuestros servicios de
+        <a class="text-secondary font-bold underline underline-offset-2" href={url('/electricidad-tableros-neuquen')}>Electricidad y Tableros</a>
+        y
+        <a class="text-secondary font-bold underline underline-offset-2" href={url('/mantenimiento-edilicio-neuquen')}>Mantenimiento Edilicio</a>.
+      </p>
     </div>
   </section>
 

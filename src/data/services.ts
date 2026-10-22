@@ -121,13 +121,12 @@ export const testimonialsData: TestimonialItem[] = [
     category: "Testimonio real"
   },
   {
-    quote: "Instalación de sistema sanitario con biodigestor para el tratamiento de aguas residuales",
+    quote: "Le instalamos sistema sanitario biodigestor, para tratamiento de agua residuales.",
     author: "Daniel González",
-    role: "Propietario de la empresa",
-    badge: "Mada S.R.L.",
-    image: url("/assets/biodigestor.png"),
+    role: "Mada s.r.l.",
+    badge: "Testimonio real",
+    image: url("/assets/biodigestor.webp"),
     imageAlt: "Instalación de sistema de tratamiento y drenaje hidrosanitario",
-    category: "Obras y Trabajos Civiles",
-    isWork: true
+    category: "Obras y Trabajos Civiles"
   }
 ];

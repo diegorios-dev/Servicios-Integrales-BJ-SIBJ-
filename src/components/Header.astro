@@ -6,16 +6,27 @@ const isCurrent = (path: string) => currentPath === new URL(url(path), Astro.url
 ---
 
 <header class="bg-surface-container-lowest sticky top-0 z-50 shadow-sm w-full">
-  <div class="max-w-7xl mx-auto px-margin-mobile md:px-margin flex justify-between items-center h-20 w-full">
+  <div class="max-w-7xl mx-auto px-margin-mobile md:px-margin flex justify-between items-center h-16 md:h-20 w-full">
     
     <!-- Brand Logo / Product Identifier -->
     <a class="flex items-center gap-space-sm group focus:outline-none focus:ring-2 focus:ring-secondary-container rounded-lg p-1" href={url('/')}>
-      <img src={url('/assets/logo1.png')} alt="SIBJ Logo" class="h-10 w-10 object-contain rounded-lg" width="40" height="40" />
+      <img src={url('/assets/logo1.png')} alt="SIBJ Logo" class="h-9 w-9 md:h-10 md:w-10 object-contain rounded-lg" width="40" height="40" />
       <div class="flex flex-col">
         <span class="font-headline-md text-headline-md tracking-tight font-extrabold text-primary">{siteConfig.name}</span>
         <span class="font-technical-code text-technical-code text-on-surface-variant text-xs -mt-1 hidden sm:block">&nbsp; &nbsp; Mantenimiento Técnico Corporativo</span>
       </div>
     </a>
+
+    <button
+      type="button"
+      class="md:hidden touch-target inline-flex items-center justify-center rounded-lg text-primary focus:outline-none focus:ring-2 focus:ring-secondary-container"
+      aria-label="Abrir menú de navegación"
+      aria-expanded="false"
+      aria-controls="mobile-navigation"
+      data-mobile-menu-toggle
+    >
+      <span class="material-symbols-outlined text-2xl" aria-hidden="true">menu</span>
+    </button>
 
     <!-- Desktop Navigation Links -->
     <nav class="hidden md:flex items-center gap-space-lg" aria-label="Principal">
@@ -51,6 +62,22 @@ const isCurrent = (path: string) => currentPath === new URL(url(path), Astro.url
     </div>
 
   </div>
+
+  <nav id="mobile-navigation" class="hidden md:hidden border-t border-outline-variant/40 bg-surface-container-lowest" aria-label="Navegación móvil">
+    <div class="max-w-7xl mx-auto px-margin-mobile py-2 flex flex-col gap-1">
+      <div class="grid grid-cols-2 gap-1">
+        <a class="mobile-navigation-link" href={url('/')} aria-current={isCurrent('/') ? 'page' : undefined}>Inicio</a>
+        <a class="mobile-navigation-link" href={url('/#contacto')}>Contacto</a>
+      </div>
+      <p class="px-3 pt-1 pb-0.5 text-label-sm uppercase tracking-wide text-on-surface-variant">Servicios</p>
+      <div class="grid grid-cols-2 gap-1">
+        <a class="mobile-navigation-link" href={url('/climatizacion-refrigeracion-neuquen')}>Climatización y Refrigeración</a>
+        <a class="mobile-navigation-link" href={url('/mantenimiento-edilicio-neuquen')}>Mantenimiento Edilicio</a>
+        <a class="mobile-navigation-link" href={url('/electricidad-tableros-neuquen')}>Electricidad y Tableros</a>
+        <a class="mobile-navigation-link" href={url('/obras-trabajos-civiles-neuquen')}>Obras y Trabajos Civiles</a>
+      </div>
+    </div>
+  </nav>
 </header>
 
 <script>
@@ -71,6 +98,24 @@ const isCurrent = (path: string) => currentPath === new URL(url(path), Astro.url
         }
         toggle.focus();
       }
+    });
+  });
+
+  const mobileMenuToggle = document.querySelector<HTMLButtonElement>('[data-mobile-menu-toggle]');
+  const mobileNavigation = document.querySelector<HTMLElement>('#mobile-navigation');
+
+  mobileMenuToggle?.addEventListener('click', () => {
+    const expanded = mobileMenuToggle.getAttribute('aria-expanded') === 'true';
+    mobileMenuToggle.setAttribute('aria-expanded', String(!expanded));
+    mobileMenuToggle.setAttribute('aria-label', expanded ? 'Abrir menú de navegación' : 'Cerrar menú de navegación');
+    mobileNavigation?.classList.toggle('hidden', expanded);
+  });
+
+  mobileNavigation?.querySelectorAll('a').forEach((link) => {
+    link.addEventListener('click', () => {
+      mobileMenuToggle?.setAttribute('aria-expanded', 'false');
+      mobileMenuToggle?.setAttribute('aria-label', 'Abrir menú de navegación');
+      mobileNavigation.classList.add('hidden');
     });
   });
 </script>

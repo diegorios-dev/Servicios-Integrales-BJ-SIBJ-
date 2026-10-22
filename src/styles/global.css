@@ -2,6 +2,37 @@
 @tailwind components;
 @tailwind utilities;
 
+:root {
+  --ui-content-max: 80rem;
+  --ui-section-space: clamp(3.5rem, 7vw, 6rem);
+  --ui-card-radius: 1rem;
+  --ui-control-min: 2.75rem;
+  --ui-focus: #facc15;
+  --ui-shadow-soft: 0 0.75rem 2rem rgb(15 33 55 / 8%);
+  --ui-shadow-hover: 0 1rem 2.5rem rgb(15 33 55 / 14%);
+}
+
+html {
+  text-rendering: optimizeLegibility;
+}
+
+body {
+  min-width: 20rem;
+  font-family: 'Manrope', sans-serif;
+  font-size: 1rem;
+  line-height: 1.6;
+  letter-spacing: -0.005em;
+}
+
+:where(a, button, summary):focus-visible {
+  outline: 3px solid var(--ui-focus);
+  outline-offset: 4px;
+}
+
+:where(button, summary) {
+  cursor: pointer;
+}
+
 .material-symbols-outlined {
   font-family: 'Material Symbols Outlined', 'Segoe UI Symbol', sans-serif;
   font-weight: 400;
@@ -36,20 +67,131 @@
   transform: translateY(0);
 }
 
-a:focus-visible,
-button:focus-visible,
-summary:focus-visible {
-  outline: 3px solid #facc15;
-  outline-offset: 3px;
-}
-
 .custom-ring:focus-within {
   box-shadow: 0 0 0 2px #ea580c;
 }
 
 @layer components {
+  .max-w-7xl {
+    max-width: var(--ui-content-max);
+  }
+
+  .service-page > section,
+  main > section {
+    scroll-margin-top: 5.5rem;
+  }
+
+  .service-page > section:not(.service-page section:first-child),
+  main > section {
+    content-visibility: auto;
+    contain-intrinsic-size: 0 32rem;
+  }
+
+  #servicios .grid > div,
+  #confianza .grid > article {
+    border-radius: var(--ui-card-radius);
+    box-shadow: var(--ui-shadow-soft);
+    transition: border-color 160ms ease, box-shadow 160ms ease, transform 160ms ease;
+  }
+
+  #servicios .grid > div:hover,
+  #servicios .grid > div:hover,
+  #confianza .grid > article:hover {
+    box-shadow: var(--ui-shadow-hover);
+    transform: translateY(-2px);
+  }
+
+  .service-page h1,
+  #hero-title {
+    max-width: 18ch;
+    text-wrap: balance;
+    letter-spacing: -0.035em;
+  }
+
+  .clima-hero h1 {
+    max-width: 22ch;
+  }
+
+  .clima-hero img {
+    display: block;
+  }
+
+  .service-page h2,
+  .service-page h3,
+  main h2,
+  main h3 {
+    text-wrap: balance;
+  }
+
+  .service-page p,
+  main p {
+    text-wrap: pretty;
+    line-height: 1.65;
+  }
+
+  .service-page h2,
+  main h2 {
+    letter-spacing: -0.03em;
+  }
+
+  .service-page h3,
+  main h3 {
+    letter-spacing: -0.02em;
+  }
+
+  .service-page .font-label-sm,
+  .service-page .font-technical-code,
+  main .font-label-sm,
+  main .font-technical-code {
+    letter-spacing: 0.055em;
+  }
+
+  .service-page nav a,
+  .service-page summary,
+  .cta-button,
+  .cta-button-whatsapp,
+  .floating-whatsapp,
+  footer a,
+  header a,
+  header button {
+    min-height: var(--ui-control-min);
+  }
+
+  .service-page nav a,
+  footer a,
+  header a {
+    display: inline-flex;
+    align-items: center;
+  }
+
+  .mobile-navigation-link {
+    min-height: var(--ui-control-min);
+    display: flex;
+    align-items: center;
+    padding: 0.5rem 0.625rem;
+    border-radius: 0.5rem;
+    color: var(--color-primary, #000919);
+    font-family: 'Hanken Grotesk', sans-serif;
+    font-size: 0.8125rem;
+    line-height: 1.1rem;
+    font-weight: 600;
+    letter-spacing: -0.01em;
+  }
+
+  .mobile-navigation-link:hover,
+  .mobile-navigation-link[aria-current='page'] {
+    background: #f0f3ff;
+    color: #a73a00;
+  }
+
+  .service-page summary {
+    display: flex;
+    align-items: center;
+  }
+
   .cta-button {
-    min-height: 2.75rem;
+    min-width: var(--ui-control-min);
+    padding-inline: 1.25rem;
     border-radius: 0.5rem;
     font-weight: 700;
   }
@@ -83,6 +225,14 @@ summary:focus-visible {
   .floating-whatsapp:focus-visible {
     outline: 3px solid #facc15;
     outline-offset: 3px;
+  }
+
+  .cta-button-whatsapp {
+    box-shadow: 0 0.5rem 1rem rgb(21 128 61 / 20%);
+  }
+
+  .cta-button-whatsapp:hover {
+    box-shadow: 0 0.75rem 1.25rem rgb(21 128 61 / 28%);
   }
 
   .floating-whatsapp {
@@ -133,6 +283,30 @@ summary:focus-visible {
     background: linear-gradient(135deg, #172b45, #0f2137);
   }
 
+  .service-page .grid,
+  #servicios .grid,
+  #confianza .grid {
+    align-items: stretch;
+  }
+
+  .service-page details > summary {
+    min-height: var(--ui-control-min);
+    gap: 1rem;
+  }
+
+  .service-page details > summary::-webkit-details-marker {
+    display: none;
+  }
+
+  .service-page details[open] > summary {
+    border-bottom: 1px solid rgb(196 198 205 / 60%);
+  }
+
+  .service-page .service-page,
+  main > section > .max-w-7xl {
+    width: 100%;
+  }
+
   .coverage-line {
     position: absolute;
     top: 50%;
@@ -167,11 +341,38 @@ summary:focus-visible {
   .coverage-point-anelo { top: 22%; right: 10%; }
 
   @media (max-width: 640px) {
+    .clima-hero {
+      padding-top: 2.5rem;
+      padding-bottom: 2.5rem;
+    }
+
+    .service-page h1,
+    #hero-title {
+      max-width: 100%;
+    }
+
+    #servicios .grid > div,
+    #confianza .grid > article {
+      transform: none;
+    }
+
     .coverage-map { min-height: 19rem; }
     .coverage-point { font-size: 0.875rem; }
     .coverage-point-neuquen { top: 25%; left: 7%; }
     .coverage-point-parque { top: 44%; left: 34%; }
     .coverage-point-anelo { top: 15%; right: 5%; }
+  }
+
+  @media (prefers-reduced-motion: no-preference) {
+    .cta-button,
+    .cta-button-whatsapp,
+    .floating-whatsapp,
+    a,
+    button,
+    summary {
+      transition-duration: 160ms;
+      transition-timing-function: ease-out;
+    }
   }
 
   @media (prefers-reduced-motion: reduce) {
@@ -189,32 +390,32 @@ summary:focus-visible {
 @layer components {
   .service-page h1 {
     font-family: 'Hanken Grotesk', sans-serif;
-    font-size: 2.25rem;
-    line-height: 2.75rem;
+    font-size: clamp(2.125rem, 5vw, 2.75rem);
+    line-height: 1.08;
     letter-spacing: -0.02em;
     font-weight: 800;
   }
 
   .service-page h2 {
     font-family: 'Hanken Grotesk', sans-serif;
-    font-size: 2.5rem;
-    line-height: 3rem;
+    font-size: clamp(2rem, 4vw, 2.75rem);
+    line-height: 1.12;
     letter-spacing: -0.025em;
     font-weight: 700;
   }
 
   .service-page h3 {
     font-family: 'Hanken Grotesk', sans-serif;
-    font-size: 1.5rem;
-    line-height: 2rem;
+    font-size: clamp(1.25rem, 2.4vw, 1.5rem);
+    line-height: 1.25;
     letter-spacing: -0.015em;
     font-weight: 600;
   }
 
   .service-page p {
     font-family: 'Manrope', sans-serif;
-    font-size: 1rem;
-    line-height: 1.5rem;
+    font-size: clamp(0.9375rem, 1.2vw, 1.0625rem);
+    line-height: 1.62;
     letter-spacing: 0;
     font-weight: 400;
   }
@@ -222,8 +423,8 @@ summary:focus-visible {
 
 @media (min-width: 1024px) {
   .service-page h1 {
-    font-size: 3.5rem;
-    line-height: 4rem;
+    font-size: clamp(3rem, 4.5vw, 3.75rem);
+    line-height: 1.04;
     letter-spacing: -0.03em;
   }
 }
