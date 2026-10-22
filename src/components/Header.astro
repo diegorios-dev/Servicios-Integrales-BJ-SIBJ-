@@ -19,13 +19,18 @@ const isCurrent = (path: string) => currentPath === new URL(url(path), Astro.url
 
     <button
       type="button"
-      class="md:hidden touch-target inline-flex items-center justify-center rounded-lg text-primary focus:outline-none focus:ring-2 focus:ring-secondary-container"
+      class="mobile-menu-toggle md:hidden touch-target inline-flex items-center justify-center rounded-lg text-primary focus:outline-none focus:ring-2 focus:ring-secondary-container"
       aria-label="Abrir menú de navegación"
       aria-expanded="false"
       aria-controls="mobile-navigation"
       data-mobile-menu-toggle
     >
-      <span class="material-symbols-outlined text-2xl" aria-hidden="true">menu</span>
+      <svg class="mobile-menu-icon mobile-menu-icon-open" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+        <path d="M4 7h16M4 12h16M4 17h16" />
+      </svg>
+      <svg class="mobile-menu-icon mobile-menu-icon-close" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+        <path d="M6 6l12 12M18 6L6 18" />
+      </svg>
     </button>
 
     <!-- Desktop Navigation Links -->
@@ -63,19 +68,36 @@ const isCurrent = (path: string) => currentPath === new URL(url(path), Astro.url
 
   </div>
 
-  <nav id="mobile-navigation" class="hidden md:hidden border-t border-outline-variant/40 bg-surface-container-lowest" aria-label="Navegación móvil">
-    <div class="max-w-7xl mx-auto px-margin-mobile py-2 flex flex-col gap-1">
-      <div class="grid grid-cols-2 gap-1">
-        <a class="mobile-navigation-link" href={url('/')} aria-current={isCurrent('/') ? 'page' : undefined}>Inicio</a>
-        <a class="mobile-navigation-link" href={url('/#contacto')}>Contacto</a>
+  <nav id="mobile-navigation" class="mobile-navigation md:hidden" aria-label="Navegación móvil" data-mobile-navigation>
+    <div class="max-w-7xl mx-auto px-margin-mobile py-4">
+      <div class="mobile-navigation-primary">
+        <a class="mobile-navigation-link mobile-navigation-primary-link" href={url('/')} aria-current={isCurrent('/') ? 'page' : undefined}>Inicio</a>
+        <a class="mobile-navigation-link mobile-navigation-primary-link" href={url('/#contacto')}>Contacto</a>
       </div>
-      <p class="px-3 pt-1 pb-0.5 text-label-sm uppercase tracking-wide text-on-surface-variant">Servicios</p>
-      <div class="grid grid-cols-2 gap-1">
-        <a class="mobile-navigation-link" href={url('/climatizacion-refrigeracion-neuquen')}>Climatización y Refrigeración</a>
-        <a class="mobile-navigation-link" href={url('/mantenimiento-edilicio-neuquen')}>Mantenimiento Edilicio</a>
-        <a class="mobile-navigation-link" href={url('/electricidad-tableros-neuquen')}>Electricidad y Tableros</a>
-        <a class="mobile-navigation-link" href={url('/obras-trabajos-civiles-neuquen')}>Obras y Trabajos Civiles</a>
+      <div class="mobile-navigation-divider" aria-hidden="true"></div>
+      <p class="mobile-navigation-label">Servicios</p>
+      <div class="mobile-navigation-services">
+        <a class="mobile-navigation-link mobile-navigation-service-link" href={url('/climatizacion-refrigeracion-neuquen')}>
+          <svg class="mobile-service-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 3v18M3 12h18M5.6 5.6l12.8 12.8M18.4 5.6L5.6 18.4" /></svg>
+          <span>Climatización y Refrigeración</span>
+        </a>
+        <a class="mobile-navigation-link mobile-navigation-service-link" href={url('/mantenimiento-edilicio-neuquen')}>
+          <svg class="mobile-service-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M4 20h16M6 20V9l6-5 6 5v11M9 20v-5h6v5M9 10h.01M15 10h.01" /></svg>
+          <span>Mantenimiento Edilicio</span>
+        </a>
+        <a class="mobile-navigation-link mobile-navigation-service-link" href={url('/electricidad-tableros-neuquen')}>
+          <svg class="mobile-service-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M13 2L5 13h6l-1 9 8-11h-6l1-9z" /></svg>
+          <span>Electricidad y Tableros</span>
+        </a>
+        <a class="mobile-navigation-link mobile-navigation-service-link" href={url('/obras-trabajos-civiles-neuquen')}>
+          <svg class="mobile-service-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M4 20h16M6 20V8h12v12M4 8l8-5 8 5M9 20v-5h6v5" /></svg>
+          <span>Obras y Trabajos Civiles</span>
+        </a>
       </div>
+      <a class="mobile-navigation-cta" href={getWhatsAppLink('Hola SIBJ, necesito pedir un presupuesto')} target="_blank" rel="noopener noreferrer">
+        <svg class="mobile-cta-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M20 11.5a8 8 0 0 1-11.8 7.1L4 20l1.4-4A8 8 0 1 1 20 11.5Z" /><path d="M8.5 9.2c.3 2 2.3 4 4.3 4.3l1.1-.9c.2-.2.5-.2.8-.1l1.3.6c.3.1.4.5.3.8-.4 1.2-1.4 1.8-2.7 1.5-3.5-.8-6.2-3.5-7-7-.3-1.3.3-2.3 1.5-2.7.3-.1.7 0 .8.3l.6 1.3c.1.3.1.6-.1.8l-.9 1.1Z" /></svg>
+        <span>Pedir presupuesto por WhatsApp</span>
+      </a>
     </div>
   </nav>
 </header>
@@ -108,14 +130,14 @@ const isCurrent = (path: string) => currentPath === new URL(url(path), Astro.url
     const expanded = mobileMenuToggle.getAttribute('aria-expanded') === 'true';
     mobileMenuToggle.setAttribute('aria-expanded', String(!expanded));
     mobileMenuToggle.setAttribute('aria-label', expanded ? 'Abrir menú de navegación' : 'Cerrar menú de navegación');
-    mobileNavigation?.classList.toggle('hidden', expanded);
+    mobileNavigation?.setAttribute('data-open', String(!expanded));
   });
 
   mobileNavigation?.querySelectorAll('a').forEach((link) => {
     link.addEventListener('click', () => {
       mobileMenuToggle?.setAttribute('aria-expanded', 'false');
       mobileMenuToggle?.setAttribute('aria-label', 'Abrir menú de navegación');
-      mobileNavigation.classList.add('hidden');
+      mobileNavigation.setAttribute('data-open', 'false');
     });
   });
 </script>
