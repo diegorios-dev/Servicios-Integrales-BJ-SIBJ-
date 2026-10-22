@@ -13,7 +13,7 @@ interface Props {
 const { etiqueta, texto, cargo, empresa, rubro, imagen, imagenAlt, esTrabajo = false } = Astro.props;
 ---
 
-<div class="bg-surface-container-lowest border border-outline-variant/50 rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-all flex flex-col justify-between">
+<div class="reveal bg-surface-container-lowest border border-outline-variant/50 rounded-xl overflow-hidden shadow-sm hover:shadow-md flex flex-col justify-between">
   <div class="relative h-52 w-full overflow-hidden bg-surface-container-low">
     <!-- TODO: Descargar la imagen correspondiente y colocarla en src/assets/ -->
     <img src={imagen} alt={imagenAlt} class="w-full h-full object-cover object-center" width="800" height="520" loading="lazy" decoding="async" />

@@ -25,6 +25,8 @@ const faqs = [
   ['¿Cuál es la diferencia entre mantenimiento preventivo y correctivo?', 'El mantenimiento preventivo se realiza de forma programada para conservar el funcionamiento del equipo; el correctivo aborda fallas que requieren diagnóstico y reparación.'],
   ['¿Realizan detección de fugas y carga de gas refrigerante?', 'Sí, realizamos detección y reparación de fugas y carga de gas refrigerante según las necesidades del equipo.'],
 ];
+
+const faqBackgroundImage = url('/assets/imagen-seccion-preguntas.webp');
 ---
 
 <Layout
@@ -103,45 +105,7 @@ const faqs = [
     </div>
   </section>
 
-  <section class="py-16 md:py-20 bg-surface-container-lowest border-b border-outline-variant/60" aria-labelledby="clima-coverage-title">
-    <div class="max-w-7xl mx-auto px-margin-mobile md:px-margin">
-      <div class="max-w-3xl">
-        <p class="font-label-sm uppercase tracking-wider text-secondary font-bold">Cobertura local</p>
-        <h2 id="clima-coverage-title" class="font-headline-lg text-headline-md md:text-headline-lg text-primary font-bold mt-1">Climatización en Neuquén</h2>
-        <p class="font-body-md text-body-md text-on-surface-variant mt-2">Atendemos locales, comercios y empresas en Neuquén capital.</p>
-        <!-- TODO: Confirmar con el cliente las localidades adicionales antes de publicarlas. -->
-      </div>
-    </div>
-  </section>
-
-  <section class="py-16 md:py-20 bg-surface border-b border-outline-variant/60" aria-labelledby="clima-cases-title">
-    <div class="max-w-7xl mx-auto px-margin-mobile md:px-margin">
-      <div class="max-w-3xl mb-12">
-        <p class="font-label-sm uppercase tracking-wider text-secondary font-bold">Casos y testimonios</p>
-        <h2 id="clima-cases-title" class="font-headline-lg text-headline-md md:text-headline-lg text-primary font-bold mt-1">Trabajos y clientes</h2>
-      </div>
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-        <figure class="bg-surface-container-lowest border border-outline-variant/60 rounded-xl p-6">
-          <blockquote class="font-body-md text-body-md text-on-surface leading-relaxed">
-            <!-- TODO: Incorporar únicamente una cita autorizada por Mostaza. -->
-          </blockquote>
-          <figcaption class="mt-5 pt-4 border-t border-outline-variant/40 font-body-sm text-body-sm text-on-surface-variant">
-            Alex Ugarte, responsable de mantenimiento, Mostaza (Neuquén y Comodoro).
-          </figcaption>
-        </figure>
-        <figure class="bg-surface-container-lowest border border-outline-variant/60 rounded-xl p-6">
-          <blockquote class="font-body-md text-body-md text-on-surface leading-relaxed">
-            <!-- TODO: Completar la descripción autorizada del trabajo realizado para Mada s.r.l. (biodigestor). -->
-          </blockquote>
-          <figcaption class="mt-5 pt-4 border-t border-outline-variant/40 font-body-sm text-body-sm text-on-surface-variant">
-            Trabajo realizado para Mada s.r.l.: biodigestor.
-          </figcaption>
-        </figure>
-      </div>
-    </div>
-  </section>
-
-  <section class="py-16 md:py-20 bg-surface-container-lowest border-b border-outline-variant/60" aria-labelledby="clima-faq-title">
+  <section class="py-16 md:py-20 border-b border-outline-variant/60" aria-labelledby="clima-faq-title" style={`background-image: linear-gradient(rgba(248, 246, 242, 0.28), rgba(248, 246, 242, 0.38)), url('${faqBackgroundImage}'); background-size: cover; background-position: center; background-repeat: no-repeat;`}>
     <div class="max-w-4xl mx-auto px-margin-mobile md:px-margin">
       <div class="text-center max-w-2xl mx-auto mb-12">
         <p class="font-label-sm uppercase tracking-wider text-secondary font-bold">Preguntas frecuentes</p>
@@ -149,7 +113,7 @@ const faqs = [
       </div>
       <div class="space-y-4">
         {faqs.map(([question, answer]) => (
-          <details class="bg-surface border border-outline-variant/60 rounded-xl overflow-hidden shadow-sm">
+          <details class="bg-surface-container-lowest/90 border border-outline-variant/60 rounded-xl overflow-hidden shadow-sm">
             <summary class="min-h-11 w-full px-6 py-4 flex items-center justify-between gap-4 text-label-md text-primary cursor-pointer list-none">
               <span>{question}</span>
               <span class="material-symbols-outlined text-secondary" aria-hidden="true">expand_more</span>
@@ -161,14 +125,14 @@ const faqs = [
     </div>
   </section>
 
-  <section class="py-12 bg-surface border-b border-outline-variant/60" aria-labelledby="clima-related-title">
+  <section class="py-12 bg-[#ea580c] border-b border-outline-variant/60" aria-labelledby="clima-related-title">
     <div class="max-w-7xl mx-auto px-margin-mobile md:px-margin">
-      <h2 id="clima-related-title" class="font-headline-lg text-headline-md text-primary font-bold">Otros servicios para tu empresa</h2>
-      <p class="font-body-md text-body-md text-on-surface-variant mt-2">
+      <h2 id="clima-related-title" class="font-headline-lg text-headline-md text-primary font-bold text-white">Otros servicios para tu empresa</h2>
+      <p class="font-body-md text-body-md text-on-surface-variant mt-2 text-white leading-relaxed">
         Para complementar el mantenimiento de tu local, también podés consultar nuestros servicios de
-        <a class="text-secondary font-bold underline underline-offset-2" href={url('/electricidad-tableros-neuquen')}>Electricidad y Tableros</a>
-        y
-        <a class="text-secondary font-bold underline underline-offset-2" href={url('/mantenimiento-edilicio-neuquen')}>Mantenimiento Edilicio</a>.
+        <a class="text-white font-bold underline underline-offset-2" href={url('/electricidad-tableros-neuquen')}> Electricidad y Tableros </a>
+        y 
+        <a class="text-white font-bold underline underline-offset-2" href={url('/mantenimiento-edilicio-neuquen')}> Mantenimiento Edilicio </a>.
       </p>
     </div>
   </section>

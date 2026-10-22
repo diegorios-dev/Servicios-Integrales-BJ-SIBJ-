@@ -10,10 +10,14 @@
   --ui-focus: #facc15;
   --ui-shadow-soft: 0 0.75rem 2rem rgb(15 33 55 / 8%);
   --ui-shadow-hover: 0 1rem 2.5rem rgb(15 33 55 / 14%);
+  --dur-fast: 200ms;
+  --dur-base: 500ms;
+  --ease-out: cubic-bezier(.22, 1, .36, 1);
 }
 
 html {
   text-rendering: optimizeLegibility;
+  scroll-behavior: smooth;
 }
 
 body {
@@ -22,6 +26,93 @@ body {
   font-size: 1rem;
   line-height: 1.6;
   letter-spacing: -0.005em;
+}
+
+.header-sentinel {
+  position: absolute;
+  top: 0;
+  width: 1px;
+  height: 1px;
+  pointer-events: none;
+}
+
+header {
+  position: relative;
+}
+
+header::after {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  height: 1px;
+  background: rgb(15 33 55 / 15%);
+  content: '';
+  opacity: 0;
+  transition: opacity var(--dur-fast) var(--ease-out);
+}
+
+header.is-scrolled::after {
+  opacity: 1;
+}
+
+.js .reveal,
+.js .hero-reveal {
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+.js .reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.js .reveal {
+  transition: opacity var(--dur-base) var(--ease-out), transform var(--dur-base) var(--ease-out) !important;
+}
+
+.js .hero-reveal {
+  animation: hero-in 280ms var(--ease-out) both;
+}
+
+.js .hero-reveal:nth-child(1) { animation-delay: 0ms; }
+.js .hero-reveal:nth-child(2) { animation-delay: 80ms; }
+.js .hero-reveal:nth-child(3) { animation-delay: 160ms; }
+.js .hero-reveal:nth-child(4) { animation-delay: 240ms; }
+
+@keyframes hero-in {
+  from { opacity: 0; transform: translateY(14px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.js .reveal.is-visible:nth-child(2) { transition-delay: 80ms; }
+.js .reveal.is-visible:nth-child(3) { transition-delay: 160ms; }
+.js .reveal.is-visible:nth-child(4) { transition-delay: 240ms; }
+
+.service-link .material-symbols-outlined {
+  transition: transform var(--dur-fast) var(--ease-out);
+}
+
+.service-link:hover .material-symbols-outlined,
+.service-link:focus-visible .material-symbols-outlined {
+  transform: translateX(4px);
+}
+
+details > summary .material-symbols-outlined {
+  transition: transform var(--dur-fast) var(--ease-out);
+}
+
+details[open] > summary .material-symbols-outlined {
+  transform: rotate(180deg);
+}
+
+details[open] > :not(summary) {
+  animation: faq-content-in var(--dur-fast) var(--ease-out);
+}
+
+@keyframes faq-content-in {
+  from { opacity: 0; transform: translateY(-6px); }
+  to { opacity: 1; transform: translateY(0); }
 }
 
 :where(a, button, summary):focus-visible {
@@ -81,17 +172,11 @@ body {
     scroll-margin-top: 5.5rem;
   }
 
-  .service-page > section:not(.service-page section:first-child),
-  main > section {
-    content-visibility: auto;
-    contain-intrinsic-size: 0 32rem;
-  }
-
   #servicios .grid > div,
   #confianza .grid > article {
     border-radius: var(--ui-card-radius);
     box-shadow: var(--ui-shadow-soft);
-    transition: border-color 160ms ease, box-shadow 160ms ease, transform 160ms ease;
+    transition: border-color var(--dur-fast) var(--ease-out), transform var(--dur-fast) var(--ease-out);
   }
 
   #servicios .grid > div:hover,
@@ -99,6 +184,14 @@ body {
   #confianza .grid > article:hover {
     box-shadow: var(--ui-shadow-hover);
     transform: translateY(-2px);
+  }
+
+  #servicios .grid > div:hover,
+  #servicios .grid > div:focus-within,
+  #confianza .grid > article:hover,
+  #confianza .grid > article:focus-within,
+  .service-page .grid > div:hover {
+    transform: translateY(-4px);
   }
 
   .service-page h1,
@@ -164,6 +257,46 @@ body {
     align-items: center;
   }
 
+  .nav-section-link {
+    position: relative;
+  }
+
+  .nav-section-link::after {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    height: 2px;
+    background: #b93800;
+    content: '';
+    transform: scaleX(0);
+    transform-origin: center;
+    transition: transform 160ms ease;
+  }
+
+  .nav-section-link.is-active::after {
+    transform: scaleX(1);
+  }
+
+  .nav-section-link.is-active {
+    color: #b93800;
+  }
+
+  .dropdown-menu:not(.hidden) {
+    animation: menu-in var(--dur-fast) var(--ease-out);
+  }
+
+  .dropdown-menu.is-closing {
+    opacity: 0;
+    transform: translateY(-6px);
+    transition: opacity var(--dur-fast) var(--ease-out), transform var(--dur-fast) var(--ease-out);
+  }
+
+  @keyframes menu-in {
+    from { opacity: 0; transform: translateY(-6px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
   .mobile-navigation-link {
     min-height: var(--ui-control-min);
     display: flex;
@@ -215,7 +348,7 @@ body {
     color: #ffffff;
     pointer-events: none;
     transform: translateY(-0.5rem);
-    transition: max-height 200ms ease, opacity 200ms ease, transform 200ms ease, border-color 200ms ease;
+    transition: opacity var(--dur-fast) var(--ease-out), transform var(--dur-fast) var(--ease-out);
   }
 
   .mobile-navigation[data-open='true'] {
@@ -328,6 +461,25 @@ body {
     background-color: #15803d !important;
     border-color: #15803d !important;
     color: #ffffff !important;
+  }
+
+  .cta-button,
+  .cta-button-whatsapp,
+  .mobile-navigation-cta {
+    transition: transform var(--dur-fast) var(--ease-out), opacity var(--dur-fast) var(--ease-out) !important;
+  }
+
+  .cta-button:hover,
+  .cta-button-whatsapp:hover,
+  .mobile-navigation-cta:hover {
+    transform: scale(1.03);
+    opacity: 0.96;
+  }
+
+  .cta-button:active,
+  .cta-button-whatsapp:active,
+  .mobile-navigation-cta:active {
+    transform: scale(0.98);
   }
 
   .cta-button-whatsapp:hover {
@@ -507,6 +659,12 @@ body {
       animation-duration: 0.01ms !important;
       animation-iteration-count: 1 !important;
       transition-duration: 0.01ms !important;
+    }
+
+    .js .reveal,
+    .js .hero-reveal {
+      opacity: 1;
+      transform: none;
     }
   }
 }

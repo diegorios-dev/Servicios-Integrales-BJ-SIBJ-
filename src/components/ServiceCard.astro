@@ -16,7 +16,7 @@ const isTestimonialCard = Boolean(image);
 ---
 
 {isTestimonialCard ? (
-  <div class="bg-surface-container-lowest border border-outline-variant/50 rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-all flex flex-col justify-between">
+  <div class="reveal bg-surface-container-lowest border border-outline-variant/50 rounded-xl overflow-hidden shadow-sm hover:shadow-md flex flex-col justify-between">
     <div class="relative h-52 w-full overflow-hidden bg-surface-container-low">
       <!-- TODO: Descargar la imagen correspondiente y colocarla en src/assets/ -->
       <img src={image} alt={imageAlt || titulo} class="w-full h-full object-cover object-center" width="800" height="520" loading="lazy" decoding="async" />
@@ -38,7 +38,7 @@ const isTestimonialCard = Boolean(image);
     </div>
   </div>
 ) : (
-  <div class="bg-surface-container-lowest border border-outline-variant/50 rounded-xl p-space-lg flex flex-col justify-between hover:border-secondary-container transition-all duration-200 shadow-sm hover:shadow-md">
+  <div class="reveal bg-surface-container-lowest border border-outline-variant/50 rounded-xl p-space-lg flex flex-col justify-between hover:border-secondary-container shadow-sm hover:shadow-md">
     <div>
       <div class="flex items-center justify-between mb-4">
         <span class="font-technical-code text-technical-code px-2 py-0.5 rounded bg-surface-container-low text-on-surface-variant font-bold">
@@ -62,7 +62,7 @@ const isTestimonialCard = Boolean(image);
       </ul>
     </div>
     <div class="pt-4 border-t border-outline-variant/30 flex items-center justify-between font-technical-code text-technical-code">
-      <a class="touch-target text-secondary-container font-bold hover:underline inline-flex items-center gap-1 focus:outline-none focus:ring-2 focus:ring-secondary-container rounded p-1" href={href}>
+      <a class="touch-target service-link text-secondary-container font-bold hover:underline inline-flex items-center gap-1 focus:outline-none focus:ring-2 focus:ring-secondary-container rounded p-1" href={href}>
         Ver servicio de {titulo} <span class="material-symbols-outlined text-sm" aria-hidden="true">arrow_forward</span>
       </a>
     </div>

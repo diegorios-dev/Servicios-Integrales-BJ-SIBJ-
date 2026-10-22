@@ -3,6 +3,13 @@ import { siteConfig, getWhatsAppLink, url } from '../data/site';
 
 const currentPath = Astro.url.pathname;
 const isCurrent = (path: string) => currentPath === new URL(url(path), Astro.url).pathname;
+const servicePaths = [
+  '/climatizacion-refrigeracion-neuquen',
+  '/mantenimiento-edilicio-neuquen',
+  '/electricidad-tableros-neuquen',
+  '/obras-trabajos-civiles-neuquen',
+];
+const isServicesPage = servicePaths.some((path) => isCurrent(path));
 ---
 
 <header class="bg-surface-container-lowest sticky top-0 z-50 shadow-sm w-full">
@@ -35,12 +42,18 @@ const isCurrent = (path: string) => currentPath === new URL(url(path), Astro.url
 
     <!-- Desktop Navigation Links -->
     <nav class="hidden md:flex items-center gap-space-lg" aria-label="Principal">
-      <a class="text-secondary-container border-b-2 border-secondary-container pb-1 font-label-md text-label-md focus:outline-none focus:ring-2 focus:ring-secondary-container" href={url('/')} aria-current={isCurrent('/') ? 'page' : undefined}>Inicio</a>
+      <a class:list={[
+        'nav-section-link font-label-md text-label-md focus:outline-none focus:ring-2 focus:ring-secondary-container',
+        { 'is-active': isCurrent('/') },
+      ]} href={url('/')} aria-current={isCurrent('/') ? 'page' : undefined} data-nav-section="inicio">Inicio</a>
       
       <!-- Desplegable de Servicios con soporte de teclado y hover -->
       <div class="relative group">
         <div class="inline-flex items-center">
-          <a class="text-on-surface-variant font-label-md text-label-md hover:text-secondary-container transition-colors duration-150 inline-flex items-center gap-1 py-2 focus:outline-none focus:ring-2 focus:ring-secondary-container rounded" href={url('/#servicios')}>
+          <a class:list={[
+            'nav-section-link text-on-surface-variant font-label-md text-label-md hover:text-secondary-container transition-colors duration-150 inline-flex items-center gap-1 py-2 focus:outline-none focus:ring-2 focus:ring-secondary-container rounded',
+            { 'is-active': isServicesPage },
+          ]} href={url('/#servicios')} data-nav-section="servicios" aria-current={isServicesPage ? 'page' : undefined}>
             Servicios
           </a>
           <button type="button" class="dropdown-toggle touch-target text-on-surface-variant p-2 focus:outline-none focus:ring-2 focus:ring-secondary-container rounded" aria-label="Mostrar servicios" aria-expanded="false" aria-controls="services-menu">
@@ -55,7 +68,7 @@ const isCurrent = (path: string) => currentPath === new URL(url(path), Astro.url
         </div>
       </div>
 
-      <a class="text-on-surface-variant font-label-md text-label-md hover:text-secondary-container transition-colors duration-150 focus:outline-none focus:ring-2 focus:ring-secondary-container rounded" href={url('/#contacto')}>Contacto</a>
+      <a class="nav-section-link text-on-surface-variant font-label-md text-label-md hover:text-secondary-container transition-colors duration-150 focus:outline-none focus:ring-2 focus:ring-secondary-container rounded" href={url('/#contacto')} data-nav-section="contacto">Contacto</a>
     </nav>
 
     <!-- Trailing Action Group -->
@@ -109,14 +122,26 @@ const isCurrent = (path: string) => currentPath === new URL(url(path), Astro.url
       const expanded = toggle.getAttribute('aria-expanded') === 'true';
       toggle.setAttribute('aria-expanded', String(!expanded));
       if (menu) {
-        menu.hidden = expanded;
+        if (expanded) {
+          menu.classList.add('is-closing');
+          window.setTimeout(() => {
+            menu.classList.add('hidden');
+            menu.classList.remove('is-closing');
+          }, 200);
+        } else {
+          menu.classList.remove('hidden', 'is-closing');
+        }
       }
     });
     document.addEventListener('keydown', (event) => {
       if (event.key === 'Escape') {
         toggle.setAttribute('aria-expanded', 'false');
         if (menu) {
-          menu.hidden = true;
+          menu.classList.add('is-closing');
+          window.setTimeout(() => {
+            menu.classList.add('hidden');
+            menu.classList.remove('is-closing');
+          }, 200);
         }
         toggle.focus();
       }
@@ -140,4 +165,34 @@ const isCurrent = (path: string) => currentPath === new URL(url(path), Astro.url
       mobileNavigation.setAttribute('data-open', 'false');
     });
   });
+
+  const sectionLinks = document.querySelectorAll<HTMLAnchorElement>('[data-nav-section]');
+  const sections = [...new Set([...sectionLinks].map((link) => link.dataset.navSection))]
+    .filter((id): id is string => Boolean(id))
+    .map((id) => document.getElementById(id))
+    .filter((section): section is HTMLElement => Boolean(section));
+  const homeLink = document.querySelector<HTMLAnchorElement>('[data-nav-section="inicio"]');
+  const isHomePage = homeLink
+    ? window.location.pathname === new URL(homeLink.href, window.location.href).pathname
+    : false;
+
+  if (sections.length > 0 && isHomePage) {
+    const setActiveSection = (id: string) => {
+      sectionLinks.forEach((link) => {
+        link.classList.toggle('is-active', link.dataset.navSection === id);
+      });
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      const visibleEntry = entries
+        .filter((entry) => entry.isIntersecting)
+        .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
+
+      if (visibleEntry) {
+        setActiveSection(visibleEntry.target.id);
+      }
+    }, { rootMargin: '-88px 0px -45% 0px', threshold: [0.1, 0.5, 0.9] });
+
+    sections.forEach((section) => observer.observe(section));
+  }
 </script>
