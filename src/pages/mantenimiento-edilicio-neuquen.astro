@@ -115,7 +115,11 @@ const faqs = [
   </section>
 
 
-  <section class="py-16 lg:py-24 border-y border-outline-variant/60 bg-background" aria-labelledby="edilicio-faq-title">
+  <section
+    class="py-16 lg:py-24 border-y border-outline-variant/60 bg-cover bg-center"
+    style={`background-image: linear-gradient(rgb(249 249 255 / 0.2), rgb(240 243 255 / 0.2)), url('${url('/assets/preguntas_frecuentes.webp')}');`}
+    aria-labelledby="edilicio-faq-title"
+  >
     <div class="max-w-4xl mx-auto px-6 sm:px-8 lg:px-12">
       <div class="max-w-3xl mb-10"><p class="text-label-md uppercase tracking-wider text-secondary font-extrabold">Aclaraciones Operativas</p><h2 id="edilicio-faq-title" class="text-3xl lg:text-4xl font-headline-lg font-bold text-primary mt-2">Preguntas frecuentes</h2><p class="text-body-md text-on-surface-variant mt-2">Respuestas sobre mantenimiento edilicio y planes preventivos.</p></div>
       <div class="space-y-4">{faqs.map(([question, answer]) => <details class="group bg-surface-container-lowest/90 border border-outline-variant rounded-xl p-5 shadow-sm"><summary class="flex items-center justify-between cursor-pointer list-none text-label-md font-bold text-primary"><span>{question}</span><span class="material-symbols-outlined text-secondary group-open:rotate-180 transition-transform" aria-hidden="true">expand_more</span></summary><div class="mt-4 pt-4 border-t border-surface-container text-body-md text-on-surface-variant leading-relaxed">{answer}</div></details>)}</div>

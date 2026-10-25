@@ -112,7 +112,11 @@ const faqs = [
     </div>
   </section>
 
-  <section class="py-16 lg:py-24 border-b border-outline-variant/30 bg-background" aria-labelledby="electricidad-faq-title">
+  <section
+    class="py-16 lg:py-24 border-b border-outline-variant/30 bg-cover bg-center"
+    style={`background-image: linear-gradient(rgb(249 249 255 / 0.2), rgb(240 243 255 / 0.2)), url('${url('/assets/preguntas_frecuentes.webp')}');`}
+    aria-labelledby="electricidad-faq-title"
+  >
     <div class="max-w-4xl mx-auto px-margin-mobile md:px-margin"><div class="text-center max-w-2xl mx-auto mb-12"><p class="text-label-sm uppercase tracking-wider text-secondary font-bold mb-2">Respuestas Técnicas</p><h2 id="electricidad-faq-title" class="text-headline-lg-mobile lg:text-headline-lg font-headline-lg font-bold text-primary tracking-tight">Preguntas frecuentes</h2><p class="text-body-lg font-body-lg text-on-surface-variant mt-2">Aclaraciones sobre metodología, mantenimiento y seguridad eléctrica.</p></div><div class="space-y-4">{faqs.map(([question, answer]) => <details class="group bg-surface-container-lowest/90 border border-outline-variant/60 rounded-xl overflow-hidden shadow-sm"><summary class="w-full px-6 py-4 flex items-center justify-between gap-4 text-label-md text-primary cursor-pointer list-none"><span>{question}</span><span class="material-symbols-outlined text-outline group-open:rotate-180 transition-transform" aria-hidden="true">expand_more</span></summary><div class="px-6 pb-5 text-body-md text-on-surface-variant border-t border-outline-variant/20 pt-3">{answer}</div></details>)}</div></div>
   </section>
 
