@@ -44,7 +44,7 @@ export const servicesData: ServiceItem[] = [
   {
     title: "Electricidad y Tableros",
     tag: "ELECTROTECNIA",
-    icon: "",
+    icon: "bolt",
     description: "Electricidad y tableros para locales, comercios y empresas en Neuquén.",
     items: [
       "Diagnóstico de fallas.",
@@ -93,7 +93,7 @@ export const pillarsData: PillarItem[] = [
   },
   {
     number: "03 // AGILIDAD",
-    icon: "",
+    icon: "offline_bolt",
     title: "Respuesta Rápida para Empresas",
     text: "Atención dedicada para locales, comercios y empresas."
   }
@@ -112,19 +112,19 @@ export interface TestimonialItem {
 
 export const testimonialsData: TestimonialItem[] = [
   {
-    quote: "Con el equipo de Servicios Integrales B.J venimos trabajando tranquilos. Cuando surge un problema en los locales, responden y acompañan. Estamos conformes con el servicio.",
+    quote: "Trabajar con el equipo de Servicios Integrales B.J nos brinda tranquilidad y confianza. Siempre que surge algún inconveniente en nuestros locales, contamos con una respuesta rápida y un acompañamiento constante para encontrar soluciones. Valoramos su compromiso, la atención recibida y la predisposición para resolver cada situación. Estamos muy conformes con el servicio y el respaldo que nos brindan día a día.",
     author: "Alex Ugarte",
     role: "responsable de mantenimiento",
     badge: "Mostaza (Neuquén y Comodoro)",
     image: url("/assets/mostaza.webp"),
     imageAlt: "Sucursal gastronómica Mostaza atendida por SIBJ",
-    category: "Testimonio real"
+    category: "Mantenimiento"
   },
   {
-    quote: "Le instalamos sistema sanitario biodigestor, para tratamiento de agua residuales.",
+    quote: "Realizamos la instalación de un sistema sanitario con biodigestor para el tratamiento de aguas residuales, ofreciendo una solución eficiente y confiable para el saneamiento. El sistema permite tratar los efluentes de manera segura, contribuyendo al cuidado del medio ambiente y al uso responsable de los recursos naturales.",
     author: "Daniel González",
-    role: "Mada s.r.l.",
-    badge: "Testimonio real",
+    role: "Mantenimiento y Obras",
+    badge: "Mada s.r.l.",
     image: url("/assets/biodigestor.webp"),
     imageAlt: "Instalación de sistema de tratamiento y drenaje hidrosanitario",
     category: "Obras y Trabajos Civiles"

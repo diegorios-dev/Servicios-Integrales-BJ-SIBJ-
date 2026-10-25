@@ -4,7 +4,7 @@ import Hero from '../components/Hero.astro';
 import ServiceCard from '../components/ServiceCard.astro';
 import PillarCard from '../components/PillarCard.astro';
 import TestimonialCard from '../components/TestimonialCard.astro';
-import ContactSection from '../components/ContactSection.astro';
+import ContactSection from '../components/ContactSection.astro'
 import CtaBanner from '../components/CtaBanner.astro';
 import TrustSection from '../components/TrustSection.astro';
 import { servicesData, pillarsData, testimonialsData } from '../data/services';
@@ -15,7 +15,7 @@ import { servicesData, pillarsData, testimonialsData } from '../data/services';
   description="Mantenimiento integral para locales, comercios y empresas en Neuquén. Climatización, mantenimiento edilicio, electricidad y obras civiles."
   ogTitle="Mantenimiento integral para locales, comercios y empresas en Neuquén | SIBJ"
   ogDescription="Mantenimiento integral para locales, comercios y empresas en Neuquén. Climatización, mantenimiento edilicio, electricidad y obras civiles."
-  ogImage="/assets/hero-comercios.jpg"
+  ogImage="/assets/hero-comercios.webp"
   ogImageAlt="Personal técnico realizando mantenimiento para comercios en Neuquén"
   ogImageWidth={862}
   ogImageHeight={841}
@@ -23,12 +23,12 @@ import { servicesData, pillarsData, testimonialsData } from '../data/services';
   <Hero />
 
   <!-- SERVICIOS SECTION -->
-  <section class="py-space-2xl bg-surface" id="servicios" aria-labelledby="services-title">
+  <section class="py-space-2xl bg-surface-bright border-y border-outline-variant/20" id="servicios" aria-labelledby="services-title">
     <div class="max-w-7xl mx-auto px-margin-mobile md:px-margin">
       <!-- Section Header -->
       <div class="flex flex-col md:flex-row md:items-end justify-between mb-space-2xl border-b border-outline-variant/30 pb-space-lg">
         <div class="max-w-2xl">
-          <p class="font-technical-code text-technical-code text-secondary-container font-bold uppercase tracking-wider block mb-1">
+          <p class="font-technical-code text-technical-code text-secondary-container font-extrabold uppercase tracking-wider block mb-1">
             Módulos Especializados
           </p>
           <h2 id="services-title" class="font-headline-xl text-headline-xl text-primary">
@@ -61,7 +61,7 @@ import { servicesData, pillarsData, testimonialsData } from '../data/services';
     <div class="max-w-7xl mx-auto px-margin-mobile md:px-margin">
       <!-- Section Intro -->
       <div class="max-w-3xl mb-space-2xl">
-        <p class="font-technical-code text-technical-code text-secondary-container font-bold uppercase tracking-wider block mb-1">
+        <p class="font-technical-code text-technical-code text-secondary-container font-extrabold uppercase tracking-wider block mb-1">
           Propuesta de Valor Corporativa
         </p>
         <h2 id="about-title" class="font-headline-xl text-headline-xl text-primary">
@@ -89,10 +89,10 @@ import { servicesData, pillarsData, testimonialsData } from '../data/services';
   <TrustSection />
 
   <!-- TESTIMONIOS SECTION (Independiente y sin duplicación en servicios) -->
-  <section class="bg-surface border-b border-outline-variant/30 py-space-2xl" aria-labelledby="testimonials-title">
+  <section class="bg-surface-bright border-y border-outline-variant/20 py-space-2xl" aria-labelledby="testimonials-title">
     <div class="max-w-7xl mx-auto px-margin-mobile md:px-margin text-center">
       <div class="max-w-3xl mb-space-xl text-center mx-auto">
-        <p class="font-technical-code text-technical-code text-secondary-container font-bold uppercase tracking-wider block mb-1">Casos de Éxito y Testimonios</p>
+        <p class="font-technical-code text-technical-code text-secondary-container font-extrabold uppercase tracking-wider block mb-1">Casos de Éxito y Testimonios</p>
         <h2 id="testimonials-title" class="font-headline-xl text-headline-xl text-primary">Testimonios de Clientes</h2>
         <p class="font-body-md text-body-md text-on-surface-variant mt-2">Empresas y organizaciones que confían en nuestras soluciones técnicas para garantizar la continuidad operativa de sus instalaciones.</p>
       </div>
@@ -113,9 +113,11 @@ import { servicesData, pillarsData, testimonialsData } from '../data/services';
     </div>
   </section>
 
+  <ContactSection />
+
   <!-- CTA BANNER -->
   <CtaBanner />
 
   <!-- SECCIÓN CONTACTO & COTIZACIÓN -->
-  <ContactSection />
+
 </Layout>

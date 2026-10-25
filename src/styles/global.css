@@ -98,6 +98,62 @@ header.is-scrolled::after {
   transform: translateX(4px);
 }
 
+.marketing-cta {
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+}
+
+.marketing-cta::before {
+  position: absolute;
+  top: -4rem;
+  right: -3rem;
+  width: 14rem;
+  height: 14rem;
+  border: 1px solid rgb(255 255 255 / 18%);
+  border-radius: 9999px;
+  content: '';
+  pointer-events: none;
+  transition: transform 700ms var(--ease-out), opacity 700ms var(--ease-out);
+}
+
+.marketing-cta:hover::before {
+  opacity: 0.7;
+  transform: scale(1.18);
+}
+
+.marketing-cta .cta-button-whatsapp {
+  position: relative;
+  z-index: 1;
+}
+
+.marketing-cta .cta-button-whatsapp img {
+  transition: transform var(--dur-fast) var(--ease-out);
+}
+
+.marketing-cta .cta-button-whatsapp:hover img,
+.marketing-cta .cta-button-whatsapp:focus-visible img {
+  transform: rotate(-8deg) scale(1.12);
+}
+
+#servicios .grid > div .material-symbols-outlined,
+#confianza .grid > article .material-symbols-outlined {
+  transition: transform var(--dur-fast) var(--ease-out);
+}
+
+#servicios .grid > div:hover .material-symbols-outlined,
+#servicios .grid > div:focus-within .material-symbols-outlined,
+#confianza .grid > article:hover .material-symbols-outlined,
+#confianza .grid > article:focus-within .material-symbols-outlined {
+  transform: scale(1.12) rotate(-4deg);
+}
+
+@keyframes floating-whatsapp-attention {
+  0%, 70%, 100% { box-shadow: 0 8px 24px rgb(0 0 0 / 25%); }
+  78% { box-shadow: 0 8px 24px rgb(0 0 0 / 25%), 0 0 0 8px rgb(21 128 61 / 18%); }
+  86% { box-shadow: 0 8px 24px rgb(0 0 0 / 25%), 0 0 0 14px rgb(21 128 61 / 0%); }
+}
+
 details > summary .material-symbols-outlined {
   transition: transform var(--dur-fast) var(--ease-out);
 }
@@ -648,6 +704,10 @@ details[open] > :not(summary) {
     summary {
       transition-duration: 160ms;
       transition-timing-function: ease-out;
+    }
+
+    .floating-whatsapp {
+      animation: floating-whatsapp-attention 7s ease-in-out 2s infinite;
     }
   }
 

@@ -33,7 +33,6 @@ const faqs = [
   ['¿Tienen un trabajo realizado con biodigestor?', 'Sí. Instalación de sistema sanitario con biodigestor para el tratamiento de aguas residuales'],
 ];
 
-const faqBackgroundImage = url('/assets/imagen-seccion-preguntas.webp');
 ---
 
 <Layout
@@ -69,15 +68,15 @@ const faqBackgroundImage = url('/assets/imagen-seccion-preguntas.webp');
             <span class="material-symbols-outlined text-secondary text-sm" aria-hidden="true">apartment</span>
             Obras y trabajos civiles
           </span>
-          <h1 id="obras-hero-title" class="w-full max-w-4xl text-4xl lg:text-5xl font-headline-lg font-extrabold text-primary tracking-tight leading-tight mb-5">Obras y trabajos civiles para locales, comercios y empresas en Neuquén</h1>
-          <p class="text-body-lg text-on-surface-variant mb-8 max-w-3xl">Albañilería, reparaciones, adecuaciones de locales, instalaciones y trabajos relacionados con construcción e infraestructura.</p>
-          <div class="flex flex-col sm:flex-row gap-4 w-full sm:w-auto mb-8">
+          <h1 id="obras-hero-title" class="w-full max-w-4xl text-4xl rounded-lg lg:text-5xl font-headline-lg font-extrabold text-primary tracking-tight leading-tight mb-5">Obras y trabajos civiles para locales, comercios y empresas en Neuquén</h1>
+          <p class="text-body-lg text-on-surface-variant mb-8 max-w-3xl rounded-lg">Albañilería, reparaciones, adecuaciones de locales, instalaciones y trabajos relacionados con construcción e infraestructura.</p>
+          <div class="flex flex-col sm:flex-row gap-4 w-full sm:w-auto mb-8 rounded-lg">
             <a class="cta-button-whatsapp bg-secondary-container hover:bg-secondary text-on-secondary font-label-md px-6 py-3.5 rounded flex items-center justify-center gap-3 transition-all shadow-sm" href={getWhatsAppLink('Hola SIBJ, necesito presupuesto para Obras y Trabajos Civiles en Neuquén')} target="_blank" rel="noopener noreferrer">
               <img src={url('/assets/whatsapp.png')} alt="" aria-hidden="true" class="w-5 h-5 object-contain" width="20" height="20" />
               <span>Pedir presupuesto por WhatsApp</span>
             </a>
             <a class="border border-outline-variant hover:border-primary bg-surface-container-lowest text-primary font-label-md px-6 py-3.5 rounded flex items-center justify-center gap-2 transition-all" href="tel:+5492994622512">
-              <span class="material-symbols-outlined text-secondary" aria-hidden="true">call</span><span>Llamar a operaciones</span>
+              <span class="material-symbols-outlined text-secondary rounded-lg" aria-hidden="true">call</span><span>Llamar a operaciones</span>
             </a>
           </div>
           <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 w-full border-t border-outline-variant pt-6">
@@ -106,27 +105,27 @@ const faqBackgroundImage = url('/assets/imagen-seccion-preguntas.webp');
     <div class="max-w-7xl mx-auto px-6 sm:px-8 lg:px-16">
       <div class="text-left mb-12 max-w-3xl"><p class="text-label-sm text-secondary uppercase tracking-wider">Metodología de Trabajo</p><h2 id="obras-process-title" class="text-3xl lg:text-4xl font-headline-lg text-primary mt-1">Cómo trabajamos</h2><p class="text-body-md text-on-surface-variant mt-2">Un proceso ordenado y transparente que prioriza la precisión y el cumplimiento de cada etapa técnica.</p></div>
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-        {steps.map(([number, title, description]) => <div class="border border-outline-variant rounded p-6 bg-surface relative"><span class="font-display-lg text-secondary opacity-30 absolute right-4 top-2">{number}</span><div class="flex items-center gap-2 mb-3"><span class="w-8 h-8 rounded-full bg-primary text-surface-container-lowest flex items-center justify-center font-bold text-sm">{number.replace('0', '')}</span><h3 class="font-label-md text-primary">{title}</h3></div><p class="text-body-md text-on-surface-variant mt-2">{description}</p></div>)}
+        {steps.map(([number, title, description]) => <div class="border border-outline-variant rounded-lg p-6 bg-surface relative"><span class="font-display-lg text-secondary opacity-30 absolute right-4 top-2">{number}</span><div class="flex items-center gap-2 mb-3"><span class="w-8 h-8 rounded-full bg-primary text-surface-container-lowest flex items-center justify-center font-bold text-sm">{number.replace('0', '')}</span><h3 class="font-label-md text-primary">{title}</h3></div><p class="text-body-md text-on-surface-variant mt-2">{description}</p></div>)}
       </div>
     </div>
   </section>
 
-  <section class="py-16 lg:py-24 max-w-7xl mx-auto px-6 sm:px-8 lg:px-16" aria-labelledby="obras-segments-title">
+  <section class="py-16 lg:py-24 max-w-7xl mx-auto px-6 sm:px-8 lg:px-16 rounded-lg" aria-labelledby="obras-segments-title">
     <div class="text-left mb-10 max-w-3xl"><p class="text-label-sm text-secondary uppercase tracking-wider">Sectores y Rubros</p><h2 id="obras-segments-title" class="text-3xl lg:text-4xl font-headline-lg text-primary mt-1">Para quién trabajamos</h2><p class="text-body-md text-on-surface-variant mt-2">Atendemos las necesidades operativas e infraestructurales de organizaciones en toda la cuenca neuquina.</p></div>
     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
       {segments.map(([icon, title, description]) => <div class="border border-outline-variant bg-surface-container-lowest p-6 rounded flex items-start gap-4"><span class="material-symbols-outlined text-secondary text-3xl" aria-hidden="true">{icon}</span><div><h3 class="font-label-md text-primary mb-1">{title}</h3><p class="text-body-md text-on-surface-variant">{description}</p></div></div>)}
     </div>
   </section>
 
-  <section class="py-16 lg:py-24 border-y border-outline-variant/60" aria-labelledby="obras-faq-title" style={`background-image: linear-gradient(rgba(248, 246, 242, 0.28), rgba(248, 246, 242, 0.38)), url('${faqBackgroundImage}'); background-size: cover; background-position: center; background-repeat: no-repeat;`}>
+  <section class="py-16 lg:py-24 border-y border-outline-variant/60 bg-background" aria-labelledby="obras-faq-title">
     <div class="max-w-4xl mx-auto px-6 sm:px-8 lg:px-12">
-      <div class="text-left mb-10"><p class="text-label-sm text-secondary uppercase tracking-wider">Aclaraciones Operativas</p><h2 id="obras-faq-title" class="text-3xl lg:text-4xl font-headline-lg text-primary mt-1">Preguntas frecuentes</h2><p class="text-body-md text-on-surface-variant mt-2">Respuestas sobre intervenciones civiles y sistemas de tratamiento de aguas residuales.</p></div>
+      <div class="text-left mb-10"><p class="text-label-sm text-secondary uppercase tracking-wider text-extrabold">Aclaraciones Operativas</p><h2 id="obras-faq-title" class="text-3xl lg:text-4xl font-headline-lg text-primary mt-1">Preguntas frecuentes</h2><p class="text-body-md text-on-surface-variant mt-2">Respuestas sobre intervenciones civiles y sistemas de tratamiento de aguas residuales.</p></div>
       <div class="space-y-4">{faqs.map(([question, answer]) => <details class="border border-outline-variant rounded bg-surface-container-lowest/90 overflow-hidden shadow-sm"><summary class="w-full px-6 py-4 flex justify-between items-center gap-4 hover:bg-surface-container transition-colors text-label-md text-primary cursor-pointer list-none"><span>{question}</span><span class="material-symbols-outlined text-secondary" aria-hidden="true">expand_more</span></summary><div class="px-6 pb-4 pt-3 text-body-md text-on-surface-variant border-t border-surface-container">{answer}</div></details>)}</div>
     </div>
   </section>
 
   <section class="bg-primary-container text-surface-container-lowest border-t border-outline-variant py-16" id="contacto" aria-labelledby="obras-contact-title">
-    <div class="max-w-7xl mx-auto px-6 sm:px-8 lg:px-16"><div class="flex flex-col md:flex-row items-start md:items-center justify-between gap-6 bg-tertiary-container/50 border border-outline/30 p-8 rounded"><div><p class="text-label-sm text-secondary-fixed uppercase tracking-wider">Atención Directa</p><h2 id="obras-contact-title" class="text-2xl lg:text-3xl font-headline-lg font-bold mt-1">¿Necesitás asistencia técnica ahora?</h2><p class="text-body-md text-on-primary-container mt-1 max-w-xl">Coordiná una visita técnica o enviá el plano de tu obra civil para un análisis y cotización.</p></div><div class="flex flex-col sm:flex-row gap-4 w-full md:w-auto">    <a class="cta-button-whatsapp bg-secondary-container hover:bg-secondary text-on-secondary font-label-md px-5 py-3 rounded flex items-center justify-center gap-2 transition-all shadow-sm" href={getWhatsAppLink('Hola SIBJ, necesito presupuesto para Obras y Trabajos Civiles en Neuquén')} target="_blank" rel="noopener noreferrer"><img src={url('/assets/whatsapp.png')} alt="" aria-hidden="true" class="w-5 h-5" width="20" height="20" />WhatsApp</a><a class="border border-outline/40 text-surface-container-lowest px-5 py-3 rounded flex items-center justify-center gap-2" href="tel:+5492994622512"><span class="material-symbols-outlined text-lg" aria-hidden="true">call</span>+54 9 299-462-2512</a></div></div></div>
+    <div class="max-w-7xl mx-auto px-6 sm:px-8 lg:px-16"><div class="flex flex-col md:flex-row items-start md:items-center justify-between gap-6 bg-tertiary-container/50 border border-outline/30 p-8 rounded"><div><p class="text-label-sm text-secondary-fixed uppercase tracking-wider text-extrabold">Atención Directa</p><h2 id="obras-contact-title" class="text-2xl lg:text-3xl font-headline-lg font-bold mt-1">¿Necesitás asistencia técnica ahora?</h2><p class="text-body-md text-on-primary-container mt-1 max-w-xl">Coordiná una visita técnica o enviá el plano de tu obra civil para un análisis y cotización.</p></div><div class="flex flex-col sm:flex-row gap-4 w-full md:w-auto">    <a class="cta-button-whatsapp bg-secondary-container hover:bg-secondary text-on-secondary font-label-md px-5 py-3 rounded flex items-center justify-center gap-2 transition-all shadow-sm" href={getWhatsAppLink('Hola SIBJ, necesito presupuesto para Obras y Trabajos Civiles en Neuquén')} target="_blank" rel="noopener noreferrer"><img src={url('/assets/whatsapp.png')} alt="" aria-hidden="true" class="w-5 h-5" width="20" height="20" />WhatsApp</a><a class="border border-outline/40 text-surface-container-lowest px-5 py-3 rounded flex items-center justify-center gap-2" href="tel:+5492994622512"><span class="material-symbols-outlined text-lg" aria-hidden="true">call</span>+54 9 299-462-2512</a></div></div></div>
   </section>
   </div>
 </Layout>
