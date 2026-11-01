@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://diegorios-dev.github.io/Servicios-Integrales-BJ-SIBJ-/sitemap-index.xml

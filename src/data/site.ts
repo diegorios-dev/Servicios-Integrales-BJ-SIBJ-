@@ -8,6 +8,8 @@ export interface SiteConfig {
   city: string;
   region: string;
   addressCountry: string;
+  basePath: string;
+  serviceCatalog: string[];
   url: string;
   openingHours: {
     days: string[];
@@ -27,6 +29,13 @@ export const siteConfig: SiteConfig = {
   city: "Neuquén",
   region: "Neuquén",
   addressCountry: "AR",
+  basePath: "/Servicios-Integrales-BJ-SIBJ-",
+  serviceCatalog: [
+    "Mantenimiento Edilicio",
+    "Obras y Trabajos Civiles",
+    "Climatización y Refrigeración",
+    "Electricidad y Tableros",
+  ],
   url: "https://diegorios-dev.github.io/Servicios-Integrales-BJ-SIBJ-/",
   openingHours: {
     days: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
@@ -43,9 +52,7 @@ export function getWhatsAppLink(message: string): string {
 export function url(path: string): string {
   const [pathPart, hashPart] = path.split('#', 2);
   const normalizedPath = pathPart.replace(/^\/+/, '').replace(/\/+$/, '');
-  const baseUrl = import.meta.env.BASE_URL.endsWith('/')
-    ? import.meta.env.BASE_URL
-    : `${import.meta.env.BASE_URL}/`;
+  const baseUrl = `${siteConfig.basePath.replace(/\/+$/, '')}/`;
   const isFile = /(^|\/)[^/]+\.[^/]+$/.test(normalizedPath);
   const route = normalizedPath && !isFile ? `${normalizedPath}/` : normalizedPath;
   const hash = hashPart === undefined ? '' : `#${hashPart}`;

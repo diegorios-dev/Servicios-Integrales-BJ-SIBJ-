@@ -23,6 +23,7 @@ interface Props {
     answer: string;
   }>;
   pageClass?: string;
+  noindex?: boolean;
 }
 
 const {
@@ -37,6 +38,7 @@ const {
   service,
   faqItems = [],
   pageClass,
+  noindex = false,
 } = Astro.props;
 
 const siteRoot = new URL(import.meta.env.BASE_URL, Astro.site);
@@ -49,17 +51,41 @@ const canonicalUrl = absoluteUrl(routePath);
 const logoUrl = absoluteUrl('assets/logo1.png');
 const socialImageUrl = ogImage ? absoluteUrl(ogImage) : logoUrl;
 
+const businessId = `${absoluteUrl('')}#business`;
 const jsonLd = {
   "@context": "https://schema.org",
-  "@type": "ProfessionalService",
+  "@type": ["ProfessionalService", "HomeAndConstructionBusiness"],
+  "@id": businessId,
   "name": siteConfig.name,
   "url": absoluteUrl(''),
   "logo": logoUrl,
-  "telephone": "+54 9 299 506 4187",
+  "image": logoUrl,
+  "telephone": siteConfig.telephoneDisplay,
+  "email": siteConfig.email,
+  "openingHoursSpecification": [{
+    "@type": "OpeningHoursSpecification",
+    "dayOfWeek": siteConfig.openingHours.days,
+    "opens": siteConfig.openingHours.opens,
+    "closes": siteConfig.openingHours.closes,
+  }],
   "areaServed": [
     { "@type": "City", "name": "Neuquén" },
-    { "@type": "AdministrativeArea", "name": "Río Negro" }
-  ]
+    { "@type": "AdministrativeArea", "name": "Río Negro" },
+  ],
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": siteConfig.city,
+    "addressRegion": siteConfig.region,
+    "addressCountry": siteConfig.addressCountry,
+  },
+  "hasOfferCatalog": {
+    "@type": "OfferCatalog",
+    "name": "Servicios de mantenimiento y obras",
+    "itemListElement": siteConfig.serviceCatalog.map((name) => ({
+      "@type": "Offer",
+      "itemOffered": { "@type": "Service", "name": name },
+    })),
+  },
 };
 
 const serviceJsonLd = service
@@ -69,11 +95,10 @@ const serviceJsonLd = service
       "name": service.name,
       "description": service.description,
       "url": canonicalUrl,
+      "serviceType": service.name,
+      "areaServed": jsonLd.areaServed,
       "provider": {
-        "@type": "ProfessionalService",
-        "name": siteConfig.name,
-        "url": absoluteUrl(''),
-        "telephone": "+54 9 299 506 4187"
+        "@id": businessId,
       },
     }
   : null;
@@ -102,7 +127,16 @@ const faqJsonLd = faqItems.length
     }
   : null;
 
-const structuredData = [jsonLd, serviceJsonLd, breadcrumbJsonLd, faqJsonLd].filter(Boolean);
+const websiteJsonLd = !service
+  ? {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "name": siteConfig.name,
+      "url": absoluteUrl(''),
+    }
+  : null;
+
+const structuredData = [jsonLd, serviceJsonLd, breadcrumbJsonLd, faqJsonLd, websiteJsonLd].filter(Boolean);
 ---
 
 <!DOCTYPE html>
@@ -113,6 +147,7 @@ const structuredData = [jsonLd, serviceJsonLd, breadcrumbJsonLd, faqJsonLd].filt
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>{title}</title>
   <meta name="description" content={description}>
+  <meta name="robots" content={noindex ? "noindex, nofollow" : "index, follow, max-image-preview:large"}>
   <meta name="theme-color" content="#000919">
   
   <meta property="og:title" content={ogTitle}>
@@ -130,6 +165,7 @@ const structuredData = [jsonLd, serviceJsonLd, breadcrumbJsonLd, faqJsonLd].filt
   <meta name="twitter:title" content={ogTitle}>
   <meta name="twitter:description" content={ogDescription}>
   <meta name="twitter:image" content={socialImageUrl}>
+  <meta name="twitter:image:alt" content={ogImageAlt}>
 
   {structuredData.map((schema) => <script type="application/ld+json" set:html={JSON.stringify(schema)} />)}
 

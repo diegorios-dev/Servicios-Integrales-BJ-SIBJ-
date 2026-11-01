@@ -1,0 +1,25 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { url } from '../data/site';
+---
+
+<Layout
+  title="Página no encontrada | SIBJ"
+  description="La página solicitada no está disponible en Servicios Integrales BJ."
+  noindex
+>
+  <section class="py-20 px-margin-mobile md:px-margin" aria-labelledby="not-found-title">
+    <div class="max-w-3xl mx-auto text-center">
+      <p class="font-technical-code text-secondary-container font-bold">404</p>
+      <h1 id="not-found-title" class="text-4xl font-headline-lg font-bold text-primary">Página no encontrada</h1>
+      <p class="mt-4 text-on-surface-variant">Podés volver al inicio o consultar nuestros servicios.</p>
+      <nav class="mt-8 flex flex-wrap justify-center gap-3" aria-label="Páginas principales">
+        <a class="cta-button border border-outline-variant rounded-lg px-5 py-3 text-primary" href={url('/')}>Inicio</a>
+        <a class="cta-button border border-outline-variant rounded-lg px-5 py-3 text-primary" href={url('/mantenimiento-edilicio-neuquen')}>Mantenimiento Edilicio</a>
+        <a class="cta-button border border-outline-variant rounded-lg px-5 py-3 text-primary" href={url('/obras-trabajos-civiles-neuquen')}>Obras y Trabajos Civiles</a>
+        <a class="cta-button border border-outline-variant rounded-lg px-5 py-3 text-primary" href={url('/climatizacion-refrigeracion-neuquen')}>Climatización y Refrigeración</a>
+        <a class="cta-button border border-outline-variant rounded-lg px-5 py-3 text-primary" href={url('/electricidad-tableros-neuquen')}>Electricidad y Tableros</a>
+      </nav>
+    </div>
+  </section>
+</Layout>

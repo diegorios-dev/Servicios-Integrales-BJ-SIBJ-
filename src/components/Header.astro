@@ -71,23 +71,10 @@ const isServicesPage = servicePaths.some((path) => isCurrent(path));
       <a class="nav-section-link text-on-surface-variant font-label-md text-label-md hover:text-secondary-container transition-colors duration-150 focus:outline-none focus:ring-2 focus:ring-secondary-container rounded" href={url('/#contacto')} data-nav-section="contacto">Contacto</a>
     </nav>
 
-    <!-- Trailing Action Group -->
-    <div class="flex items-center gap-space-md">
-      <a class="hidden lg:flex touch-target items-center gap-2 border border-outline-variant rounded-lg px-3 font-technical-code text-sm font-semibold text-on-surface-variant hover:text-primary hover:border-primary transition-colors focus:outline-none focus:ring-2 focus:ring-secondary-container" href={`tel:${siteConfig.telephoneRaw}`} aria-label={`Llamar al ${siteConfig.telephoneDisplay}`}>
-        <span class="material-symbols-outlined text-secondary-container text-base" data-icon="phone" aria-hidden="true">phone</span>
-        <span class="font-semibold">{siteConfig.telephoneDisplay}</span>
-      </a>
-    </div>
-
   </div>
 
   <nav id="mobile-navigation" class="mobile-navigation md:hidden" aria-label="Navegación móvil" data-mobile-navigation>
     <div class="max-w-7xl mx-auto px-margin-mobile py-4">
-      <div class="mobile-navigation-primary">
-        <a class="mobile-navigation-link mobile-navigation-primary-link" href={url('/')} aria-current={isCurrent('/') ? 'page' : undefined}>Inicio</a>
-        <a class="mobile-navigation-link mobile-navigation-primary-link" href={url('/#contacto')}>Contacto</a>
-        <a class="mobile-navigation-link mobile-navigation-primary-link" href="tel:+5492995064187">Llamar: +54 9 299 506-4187</a>
-      </div>
       <div class="mobile-navigation-divider" aria-hidden="true"></div>
       <p class="mobile-navigation-label">Servicios</p>
       <div class="mobile-navigation-services">
