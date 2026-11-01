@@ -15,7 +15,7 @@ export const servicesData: ServiceItem[] = [
     title: "Climatización y Refrigeración",
     tag: "Climatización y refrigeración",
     icon: "ac_unit",
-    description: "Mantenimiento de climatización y refrigeración para locales, comercios y empresas en Neuquén.",
+    description: "Mantenimiento de climatización y refrigeración para empresas, comercios y particulares en Neuquén.",
     items: [
       "Aire acondicionado.",
       "Cámaras y precámaras de frío.",
@@ -28,16 +28,16 @@ export const servicesData: ServiceItem[] = [
   },
   {
     title: "Mantenimiento Edilicio",
-    tag: "Mantenimiento de locales",
+    tag: "Mantenimiento edilicio",
     icon: "apartment",
-    description: "Mantenimiento edilicio preventivo y correctivo para locales, comercios y empresas en Neuquén.",
+    description: "Mantenimiento edilicio preventivo y correctivo para empresas, comercios, industrias y particulares en Neuquén.",
     items: [
-      "Reparaciones generales.",
+      "Reparaciones edilicias.",
       "Pintura.",
-      "Cambio de pisos/baldosas.",
+      "Pisos y revestimientos.",
       "Plomería.",
-      "Destapes y pérdidas.",
-      "Mantenimiento preventivo de locales."
+      "Carpintería y herrería.",
+      "Mantenimiento preventivo."
     ],
     href: url("/mantenimiento-edilicio-neuquen"),
   },
@@ -45,7 +45,7 @@ export const servicesData: ServiceItem[] = [
     title: "Electricidad y Tableros",
     tag: "ELECTROTECNIA",
     icon: "bolt",
-    description: "Electricidad y tableros para locales, comercios y empresas en Neuquén.",
+    description: "Electricidad y tableros para empresas, comercios y particulares en Neuquén.",
     items: [
       "Diagnóstico de fallas.",
       "Tableros.",
@@ -59,13 +59,14 @@ export const servicesData: ServiceItem[] = [
     title: "Obras y Trabajos Civiles",
     tag: "CONSTRUCCIÓN",
     icon: "construction",
-    description: "Obras y trabajos civiles para locales, comercios y empresas en Neuquén.",
+    description: "Obras y trabajos civiles para empresas, comercios y particulares en Neuquén.",
     items: [
       "Albañilería.",
-      "Reparaciones.",
-      "Adecuaciones de locales.",
-      "Instalaciones.",
-      "Trabajos relacionados con construcción e infraestructura."
+      "Reformas y remodelaciones.",
+      "Pisos y revestimientos.",
+      "Construcción en seco.",
+      "Instalaciones sanitarias.",
+      "Mantenimiento edilicio."
     ],
     href: url("/obras-trabajos-civiles-neuquen"),
   },
@@ -94,8 +95,8 @@ export const pillarsData: PillarItem[] = [
   {
     number: "03 // AGILIDAD",
     icon: "offline_bolt",
-    title: "Respuesta Rápida para Empresas",
-    text: "Atención dedicada para locales, comercios y empresas."
+    title: "Respuesta rápida",
+    text: "Atención dedicada para empresas, comercios y particulares."
   }
 ];
 

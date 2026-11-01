@@ -2,49 +2,65 @@
 import { getWhatsAppLink, url } from '../data/site';
 ---
 
-<section class="relative overflow-hidden pt-space-xl md:pt-space-2xl pb-space-2xl bg-surface-bright" id="inicio" aria-labelledby="hero-title">
-  <div class="max-w-7xl mx-auto px-margin-mobile md:px-margin">
-    <div class="grid grid-cols-1 lg:grid-cols-12 gap-space-xl items-center">
-      <div class="lg:col-span-7 flex flex-col items-start gap-space-md">
+<section class="relative overflow-hidden pt-12 md:pt-20 pb-16 bg-surface-bright" id="inicio" aria-labelledby="hero-title">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
+      
+      {/* Columna de Contenido / Texto */}
+      <div class="lg:col-span-7 flex flex-col items-start gap-4 sm:gap-6">
+        
+        {/* Etiqueta superior */}
         <div class="hero-reveal inline-flex items-center gap-2 px-3 py-1.5 rounded-lg bg-surface-container-high border border-outline-variant/40">
           <span class="w-2 h-2 rounded-full bg-secondary-container animate-pulse"></span>
-          <span class="font-technical-code text-technical-code text-primary font-bold tracking-wider">Mantenimiento integral para locales</span>
+          <span class="font-technical-code text-xs sm:text-sm text-primary font-bold tracking-wider">Mantenimiento integral</span>
         </div>
+
+        {/* Título Principal H1 */}
         <h1 id="hero-title" class="hero-reveal text-3xl sm:text-4xl lg:text-5xl font-extrabold text-primary tracking-tight leading-tight">
-          Mantenimiento integral para locales, comercios y empresas en Neuquén
+          Mantenimiento integral para empresas, comercios y particulares en Neuquén
         </h1>
-        <p class="hero-reveal font-body-lg text-body-lg text-on-surface-variant max-w-2xl">
-          Centralizamos el mantenimiento preventivo y correctivo, obras y climatización para locales, comercios y empresas en Neuquén.
+
+        {/* Párrafo descriptivo */}
+        <p class="hero-reveal text-base sm:text-lg text-on-surface-variant max-w-2xl leading-relaxed">
+          Ofrecemos mantenimiento preventivo y correctivo, obras, reparaciones y climatización, con soluciones adaptadas a cada necesidad.
         </p>
-        <div class="hero-reveal flex flex-col sm:flex-row items-stretch sm:items-center gap-space-md w-full pt-space-xs">
-          <a class="cta-button cta-button-whatsapp inline-flex justify-center items-center gap-2 px-6 py-3.5 rounded-xl font-label-md text-label-md font-semibold border focus:outline-none focus:ring-4 focus:ring-secondary-container/40" href={getWhatsAppLink("Hola SIBJ, requiero asistencia técnica")} rel="noopener noreferrer" target="_blank">
+
+        {/* Botón CTA (Adaptable a ancho completo en móvil para mejor accesibilidad táctil) */}
+        <div class="hero-reveal w-full sm:w-auto pt-2">
+          <a class="cta-button cta-button-whatsapp inline-flex justify-center items-center gap-2 w-full sm:w-auto px-6 py-3.5 rounded-xl text-sm sm:text-base font-semibold border shadow-sm transition-all hover:opacity-95 focus:outline-none focus:ring-4 focus:ring-secondary-container/40" href={getWhatsAppLink("Hola SIBJ, requiero asistencia técnica")} rel="noopener noreferrer" target="_blank">
             <img src={url('/assets/whatsapp.png')} alt="" aria-hidden="true" class="w-5 h-5" width="20" height="20" />
             <span>Contáctenos</span>
           </a>
         </div>
-        <div class="grid grid-cols-2 sm:grid-cols-4 gap-space-sm pt-space-lg border-t border-outline-variant/30 w-full mt-2">
-          <div class="flex items-center gap-2">
-            <span class="material-symbols-outlined text-secondary-container" aria-hidden="true">verified</span>
-            <span class="font-technical-code text-technical-code font-bold text-on-surface">Equipo técnico experimentado</span>
+
+        {/* Grilla inferior de características (Corregida de 4 a 3 columnas exactas) */}
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 pt-6 border-t border-outline-variant/30 w-full mt-2">
+          <div class="flex items-center gap-2.5">
+            <span class="material-symbols-outlined text-secondary-container text-xl" aria-hidden="true">verified</span>
+            <span class="text-xs sm:text-sm font-bold text-on-surface">Equipo técnico experimentado</span>
           </div>
-          <div class="flex items-center gap-2">
-            <span class="material-symbols-outlined text-secondary-container" aria-hidden="true">engineering</span>
-            <span class="font-technical-code text-technical-code font-bold text-on-surface">Compromiso de Calidad</span>
+          <div class="flex items-center gap-2.5">
+            <span class="material-symbols-outlined text-secondary-container text-xl" aria-hidden="true">engineering</span>
+            <span class="text-xs sm:text-sm font-bold text-on-surface">Compromiso de Calidad</span>
           </div>
-          <div class="flex items-center gap-2 col-span-2 sm:col-span-1">
-            <span class="material-symbols-outlined text-secondary-container" aria-hidden="true">location_on</span>
-            <span class="font-technical-code text-technical-code font-bold text-on-surface">Neuquén, Neuquén</span>
+          <div class="flex items-center gap-2.5">
+            <span class="material-symbols-outlined text-secondary-container text-xl" aria-hidden="true">location_on</span>
+            <span class="text-xs sm:text-sm font-bold text-on-surface">Neuquén, Neuquén</span>
           </div>
         </div>
+
       </div>
-      <div class="lg:col-span-5 relative mt-6 lg:mt-0">
-        <div class="relative rounded-xl overflow-hidden">
+
+      {/* Columna de Imagen (Con altura fluida para móvil y escritorio) */}
+      <div class="lg:col-span-5 relative mt-4 lg:mt-0">
+        <div class="relative rounded-2xl overflow-hidden shadow-md">
           <picture>
             <source srcset={url('/assets/hero-comercios.webp')} type="image/webp" />
-            <img src={url('/assets/hero-comercios.webp')} alt="Personal técnico de SIBJ realizando mantenimiento para comercios" class="w-full h-[460px] object-cover object-center" width="600" height="460" fetchpriority="high" />
+            <img src={url('/assets/hero-comercios.webp')} alt="Personal técnico de SIBJ realizando mantenimiento para empresas, comercios y particulares" class="w-full h-[280px] sm:h-[380px] lg:h-[460px] object-cover object-center" width="600" height="460" fetchpriority="high" />
           </picture>
         </div>
       </div>
+
     </div>
   </div>
 </section>

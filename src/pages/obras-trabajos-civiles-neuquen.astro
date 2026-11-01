@@ -3,12 +3,12 @@ import Layout from '../layouts/Layout.astro';
 import { getWhatsAppLink, url } from '../data/site';
 
 const services = [
-  ['file_open', 'Albañilería', 'Trabajos de albañilería para locales, comercios y empresas.', 'Obra civil', 'build'],
-  ['grid_goldenratio', 'Reparaciones', 'Reparaciones relacionadas con obras y trabajos civiles.', 'Obra civil', 'square_foot'],
-  ['store', 'Adecuaciones de locales', 'Adecuaciones de locales para sus necesidades de funcionamiento.', 'Locales', 'design_services'],
-  ['water_damage', 'Instalación de sistemas sanitarios con biodigestor para aguas residuales', 'Dimensionamiento, excavación y montaje de biodigestores junto a cámaras de decantación y zanjas de infiltración.', 'Solución sanitaria ecológica', 'recycling'],
-  ['roofing', 'Instalaciones', 'Instalaciones relacionadas con obras y trabajos civiles.', 'Obra civil', 'umbrella'],
-  ['ramp_right', 'Construcción e infraestructura', 'Trabajos relacionados con construcción e infraestructura.', 'Infraestructura', 'local_shipping'],
+  ['file_open', 'Albañilería', 'Construcción, ampliaciones y reparaciones.', 'Obra civil', 'build'],
+  ['grid_goldenratio', 'Reformas y remodelaciones', 'Viviendas, oficinas y locales comerciales.', 'Obra civil', 'square_foot'],
+  ['store', 'Pisos y revestimientos', 'Colocación y reparación.', 'Terminaciones', 'design_services'],
+  ['view_quilt', 'Construcción en seco', 'Tabiques, cielorrasos y divisiones.', 'Construcción', 'construction'],
+  ['plumbing', 'Instalaciones sanitarias', 'Ejecución, reparación y adecuación.', 'Instalaciones', 'water'],
+  ['ramp_right', 'Mantenimiento edilicio', 'Reparaciones y mejoras de infraestructura.', 'Infraestructura', 'local_shipping'],
 ];
 
 const steps = [
@@ -21,15 +21,15 @@ const steps = [
 const segments = [
   ['business', 'Empresas', 'Trabajos civiles para empresas en Neuquén capital.'],
   ['precision_manufacturing', 'Empresas', 'Trabajos civiles para empresas en Neuquén capital.'],
-  ['warehouse', 'Locales y comercios', 'Adecuaciones y reparaciones para locales y comercios.'],
-  ['storefront', 'Locales comerciales', 'Trabajos para locales comerciales.'],
+  ['warehouse', 'Comercios y particulares', 'Adecuaciones y reparaciones para comercios y particulares.'],
+  ['storefront', 'Empresas e industrias', 'Trabajos para empresas e industrias.'],
   ['factory', 'Infraestructura', 'Trabajos relacionados con construcción e infraestructura.'],
 ];
 
 const faqs = [
-  ['¿Qué trabajos civiles realizan?', 'Realizamos albañilería, reparaciones, adecuaciones de locales, instalaciones y trabajos relacionados con construcción e infraestructura.'],
+  ['¿Qué trabajos civiles realizan?', 'Realizamos construcción, reformas, pisos y revestimientos, construcción en seco, instalaciones sanitarias y mantenimiento edilicio.'],
   ['¿Realizan instalaciones?', 'Sí. Realizamos instalaciones relacionadas con obras y trabajos civiles.'],
-  ['¿Cómo se coordinan los trabajos en locales?', 'Coordinamos las tareas y los horarios con el cliente.'],
+  ['¿Cómo se coordinan los trabajos?', 'Coordinamos las tareas y los horarios con el cliente.'],
   ['¿Tienen un trabajo realizado con biodigestor?', 'Sí. Instalación de sistema sanitario con biodigestor para el tratamiento de aguas residuales'],
 ];
 
@@ -37,14 +37,14 @@ const faqs = [
 
 <Layout
   title="Obras y Trabajos Civiles en Neuquén | SIBJ"
-  description="Albañilería, reparaciones, adecuaciones de locales, instalaciones y trabajos relacionados con construcción e infraestructura en Neuquén."
+  description="Soluciones integrales en construcción, reformas y mantenimiento para empresas, industrias, comercios y particulares."
   ogTitle="Obras y Trabajos Civiles en Neuquén | SIBJ"
-  ogDescription="Obras civiles, reformas y saneamiento para empresas en Neuquén. Ejecutamos adecuaciones edilicias y soluciones sanitarias con rigor técnico."
+  ogDescription="Soluciones integrales en construcción, reformas y mantenimiento para empresas, industrias, comercios y particulares en Neuquén."
   ogImage="/assets/civiles.jpeg"
   ogImageAlt="Técnico de SIBJ realizando trabajos civiles en Neuquén"
   ogImageWidth={1280}
   ogImageHeight={960}
-  service={{ name: "Obras y Trabajos Civiles", description: "Albañilería, reparaciones, adecuaciones de locales, instalaciones y trabajos relacionados con construcción e infraestructura en Neuquén capital." }}
+  service={{ name: "Obras y Trabajos Civiles", description: "Soluciones integrales en construcción, reformas y mantenimiento para empresas, industrias, comercios y particulares en Neuquén." }}
   faqItems={faqs.map(([question, answer]) => ({ question, answer }))}
 >
   <div class="service-page">
@@ -68,8 +68,8 @@ const faqs = [
             <span class="material-symbols-outlined text-secondary text-sm" aria-hidden="true">apartment</span>
             Obras y trabajos civiles
           </span>
-          <h1 id="obras-hero-title" class="w-full max-w-4xl text-4xl rounded-lg lg:text-5xl font-headline-lg font-extrabold text-primary tracking-tight leading-tight mb-5">Obras y trabajos civiles para locales, comercios y empresas en Neuquén</h1>
-          <p class="text-body-lg text-on-surface-variant mb-8 max-w-3xl rounded-lg">Albañilería, reparaciones, adecuaciones de locales, instalaciones y trabajos relacionados con construcción e infraestructura.</p>
+          <h1 id="obras-hero-title" class="w-full max-w-4xl text-4xl rounded-lg lg:text-5xl font-headline-lg font-extrabold text-primary tracking-tight leading-tight mb-5">Obras y trabajos civiles para empresas, comercios y particulares en Neuquén</h1>
+          <p class="text-body-lg text-on-surface-variant mb-8 max-w-3xl rounded-lg">Soluciones integrales en construcción, reformas y mantenimiento para empresas, industrias, comercios y particulares.</p>
           <div class="flex flex-col sm:flex-row gap-4 w-full sm:w-auto mb-8 rounded-lg">
             <a class="cta-button-whatsapp bg-secondary-container hover:bg-secondary text-on-secondary font-label-md px-6 py-3.5 rounded flex items-center justify-center gap-3 transition-all shadow-sm" href={getWhatsAppLink('Hola SIBJ, necesito presupuesto para Obras y Trabajos Civiles en Neuquén')} target="_blank" rel="noopener noreferrer">
               <img src={url('/assets/whatsapp.png')} alt="" aria-hidden="true" class="w-5 h-5 object-contain" width="20" height="20" />
@@ -80,7 +80,7 @@ const faqs = [
             </a>
           </div>
           <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 w-full border-t border-outline-variant pt-6">
-            <div class="flex items-center gap-2.5"><span class="material-symbols-outlined text-secondary" aria-hidden="true">corporate_fare</span><span class="font-label-md text-on-surface">Atención a empresas</span></div>
+            <div class="flex items-center gap-2.5"><span class="material-symbols-outlined text-secondary" aria-hidden="true">corporate_fare</span><span class="font-label-md text-on-surface">Atención a empresas, industrias, comercios y particulares</span></div>
             <div class="flex items-center gap-2.5"><span class="material-symbols-outlined text-secondary" aria-hidden="true">location_on</span><span class="font-label-md text-on-surface">Cobertura en Neuquén</span></div>
             <div class="flex items-center gap-2.5"><span class="material-symbols-outlined text-secondary" aria-hidden="true">verified_user</span><span class="font-label-md text-on-surface">Normas de seguridad</span></div>
           </div>

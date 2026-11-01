@@ -3,12 +3,12 @@ import Layout from '../layouts/Layout.astro';
 import { getWhatsAppLink, url } from '../data/site';
 
 const services = [
-  ['handyman', 'Reparaciones generales', 'Reparaciones generales para locales, comercios y empresas.', 'Mantenimiento edilicio'],
-  ['format_paint', 'Pintura', 'Trabajos de pintura para renovar y mantener los espacios.', 'Terminaciones'],
-  ['grid_view', 'Cambio de pisos/baldosas', 'Cambio de pisos/baldosas según las necesidades del local.', 'Locales'],
-  ['plumbing', 'Plomería', 'Trabajos de plomería para el mantenimiento de las instalaciones.', 'Instalaciones'],
-  ['water_damage', 'Destapes y pérdidas', 'Atención de destapes y pérdidas.', 'Mantenimiento'],
-  ['assignment_turned_in', 'Mantenimiento preventivo de locales', 'Mantenimiento preventivo de locales con tareas coordinadas.', 'Prevención'],
+  ['handyman', 'Reparaciones edilicias', 'Arreglos generales y mantenimiento de instalaciones.', 'Mantenimiento edilicio'],
+  ['format_paint', 'Pintura', 'Reparaciones, terminaciones y renovación de espacios.', 'Terminaciones'],
+  ['grid_view', 'Pisos y revestimientos', 'Reparación y reemplazo.', 'Terminaciones'],
+  ['plumbing', 'Plomería', 'Pérdidas, filtraciones y destapes.', 'Instalaciones'],
+  ['carpenter', 'Carpintería y herrería', 'Reparación de puertas, cerraduras y estructuras.', 'Mantenimiento'],
+  ['assignment_turned_in', 'Mantenimiento preventivo', 'Inspecciones, conservación y reparaciones programadas.', 'Prevención'],
 ];
 
 const steps = [
@@ -19,16 +19,16 @@ const steps = [
 ];
 
 const segments = [
-  ['storefront', 'Comercios y Locales', 'Salones de venta, franquicias gastronómicas y locales que requieren respuesta rápida.'],
-  ['warehouse', 'Locales comerciales', 'Espacios comerciales que requieren mantenimiento coordinado.'],
+  ['storefront', 'Comercios y particulares', 'Espacios que requieren mantenimiento coordinado.'],
+  ['warehouse', 'Industrias', 'Instalaciones industriales que requieren mantenimiento coordinado.'],
   ['factory', 'Empresas', 'Mantenimiento para empresas en Neuquén capital.'],
-  ['domain', 'Oficinas Corporativas', 'Sedes administrativas y sucursales con mantenimiento silencioso y prolijo.'],
+  ['domain', 'Empresas y oficinas', 'Sedes administrativas y oficinas con mantenimiento silencioso y prolijo.'],
 ];
 
 const faqs = [
-  ['¿Qué tipo de mantenimiento edilicio realizan?', 'Atendemos reparaciones generales, pintura, cambio de pisos/baldosas, plomería, destapes y pérdidas, y mantenimiento preventivo de locales.'],
+  ['¿Qué tipo de mantenimiento edilicio realizan?', 'Atendemos reparaciones edilicias, pintura, pisos y revestimientos, plomería, carpintería y herrería, y mantenimiento preventivo.'],
   ['¿Trabajan con planes preventivos para empresas?', 'Sí, diseñamos rutinas periódicas de revisión hidrosanitaria, cerramientos, cubiertas y pintura, con informes y prioridad para urgencias.'],
-  ['¿Qué zona geográfica cubren?', 'Nuestra cobertura es Neuquén capital.'],
+  ['¿Qué zona geográfica cubren?', 'Nuestra cobertura incluye Neuquén, Río Negro y zonas aledañas.'],
   ['¿Pueden trabajar sin interrumpir la actividad?', 'Coordinamos las tareas por etapas u horarios programados para minimizar la interferencia con la operación del cliente.'],
 ];
 
@@ -36,14 +36,14 @@ const faqs = [
 
 <Layout
   title="Mantenimiento Edilicio en Neuquén | SIBJ"
-  description="Reparaciones generales, pintura, cambio de pisos/baldosas, plomería, destapes y pérdidas, y mantenimiento preventivo de locales en Neuquén."
+  description="Servicios de mantenimiento preventivo y correctivo para empresas, comercios, industrias y particulares en Neuquén, Río Negro y zonas aledañas."
   ogTitle="Mantenimiento Edilicio en Neuquén | SIBJ"
-  ogDescription="Reparaciones generales, pintura, cambio de pisos/baldosas, plomería, destapes y pérdidas, y mantenimiento preventivo de locales en Neuquén."
+  ogDescription="Servicios de mantenimiento preventivo y correctivo para empresas, comercios, industrias y particulares en Neuquén, Río Negro y zonas aledañas."
   ogImage="/assets/mantenimiento_edilicio.jpg"
   ogImageAlt="Técnico de SIBJ realizando mantenimiento edilicio en Neuquén"
   ogImageWidth={2560}
   ogImageHeight={1435}
-  service={{ name: "Mantenimiento Edilicio", description: "Reparaciones generales, pintura, cambio de pisos/baldosas, plomería, destapes y pérdidas, y mantenimiento preventivo de locales en Neuquén capital." }}
+  service={{ name: "Mantenimiento Edilicio", description: "Servicios de mantenimiento preventivo y correctivo para empresas, comercios, industrias y particulares en Neuquén, Río Negro y zonas aledañas." }}
   faqItems={faqs.map(([question, answer]) => ({ question, answer }))}
 >
   <div class="service-page">
@@ -63,8 +63,8 @@ const faqs = [
     <div class="max-w-7xl mx-auto px-6 sm:px-8 lg:px-16">
       <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-center">
         <div class="lg:col-span-6 flex flex-col items-start gap-6">
-          <h1 id="edilicio-hero-title" class="text-4xl lg:text-5xl font-display-lg font-bold text-primary tracking-tight leading-tight">Mantenimiento edilicio para locales, comercios y empresas en Neuquén</h1>
-          <p class="text-body-lg text-on-surface-variant max-w-2xl leading-relaxed">Reparaciones generales, pintura, cambio de pisos/baldosas, plomería, destapes y pérdidas, y mantenimiento preventivo de locales.</p>
+          <h1 id="edilicio-hero-title" class="text-4xl lg:text-5xl font-display-lg font-bold text-primary tracking-tight leading-tight">Mantenimiento edilicio para empresas, comercios, industrias y particulares en Neuquén</h1>
+          <p class="text-body-lg text-on-surface-variant max-w-2xl leading-relaxed">Servicios de mantenimiento preventivo y correctivo para empresas, comercios, industrias y particulares en Neuquén, Río Negro y zonas aledañas.</p>
           <div class="flex flex-col sm:flex-row items-stretch sm:items-center gap-4 w-full sm:w-auto pt-2">
             <a class="cta-button-whatsapp bg-secondary-container hover:bg-secondary text-on-secondary px-6 py-3.5 rounded-lg font-label-md flex items-center justify-center gap-3 transition-all shadow-sm" href={getWhatsAppLink('Hola SIBJ, necesito presupuesto para Mantenimiento Edilicio en Neuquén')} target="_blank" rel="noopener noreferrer">
               <img src={url('/assets/whatsapp.png')} alt="" aria-hidden="true" class="w-5 h-5" width="20" height="20" />
@@ -73,7 +73,7 @@ const faqs = [
             <a class="bg-surface-container-lowest border border-outline hover:border-primary text-primary px-5 py-3.5 rounded-lg font-label-md flex items-center justify-center gap-2" href="tel:+5492994622512"><span class="material-symbols-outlined text-[18px]" aria-hidden="true">phone</span>+54 9 299 462-2512</a>
           </div>
           <div class="flex flex-wrap gap-2">
-            <span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg text-label-sm bg-surface-container border border-outline-variant/60 text-primary"><span class="material-symbols-outlined text-[16px] text-secondary-container" aria-hidden="true">corporate_fare</span>Atención a empresas</span>
+            <span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg text-label-sm bg-surface-container border border-outline-variant/60 text-primary"><span class="material-symbols-outlined text-[16px] text-secondary-container" aria-hidden="true">corporate_fare</span>Atención a empresas, comercios, industrias y particulares</span>
             <span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg text-label-sm bg-surface-container border border-outline-variant/60 text-primary"><span class="material-symbols-outlined text-[16px] text-secondary-container" aria-hidden="true">location_on</span>Cobertura en Neuquén</span>
             <span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg text-label-sm bg-surface-container border border-outline-variant/60 text-primary"><span class="material-symbols-outlined text-[16px] text-secondary-container" aria-hidden="true">security</span>Normas de seguridad</span>
           </div>
@@ -89,7 +89,7 @@ const faqs = [
 
   <section class="py-16 lg:py-24 bg-background" id="servicios" aria-labelledby="edilicio-services-title">
     <div class="max-w-7xl mx-auto px-6 sm:px-8 lg:px-16">
-      <div class="max-w-3xl mb-12"><p class="text-label-md uppercase tracking-wider text-secondary font-bold">Mantenimiento edilicio</p><h2 id="edilicio-services-title" class="text-3xl lg:text-4xl font-headline-lg font-bold text-primary mt-2">Qué hacemos</h2><p class="text-body-md text-on-surface-variant mt-2">Ejecución técnica adaptada a locales, comercios y empresas en Neuquén capital.</p></div>
+      <div class="max-w-3xl mb-12"><p class="text-label-md uppercase tracking-wider text-secondary font-bold">Mantenimiento edilicio</p><h2 id="edilicio-services-title" class="text-3xl lg:text-4xl font-headline-lg font-bold text-primary mt-2">Qué hacemos</h2><p class="text-body-md text-on-surface-variant mt-2">Ejecución técnica adaptada a empresas, comercios, industrias y particulares en Neuquén, Río Negro y zonas aledañas.</p></div>
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         {services.map(([icon, title, description, label]) => <div class="bg-surface-container-lowest border border-outline-variant p-6 rounded-xl transition-all hover:shadow-md flex flex-col justify-between"><div><div class="w-12 h-12 rounded-lg bg-surface-container flex items-center justify-center text-primary mb-4"><span class="material-symbols-outlined text-[26px]" aria-hidden="true">{icon}</span></div><h3 class="text-label-md font-bold text-primary mb-2">{title}</h3><p class="text-body-md text-on-surface-variant">{description}</p></div><div class="pt-4 mt-4 border-t border-surface-container flex items-center gap-1.5 text-label-sm text-secondary font-semibold"><span class="material-symbols-outlined text-[16px]" aria-hidden="true">check_circle</span>{label}</div></div>)}
       </div>
@@ -107,7 +107,7 @@ const faqs = [
 
   <section class="py-16 lg:py-24 bg-background" aria-labelledby="edilicio-segments-title">
     <div class="max-w-7xl mx-auto px-6 sm:px-8 lg:px-16">
-      <div class="max-w-3xl mb-12"><p class="text-label-md uppercase tracking-wider text-secondary font-extrabold">Segmentos Atendidos</p><h2 id="edilicio-segments-title" class="text-3xl lg:text-4xl font-headline-lg font-bold text-primary mt-2">Para quién trabajamos</h2><p class="text-body-md text-on-surface-variant mt-2">Soporte operativo para empresas que necesitan resolver infraestructura sin desviar recursos de su negocio central.</p></div>
+      <div class="max-w-3xl mb-12"><p class="text-label-md uppercase tracking-wider text-secondary font-extrabold">Segmentos Atendidos</p><h2 id="edilicio-segments-title" class="text-3xl lg:text-4xl font-headline-lg font-bold text-primary mt-2">Para quién trabajamos</h2><p class="text-body-md text-on-surface-variant mt-2">Soporte para empresas, comercios, industrias y particulares que necesitan resolver sus necesidades edilicias.</p></div>
       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
         {segments.map(([icon, title, description]) => <div class="bg-surface-container-lowest border border-outline-variant p-6 rounded-xl"><div class="w-10 h-10 rounded-lg bg-surface-container flex items-center justify-center text-primary mb-4"><span class="material-symbols-outlined text-[22px]" aria-hidden="true">{icon}</span></div><h3 class="text-label-md font-bold text-primary mb-2">{title}</h3><p class="text-body-md text-on-surface-variant">{description}</p></div>)}
       </div>
