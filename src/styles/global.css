@@ -15,9 +15,44 @@
   --ease-out: cubic-bezier(.22, 1, .36, 1);
 }
 
+.accent-cta {
+  background-color: #c2410c;
+}
+
+.accent-cta:hover {
+  background-color: #9a3412;
+}
+
+.hover-accent-cta:hover {
+  background-color: #9a3412 !important;
+}
+
 html {
   text-rendering: optimizeLegibility;
   scroll-behavior: smooth;
+}
+
+.floating-call {
+  position: fixed;
+  right: max(1rem, env(safe-area-inset-right));
+  bottom: calc(max(1rem, env(safe-area-inset-bottom)) + 4.25rem);
+  z-index: 60;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 3.5rem;
+  height: 3.5rem;
+  border: 2px solid #ffffff;
+  border-radius: 9999px;
+  background: #0f4c81;
+  color: #ffffff;
+  box-shadow: 0 8px 24px rgb(0 0 0 / 25%);
+  transition: background-color 150ms ease, transform 150ms ease;
+}
+
+.floating-call:hover {
+  background: #0b385f;
+  transform: translateY(-2px);
 }
 
 body {
@@ -37,7 +72,7 @@ body {
 }
 
 .home-page #hero-title {
-  max-width: 16ch;
+  max-width: 32ch;
   font-size: 3rem;
   line-height: 1.08;
   font-weight: 800;
@@ -417,7 +452,7 @@ details[open] > :not(summary) {
 }
 
 .custom-ring:focus-within {
-  box-shadow: 0 0 0 2px #ea580c;
+  box-shadow: 0 0 0 2px #c2410c;
 }
 
 @layer components {
@@ -750,7 +785,8 @@ details[open] > :not(summary) {
 
   .cta-button-whatsapp:focus-visible,
   .cta-button:focus-visible,
-  .floating-whatsapp:focus-visible {
+  .floating-whatsapp:focus-visible,
+  .floating-call:focus-visible {
     outline: 3px solid #facc15;
     outline-offset: 3px;
   }

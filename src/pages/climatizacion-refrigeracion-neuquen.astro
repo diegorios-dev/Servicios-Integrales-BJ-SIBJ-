@@ -32,7 +32,7 @@ const faqs = [
   title="Climatización y refrigeración para empresas, comercios y particulares en Neuquén | SIBJ"
   description="Aire acondicionado, cámaras y precámaras de frío, detección de fugas, carga de refrigerante y reparación de fallas en Neuquén."
   ogTitle="Climatización y refrigeración para empresas, comercios y particulares en Neuquén | SIBJ"
-  ogDescription="Aire acondicionado, cámaras y precámaras de frío, detección de fugas, carga de refrigerante y reparación de fallas en Neuquén."
+  ogDescription="Aire acondicionado, cámaras y precámaras de frío, detección de fugas, carga de refrigerante y reparación de fallas para empresas, comercios y particulares en Neuquén, Río Negro y zonas aledañas."
   ogImage="/assets/climatizacion.png"
   ogImageAlt="Técnico de SIBJ realizando mantenimiento en sistemas de climatización"
   ogImageWidth={1448}
@@ -60,7 +60,7 @@ const faqs = [
           <h1 id="clima-hero-title" class="font-headline-lg text-headline-xl-mobile md:text-headline-lg text-primary font-extrabold tracking-tight">Climatización y refrigeración para empresas, comercios y particulares en Neuquén</h1>
           <p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl leading-relaxed">Aire acondicionado, cámaras y precámaras de frío, mantenimiento y reparación de fallas para empresas, comercios y particulares.</p>
           <div class="pt-1 flex flex-col sm:flex-row items-stretch sm:items-center gap-3">
-            <a class="cta-button-whatsapp bg-secondary-container hover:bg-[#EA580C] text-on-secondary px-6 py-3.5 rounded-lg font-label-md text-label-md flex items-center justify-center gap-3 shadow-md hover:shadow-lg transition-all active:scale-95" href={getWhatsAppLink('Hola SIBJ, necesito presupuesto para Climatización y Refrigeración en Neuquén')} target="_blank" rel="noopener noreferrer">
+            <a class="cta-button-whatsapp bg-secondary-container hover-accent-cta text-on-secondary px-6 py-3.5 rounded-lg font-label-md text-label-md flex items-center justify-center gap-3 shadow-md hover:shadow-lg transition-all active:scale-95" href={getWhatsAppLink('Hola SIBJ, necesito presupuesto para Climatización y Refrigeración en Neuquén')} target="_blank" rel="noopener noreferrer">
               <img src={url('/assets/whatsapp.png')} alt="" aria-hidden="true" class="w-5 h-5 object-contain" width="20" height="20" />
               <span>Pedir presupuesto por WhatsApp</span>
             </a>
@@ -68,7 +68,7 @@ const faqs = [
           </div>
           <div class="pt-3 grid grid-cols-1 sm:grid-cols-3 gap-2 border-t border-outline-variant/40">
             <div class="flex items-center gap-2.5 p-2.5 bg-surface-container-lowest rounded-lg border border-outline-variant/60"><span class="material-symbols-outlined text-[20px] text-secondary" aria-hidden="true">business</span><span class="font-label-md text-xs text-on-surface">Atención a empresas, comercios y particulares</span></div>
-            <div class="flex items-center gap-2.5 p-2.5 bg-surface-container-lowest rounded-lg border border-outline-variant/60"><span class="material-symbols-outlined text-[20px] text-secondary" aria-hidden="true">location_on</span><span class="font-label-md text-xs text-on-surface">Cobertura en Neuquén</span></div>
+            <div class="flex items-center gap-2.5 p-2.5 bg-surface-container-lowest rounded-lg border border-outline-variant/60"><span class="material-symbols-outlined text-[20px] text-secondary" aria-hidden="true">location_on</span><span class="font-label-md text-xs text-on-surface">Cobertura en Neuquén, Río Negro y zonas aledañas</span></div>
             <div class="flex items-center gap-2.5 p-2.5 bg-surface-container-lowest rounded-lg border border-outline-variant/60"><span class="material-symbols-outlined text-[20px] text-secondary" aria-hidden="true">shield</span><span class="font-label-md text-xs text-on-surface">Normas de seguridad</span></div>
           </div>
         </div>
@@ -128,14 +128,15 @@ const faqs = [
     </div>
   </section>
 
-  <section class="py-12 bg-[#ea580c] border-b border-outline-variant/60" aria-labelledby="clima-related-title">
+  <section class="py-12 accent-cta border-b border-outline-variant/60" aria-labelledby="clima-related-title">
     <div class="max-w-7xl mx-auto px-margin-mobile md:px-margin">
-      <h2 id="clima-related-title" class="font-headline-lg text-headline-md text-primary font-bold text-white">Otros servicios para tu empresa</h2>
+      <h2 id="clima-related-title" class="font-headline-lg text-headline-md text-primary font-bold text-white">Otros servicios para tu empresa, comercio o vivienda</h2>
       <p class="font-body-md text-body-md text-on-surface-variant mt-2 text-white leading-relaxed">
-        Para complementar el mantenimiento de tu local, también podés consultar nuestros servicios de
-        <a class="text-white font-bold underline underline-offset-2" href={url('/electricidad-tableros-neuquen')}> Electricidad y Tableros </a>
-        y 
-        <a class="text-white font-bold underline underline-offset-2" href={url('/mantenimiento-edilicio-neuquen')}> Mantenimiento Edilicio </a>.
+        Para complementar el mantenimiento, también podés consultar nuestros servicios de
+        <a class="text-white font-bold underline underline-offset-2" href={url('/mantenimiento-edilicio-neuquen')}> Mantenimiento Edilicio </a>,
+        <a class="text-white font-bold underline underline-offset-2" href={url('/obras-trabajos-civiles-neuquen')}> Obras y Trabajos Civiles </a>
+        y
+        <a class="text-white font-bold underline underline-offset-2" href={url('/electricidad-tableros-neuquen')}> Electricidad y Tableros </a>.
       </p>
     </div>
   </section>
@@ -143,7 +144,7 @@ const faqs = [
   <section class="py-14 bg-primary-container text-inverse-on-surface" aria-labelledby="clima-contact-title">
     <div class="max-w-7xl mx-auto px-margin-mobile md:px-margin text-center">
       <h2 id="clima-contact-title" class="font-headline-lg text-headline-md md:text-headline-lg font-bold text-surface-container-lowest mb-3">¿Necesitás asistencia técnica ahora?</h2>
-      <p class="font-body-lg text-body-lg text-on-primary-container max-w-2xl mx-auto mb-8">Contactate con nuestro equipo en Neuquén para coordinar un relevamiento o solicitar cotización.</p>
+      <p class="font-body-lg text-body-lg text-on-primary-container max-w-2xl mx-auto mb-8">Contactá con nuestro equipo en Neuquén para coordinar un relevamiento o solicitar cotización.</p>
       <a class="cta-button-whatsapp inline-flex items-center justify-center gap-3 bg-secondary-container text-on-secondary px-6 py-3.5 rounded-lg font-label-md text-label-md font-bold" href={getWhatsAppLink('Hola SIBJ, necesito presupuesto para Climatización y Refrigeración en Neuquén')} target="_blank" rel="noopener noreferrer"><img src={url('/assets/whatsapp.png')} alt="" aria-hidden="true" class="w-5 h-5" width="20" height="20" />Solicitar presupuesto</a>
     </div>
   </section>

@@ -38,7 +38,7 @@ const faqs = [
   title="Obras y Trabajos Civiles en Neuquén | SIBJ"
   description="Soluciones integrales en construcción, reformas y mantenimiento para empresas, industrias, comercios y particulares."
   ogTitle="Obras y Trabajos Civiles en Neuquén | SIBJ"
-  ogDescription="Soluciones integrales en construcción, reformas y mantenimiento para empresas, industrias, comercios y particulares en Neuquén."
+  ogDescription="Soluciones integrales en construcción, reformas y mantenimiento para empresas, industrias, comercios y particulares en Neuquén, Río Negro y zonas aledañas."
   ogImage="/assets/civiles.jpeg"
   ogImageAlt="Técnico de SIBJ realizando trabajos civiles en Neuquén"
   ogImageWidth={1280}
@@ -67,20 +67,20 @@ const faqs = [
             <span class="material-symbols-outlined text-secondary text-sm" aria-hidden="true">apartment</span>
             Obras y trabajos civiles
           </span>
-          <h1 id="obras-hero-title" class="w-full max-w-4xl text-4xl rounded-lg lg:text-5xl font-headline-lg font-extrabold text-primary tracking-tight leading-tight mb-5">Obras, reformas y trabajos civiles para empresas, comercios, industrias y particulares en Neuquén</h1>
-          <p class="text-body-lg text-on-surface-variant mb-8 max-w-3xl rounded-lg">Soluciones integrales en construcción, reformas y mantenimiento para empresas, industrias, comercios y particulares.</p>
-          <div class="flex flex-col sm:flex-row gap-4 w-full sm:w-auto mb-8 rounded-lg">
+          <h1 id="obras-hero-title" class="w-full max-w-4xl text-4xl lg:text-5xl font-headline-lg font-extrabold text-primary tracking-tight leading-tight mb-5">Obras, reformas y trabajos civiles para empresas, comercios, industrias y particulares en Neuquén</h1>
+          <p class="text-body-lg text-on-surface-variant mb-8 max-w-3xl">Soluciones integrales en construcción, reformas y mantenimiento para empresas, industrias, comercios y particulares.</p>
+          <div class="flex flex-col sm:flex-row gap-4 w-full sm:w-auto mb-8">
             <a class="cta-button-whatsapp bg-secondary-container hover:bg-secondary text-on-secondary font-label-md px-6 py-3.5 rounded flex items-center justify-center gap-3 transition-all shadow-sm" href={getWhatsAppLink('Hola SIBJ, necesito presupuesto para Obras y Trabajos Civiles en Neuquén')} target="_blank" rel="noopener noreferrer">
               <img src={url('/assets/whatsapp.png')} alt="" aria-hidden="true" class="w-5 h-5 object-contain" width="20" height="20" />
               <span>Pedir presupuesto por WhatsApp</span>
             </a>
             <a class="border border-outline-variant hover:border-primary bg-surface-container-lowest text-primary font-label-md px-6 py-3.5 rounded flex items-center justify-center gap-2 transition-all" href="tel:+5492995064187">
-              <span class="material-symbols-outlined text-secondary rounded-lg" aria-hidden="true">call</span><span>Llamar a operaciones</span>
+              <span class="material-symbols-outlined text-secondary" aria-hidden="true">call</span><span>Llamar a operaciones</span>
             </a>
           </div>
           <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 w-full border-t border-outline-variant pt-6">
             <div class="flex items-center gap-2.5"><span class="material-symbols-outlined text-secondary" aria-hidden="true">corporate_fare</span><span class="font-label-md text-on-surface">Atención a empresas, industrias, comercios y particulares</span></div>
-            <div class="flex items-center gap-2.5"><span class="material-symbols-outlined text-secondary" aria-hidden="true">location_on</span><span class="font-label-md text-on-surface">Cobertura en Neuquén</span></div>
+            <div class="flex items-center gap-2.5"><span class="material-symbols-outlined text-secondary" aria-hidden="true">location_on</span><span class="font-label-md text-on-surface">Cobertura en Neuquén, Río Negro y zonas aledañas</span></div>
             <div class="flex items-center gap-2.5"><span class="material-symbols-outlined text-secondary" aria-hidden="true">verified_user</span><span class="font-label-md text-on-surface">Normas de seguridad</span></div>
           </div>
         </div>
@@ -104,13 +104,13 @@ const faqs = [
     <div class="max-w-7xl mx-auto px-6 sm:px-8 lg:px-16">
       <div class="text-left mb-12 max-w-3xl"><p class="text-label-sm text-secondary uppercase tracking-wider">Metodología de Trabajo</p><h2 id="obras-process-title" class="text-3xl lg:text-4xl font-headline-lg text-primary mt-1">Cómo trabajamos</h2><p class="text-body-md text-on-surface-variant mt-2">Un proceso ordenado y transparente que prioriza la precisión y el cumplimiento de cada etapa técnica.</p></div>
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-        {steps.map(([number, title, description]) => <div class="border border-outline-variant rounded-lg p-6 bg-surface relative"><span class="font-display-lg text-secondary opacity-30 absolute right-4 top-2">{number}</span><div class="flex items-center gap-2 mb-3"><span class="w-8 h-8 rounded-full bg-primary text-surface-container-lowest flex items-center justify-center font-bold text-sm">{number.replace('0', '')}</span><h3 class="font-label-md text-primary">{title}</h3></div><p class="text-body-md text-on-surface-variant mt-2">{description}</p></div>)}
+        {steps.map(([number, title, description]) => <div class="border border-outline-variant rounded-lg p-6 bg-surface relative"><span class="font-display-lg text-secondary opacity-30 absolute right-4 top-2">{number}</span><div class="flex items-center gap-2 mb-3"><h3 class="font-label-md text-primary">{title}</h3></div><p class="text-body-md text-on-surface-variant mt-2">{description}</p></div>)}
       </div>
     </div>
   </section>
 
-  <section class="py-16 lg:py-24 max-w-7xl mx-auto px-6 sm:px-8 lg:px-16 rounded-lg" aria-labelledby="obras-segments-title">
-    <div class="text-left mb-10 max-w-3xl"><p class="text-label-sm text-secondary uppercase tracking-wider">Sectores y Rubros</p><h2 id="obras-segments-title" class="text-3xl lg:text-4xl font-headline-lg text-primary mt-1">Para quién trabajamos</h2><p class="text-body-md text-on-surface-variant mt-2">Atendemos las necesidades operativas e infraestructurales de organizaciones en toda la cuenca neuquina.</p></div>
+  <section class="py-16 lg:py-24 max-w-7xl mx-auto px-6 sm:px-8 lg:px-16" aria-labelledby="obras-segments-title">
+    <div class="text-left mb-10 max-w-3xl"><p class="text-label-sm text-secondary uppercase tracking-wider">Sectores y Rubros</p><h2 id="obras-segments-title" class="text-3xl lg:text-4xl font-headline-lg text-primary mt-1">Para quién trabajamos</h2><p class="text-body-md text-on-surface-variant mt-2">Atendemos las necesidades operativas e infraestructurales de empresas, comercios y particulares en Neuquén, Río Negro y zonas aledañas.</p></div>
     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
       {segments.map(([icon, title, description]) => <div class="border border-outline-variant bg-surface-container-lowest p-6 rounded flex items-start gap-4"><span class="material-symbols-outlined text-secondary text-3xl" aria-hidden="true">{icon}</span><div><h3 class="font-label-md text-primary mb-1">{title}</h3><p class="text-body-md text-on-surface-variant">{description}</p></div></div>)}
     </div>

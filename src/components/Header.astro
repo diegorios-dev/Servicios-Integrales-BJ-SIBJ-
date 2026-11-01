@@ -20,7 +20,7 @@ const isServicesPage = servicePaths.some((path) => isCurrent(path));
       <img src={url('/assets/logo1.png')} alt="SIBJ Logo" class="h-9 w-9 md:h-10 md:w-10 object-contain rounded-lg" width="40" height="40" />
       <div class="flex flex-col">
         <span class="font-headline-md text-headline-md tracking-tight font-extrabold text-primary">{siteConfig.name}</span>
-        <span class="font-technical-code text-technical-code text-on-surface-variant text-xs -mt-1 hidden sm:block">&nbsp; &nbsp; Mantenimiento y Soluciones</span>
+        <span class="font-technical-code text-technical-code text-on-surface-variant text-xs -mt-1 hidden sm:block">Mantenimiento y Soluciones</span>
       </div>
     </a>
 
@@ -49,14 +49,14 @@ const isServicesPage = servicePaths.some((path) => isCurrent(path));
       
       <!-- Desplegable de Servicios con soporte de teclado y hover -->
       <div class="relative group">
-        <div class="inline-flex items-center">
+        <div class="inline-flex items-center gap-1">
           <a class:list={[
             'nav-section-link text-on-surface-variant font-label-md text-label-md hover:text-secondary-container transition-colors duration-150 inline-flex items-center gap-1 py-2 focus:outline-none focus:ring-2 focus:ring-secondary-container rounded',
             { 'is-active': isServicesPage },
           ]} href={url('/#servicios')} data-nav-section="servicios" aria-current={isServicesPage ? 'page' : undefined}>
             Servicios
           </a>
-          <button type="button" class="dropdown-toggle touch-target text-on-surface-variant p-2 focus:outline-none focus:ring-2 focus:ring-secondary-container rounded" aria-label="Mostrar servicios" aria-expanded="false" aria-controls="services-menu">
+          <button type="button" class="dropdown-toggle touch-target min-h-11 min-w-11 inline-flex items-center justify-center text-on-surface-variant p-2 focus:outline-none focus:ring-2 focus:ring-secondary-container rounded" aria-label="Mostrar servicios" aria-expanded="false" aria-controls="services-menu">
             <span class="material-symbols-outlined text-sm" aria-hidden="true">expand_more</span>
           </button>
         </div>
@@ -73,7 +73,7 @@ const isServicesPage = servicePaths.some((path) => isCurrent(path));
 
     <!-- Trailing Action Group -->
     <div class="flex items-center gap-space-md">
-      <a class="hidden lg:flex touch-target items-center gap-2 font-technical-code text-technical-code text-on-surface-variant hover:text-primary transition-colors focus:outline-none focus:ring-2 focus:ring-secondary-container rounded p-1" href={`tel:${siteConfig.telephoneRaw}`} aria-label={`Llamar al ${siteConfig.telephoneDisplay}`}>
+      <a class="hidden lg:flex touch-target items-center gap-2 border border-outline-variant rounded-lg px-3 font-technical-code text-sm font-semibold text-on-surface-variant hover:text-primary hover:border-primary transition-colors focus:outline-none focus:ring-2 focus:ring-secondary-container" href={`tel:${siteConfig.telephoneRaw}`} aria-label={`Llamar al ${siteConfig.telephoneDisplay}`}>
         <span class="material-symbols-outlined text-secondary-container text-base" data-icon="phone" aria-hidden="true">phone</span>
         <span class="font-semibold">{siteConfig.telephoneDisplay}</span>
       </a>
@@ -86,6 +86,7 @@ const isServicesPage = servicePaths.some((path) => isCurrent(path));
       <div class="mobile-navigation-primary">
         <a class="mobile-navigation-link mobile-navigation-primary-link" href={url('/')} aria-current={isCurrent('/') ? 'page' : undefined}>Inicio</a>
         <a class="mobile-navigation-link mobile-navigation-primary-link" href={url('/#contacto')}>Contacto</a>
+        <a class="mobile-navigation-link mobile-navigation-primary-link" href="tel:+5492995064187">Llamar: +54 9 299 506-4187</a>
       </div>
       <div class="mobile-navigation-divider" aria-hidden="true"></div>
       <p class="mobile-navigation-label">Servicios</p>

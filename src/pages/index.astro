@@ -43,7 +43,7 @@ import { servicesData, pillarsData, testimonialsData } from '../data/services';
 
       <!-- Services Cards Grid: Restaurados los 4 servicios solicitados -->
       <div class="grid grid-cols-1 md:grid-cols-2 gap-space-lg">
-        {servicesData.map((service) => (
+        {servicesData.map((service, index) => (
           <ServiceCard 
             titulo={service.title}
             etiqueta={service.tag}
@@ -51,6 +51,7 @@ import { servicesData, pillarsData, testimonialsData } from '../data/services';
             descripcion={service.description}
             items={service.items}
             href={service.href}
+            badge={index < 2 ? "Servicio principal" : undefined}
           />
         ))}
       </div>

@@ -18,7 +18,6 @@ const isTestimonialCard = Boolean(image);
 {isTestimonialCard ? (
   <div class="reveal bg-surface-container-lowest border border-outline-variant/50 rounded-xl overflow-hidden shadow-sm hover:shadow-md flex flex-col justify-between">
     <div class="relative h-52 w-full overflow-hidden bg-surface-container-low">
-      <!-- TODO: Descargar la imagen correspondiente y colocarla en src/assets/ -->
       <img src={image} alt={imageAlt || titulo} class="w-full h-full object-cover object-center" width="800" height="520" loading="lazy" decoding="async" />
       <div class="absolute top-3 left-3">
         <span class="font-technical-code text-xs px-2.5 py-1 rounded bg-primary-container text-white font-bold shadow">{badge}</span>
@@ -38,12 +37,13 @@ const isTestimonialCard = Boolean(image);
     </div>
   </div>
 ) : (
-  <div class="reveal bg-surface-container-lowest border border-outline-variant/50 rounded-xl p-space-lg flex flex-col justify-between hover:border-secondary-container shadow-sm hover:shadow-md">
+  <div class:list={["reveal bg-surface-container-lowest border rounded-xl p-space-lg flex flex-col justify-between hover:border-secondary-container shadow-sm hover:shadow-md", badge ? "border-secondary-container" : "border-outline-variant/50"]}>
     <div>
       <div class="flex items-center justify-between mb-4">
-        <span class="font-technical-code text-technical-code px-2 py-0.5 rounded bg-surface-container-low text-on-surface-variant font-bold">
-          {etiqueta}
-        </span>
+        <div class="flex flex-wrap items-center gap-2">
+          <span class="font-technical-code text-technical-code px-2 py-0.5 rounded bg-surface-container-low text-on-surface-variant font-bold">{etiqueta}</span>
+          {badge && <span class="font-technical-code text-technical-code px-2 py-0.5 rounded bg-secondary-container text-on-secondary font-bold">{badge}</span>}
+        </div>
         <div class="w-12 h-12 rounded-lg bg-surface-container-low flex items-center justify-center text-primary-container">
           <span class="material-symbols-outlined text-2xl" aria-hidden="true">{icono}</span>
         </div>

@@ -26,6 +26,13 @@ import { siteConfig, url } from '../data/site';
       </div>
     </div>
 
+    <div class="flex flex-col gap-2 border-t border-outline/30 pt-space-md text-on-primary-container font-body-sm text-body-sm">
+      <a class="hover:underline" href={`tel:${siteConfig.telephoneRaw}`}>{siteConfig.telephoneDisplay}</a>
+      <a class="hover:underline" href={`mailto:${siteConfig.email}`}>{siteConfig.email}</a>
+      <span>{siteConfig.openingHours.label}</span>
+      <span>{siteConfig.city}, Río Negro y zonas aledañas</span>
+    </div>
+
     <!-- Separation & Copyright text -->
     <div class="pt-space-md border-t border-outline/30 flex flex-col md:flex-row items-center justify-between gap-4">
       <p class="font-body-sm text-body-sm text-on-primary-container">© 2026 Servicios Integrales BJ. Todos los derechos reservados. Mantenimiento técnico para empresas, comercios y particulares.</p>
