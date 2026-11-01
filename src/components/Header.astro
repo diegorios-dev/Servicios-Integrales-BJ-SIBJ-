@@ -61,10 +61,10 @@ const isServicesPage = servicePaths.some((path) => isCurrent(path));
           </button>
         </div>
         <div id="services-menu" class="dropdown-menu absolute left-0 top-full hidden group-hover:block group-focus-within:block bg-surface-container-lowest shadow-lg rounded-xl border border-outline-variant/40 py-2 w-64 z-50">
-          <a class="block px-4 py-2 text-sm text-on-surface hover:bg-surface-container-low transition-colors" href={url('/climatizacion-refrigeracion-neuquen')} aria-current={isCurrent('/climatizacion-refrigeracion-neuquen') ? 'page' : undefined}>Climatización y Refrigeración</a>
           <a class="block px-4 py-2 text-sm text-on-surface hover:bg-surface-container-low transition-colors" href={url('/mantenimiento-edilicio-neuquen')} aria-current={isCurrent('/mantenimiento-edilicio-neuquen') ? 'page' : undefined}>Mantenimiento Edilicio</a>
-          <a class="block px-4 py-2 text-sm text-on-surface hover:bg-surface-container-low transition-colors" href={url('/electricidad-tableros-neuquen')} aria-current={isCurrent('/electricidad-tableros-neuquen') ? 'page' : undefined}>Electricidad y Tableros</a>
           <a class="block px-4 py-2 text-sm text-on-surface hover:bg-surface-container-low transition-colors" href={url('/obras-trabajos-civiles-neuquen')} aria-current={isCurrent('/obras-trabajos-civiles-neuquen') ? 'page' : undefined}>Obras y Trabajos Civiles</a>
+          <a class="block px-4 py-2 text-sm text-on-surface hover:bg-surface-container-low transition-colors" href={url('/climatizacion-refrigeracion-neuquen')} aria-current={isCurrent('/climatizacion-refrigeracion-neuquen') ? 'page' : undefined}>Climatización y Refrigeración</a>
+          <a class="block px-4 py-2 text-sm text-on-surface hover:bg-surface-container-low transition-colors" href={url('/electricidad-tableros-neuquen')} aria-current={isCurrent('/electricidad-tableros-neuquen') ? 'page' : undefined}>Electricidad y Tableros</a>
         </div>
       </div>
 
@@ -90,21 +90,21 @@ const isServicesPage = servicePaths.some((path) => isCurrent(path));
       <div class="mobile-navigation-divider" aria-hidden="true"></div>
       <p class="mobile-navigation-label">Servicios</p>
       <div class="mobile-navigation-services">
-        <a class="mobile-navigation-link mobile-navigation-service-link" href={url('/climatizacion-refrigeracion-neuquen')}>
-          <svg class="mobile-service-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 3v18M3 12h18M5.6 5.6l12.8 12.8M18.4 5.6L5.6 18.4" /></svg>
-          <span>Climatización y Refrigeración</span>
-        </a>
         <a class="mobile-navigation-link mobile-navigation-service-link" href={url('/mantenimiento-edilicio-neuquen')}>
           <svg class="mobile-service-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M4 20h16M6 20V9l6-5 6 5v11M9 20v-5h6v5M9 10h.01M15 10h.01" /></svg>
           <span>Mantenimiento Edilicio</span>
         </a>
-        <a class="mobile-navigation-link mobile-navigation-service-link" href={url('/electricidad-tableros-neuquen')}>
-          <svg class="mobile-service-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M13 2L5 13h6l-1 9 8-11h-6l1-9z" /></svg>
-          <span>Electricidad y Tableros</span>
-        </a>
         <a class="mobile-navigation-link mobile-navigation-service-link" href={url('/obras-trabajos-civiles-neuquen')}>
           <svg class="mobile-service-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M4 20h16M6 20V8h12v12M4 8l8-5 8 5M9 20v-5h6v5" /></svg>
           <span>Obras y Trabajos Civiles</span>
+        </a>
+        <a class="mobile-navigation-link mobile-navigation-service-link" href={url('/climatizacion-refrigeracion-neuquen')}>
+          <svg class="mobile-service-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 3v18M3 12h18M5.6 5.6l12.8 12.8M18.4 5.6L5.6 18.4" /></svg>
+          <span>Climatización y Refrigeración</span>
+        </a>
+        <a class="mobile-navigation-link mobile-navigation-service-link" href={url('/electricidad-tableros-neuquen')}>
+          <svg class="mobile-service-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M13 2L5 13h6l-1 9 8-11h-6l1-9z" /></svg>
+          <span>Electricidad y Tableros</span>
         </a>
       </div>
       <a class="mobile-navigation-cta" href={getWhatsAppLink('Hola SIBJ, necesito pedir un presupuesto')} target="_blank" rel="noopener noreferrer">

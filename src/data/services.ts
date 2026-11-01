@@ -12,21 +12,6 @@ export interface ServiceItem {
 
 export const servicesData: ServiceItem[] = [
   {
-    title: "Climatización y Refrigeración",
-    tag: "Climatización y refrigeración",
-    icon: "ac_unit",
-    description: "Mantenimiento de climatización y refrigeración para empresas, comercios y particulares en Neuquén.",
-    items: [
-      "Aire acondicionado.",
-      "Cámaras y precámaras de frío.",
-      "Detección de fugas.",
-      "Carga de refrigerante.",
-      "Mantenimiento de condensadoras y evaporadoras.",
-      "Diagnóstico y reparación de fallas."
-    ],
-    href: url("/climatizacion-refrigeracion-neuquen"),
-  },
-  {
     title: "Mantenimiento Edilicio",
     tag: "Mantenimiento edilicio",
     icon: "apartment",
@@ -42,20 +27,6 @@ export const servicesData: ServiceItem[] = [
     href: url("/mantenimiento-edilicio-neuquen"),
   },
   {
-    title: "Electricidad y Tableros",
-    tag: "ELECTROTECNIA",
-    icon: "bolt",
-    description: "Electricidad y tableros para empresas, comercios y particulares en Neuquén.",
-    items: [
-      "Diagnóstico de fallas.",
-      "Tableros.",
-      "Térmicas y contactores.",
-      "Instalaciones y reparaciones eléctricas.",
-      "Mantenimiento preventivo."
-    ],
-    href: url("/electricidad-tableros-neuquen"),
-  },
-  {
     title: "Obras y Trabajos Civiles",
     tag: "CONSTRUCCIÓN",
     icon: "construction",
@@ -69,6 +40,35 @@ export const servicesData: ServiceItem[] = [
       "Mantenimiento edilicio."
     ],
     href: url("/obras-trabajos-civiles-neuquen"),
+  },
+  {
+    title: "Climatización y Refrigeración",
+    tag: "Climatización y refrigeración",
+    icon: "ac_unit",
+    description: "Mantenimiento de climatización y refrigeración para empresas, comercios y particulares en Neuquén.",
+    items: [
+      "Aire acondicionado.",
+      "Cámaras y precámaras de frío.",
+      "Detección de fugas.",
+      "Carga de refrigerante.",
+      "Mantenimiento de condensadoras y evaporadoras.",
+      "Diagnóstico y reparación de fallas."
+    ],
+    href: url("/climatizacion-refrigeracion-neuquen"),
+  },
+  {
+    title: "Electricidad y Tableros",
+    tag: "ELECTROTECNIA",
+    icon: "bolt",
+    description: "Electricidad y tableros para empresas, comercios y particulares en Neuquén.",
+    items: [
+      "Diagnóstico de fallas.",
+      "Tableros.",
+      "Térmicas y contactores.",
+      "Instalaciones y reparaciones eléctricas.",
+      "Mantenimiento preventivo."
+    ],
+    href: url("/electricidad-tableros-neuquen"),
   },
 ];
 

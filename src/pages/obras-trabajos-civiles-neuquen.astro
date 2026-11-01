@@ -19,10 +19,9 @@ const steps = [
 ];
 
 const segments = [
-  ['business', 'Empresas', 'Trabajos civiles para empresas en Neuquén capital.'],
-  ['precision_manufacturing', 'Empresas', 'Trabajos civiles para empresas en Neuquén capital.'],
-  ['warehouse', 'Comercios y particulares', 'Adecuaciones y reparaciones para comercios y particulares.'],
-  ['storefront', 'Empresas e industrias', 'Trabajos para empresas e industrias.'],
+  ['business', 'Empresas e industrias', 'Trabajos civiles para empresas e industrias en Neuquén, Río Negro y zonas aledañas.'],
+  ['storefront', 'Comercios', 'Adecuaciones y reparaciones de locales comerciales.'],
+  ['home', 'Particulares', 'Reformas, ampliaciones y reparaciones de viviendas.'],
   ['factory', 'Infraestructura', 'Trabajos relacionados con construcción e infraestructura.'],
 ];
 
@@ -30,7 +29,7 @@ const faqs = [
   ['¿Qué trabajos civiles realizan?', 'Realizamos construcción, reformas, pisos y revestimientos, construcción en seco, instalaciones sanitarias y mantenimiento edilicio.'],
   ['¿Realizan instalaciones?', 'Sí. Realizamos instalaciones relacionadas con obras y trabajos civiles.'],
   ['¿Cómo se coordinan los trabajos?', 'Coordinamos las tareas y los horarios con el cliente.'],
-  ['¿Tienen un trabajo realizado con biodigestor?', 'Sí. Instalación de sistema sanitario con biodigestor para el tratamiento de aguas residuales'],
+  ['¿Tienen un trabajo realizado con biodigestor?', 'Sí. Instalación de sistema sanitario con biodigestor para el tratamiento de aguas residuales.'],
 ];
 
 ---
@@ -68,14 +67,14 @@ const faqs = [
             <span class="material-symbols-outlined text-secondary text-sm" aria-hidden="true">apartment</span>
             Obras y trabajos civiles
           </span>
-          <h1 id="obras-hero-title" class="w-full max-w-4xl text-4xl rounded-lg lg:text-5xl font-headline-lg font-extrabold text-primary tracking-tight leading-tight mb-5">Obras y trabajos civiles para empresas, comercios y particulares en Neuquén</h1>
+          <h1 id="obras-hero-title" class="w-full max-w-4xl text-4xl rounded-lg lg:text-5xl font-headline-lg font-extrabold text-primary tracking-tight leading-tight mb-5">Obras, reformas y trabajos civiles para empresas, comercios, industrias y particulares en Neuquén</h1>
           <p class="text-body-lg text-on-surface-variant mb-8 max-w-3xl rounded-lg">Soluciones integrales en construcción, reformas y mantenimiento para empresas, industrias, comercios y particulares.</p>
           <div class="flex flex-col sm:flex-row gap-4 w-full sm:w-auto mb-8 rounded-lg">
             <a class="cta-button-whatsapp bg-secondary-container hover:bg-secondary text-on-secondary font-label-md px-6 py-3.5 rounded flex items-center justify-center gap-3 transition-all shadow-sm" href={getWhatsAppLink('Hola SIBJ, necesito presupuesto para Obras y Trabajos Civiles en Neuquén')} target="_blank" rel="noopener noreferrer">
               <img src={url('/assets/whatsapp.png')} alt="" aria-hidden="true" class="w-5 h-5 object-contain" width="20" height="20" />
               <span>Pedir presupuesto por WhatsApp</span>
             </a>
-            <a class="border border-outline-variant hover:border-primary bg-surface-container-lowest text-primary font-label-md px-6 py-3.5 rounded flex items-center justify-center gap-2 transition-all" href="tel:+5492994622512">
+            <a class="border border-outline-variant hover:border-primary bg-surface-container-lowest text-primary font-label-md px-6 py-3.5 rounded flex items-center justify-center gap-2 transition-all" href="tel:+5492995064187">
               <span class="material-symbols-outlined text-secondary rounded-lg" aria-hidden="true">call</span><span>Llamar a operaciones</span>
             </a>
           </div>
@@ -112,7 +111,7 @@ const faqs = [
 
   <section class="py-16 lg:py-24 max-w-7xl mx-auto px-6 sm:px-8 lg:px-16 rounded-lg" aria-labelledby="obras-segments-title">
     <div class="text-left mb-10 max-w-3xl"><p class="text-label-sm text-secondary uppercase tracking-wider">Sectores y Rubros</p><h2 id="obras-segments-title" class="text-3xl lg:text-4xl font-headline-lg text-primary mt-1">Para quién trabajamos</h2><p class="text-body-md text-on-surface-variant mt-2">Atendemos las necesidades operativas e infraestructurales de organizaciones en toda la cuenca neuquina.</p></div>
-    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
       {segments.map(([icon, title, description]) => <div class="border border-outline-variant bg-surface-container-lowest p-6 rounded flex items-start gap-4"><span class="material-symbols-outlined text-secondary text-3xl" aria-hidden="true">{icon}</span><div><h3 class="font-label-md text-primary mb-1">{title}</h3><p class="text-body-md text-on-surface-variant">{description}</p></div></div>)}
     </div>
   </section>
@@ -129,7 +128,7 @@ const faqs = [
   </section>
 
   <section class="bg-primary-container text-surface-container-lowest border-t border-outline-variant py-16" id="contacto" aria-labelledby="obras-contact-title">
-    <div class="max-w-7xl mx-auto px-6 sm:px-8 lg:px-16"><div class="flex flex-col md:flex-row items-start md:items-center justify-between gap-6 bg-tertiary-container/50 border border-outline/30 p-8 rounded"><div><p class="text-label-sm text-secondary-fixed uppercase tracking-wider text-extrabold">Atención Directa</p><h2 id="obras-contact-title" class="text-2xl lg:text-3xl font-headline-lg font-bold mt-1">¿Necesitás asistencia técnica ahora?</h2><p class="text-body-md text-on-primary-container mt-1 max-w-xl">Coordiná una visita técnica o enviá el plano de tu obra civil para un análisis y cotización.</p></div><div class="flex flex-col sm:flex-row gap-4 w-full md:w-auto">    <a class="cta-button-whatsapp bg-secondary-container hover:bg-secondary text-on-secondary font-label-md px-5 py-3 rounded flex items-center justify-center gap-2 transition-all shadow-sm" href={getWhatsAppLink('Hola SIBJ, necesito presupuesto para Obras y Trabajos Civiles en Neuquén')} target="_blank" rel="noopener noreferrer"><img src={url('/assets/whatsapp.png')} alt="" aria-hidden="true" class="w-5 h-5" width="20" height="20" />WhatsApp</a><a class="border border-outline/40 text-surface-container-lowest px-5 py-3 rounded flex items-center justify-center gap-2" href="tel:+5492994622512"><span class="material-symbols-outlined text-lg" aria-hidden="true">call</span>+54 9 299-462-2512</a></div></div></div>
+    <div class="max-w-7xl mx-auto px-6 sm:px-8 lg:px-16"><div class="flex flex-col md:flex-row items-start md:items-center justify-between gap-6 bg-tertiary-container/50 border border-outline/30 p-8 rounded"><div><p class="text-label-sm text-secondary-fixed uppercase tracking-wider text-extrabold">Atención Directa</p><h2 id="obras-contact-title" class="text-2xl lg:text-3xl font-headline-lg font-bold mt-1">¿Necesitás asistencia técnica ahora?</h2><p class="text-body-md text-on-primary-container mt-1 max-w-xl">Coordiná una visita técnica o enviá el plano de tu obra civil para un análisis y cotización.</p></div><div class="flex flex-col sm:flex-row gap-4 w-full md:w-auto">    <a class="cta-button-whatsapp bg-secondary-container hover:bg-secondary text-on-secondary font-label-md px-5 py-3 rounded flex items-center justify-center gap-2 transition-all shadow-sm" href={getWhatsAppLink('Hola SIBJ, necesito presupuesto para Obras y Trabajos Civiles en Neuquén')} target="_blank" rel="noopener noreferrer"><img src={url('/assets/whatsapp.png')} alt="" aria-hidden="true" class="w-5 h-5" width="20" height="20" />WhatsApp</a><a class="border border-outline/40 text-surface-container-lowest px-5 py-3 rounded flex items-center justify-center gap-2" href="tel:+5492995064187"><span class="material-symbols-outlined text-lg" aria-hidden="true">call</span>+54 9 299 506-4187</a></div></div></div>
   </section>
   </div>
 </Layout>

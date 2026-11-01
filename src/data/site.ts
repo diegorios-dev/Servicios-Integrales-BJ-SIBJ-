@@ -19,9 +19,9 @@ export interface SiteConfig {
 export const siteConfig: SiteConfig = {
   name: "Servicios Integrales BJ",
   shortName: "SIBJ",
-  telephoneDisplay: "+54 9 299-462-2512",
-  telephoneRaw: "+5492994622512",
-  whatsappNumber: "5492994622512",
+  telephoneDisplay: "+54 9 299 506-4187",
+  telephoneRaw: "+5492995064187",
+  whatsappNumber: "5492995064187",
   email: "contacto@sibj.com.ar",
   city: "Neuquén",
   region: "Neuquén",
