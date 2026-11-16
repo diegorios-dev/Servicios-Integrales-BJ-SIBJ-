@@ -15,7 +15,7 @@ export const servicesData: ServiceItem[] = [
     title: "Mantenimiento Edilicio",
     tag: "Mantenimiento edilicio",
     icon: "apartment",
-    description: "Mantenimiento edilicio preventivo y correctivo para empresas, comercios, industrias y particulares en Neuquén, Río Negro y zonas aledañas.",
+    description: "Mantenimiento edilicio preventivo y correctivo para empresas, comercios, industrias y particulares en Neuquén y Río Negro.",
     items: [
       "Reparaciones edilicias.",
       "Pintura.",
@@ -28,7 +28,7 @@ export const servicesData: ServiceItem[] = [
     title: "Obras y Trabajos Civiles",
     tag: "CONSTRUCCIÓN",
     icon: "construction",
-    description: "Obras y trabajos civiles para empresas, comercios y particulares en Neuquén, Río Negro y zonas aledañas.",
+    description: "Obras y trabajos civiles para empresas, comercios y particulares en Neuquén y Río Negro.",
     items: [
       "Albañilería.",
       "Reformas y remodelaciones.",
@@ -41,7 +41,7 @@ export const servicesData: ServiceItem[] = [
     title: "Climatización y Refrigeración",
     tag: "Climatización y refrigeración",
     icon: "ac_unit",
-    description: "Mantenimiento de climatización y refrigeración para empresas, comercios y particulares en Neuquén, Río Negro y zonas aledañas.",
+    description: "Mantenimiento de climatización y refrigeración para empresas, comercios y particulares en Neuquén y Río Negro.",
     items: [
       "Aire acondicionado.",
       "Cámaras y precámaras de frío.",
@@ -54,7 +54,7 @@ export const servicesData: ServiceItem[] = [
     title: "Electricidad y Tableros",
     tag: "ELECTROTECNIA",
     icon: "bolt",
-    description: "Electricidad y tableros para empresas, comercios y particulares en Neuquén, Río Negro y zonas aledañas.",
+    description: "Electricidad y tableros para empresas, comercios y particulares en Neuquén y Río Negro.",
     items: [
       "Diagnóstico de fallas.",
       "Tableros.",
@@ -83,7 +83,7 @@ export const pillarsData: PillarItem[] = [
     number: "02 // EXPERIENCIA",
     icon: "badge",
     title: "Personal Capacitado y con Experiencia",
-    text: "Personal técnico idóneo y con experiencia para atender cada trabajo."
+    text: "Personal idóneo y con experiencia para atender cada trabajo."
   },
   {
     number: "03 // AGILIDAD",

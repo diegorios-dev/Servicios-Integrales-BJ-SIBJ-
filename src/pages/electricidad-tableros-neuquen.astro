@@ -11,7 +11,7 @@ const services = [
 ];
 
 const segments = [
-  ['factory', 'Empresas', 'Instalaciones y mantenimiento eléctrico para empresas en Neuquén, Río Negro y zonas aledañas.'],
+  ['factory', 'Empresas', 'Instalaciones y mantenimiento eléctrico para empresas en Neuquén y Río Negro.'],
   ['store', 'Comercios', 'Atención de instalaciones eléctricas de comercios.'],
   ['home', 'Particulares', 'Trabajos eléctricos para particulares.'],
 ];
@@ -33,7 +33,7 @@ const faqs = [
   ogImageAlt="Instalación eléctrica atendida por SIBJ en Neuquén"
   ogImageWidth={862}
   ogImageHeight={841}
-  service={{ name: "Electricidad y Tableros", description: "Diagnóstico de fallas, tableros, térmicas y contactores, instalaciones y reparaciones eléctricas y mantenimiento preventivo en Neuquén, Río Negro y zonas aledañas." }}
+  service={{ name: "Electricidad y Tableros", description: "Diagnóstico de fallas, tableros, térmicas y contactores, instalaciones y reparaciones eléctricas y mantenimiento preventivo en Neuquén y Río Negro." }}
   faqItems={faqs.map(([question, answer]) => ({ question, answer }))}
 >
   <div class="service-page">
@@ -70,7 +70,7 @@ const faqs = [
           </div>
           <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 w-full border-t border-outline-variant/40 pt-6">
             <div class="flex items-center gap-2.5 p-2 bg-surface-container-lowest rounded-lg border border-outline-variant/40"><span class="material-symbols-outlined text-secondary-container" aria-hidden="true">domain</span><span class="text-label-md text-primary font-bold">Atención a empresas, comercios y particulares</span></div>
-            <div class="flex items-center gap-2.5 p-2 bg-surface-container-lowest rounded-lg border border-outline-variant/40"><span class="material-symbols-outlined text-secondary-container" aria-hidden="true">location_on</span><span class="text-label-md text-primary font-bold">Cobertura en Neuquén, Río Negro y zonas aledañas</span></div>
+            <div class="flex items-center gap-2.5 p-2 bg-surface-container-lowest rounded-lg border border-outline-variant/40"><span class="material-symbols-outlined text-secondary-container" aria-hidden="true">location_on</span><span class="text-label-md text-primary font-bold">Cobertura en Neuquén y Río Negro</span></div>
             <div class="flex items-center gap-2.5 p-2 bg-surface-container-lowest rounded-lg border border-outline-variant/40"><span class="material-symbols-outlined text-secondary-container" aria-hidden="true">verified_user</span><span class="text-label-md text-primary font-bold">Normas de seguridad</span></div>
           </div>
         </div>
@@ -119,7 +119,7 @@ const faqs = [
   </section>
 
   <section class="py-16 bg-primary-container text-surface-container-lowest" id="contacto" aria-labelledby="electricidad-contact-title">
-    <div class="max-w-7xl mx-auto px-6 sm:px-8 lg:px-16"><div class="bg-tertiary-container/60 border border-on-primary-container/20 rounded-2xl p-8 lg:p-12 flex flex-col lg:flex-row items-center justify-between gap-8"><div class="max-w-2xl text-center lg:text-left"><h2 id="electricidad-contact-title" class="text-headline-lg-mobile lg:text-headline-lg font-headline-lg font-bold tracking-tight mb-3">¿Necesitás asistencia técnica ahora?</h2><p class="text-body-lg text-on-primary-container">Atendemos requerimientos eléctricos para empresas, comercios y particulares en Neuquén.</p></div><div class="flex flex-col sm:flex-row items-center gap-4 w-full lg:w-auto">    <a class="cta-button-whatsapp w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-secondary-container hover:bg-secondary text-on-secondary px-6 py-3.5 rounded-lg font-label-md transition-all shadow-md" href={getWhatsAppLink('Hola SIBJ, necesito asistencia técnica para Electricidad y Tableros en Neuquén')} target="_blank" rel="noopener noreferrer"><img src={url('/assets/whatsapp.png')} alt="" aria-hidden="true" class="w-5 h-5" width="20" height="20" /><span>WhatsApp</span></a><a class="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-lg border border-on-primary-container/40 text-surface-container-lowest hover:bg-surface-container-lowest/10 font-label-md transition-all" href="tel:+5492995064187"><span class="material-symbols-outlined text-lg" aria-hidden="true">call</span><span>+54 9 299 506-4187</span></a></div></div></div>
+    <div class="max-w-7xl mx-auto px-6 sm:px-8 lg:px-16"><div class="bg-tertiary-container/60 border border-on-primary-container/20 rounded-2xl p-8 lg:p-12 flex flex-col lg:flex-row items-center justify-between gap-8"><div class="max-w-2xl text-center lg:text-left"><h2 id="electricidad-contact-title" class="text-headline-lg-mobile lg:text-headline-lg font-headline-lg font-bold tracking-tight mb-3">¿Necesitás asistencia técnica ahora?</h2><p class="text-body-lg text-on-primary-container">Atendemos requerimientos eléctricos para empresas, comercios y particulares en Neuquén.</p></div><div class="flex flex-col sm:flex-row items-stretch gap-4 w-full lg:w-auto"><a class="cta-button-whatsapp w-full sm:w-56 min-h-14 inline-flex items-center justify-center gap-2 bg-secondary-container hover:bg-secondary text-on-secondary px-6 py-3.5 rounded-lg font-label-md transition-all shadow-md" href={getWhatsAppLink('Hola SIBJ, necesito asistencia técnica para Electricidad y Tableros en Neuquén')} target="_blank" rel="noopener noreferrer"><img src={url('/assets/whatsapp.png')} alt="" aria-hidden="true" class="w-5 h-5" width="20" height="20" /><span>WhatsApp</span></a><a class="w-full sm:w-56 min-h-14 inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-lg border border-on-primary-container/40 text-surface-container-lowest hover:bg-surface-container-lowest/10 font-label-md transition-all" href="tel:+5492995064187"><span class="material-symbols-outlined text-lg" aria-hidden="true">call</span><span>+54 9 299 506-4187</span></a></div></div></div>
   </section>
   </div>
 </Layout>

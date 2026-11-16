@@ -16,53 +16,54 @@ const isTestimonialCard = Boolean(image);
 ---
 
 {isTestimonialCard ? (
-  <div class="reveal bg-surface-container-lowest border border-outline-variant/50 rounded-xl overflow-hidden shadow-sm hover:shadow-md flex flex-col justify-between">
-    <div class="relative h-52 w-full overflow-hidden bg-surface-container-low">
-      <img src={image} alt={imageAlt || titulo} class="w-full h-full object-cover object-center" width="800" height="520" loading="lazy" decoding="async" />
-      <div class="absolute top-3 left-3">
-        <span class="font-technical-code text-xs px-2.5 py-1 rounded bg-primary-container text-white font-bold shadow">{badge}</span>
+  <div class="reveal group flex flex-col justify-between overflow-hidden rounded-2xl border border-outline-variant/50 bg-surface-container-lowest shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-secondary-container/70 hover:shadow-xl">
+    <div class="relative h-52 w-full overflow-hidden bg-surface-container-low sm:h-60">
+      <img src={image} alt={imageAlt || titulo} class="h-full w-full object-cover object-center transition-transform duration-500 group-hover:scale-105" width="800" height="520" loading="lazy" decoding="async" />
+      <div class="absolute inset-x-0 bottom-0 h-20 bg-gradient-to-t from-primary/70 to-transparent"></div>
+      <div class="absolute left-4 top-4">
+        <span class="font-technical-code rounded-full border border-white/20 bg-primary-container/95 px-3 py-1.5 text-xs font-bold text-white shadow-lg">{badge}</span>
       </div>
     </div>
-    <div class="p-space-lg flex flex-col flex-1 justify-between gap-4">
+    <div class="flex flex-1 flex-col justify-between gap-5 p-5 sm:p-6">
       <div>
-        <p class="font-body-md text-body-md text-on-surface leading-relaxed italic mb-4">{descripcion}</p>
+        <p class="font-body-md text-body-md mb-4 leading-relaxed text-on-surface italic">{descripcion}</p>
       </div>
-      <div class="pt-4 border-t border-outline-variant/30 flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+      <div class="flex flex-col justify-between gap-3 border-t border-outline-variant/30 pt-4 sm:flex-row sm:items-center">
         <div class="flex flex-col">
           <span class="font-headline-sm text-sm font-bold text-primary">{titulo}</span>
           <span class="font-technical-code text-xs text-on-surface-variant">Sector Gastronómico / Logístico Neuquén</span>
         </div>
-        <span class="font-technical-code text-xs px-2.5 py-1 rounded bg-surface-container-high text-primary font-semibold self-start sm:self-center">{etiqueta}</span>
+        <span class="font-technical-code self-start rounded-full bg-surface-container-high px-2.5 py-1 text-xs font-semibold text-primary sm:self-center">{etiqueta}</span>
       </div>
     </div>
   </div>
 ) : (
-  <div class:list={["reveal bg-surface-container-lowest border rounded-xl p-space-lg flex flex-col justify-between hover:border-secondary-container shadow-sm hover:shadow-md", badge ? "border-secondary-container" : "border-outline-variant/50"]}>
+  <div class:list={["reveal group flex h-full flex-col justify-between rounded-2xl border bg-surface-container-lowest p-5 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-xl focus-within:-translate-y-1 focus-within:shadow-xl sm:p-6", badge ? "border-secondary-container/70" : "border-outline-variant/50 hover:border-secondary-container/70"]}>
     <div>
-      <div class="flex items-center justify-between mb-4">
+      <div class="mb-5 flex items-start justify-between gap-4">
         <div class="flex flex-wrap items-center gap-2">
-          <span class="font-technical-code text-technical-code px-2 py-0.5 rounded bg-surface-container-low text-on-surface-variant font-bold">{etiqueta}</span>
-          {badge && <span class="font-technical-code text-technical-code px-2 py-0.5 rounded bg-secondary-container text-on-secondary font-bold">{badge}</span>}
+          <span class="font-technical-code text-technical-code rounded-full bg-surface-container-low px-2.5 py-1 text-on-surface-variant font-bold">{etiqueta}</span>
+          {badge && <span class="font-technical-code text-technical-code rounded-full bg-secondary-container px-2.5 py-1 text-on-secondary font-bold">{badge}</span>}
         </div>
-        <div class="w-12 h-12 rounded-lg bg-surface-container-low flex items-center justify-center text-primary-container">
-          <span class="material-symbols-outlined text-2xl" aria-hidden="true">{icono}</span>
+        <div class="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-primary-container text-on-primary shadow-sm transition-colors duration-300 group-hover:bg-secondary">
+          <span class="material-symbols-outlined text-2xl transition-transform duration-300 group-hover:scale-110" aria-hidden="true">{icono}</span>
         </div>
       </div>
-      <h3 class="font-headline-md text-headline-md text-primary mb-3">
+      <h3 class="font-headline-md text-headline-md mb-3 text-primary">
         {titulo}
       </h3>
-      <p class="font-body-sm text-body-sm text-on-surface-variant mb-6">{descripcion}</p>
-      <ul class="space-y-3 mb-6">
+      <p class="font-body-sm text-body-sm mb-6 leading-relaxed text-on-surface-variant">{descripcion}</p>
+      <ul class="mb-6 space-y-3">
         {items.map((item) => (
           <li class="flex items-start gap-2.5">
-            <span class="material-symbols-outlined text-secondary-container text-lg mt-0.5" aria-hidden="true">check_circle</span>
+            <span class="material-symbols-outlined mt-0.5 shrink-0 text-lg text-secondary-container" aria-hidden="true">check_circle</span>
             <span class="font-body-sm text-body-sm text-on-surface">{item}</span>
           </li>
         ))}
       </ul>
     </div>
-    <div class="pt-4 border-t border-outline-variant/30 flex items-center justify-between font-technical-code text-technical-code">
-      <a class="touch-target service-link text-secondary-container font-extrabold hover:underline inline-flex items-center gap-1 focus:outline-none focus:ring-2 focus:ring-secondary-container rounded p-1" href={href}>
+    <div class="flex items-center justify-between border-t border-outline-variant/30 pt-4 font-technical-code text-technical-code">
+      <a class="service-link touch-target inline-flex items-center gap-1 rounded-lg p-1 font-extrabold text-secondary-container transition-colors hover:text-secondary hover:underline focus:outline-none focus:ring-2 focus:ring-secondary-container" href={href}>
         Ver servicio de {titulo} <span class="material-symbols-outlined text-sm" aria-hidden="true">arrow_forward</span>
       </a>
     </div>
