@@ -41,7 +41,7 @@ export const siteConfig: SiteConfig = {
     days: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
     opens: "08:00",
     closes: "18:00",
-    label: "Lunes a Viernes 8:00 a 18:00 hs",
+    label: "",
   },
 };
 
