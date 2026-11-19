@@ -6,7 +6,7 @@ import { siteConfig } from './src/data/site';
 // https://astro.build/config
 export default defineConfig({
   site: new URL(siteConfig.url).origin,
-  base: siteConfig.basePath,
+  base: siteConfig.basePath || '/',
   trailingSlash: 'always',
   integrations: [sitemap()],
 });

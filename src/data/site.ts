@@ -29,14 +29,14 @@ export const siteConfig: SiteConfig = {
   city: "Neuquén",
   region: "Neuquén",
   addressCountry: "AR",
-  basePath: "/Servicios-Integrales-BJ-SIBJ-",
+  basePath: "",
   serviceCatalog: [
     "Mantenimiento Edilicio",
     "Obras y Trabajos Civiles",
     "Climatización y Refrigeración",
     "Electricidad y Tableros",
   ],
-  url: "https://diegorios-dev.github.io/Servicios-Integrales-BJ-SIBJ-/",
+  url: "https://servicios-integrales-bj-sibj.vercel.app/",
   openingHours: {
     days: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
     opens: "08:00",
