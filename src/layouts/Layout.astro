@@ -54,7 +54,7 @@ const socialImageUrl = ogImage ? absoluteUrl(ogImage) : logoUrl;
 const businessId = `${absoluteUrl('')}#business`;
 const jsonLd = {
   "@context": "https://schema.org",
-  "@type": ["ProfessionalService", "HomeAndConstructionBusiness"],
+  "@type": ["LocalBusiness", "HomeAndConstructionBusiness"],
   "@id": businessId,
   "name": siteConfig.name,
   "url": absoluteUrl(''),
@@ -156,7 +156,7 @@ const structuredData = [jsonLd, serviceJsonLd, breadcrumbJsonLd, faqJsonLd, webs
   <link rel="canonical" href={canonicalUrl}>
   <meta property="og:url" content={canonicalUrl}>
   <meta property="og:locale" content="es_AR">
-  <meta property="og:site_name" content={siteConfig.shortName}>
+  <meta property="og:site_name" content={siteConfig.name}>
   <meta property="og:image" content={socialImageUrl}>
   <meta property="og:image:alt" content={ogImageAlt}>
   <meta property="og:image:width" content={ogImageWidth}>

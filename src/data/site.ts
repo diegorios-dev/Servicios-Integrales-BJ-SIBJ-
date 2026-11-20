@@ -25,7 +25,7 @@ export const siteConfig: SiteConfig = {
   telephoneDisplay: "+54 9 299 506-4187",
   telephoneRaw: "+5492995064187",
   whatsappNumber: "5492995064187",
-  email: "contacto@sibj.com.ar",
+  email: "sibj.obras@gmail.com",
   city: "Neuquén",
   region: "Neuquén",
   addressCountry: "AR",
@@ -36,7 +36,7 @@ export const siteConfig: SiteConfig = {
     "Climatización y Refrigeración",
     "Electricidad y Tableros",
   ],
-  url: "https://servicios-integrales-bj-sibj.vercel.app/",
+  url: "https://servicios-integrales-sibj.vercel.app",
   openingHours: {
     days: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
     opens: "08:00",
