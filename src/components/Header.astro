@@ -16,17 +16,17 @@ const isServicesPage = servicePaths.some((path) => isCurrent(path));
   <div class="max-w-7xl mx-auto px-margin-mobile md:px-margin flex justify-between items-center h-16 md:h-20 w-full">
     
     <!-- Brand Logo / Product Identifier -->
-    <a class="flex items-center gap-space-sm group focus:outline-none focus:ring-2 focus:ring-secondary-container rounded-lg p-1" href={url('/')}>
-      <img src={url('/assets/logo1.png')} alt="SIBJ Logo" class="h-9 w-9 md:h-10 md:w-10 object-contain rounded-lg" width="40" height="40" />
+    <a class="flex items-center gap-space-sm group rounded-lg p-1" href={url('/')}>
+      <img src={url('/assets/logo1.png')} alt="" class="h-9 w-9 md:h-10 md:w-10 object-contain rounded-lg" width="40" height="40" />
       <div class="flex flex-col">
-        <span class="font-headline-md text-headline-md tracking-tight font-extrabold text-primary">{siteConfig.name}</span>
-        <span class="font-technical-code text-technical-code text-on-surface-variant text-xs -mt-1 hidden sm:block">Mantenimiento y Soluciones</span>
+        <span class="font-headline-md text-headline-md tracking-tight font-extrabold text-primary leading-tight">{siteConfig.name}</span>
+        <span class="font-technical-code text-technical-code text-on-surface-variant text-xs mt-0.5 hidden sm:block">Mantenimiento y Soluciones</span>
       </div>
     </a>
 
     <button
       type="button"
-      class="mobile-menu-toggle md:hidden touch-target inline-flex items-center justify-center rounded-lg text-primary focus:outline-none focus:ring-2 focus:ring-secondary-container"
+      class="mobile-menu-toggle md:hidden touch-target inline-flex items-center justify-center rounded-lg text-primary"
       aria-label="Abrir menú de navegación"
       aria-expanded="false"
       aria-controls="mobile-navigation"
@@ -43,7 +43,7 @@ const isServicesPage = servicePaths.some((path) => isCurrent(path));
     <!-- Desktop Navigation Links -->
     <nav class="hidden md:flex items-center gap-space-lg" aria-label="Principal">
       <a class:list={[
-        'nav-section-link font-label-md text-label-md focus:outline-none focus:ring-2 focus:ring-secondary-container',
+        'nav-section-link text-on-surface-variant font-label-md text-label-md hover:text-secondary-container transition-colors duration-150 py-2 rounded',
         { 'is-active': isCurrent('/') },
       ]} href={url('/')} aria-current={isCurrent('/') ? 'page' : undefined} data-nav-section="inicio">Inicio</a>
       
@@ -51,24 +51,24 @@ const isServicesPage = servicePaths.some((path) => isCurrent(path));
       <div class="relative group">
         <div class="inline-flex items-center gap-1">
           <a class:list={[
-            'nav-section-link text-on-surface-variant font-label-md text-label-md hover:text-secondary-container transition-colors duration-150 inline-flex items-center gap-1 py-2 focus:outline-none focus:ring-2 focus:ring-secondary-container rounded',
+            'nav-section-link text-on-surface-variant font-label-md text-label-md hover:text-secondary-container transition-colors duration-150 inline-flex items-center gap-1 py-2 rounded',
             { 'is-active': isServicesPage },
-          ]} href={url('/#servicios')} data-nav-section="servicios" aria-current={isServicesPage ? 'page' : undefined}>
+          ]} href={url('/#servicios')} data-nav-section="servicios" aria-current={isServicesPage ? 'true' : undefined}>
             Servicios
           </a>
-          <button type="button" class="dropdown-toggle touch-target min-h-11 min-w-11 inline-flex items-center justify-center text-on-surface-variant p-2 focus:outline-none focus:ring-2 focus:ring-secondary-container rounded" aria-label="Mostrar servicios" aria-expanded="false" aria-controls="services-menu">
+          <button type="button" class="dropdown-toggle touch-target min-h-11 min-w-11 inline-flex items-center justify-center text-on-surface-variant p-2 rounded" aria-label="Mostrar servicios" aria-expanded="false" aria-controls="services-menu">
             <span class="material-symbols-outlined text-sm" aria-hidden="true">expand_more</span>
           </button>
         </div>
-        <div id="services-menu" class="dropdown-menu absolute left-0 top-full hidden group-hover:block group-focus-within:block bg-surface-container-lowest shadow-lg rounded-xl border border-outline-variant/40 py-2 w-64 z-50">
-          <a class="block px-4 py-2 text-sm text-on-surface hover:bg-surface-container-low transition-colors" href={url('/mantenimiento-edilicio-neuquen')} aria-current={isCurrent('/mantenimiento-edilicio-neuquen') ? 'page' : undefined}>Mantenimiento Edilicio</a>
-          <a class="block px-4 py-2 text-sm text-on-surface hover:bg-surface-container-low transition-colors" href={url('/obras-trabajos-civiles-neuquen')} aria-current={isCurrent('/obras-trabajos-civiles-neuquen') ? 'page' : undefined}>Obras y Trabajos Civiles</a>
-          <a class="block px-4 py-2 text-sm text-on-surface hover:bg-surface-container-low transition-colors" href={url('/climatizacion-refrigeracion-neuquen')} aria-current={isCurrent('/climatizacion-refrigeracion-neuquen') ? 'page' : undefined}>Climatización y Refrigeración</a>
-          <a class="block px-4 py-2 text-sm text-on-surface hover:bg-surface-container-low transition-colors" href={url('/electricidad-tableros-neuquen')} aria-current={isCurrent('/electricidad-tableros-neuquen') ? 'page' : undefined}>Electricidad y Tableros</a>
+        <div id="services-menu" class="dropdown-menu absolute left-0 top-full hidden group-hover:block group-focus-within:block bg-surface-container-lowest shadow-xl shadow-primary/10 rounded-xl border border-outline-variant/50 p-2 w-72 z-50">
+          <a class="dropdown-link block rounded-lg px-3.5 py-2.5 text-sm font-medium text-on-surface hover:bg-surface-container-low hover:text-secondary-container transition-colors" href={url('/mantenimiento-edilicio-neuquen')} aria-current={isCurrent('/mantenimiento-edilicio-neuquen') ? 'page' : undefined}>Mantenimiento Edilicio</a>
+          <a class="dropdown-link block rounded-lg px-3.5 py-2.5 text-sm font-medium text-on-surface hover:bg-surface-container-low hover:text-secondary-container transition-colors" href={url('/obras-trabajos-civiles-neuquen')} aria-current={isCurrent('/obras-trabajos-civiles-neuquen') ? 'page' : undefined}>Obras y Trabajos Civiles</a>
+          <a class="dropdown-link block rounded-lg px-3.5 py-2.5 text-sm font-medium text-on-surface hover:bg-surface-container-low hover:text-secondary-container transition-colors" href={url('/climatizacion-refrigeracion-neuquen')} aria-current={isCurrent('/climatizacion-refrigeracion-neuquen') ? 'page' : undefined}>Climatización y Refrigeración</a>
+          <a class="dropdown-link block rounded-lg px-3.5 py-2.5 text-sm font-medium text-on-surface hover:bg-surface-container-low hover:text-secondary-container transition-colors" href={url('/electricidad-tableros-neuquen')} aria-current={isCurrent('/electricidad-tableros-neuquen') ? 'page' : undefined}>Electricidad y Tableros</a>
         </div>
       </div>
 
-      <a class="nav-section-link text-on-surface-variant font-label-md text-label-md hover:text-secondary-container transition-colors duration-150 focus:outline-none focus:ring-2 focus:ring-secondary-container rounded" href={url('/#contacto')} data-nav-section="contacto">Contacto</a>
+      <a class="nav-section-link text-on-surface-variant font-label-md text-label-md hover:text-secondary-container transition-colors duration-150 py-2 rounded" href={url('/#contacto')} data-nav-section="contacto">Contacto</a>
     </nav>
 
   </div>
@@ -78,19 +78,19 @@ const isServicesPage = servicePaths.some((path) => isCurrent(path));
       <div class="mobile-navigation-divider" aria-hidden="true"></div>
       <p class="mobile-navigation-label">Servicios</p>
       <div class="mobile-navigation-services">
-        <a class="mobile-navigation-link mobile-navigation-service-link" href={url('/mantenimiento-edilicio-neuquen')}>
+        <a class="mobile-navigation-link mobile-navigation-service-link" href={url('/mantenimiento-edilicio-neuquen')} aria-current={isCurrent('/mantenimiento-edilicio-neuquen') ? 'page' : undefined}>
           <svg class="mobile-service-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M4 20h16M6 20V9l6-5 6 5v11M9 20v-5h6v5M9 10h.01M15 10h.01" /></svg>
           <span>Mantenimiento Edilicio</span>
         </a>
-        <a class="mobile-navigation-link mobile-navigation-service-link" href={url('/obras-trabajos-civiles-neuquen')}>
+        <a class="mobile-navigation-link mobile-navigation-service-link" href={url('/obras-trabajos-civiles-neuquen')} aria-current={isCurrent('/obras-trabajos-civiles-neuquen') ? 'page' : undefined}>
           <svg class="mobile-service-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M4 20h16M6 20V8h12v12M4 8l8-5 8 5M9 20v-5h6v5" /></svg>
           <span>Obras y Trabajos Civiles</span>
         </a>
-        <a class="mobile-navigation-link mobile-navigation-service-link" href={url('/climatizacion-refrigeracion-neuquen')}>
+        <a class="mobile-navigation-link mobile-navigation-service-link" href={url('/climatizacion-refrigeracion-neuquen')} aria-current={isCurrent('/climatizacion-refrigeracion-neuquen') ? 'page' : undefined}>
           <svg class="mobile-service-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 3v18M3 12h18M5.6 5.6l12.8 12.8M18.4 5.6L5.6 18.4" /></svg>
           <span>Climatización y Refrigeración</span>
         </a>
-        <a class="mobile-navigation-link mobile-navigation-service-link" href={url('/electricidad-tableros-neuquen')}>
+        <a class="mobile-navigation-link mobile-navigation-service-link" href={url('/electricidad-tableros-neuquen')} aria-current={isCurrent('/electricidad-tableros-neuquen') ? 'page' : undefined}>
           <svg class="mobile-service-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M13 2L5 13h6l-1 9 8-11h-6l1-9z" /></svg>
           <span>Electricidad y Tableros</span>
         </a>
@@ -104,56 +104,91 @@ const isServicesPage = servicePaths.some((path) => isCurrent(path));
 </header>
 
 <script>
+  // ---- Desplegable de Servicios (desktop) ----
   document.querySelectorAll<HTMLButtonElement>('.dropdown-toggle').forEach((toggle) => {
-    const menu = toggle.closest('.group')?.querySelector<HTMLElement>('.dropdown-menu');
+    const group = toggle.closest<HTMLElement>('.group');
+    const menu = group?.querySelector<HTMLElement>('.dropdown-menu');
+    if (!group || !menu) return;
+
+    const open = () => {
+      group.classList.remove('is-dismissed');
+      menu.classList.remove('hidden', 'is-closing');
+      toggle.setAttribute('aria-expanded', 'true');
+    };
+
+    const close = ({ returnFocus = false } = {}) => {
+      toggle.setAttribute('aria-expanded', 'false');
+      menu.classList.add('is-closing');
+      window.setTimeout(() => {
+        menu.classList.add('hidden');
+        menu.classList.remove('is-closing');
+      }, 200);
+      if (returnFocus) toggle.focus();
+    };
+
     toggle.addEventListener('click', () => {
-      const expanded = toggle.getAttribute('aria-expanded') === 'true';
-      toggle.setAttribute('aria-expanded', String(!expanded));
-      if (menu) {
-        if (expanded) {
-          menu.classList.add('is-closing');
-          window.setTimeout(() => {
-            menu.classList.add('hidden');
-            menu.classList.remove('is-closing');
-          }, 200);
-        } else {
-          menu.classList.remove('hidden', 'is-closing');
-        }
-      }
+      if (toggle.getAttribute('aria-expanded') === 'true') close();
+      else open();
     });
+
+    // Escape cierra el menú (también si se abrió por hover o foco) y devuelve el foco al botón.
+    group.addEventListener('keydown', (event) => {
+      if (event.key !== 'Escape') return;
+      const focusInside = group.contains(document.activeElement);
+      group.classList.add('is-dismissed');
+      close({ returnFocus: focusInside });
+    });
+
     document.addEventListener('keydown', (event) => {
-      if (event.key === 'Escape') {
-        toggle.setAttribute('aria-expanded', 'false');
-        if (menu) {
-          menu.classList.add('is-closing');
-          window.setTimeout(() => {
-            menu.classList.add('hidden');
-            menu.classList.remove('is-closing');
-          }, 200);
-        }
-        toggle.focus();
-      }
+      if (event.key === 'Escape' && group.matches(':hover')) group.classList.add('is-dismissed');
+    });
+
+    group.addEventListener('mouseleave', () => group.classList.remove('is-dismissed'));
+
+    group.addEventListener('focusout', (event) => {
+      const next = event.relatedTarget as Node | null;
+      if (next && group.contains(next)) return;
+      group.classList.remove('is-dismissed');
+      if (toggle.getAttribute('aria-expanded') === 'true') close();
+    });
+
+    document.addEventListener('click', (event) => {
+      if (!group.contains(event.target as Node) && toggle.getAttribute('aria-expanded') === 'true') close();
     });
   });
 
+  // ---- Menú móvil (disclosure) ----
   const mobileMenuToggle = document.querySelector<HTMLButtonElement>('[data-mobile-menu-toggle]');
   const mobileNavigation = document.querySelector<HTMLElement>('#mobile-navigation');
 
+  const setMobileMenu = (expanded: boolean, { returnFocus = false } = {}) => {
+    if (!mobileMenuToggle || !mobileNavigation) return;
+    mobileMenuToggle.setAttribute('aria-expanded', String(expanded));
+    mobileMenuToggle.setAttribute('aria-label', expanded ? 'Cerrar menú de navegación' : 'Abrir menú de navegación');
+    mobileNavigation.setAttribute('data-open', String(expanded));
+    if (returnFocus) mobileMenuToggle.focus();
+  };
+
   mobileMenuToggle?.addEventListener('click', () => {
-    const expanded = mobileMenuToggle.getAttribute('aria-expanded') === 'true';
-    mobileMenuToggle.setAttribute('aria-expanded', String(!expanded));
-    mobileMenuToggle.setAttribute('aria-label', expanded ? 'Abrir menú de navegación' : 'Cerrar menú de navegación');
-    mobileNavigation?.setAttribute('data-open', String(!expanded));
+    setMobileMenu(mobileMenuToggle.getAttribute('aria-expanded') !== 'true');
   });
 
   mobileNavigation?.querySelectorAll('a').forEach((link) => {
-    link.addEventListener('click', () => {
-      mobileMenuToggle?.setAttribute('aria-expanded', 'false');
-      mobileMenuToggle?.setAttribute('aria-label', 'Abrir menú de navegación');
-      mobileNavigation.setAttribute('data-open', 'false');
-    });
+    link.addEventListener('click', () => setMobileMenu(false));
   });
 
+  document.addEventListener('keydown', (event) => {
+    if (event.key === 'Escape' && mobileMenuToggle?.getAttribute('aria-expanded') === 'true') {
+      setMobileMenu(false, { returnFocus: true });
+    }
+  });
+
+  // Si se pasa a desktop con el menú abierto, se cierra para no dejar contenido oculto enfocable.
+  window.matchMedia('(min-width: 768px)').addEventListener('change', (event) => {
+    if (event.matches) setMobileMenu(false);
+  });
+
+  // ---- Resaltado de sección activa en la home ----
   const sectionLinks = document.querySelectorAll<HTMLAnchorElement>('[data-nav-section]');
   const sections = [...new Set([...sectionLinks].map((link) => link.dataset.navSection))]
     .filter((id): id is string => Boolean(id))

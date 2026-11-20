@@ -53,10 +53,11 @@ export default {
         "on-tertiary-fixed-variant": "#38485d"
       },
       borderRadius: {
-        "DEFAULT": "0.125rem",
-        "lg": "0.25rem",
-        "xl": "0.5rem",
-        "full": "0.75rem"
+        "DEFAULT": "0.375rem",
+        "lg": "0.5rem",
+        "xl": "0.75rem",
+        "2xl": "1rem",
+        "full": "9999px"
       },
       spacing: {
         "space-lg": "1.5rem",
@@ -68,7 +69,7 @@ export default {
         "space-xl": "2.5rem",
         "space-md": "1rem",
         "gutter-mobile": "1rem",
-        "space-2xl": "4rem"
+        "space-2xl": "clamp(3.5rem, 7vw, 5.5rem)"
       },
       fontFamily: {
         "label-md": ["Hanken Grotesk", "sans-serif"],

@@ -33,8 +33,8 @@ const {
   ogDescription = description,
   ogImage,
   ogImageAlt = "Logo de Servicios Integrales BJ",
-  ogImageWidth = 862,
-  ogImageHeight = 841,
+  ogImageWidth = 1254,
+  ogImageHeight = 1254,
   service,
   faqItems = [],
   pageClass,
@@ -51,33 +51,61 @@ const canonicalUrl = absoluteUrl(routePath);
 const logoUrl = absoluteUrl('assets/logo1.png');
 const socialImageUrl = ogImage ? absoluteUrl(ogImage) : logoUrl;
 
-const businessId = `${absoluteUrl('')}#business`;
-const jsonLd = {
-  "@context": "https://schema.org",
+const siteUrl = absoluteUrl('');
+const businessId = `${siteUrl}#business`;
+const websiteId = `${siteUrl}#website`;
+const webpageId = `${canonicalUrl}#webpage`;
+const imageExtension = socialImageUrl.split('.').pop()?.toLowerCase();
+const ogImageType = ({ jpg: 'image/jpeg', jpeg: 'image/jpeg', png: 'image/png', webp: 'image/webp' } as Record<string, string>)[imageExtension ?? ''];
+
+const areaServed = [
+  {
+    "@type": "City",
+    "name": "Neuquén",
+    "containedInPlace": { "@type": "AdministrativeArea", "name": "Provincia del Neuquén" },
+  },
+  { "@type": "AdministrativeArea", "name": "Provincia del Neuquén" },
+  { "@type": "AdministrativeArea", "name": "Provincia de Río Negro" },
+];
+
+const businessNode = {
   "@type": ["LocalBusiness", "HomeAndConstructionBusiness"],
   "@id": businessId,
   "name": siteConfig.name,
-  "url": absoluteUrl(''),
-  "logo": logoUrl,
-  "image": logoUrl,
-  "telephone": siteConfig.telephoneDisplay,
+  "alternateName": siteConfig.shortName,
+  "description": "Mantenimiento edilicio preventivo y correctivo, obras civiles y reformas, climatización y refrigeración, y electricidad y tableros para empresas, comercios y particulares en Neuquén y Río Negro.",
+  "url": siteUrl,
+  "logo": {
+    "@type": "ImageObject",
+    "url": logoUrl,
+    "width": 1254,
+    "height": 1254,
+  },
+  "image": [absoluteUrl('assets/hero-comercios.webp'), logoUrl],
+  "telephone": siteConfig.telephoneRaw,
   "email": siteConfig.email,
+  "contactPoint": [{
+    "@type": "ContactPoint",
+    "contactType": "customer service",
+    "telephone": siteConfig.telephoneRaw,
+    "email": siteConfig.email,
+    "areaServed": "AR",
+    "availableLanguage": ["es"],
+  }],
   "openingHoursSpecification": [{
     "@type": "OpeningHoursSpecification",
     "dayOfWeek": siteConfig.openingHours.days,
     "opens": siteConfig.openingHours.opens,
     "closes": siteConfig.openingHours.closes,
   }],
-  "areaServed": [
-    { "@type": "City", "name": "Neuquén" },
-    { "@type": "AdministrativeArea", "name": "Río Negro" },
-  ],
+  "areaServed": areaServed,
   "address": {
     "@type": "PostalAddress",
     "addressLocality": siteConfig.city,
     "addressRegion": siteConfig.region,
     "addressCountry": siteConfig.addressCountry,
   },
+  "knowsAbout": siteConfig.serviceCatalog,
   "hasOfferCatalog": {
     "@type": "OfferCatalog",
     "name": "Servicios de mantenimiento y obras",
@@ -88,37 +116,67 @@ const jsonLd = {
   },
 };
 
-const serviceJsonLd = service
-  ? {
-      "@context": "https://schema.org",
-      "@type": "Service",
-      "name": service.name,
-      "description": service.description,
-      "url": canonicalUrl,
-      "serviceType": service.name,
-      "areaServed": jsonLd.areaServed,
-      "provider": {
-        "@id": businessId,
-      },
-    }
-  : null;
+const websiteNode = {
+  "@type": "WebSite",
+  "@id": websiteId,
+  "name": siteConfig.name,
+  "alternateName": siteConfig.shortName,
+  "url": siteUrl,
+  "inLanguage": "es-AR",
+  "publisher": { "@id": businessId },
+};
 
-const breadcrumbJsonLd = service
+const breadcrumbNode = service
   ? {
-      "@context": "https://schema.org",
       "@type": "BreadcrumbList",
+      "@id": `${canonicalUrl}#breadcrumb`,
       "itemListElement": [
-        { "@type": "ListItem", "position": 1, "name": "Inicio", "item": absoluteUrl('') },
+        { "@type": "ListItem", "position": 1, "name": "Inicio", "item": siteUrl },
         { "@type": "ListItem", "position": 2, "name": "Servicios", "item": absoluteUrl('#servicios') },
         { "@type": "ListItem", "position": 3, "name": service.name, "item": canonicalUrl }
       ]
     }
   : null;
 
-const faqJsonLd = faqItems.length
+const webpageNode = !noindex
   ? {
-      "@context": "https://schema.org",
+      "@type": "WebPage",
+      "@id": webpageId,
+      "url": canonicalUrl,
+      "name": title,
+      "description": description,
+      "inLanguage": "es-AR",
+      "isPartOf": { "@id": websiteId },
+      "about": { "@id": businessId },
+      "primaryImageOfPage": {
+        "@type": "ImageObject",
+        "url": socialImageUrl,
+        "width": ogImageWidth,
+        "height": ogImageHeight,
+      },
+      ...(breadcrumbNode ? { "breadcrumb": { "@id": breadcrumbNode["@id"] } } : {}),
+    }
+  : null;
+
+const serviceNode = service
+  ? {
+      "@type": "Service",
+      "@id": `${canonicalUrl}#service`,
+      "name": service.name,
+      "description": service.description,
+      "url": canonicalUrl,
+      "serviceType": service.name,
+      "areaServed": areaServed,
+      "provider": { "@id": businessId },
+      "mainEntityOfPage": { "@id": webpageId },
+    }
+  : null;
+
+const faqNode = faqItems.length
+  ? {
       "@type": "FAQPage",
+      "@id": `${canonicalUrl}#faq`,
+      "isPartOf": { "@id": webpageId },
       "mainEntity": faqItems.map(({ question, answer }) => ({
         "@type": "Question",
         "name": question,
@@ -127,16 +185,10 @@ const faqJsonLd = faqItems.length
     }
   : null;
 
-const websiteJsonLd = !service
-  ? {
-      "@context": "https://schema.org",
-      "@type": "WebSite",
-      "name": siteConfig.name,
-      "url": absoluteUrl(''),
-    }
-  : null;
-
-const structuredData = [jsonLd, serviceJsonLd, breadcrumbJsonLd, faqJsonLd, websiteJsonLd].filter(Boolean);
+const structuredData = {
+  "@context": "https://schema.org",
+  "@graph": [businessNode, websiteNode, webpageNode, serviceNode, breadcrumbNode, faqNode].filter(Boolean),
+};
 ---
 
 <!DOCTYPE html>
@@ -147,17 +199,19 @@ const structuredData = [jsonLd, serviceJsonLd, breadcrumbJsonLd, faqJsonLd, webs
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>{title}</title>
   <meta name="description" content={description}>
-  <meta name="robots" content={noindex ? "noindex, nofollow" : "index, follow, max-image-preview:large"}>
+  <meta name="robots" content={noindex ? "noindex, follow" : "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1"}>
   <meta name="theme-color" content="#000919">
   
   <meta property="og:title" content={ogTitle}>
   <meta property="og:description" content={ogDescription}>
   <meta property="og:type" content="website">
-  <link rel="canonical" href={canonicalUrl}>
-  <meta property="og:url" content={canonicalUrl}>
+  {!noindex && <link rel="canonical" href={canonicalUrl}>}
+  {!noindex && <meta property="og:url" content={canonicalUrl}>}
   <meta property="og:locale" content="es_AR">
   <meta property="og:site_name" content={siteConfig.name}>
   <meta property="og:image" content={socialImageUrl}>
+  <meta property="og:image:secure_url" content={socialImageUrl}>
+  {ogImageType && <meta property="og:image:type" content={ogImageType}>}
   <meta property="og:image:alt" content={ogImageAlt}>
   <meta property="og:image:width" content={ogImageWidth}>
   <meta property="og:image:height" content={ogImageHeight}>
@@ -167,10 +221,12 @@ const structuredData = [jsonLd, serviceJsonLd, breadcrumbJsonLd, faqJsonLd, webs
   <meta name="twitter:image" content={socialImageUrl}>
   <meta name="twitter:image:alt" content={ogImageAlt}>
 
-  {structuredData.map((schema) => <script type="application/ld+json" set:html={JSON.stringify(schema)} />)}
+  <script type="application/ld+json" set:html={JSON.stringify(structuredData)} />
 
+  <link rel="icon" href={url('/favicon.ico')} sizes="any">
   <link rel="icon" type="image/svg+xml" href={url('/favicon.svg')}>
-  <link rel="sitemap" href={absoluteUrl('sitemap-index.xml')}>
+  <link rel="apple-touch-icon" href={url('/assets/logo1.png')}>
+  <link rel="sitemap" type="application/xml" href={absoluteUrl('sitemap-index.xml')}>
 
   <!-- Google Fonts: Hanken Grotesk & Manrope -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -184,7 +240,7 @@ const structuredData = [jsonLd, serviceJsonLd, breadcrumbJsonLd, faqJsonLd, webs
   <a class="skip-link" href="#contenido">Saltar al contenido</a>
   <div class="header-sentinel" data-header-sentinel aria-hidden="true"></div>
   <Header />
-  <main id="contenido">
+  <main id="contenido" tabindex="-1">
     <slot />
   </main>
   <Footer />
@@ -214,6 +270,22 @@ const structuredData = [jsonLd, serviceJsonLd, breadcrumbJsonLd, faqJsonLd, webs
   } else {
     revealElements.forEach((element) => element.classList.add('is-visible'));
   }
+
+  // Aviso para lectores de pantalla en enlaces que abren una pestaña nueva (WCAG G201).
+  const newTabHint = '(se abre en una pestaña nueva)';
+  document.querySelectorAll<HTMLAnchorElement>('a[target="_blank"]').forEach((link) => {
+    const label = link.getAttribute('aria-label');
+    if (label) {
+      if (!label.includes(newTabHint)) link.setAttribute('aria-label', `${label} ${newTabHint}`);
+      return;
+    }
+    if (link.querySelector('[data-new-tab-hint]')) return;
+    const hint = document.createElement('span');
+    hint.className = 'sr-only';
+    hint.dataset.newTabHint = '';
+    hint.textContent = ` ${newTabHint}`;
+    link.append(hint);
+  });
 
   const header = document.querySelector<HTMLElement>('header');
   const headerSentinel = document.querySelector<HTMLElement>('[data-header-sentinel]');

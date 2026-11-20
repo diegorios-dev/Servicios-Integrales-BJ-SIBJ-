@@ -17,8 +17,8 @@ import { servicesData, pillarsData, testimonialsData } from '../data/services';
   ogDescription="Servicios integrales de mantenimiento, obras e instalaciones para empresas, comercios y particulares en Neuquén y Río Negro. Solicitá presupuesto."
   ogImage="/assets/hero-comercios.webp"
   ogImageAlt="Personal realizando mantenimiento para empresas, comercios y particulares en Neuquén"
-  ogImageWidth={862}
-  ogImageHeight={841}
+  ogImageWidth={1270}
+  ogImageHeight={1239}
   pageClass="home-page"
 >
   <Hero />
@@ -27,15 +27,15 @@ import { servicesData, pillarsData, testimonialsData } from '../data/services';
   <section class="py-space-2xl bg-surface-bright border-y border-outline-variant/20" id="servicios" aria-labelledby="services-title">
     <div class="max-w-7xl mx-auto px-margin-mobile md:px-margin">
       <!-- Section Header -->
-      <div class="flex flex-col md:flex-row md:items-end justify-between mb-space-2xl border-b border-outline-variant/30 pb-space-lg">
+      <div class="section-intro flex flex-col md:flex-row md:items-end justify-between mb-space-xl border-b border-outline-variant/40 pb-space-lg">
         <div class="max-w-2xl">
-          <p class="font-technical-code text-technical-code text-secondary-container font-extrabold uppercase tracking-wider block mb-1">
+          <p class="font-technical-code text-technical-code text-secondary-container font-extrabold uppercase tracking-wider block mb-2">
             Módulos Especializados
           </p>
           <h2 id="services-title" class="font-headline-xl text-headline-xl text-primary">
             Mantenimiento de locales comerciales y empresas en Neuquén y Río Negro
           </h2>
-          <p class="font-body-md text-body-md text-on-surface-variant mt-2">
+          <p class="font-body-md text-body-md text-on-surface-variant mt-3">
             Mantenimiento edilicio, obras civiles y reformas, además de climatización y electricidad, en Neuquén y Río Negro.
           </p>
         </div>
@@ -62,14 +62,14 @@ import { servicesData, pillarsData, testimonialsData } from '../data/services';
   <section class="py-space-2xl bg-surface-container-low border-y border-outline-variant/30" id="nosotros" aria-labelledby="about-title">
     <div class="max-w-7xl mx-auto px-margin-mobile md:px-margin">
       <!-- Section Intro -->
-      <div class="max-w-3xl mb-space-2xl">
-        <p class="font-technical-code text-technical-code text-secondary-container font-extrabold uppercase tracking-wider block mb-1">
+      <div class="section-intro max-w-3xl mb-space-xl">
+        <p class="font-technical-code text-technical-code text-secondary-container font-extrabold uppercase tracking-wider block mb-2">
           Propuesta de valor
         </p>
         <h2 id="about-title" class="font-headline-xl text-headline-xl text-primary">
           Soluciones para empresas, comercios y particulares
         </h2>
-        <p class="font-body-lg text-body-lg text-on-surface-variant mt-2">
+        <p class="font-body-lg text-body-lg text-on-surface-variant mt-3">
           Un solo interlocutor para coordinar mantenimiento y trabajos necesarios en Neuquén.
         </p>
       </div>
@@ -93,12 +93,12 @@ import { servicesData, pillarsData, testimonialsData } from '../data/services';
   <!-- TESTIMONIOS SECTION (Independiente y sin duplicación en servicios) -->
   <section class="bg-surface-bright border-y border-outline-variant/20 py-space-2xl" aria-labelledby="testimonials-title">
     <div class="max-w-7xl mx-auto px-margin-mobile md:px-margin text-center">
-      <div class="max-w-3xl mb-space-xl text-center mx-auto">
-        <p class="font-technical-code text-technical-code text-secondary-container font-extrabold uppercase tracking-wider block mb-1">Casos de Éxito y Testimonios</p>
+      <div class="section-intro max-w-3xl mb-space-xl text-center mx-auto">
+        <p class="font-technical-code text-technical-code text-secondary-container font-extrabold uppercase tracking-wider block mb-2">Casos de Éxito y Testimonios</p>
         <h2 id="testimonials-title" class="font-headline-xl text-headline-xl text-primary">Testimonios de Clientes</h2>
-        <p class="font-body-md text-body-md text-on-surface-variant mt-2">Empresas y organizaciones que confían en nuestras soluciones técnicas para garantizar la continuidad operativa de sus instalaciones.</p>
+        <p class="font-body-md text-body-md text-on-surface-variant mt-3">Empresas y organizaciones que confían en nuestras soluciones técnicas para garantizar la continuidad operativa de sus instalaciones.</p>
       </div>
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-8 w-full text-left">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-space-lg lg:gap-8 w-full text-left">
         {testimonialsData.map((testi) => (
           <TestimonialCard 
             etiqueta={testi.category}

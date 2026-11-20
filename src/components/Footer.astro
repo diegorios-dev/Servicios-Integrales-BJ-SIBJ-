@@ -2,7 +2,7 @@
 import { siteConfig, url } from '../data/site';
 ---
 
-<footer class="bg-primary relative">
+<footer class="site-footer bg-primary relative">
   <div class="max-w-7xl mx-auto px-margin-mobile md:px-margin py-space-2xl w-full flex flex-col gap-space-xl">
     
     <!-- Top Row: Logo & Navigation Cluster -->
@@ -10,31 +10,31 @@ import { siteConfig, url } from '../data/site';
       <div class="flex flex-col gap-space-md max-w-lg">
         <div class="flex items-center gap-3">
           <img src={url('/assets/logo1.png')} alt="Logo de SIBJ" class="h-12 w-12 object-contain rounded-lg brightness-110" width="48" height="48" />
-          <span class="font-headline-lg text-headline-lg font-extrabold text-surface-container-lowest tracking-tight">{siteConfig.name}</span>
+          <span class="font-headline-md text-headline-md md:text-headline-lg font-extrabold text-surface-container-lowest tracking-tight">{siteConfig.name}</span>
         </div>
         <p class="font-body-sm text-body-sm text-on-primary-container leading-relaxed">
           Servicios Integrales BJ. Mantenimiento técnico preventivo y correctivo, obras y climatización para empresas, comercios y particulares.
         </p>
       </div>
 
-      <div class="flex flex-col gap-2 md:items-end md:text-right">
-        <p class="font-headline-sm text-headline-sm text-surface-container-lowest mb-2 font-bold">Servicios Principales</p>
-        <a class="text-on-primary-container font-body-sm text-body-sm hover:underline hover:text-surface-container-lowest transition-colors" href={url('/mantenimiento-edilicio-neuquen')}>Mantenimiento Edilicio</a>
-        <a class="text-on-primary-container font-body-sm text-body-sm hover:underline hover:text-surface-container-lowest transition-colors" href={url('/obras-trabajos-civiles-neuquen')}>Obras & Trabajos Civiles</a>
-        <a class="text-on-primary-container font-body-sm text-body-sm hover:underline hover:text-surface-container-lowest transition-colors" href={url('/climatizacion-refrigeracion-neuquen')}>Climatización & Refrigeración</a>
-        <a class="text-on-primary-container font-body-sm text-body-sm hover:underline hover:text-surface-container-lowest transition-colors" href={url('/electricidad-tableros-neuquen')}>Electricidad & Tableros</a>
-      </div>
+      <nav class="flex flex-col gap-0.5 md:items-end md:text-right" aria-labelledby="footer-services-title">
+        <p id="footer-services-title" class="font-technical-code text-technical-code uppercase tracking-wider text-secondary-fixed-dim mb-2 font-bold">Servicios Principales</p>
+        <a class="text-on-primary-container font-body-sm text-body-sm underline-offset-4 hover:underline hover:text-surface-container-lowest transition-colors" href={url('/mantenimiento-edilicio-neuquen')}>Mantenimiento Edilicio</a>
+        <a class="text-on-primary-container font-body-sm text-body-sm underline-offset-4 hover:underline hover:text-surface-container-lowest transition-colors" href={url('/obras-trabajos-civiles-neuquen')}>Obras & Trabajos Civiles</a>
+        <a class="text-on-primary-container font-body-sm text-body-sm underline-offset-4 hover:underline hover:text-surface-container-lowest transition-colors" href={url('/climatizacion-refrigeracion-neuquen')}>Climatización & Refrigeración</a>
+        <a class="text-on-primary-container font-body-sm text-body-sm underline-offset-4 hover:underline hover:text-surface-container-lowest transition-colors" href={url('/electricidad-tableros-neuquen')}>Electricidad & Tableros</a>
+      </nav>
     </div>
 
-    <div class="flex flex-col gap-2 border-t border-outline/30 pt-space-md text-on-primary-container font-body-sm text-body-sm">
-      <a class="hover:underline" href="tel:+5492995064187">{siteConfig.telephoneDisplay}</a>
-      <a class="hover:underline" href={`mailto:${siteConfig.email}`}>{siteConfig.email}</a>
-      <span>{siteConfig.city}, Río Negro</span>
-    </div>
+    <address class="not-italic flex flex-col sm:flex-row sm:flex-wrap sm:items-center gap-x-8 gap-y-0 border-t border-white/10 pt-space-md text-on-primary-container font-body-sm text-body-sm">
+      <a class="underline-offset-4 hover:underline hover:text-surface-container-lowest transition-colors" href="tel:+5492995064187">{siteConfig.telephoneDisplay}</a>
+      <a class="underline-offset-4 hover:underline hover:text-surface-container-lowest transition-colors" href={`mailto:${siteConfig.email}`}>{siteConfig.email}</a>
+      <span class="inline-flex min-h-11 items-center">{siteConfig.city}, Río Negro</span>
+    </address>
 
     <!-- Separation & Copyright text -->
-    <div class="pt-space-md border-t border-outline/30 flex flex-col md:flex-row items-center justify-between gap-4">
-      <p class="font-body-sm text-body-sm text-on-primary-container">© 2026 Servicios Integrales BJ. Todos los derechos reservados. Mantenimiento técnico para empresas, comercios y particulares.</p>
+    <div class="pt-space-md border-t border-white/10 flex flex-col md:flex-row md:items-center justify-between gap-3">
+      <p class="font-body-sm text-body-sm text-on-primary-container/90 max-w-3xl">© 2026 Servicios Integrales BJ. Todos los derechos reservados. Mantenimiento técnico para empresas, comercios y particulares.</p>
       <span class="font-technical-code text-technical-code text-on-primary-container text-xs">Neuquén, Argentina</span>
     </div>
 

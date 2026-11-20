@@ -17,7 +17,7 @@ const isTestimonialCard = Boolean(image);
 
 {isTestimonialCard ? (
   <div class="reveal group flex flex-col justify-between overflow-hidden rounded-2xl border border-outline-variant/50 bg-surface-container-lowest shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-secondary-container/70 hover:shadow-xl">
-    <div class="relative h-52 w-full overflow-hidden bg-surface-container-low sm:h-60">
+    <div class="relative aspect-[16/10] w-full overflow-hidden bg-surface-container-low">
       <img src={image} alt={imageAlt || titulo} class="h-full w-full object-cover object-center transition-transform duration-500 group-hover:scale-105" width="800" height="520" loading="lazy" decoding="async" />
       <div class="absolute inset-x-0 bottom-0 h-20 bg-gradient-to-t from-primary/70 to-transparent"></div>
       <div class="absolute left-4 top-4">
@@ -38,22 +38,22 @@ const isTestimonialCard = Boolean(image);
     </div>
   </div>
 ) : (
-  <div class:list={["reveal group flex h-full flex-col justify-between rounded-2xl border bg-surface-container-lowest p-5 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-xl focus-within:-translate-y-1 focus-within:shadow-xl sm:p-6", badge ? "border-secondary-container/70" : "border-outline-variant/50 hover:border-secondary-container/70"]}>
+  <article class:list={["reveal group flex h-full flex-col justify-between rounded-2xl border bg-surface-container-lowest p-6 shadow-sm sm:p-7", badge ? "service-card service-card--featured border-secondary-container/40" : "service-card border-outline-variant/60"]}>
     <div>
-      <div class="mb-5 flex items-start justify-between gap-4">
+      <div class="mb-6 flex items-center justify-between gap-4">
         <div class="flex flex-wrap items-center gap-2">
-          <span class="font-technical-code text-technical-code rounded-full bg-surface-container-low px-2.5 py-1 text-on-surface-variant font-bold">{etiqueta}</span>
-          {badge && <span class="font-technical-code text-technical-code rounded-full bg-secondary-container px-2.5 py-1 text-on-secondary font-bold">{badge}</span>}
+          <span class="font-technical-code text-technical-code rounded-full border border-outline-variant/50 bg-surface-container-low px-3 py-1 text-on-surface-variant font-bold">{etiqueta}</span>
+          {badge && <span class="font-technical-code text-technical-code rounded-full bg-secondary-container px-3 py-1 text-on-secondary font-bold">{badge}</span>}
         </div>
-        <div class="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-primary-container text-on-primary shadow-sm transition-colors duration-300 group-hover:bg-secondary">
+        <div aria-hidden="true" class="icon-tile flex h-12 w-12 shrink-0 items-center justify-center rounded-xl">
           <span class="material-symbols-outlined text-2xl transition-transform duration-300 group-hover:scale-110" aria-hidden="true">{icono}</span>
         </div>
       </div>
-      <h3 class="font-headline-md text-headline-md mb-3 text-primary">
+      <h3 class="font-headline-md text-headline-md mb-3 text-primary text-balance">
         {titulo}
       </h3>
-      <p class="font-body-sm text-body-sm mb-6 leading-relaxed text-on-surface-variant">{descripcion}</p>
-      <ul class="mb-6 space-y-3">
+      <p class="font-body-sm text-body-sm mb-6 max-w-prose leading-relaxed text-on-surface-variant">{descripcion}</p>
+      <ul class="mb-7 space-y-2.5">
         {items.map((item) => (
           <li class="flex items-start gap-2.5">
             <span class="material-symbols-outlined mt-0.5 shrink-0 text-lg text-secondary-container" aria-hidden="true">check_circle</span>
@@ -62,10 +62,10 @@ const isTestimonialCard = Boolean(image);
         ))}
       </ul>
     </div>
-    <div class="flex items-center justify-between border-t border-outline-variant/30 pt-4 font-technical-code text-technical-code">
-      <a class="service-link touch-target inline-flex items-center gap-1 rounded-lg p-1 font-extrabold text-secondary-container transition-colors hover:text-secondary hover:underline focus:outline-none focus:ring-2 focus:ring-secondary-container" href={href}>
+    <div class="mt-auto flex items-center border-t border-outline-variant/40 pt-4 font-technical-code text-technical-code">
+      <a class="service-link touch-target inline-flex items-center gap-1.5 rounded-lg font-extrabold text-secondary-container" href={href}>
         Ver servicio de {titulo} <span class="material-symbols-outlined text-sm" aria-hidden="true">arrow_forward</span>
       </a>
     </div>
-  </div>
+  </article>
 )}

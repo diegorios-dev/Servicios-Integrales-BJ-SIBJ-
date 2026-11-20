@@ -64,9 +64,8 @@ body {
 }
 
 /* Homepage type system: Hanken for hierarchy, Manrope for readable service copy. */
-.home-page main h1,
-.home-page main h2,
-.home-page main h3 {
+/* :where() = especificidad 0, así las clases de color de cada componente (p. ej. text-white) ganan. */
+:where(.home-page main) :where(h1, h2, h3) {
   font-family: 'Hanken Grotesk', sans-serif;
   color: #000919;
 }
@@ -293,19 +292,20 @@ header.is-scrolled::after {
   opacity: 1;
 }
 
-.js .reveal,
+.js .reveal:not(.is-visible),
 .js .hero-reveal {
   opacity: 0;
   transform: translateY(20px);
 }
 
+/* Reveal via animation (fill: backwards) so it never overrides hover transitions afterwards. */
 .js .reveal.is-visible {
-  opacity: 1;
-  transform: translateY(0);
+  animation: reveal-in var(--dur-base) var(--ease-out) backwards;
 }
 
-.js .reveal {
-  transition: opacity var(--dur-base) var(--ease-out), transform var(--dur-base) var(--ease-out) !important;
+@keyframes reveal-in {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
 }
 
 .js .hero-reveal {
@@ -322,9 +322,9 @@ header.is-scrolled::after {
   to { opacity: 1; transform: translateY(0); }
 }
 
-.js .reveal.is-visible:nth-child(2) { transition-delay: 80ms; }
-.js .reveal.is-visible:nth-child(3) { transition-delay: 160ms; }
-.js .reveal.is-visible:nth-child(4) { transition-delay: 240ms; }
+.js .reveal.is-visible:nth-child(2) { animation-delay: 80ms; }
+.js .reveal.is-visible:nth-child(3) { animation-delay: 160ms; }
+.js .reveal.is-visible:nth-child(4) { animation-delay: 240ms; }
 
 .service-link .material-symbols-outlined {
   transition: transform var(--dur-fast) var(--ease-out);
@@ -373,13 +373,13 @@ header.is-scrolled::after {
   transform: rotate(-8deg) scale(1.12);
 }
 
-#servicios .grid > div .material-symbols-outlined,
+#servicios .grid > :is(div, article) .material-symbols-outlined,
 #confianza .grid > article .material-symbols-outlined {
   transition: transform var(--dur-fast) var(--ease-out);
 }
 
-#servicios .grid > div:hover .material-symbols-outlined,
-#servicios .grid > div:focus-within .material-symbols-outlined,
+#servicios .grid > :is(div, article):hover .material-symbols-outlined,
+#servicios .grid > :is(div, article):focus-within .material-symbols-outlined,
 #confianza .grid > article:hover .material-symbols-outlined,
 #confianza .grid > article:focus-within .material-symbols-outlined {
   transform: scale(1.12) rotate(-4deg);
@@ -467,22 +467,22 @@ details[open] > :not(summary) {
     scroll-margin-top: 5.5rem;
   }
 
-  #servicios .grid > div,
+  #servicios .grid > :is(div, article),
   #confianza .grid > article {
     border-radius: var(--ui-card-radius);
     box-shadow: var(--ui-shadow-soft);
     transition: border-color var(--dur-fast) var(--ease-out), transform var(--dur-fast) var(--ease-out);
   }
 
-  #servicios .grid > div:hover,
-  #servicios .grid > div:hover,
+  #servicios .grid > :is(div, article):hover,
+  #servicios .grid > :is(div, article):hover,
   #confianza .grid > article:hover {
     box-shadow: var(--ui-shadow-hover);
     transform: translateY(-2px);
   }
 
-  #servicios .grid > div:hover,
-  #servicios .grid > div:focus-within,
+  #servicios .grid > :is(div, article):hover,
+  #servicios .grid > :is(div, article):focus-within,
   #confianza .grid > article:hover,
   #confianza .grid > article:focus-within,
   .service-page .grid > div:hover {
@@ -917,7 +917,7 @@ details[open] > :not(summary) {
       max-width: 100%;
     }
 
-    #servicios .grid > div,
+    #servicios .grid > :is(div, article),
     #confianza .grid > article {
       transform: none;
     }
@@ -1008,5 +1008,677 @@ details[open] > :not(summary) {
     font-size: clamp(3rem, 4.5vw, 3.75rem);
     line-height: 1.04;
     letter-spacing: -0.03em;
+  }
+}
+
+/* ==========================================================================
+   UI polish layer — superficies, tarjetas, botones y elementos flotantes.
+   Solo estética: no altera textos, imágenes ni rutas.
+   ========================================================================== */
+
+:root {
+  --ui-border-strong: rgb(167 58 0 / 28%);
+  /* Sombras naturales: capas difusas y de baja opacidad (luz cenital suave). */
+  --ui-shadow-card: 0 1px 2px rgb(15 33 55 / 4%), 0 1px 3px rgb(15 33 55 / 3%);
+  --ui-shadow-card-hover: 0 2px 4px -1px rgb(15 33 55 / 4%), 0 8px 16px -6px rgb(15 33 55 / 7%), 0 18px 32px -14px rgb(15 33 55 / 8%);
+  --ui-ease: cubic-bezier(.22, 1, .36, 1);
+  --fab-size: 3.5rem;
+  --fab-gap: 0.75rem;
+  --fab-offset: max(1rem, env(safe-area-inset-bottom));
+}
+
+/* ---- Encabezados de sección: eyebrow con acento y ancho de lectura ---- */
+.section-intro p:first-child {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.625rem;
+}
+
+.section-intro p:first-child::before {
+  width: 1.5rem;
+  height: 2px;
+  border-radius: 9999px;
+  background: currentColor;
+  content: "";
+  flex: 0 0 auto;
+}
+
+.section-intro h2 {
+  max-width: 28ch;
+}
+
+.section-intro p:not(:first-child) {
+  max-width: 62ch;
+}
+
+.section-intro.text-center h2,
+.section-intro.text-center p:not(:first-child) {
+  margin-inline: auto;
+}
+
+/* ---- Tarjetas: superficie, sombra y hover uniformes ---- */
+.service-card,
+.ui-card,
+#servicios .grid > :is(div, article),
+#confianza .grid > article,
+.service-page .grid > :is(div, article)[class*="rounded"][class*="border"] {
+  border-radius: var(--ui-card-radius);
+  box-shadow: var(--ui-shadow-card);
+  transition:
+    transform 240ms var(--ui-ease),
+    box-shadow 240ms var(--ui-ease),
+    border-color 240ms var(--ui-ease);
+}
+
+/* Evita que columnas de layout (no tarjetas) se desplacen en hover. */
+.service-page .grid > :is(div, article):hover {
+  transform: none;
+}
+
+.service-card:hover,
+.service-card:focus-within,
+.ui-card:hover,
+#servicios .grid > :is(div, article):hover,
+#servicios .grid > :is(div, article):focus-within,
+#confianza .grid > article:hover,
+.service-page .grid > :is(div, article)[class*="rounded"][class*="border"]:hover {
+  border-color: var(--ui-border-strong);
+  box-shadow: var(--ui-shadow-card-hover);
+  transform: translateY(-3px);
+}
+
+.service-card--featured {
+  position: relative;
+}
+
+.service-card--featured::before {
+  position: absolute;
+  top: -1px;
+  right: 1.5rem;
+  left: 1.5rem;
+  height: 3px;
+  border-radius: 0 0 9999px 9999px;
+  background: #a73a00;
+  content: "";
+}
+
+.service-card ul li .material-symbols-outlined {
+  font-variation-settings: "FILL" 1, "wght" 400, "GRAD" 0, "opsz" 20;
+}
+
+.ui-icon-tile {
+  box-shadow: inset 0 0 0 1px rgb(15 33 55 / 6%);
+}
+
+/* Enlace al pie de cada tarjeta de servicio */
+.service-link {
+  padding-inline: 0;
+  text-decoration-line: underline;
+  text-decoration-color: transparent;
+  text-decoration-thickness: 2px;
+  text-underline-offset: 0.3em;
+  transition: color var(--dur-fast) var(--ease-out), text-decoration-color var(--dur-fast) var(--ease-out);
+}
+
+.service-link:hover,
+.service-link:focus-visible {
+  color: #7f2b00;
+  text-decoration-color: currentColor;
+}
+
+/* ---- Testimonios ---- */
+.testimonial-quote.italic {
+  position: relative;
+  padding-left: 1.125rem;
+  border-left: 3px solid #a73a00;
+}
+
+/* ---- Hero ---- */
+.hero-section {
+  background-image:
+    radial-gradient(60rem 30rem at 100% 0%, rgb(212 227 255 / 55%), transparent 60%),
+    linear-gradient(#f9f9ff, #f9f9ff);
+}
+
+@media (min-width: 640px) {
+  .hero-highlights > div {
+    padding-block: 0;
+  }
+}
+
+.hero-media img {
+  display: block;
+}
+
+/* ---- Contacto ---- */
+.contact-panel {
+  background-image:
+    radial-gradient(40rem 20rem at 100% 0%, rgb(167 58 0 / 22%), transparent 60%),
+    linear-gradient(135deg, #12263f, #0f2137 55%, #0b1a2c);
+}
+
+.contact-channel {
+  min-height: 4.75rem;
+  transition:
+    background-color var(--dur-fast) var(--ease-out),
+    border-color var(--dur-fast) var(--ease-out),
+    transform var(--dur-fast) var(--ease-out),
+    box-shadow var(--dur-fast) var(--ease-out) !important;
+}
+
+.contact-channel:hover {
+  transform: translateY(-2px) !important;
+}
+
+.contact-channel-icon {
+  display: inline-flex;
+  flex: 0 0 auto;
+  align-items: center;
+  justify-content: center;
+  width: 2.75rem;
+  height: 2.75rem;
+  border-radius: 0.625rem;
+  background: rgb(255 255 255 / 8%);
+  color: #ffb599;
+}
+
+.contact-channel-icon--whatsapp {
+  background: rgb(255 255 255 / 16%);
+}
+
+/* ---- Botones: transiciones suaves y consistentes ---- */
+.cta-button,
+.cta-button-whatsapp,
+.mobile-navigation-cta {
+  transition:
+    transform var(--dur-fast) var(--ease-out),
+    background-color var(--dur-fast) var(--ease-out),
+    box-shadow var(--dur-fast) var(--ease-out),
+    border-color var(--dur-fast) var(--ease-out) !important;
+}
+
+.cta-button:hover,
+.cta-button-whatsapp:hover,
+.mobile-navigation-cta:hover {
+  opacity: 1;
+  transform: translateY(-1px);
+}
+
+.cta-button:active,
+.cta-button-whatsapp:active,
+.mobile-navigation-cta:active {
+  transform: translateY(0) scale(0.99);
+}
+
+.cta-on-accent {
+  border-color: rgb(255 255 255 / 55%) !important;
+  box-shadow: 0 0.5rem 1.25rem rgb(0 0 0 / 22%);
+}
+
+.marketing-cta {
+  background-image: linear-gradient(120deg, #c2410c, #a73a00);
+}
+
+/* ---- Header / navegación ---- */
+.dropdown-link[aria-current="page"] {
+  background: #f0f3ff;
+  color: #a73a00;
+  font-weight: 700;
+}
+
+.mobile-navigation[data-open="true"] {
+  max-height: calc(100dvh - 4rem);
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  box-shadow: 0 1rem 2rem rgb(0 9 25 / 25%);
+}
+
+/* ---- Botones flotantes ---- */
+.floating-whatsapp,
+.floating-call {
+  width: var(--fab-size);
+  height: var(--fab-size);
+  bottom: var(--fab-offset);
+  border-width: 2px;
+  box-shadow: 0 4px 12px -2px rgb(0 9 25 / 20%);
+  transition:
+    transform var(--dur-fast) var(--ease-out),
+    background-color var(--dur-fast) var(--ease-out),
+    opacity var(--dur-fast) var(--ease-out),
+    box-shadow var(--dur-fast) var(--ease-out);
+}
+
+.floating-call {
+  bottom: calc(var(--fab-offset) + var(--fab-size) + var(--fab-gap));
+}
+
+.floating-whatsapp:hover,
+.floating-call:hover {
+  box-shadow: 0 6px 16px -4px rgb(0 9 25 / 22%);
+  transform: translateY(-2px);
+}
+
+/* No tapar el menú móvil abierto */
+body:has(.mobile-navigation[data-open="true"]) .floating-whatsapp,
+body:has(.mobile-navigation[data-open="true"]) .floating-call {
+  opacity: 0;
+  pointer-events: none;
+  transform: scale(0.85);
+}
+
+/* Espacio al final del footer para que los flotantes no tapen el contenido */
+.site-footer > div {
+  padding-bottom: calc(var(--fab-size) + var(--fab-offset) + 1.5rem);
+}
+
+@media (max-width: 767px) {
+  :root {
+    --fab-size: 3.25rem;
+  }
+
+  .site-footer > div {
+    padding-bottom: calc(var(--fab-size) * 2 + var(--fab-gap) + var(--fab-offset) + 1.25rem);
+  }
+}
+
+/* ---- Páginas de servicio ---- */
+.service-page details {
+  transition: border-color var(--dur-fast) var(--ease-out), box-shadow var(--dur-fast) var(--ease-out);
+}
+
+.service-page details:hover,
+.service-page details[open] {
+  border-color: var(--ui-border-strong);
+  box-shadow: var(--ui-shadow-card);
+}
+
+.service-page details > summary {
+  border-radius: 0.5rem;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .service-card:hover,
+  .ui-card:hover,
+  .contact-channel:hover,
+  .floating-whatsapp:hover,
+  .floating-call:hover {
+    transform: none !important;
+  }
+}
+
+.service-page p.service-feature-title {
+  font-family: 'Hanken Grotesk', sans-serif;
+  font-size: clamp(1.25rem, 2.4vw, 1.5rem);
+  line-height: 1.25;
+  letter-spacing: -0.015em;
+  font-weight: 600;
+}
+
+/* ==========================================================================
+   Accesibilidad — foco visible, estados ocultos y modos de alto contraste.
+   ========================================================================== */
+
+/*
+  Indicador de foco de doble anillo: anillo blanco interno + contorno navy externo.
+  Funciona sobre fondos claros (navy ≈ 17:1 sobre blanco) y oscuros (blanco ≈ 17:1 sobre navy),
+  y sobre el naranja de los CTA (blanco ≈ 5:1). Cumple WCAG 2.4.7 / 2.4.11 / 2.4.13.
+*/
+:is(a, button, summary, input, select, textarea, [tabindex]:not([tabindex='-1'])):focus-visible {
+  outline: 3px solid #0f2137 !important;
+  outline-offset: 2px !important;
+  box-shadow: 0 0 0 2px #ffffff !important;
+}
+
+/* Sobre superficies oscuras el contorno externo pasa a amarillo para mayor visibilidad. */
+:is(.site-footer, .contact-panel, .mobile-navigation, .marketing-cta, .accent-cta, .bg-primary, .bg-primary-container)
+  :is(a, button, summary, [tabindex]:not([tabindex='-1'])):focus-visible {
+  outline-color: #facc15 !important;
+}
+
+/* Las tarjetas con overflow:hidden no deben recortar el anillo del enlace interno. */
+.contact-channel:focus-visible {
+  outline-offset: 3px !important;
+}
+
+/* El <main> recibe foco desde "Saltar al contenido" pero no es un control. */
+main:focus {
+  outline: none;
+}
+
+.skip-link {
+  border: 2px solid #0f2137;
+  font-weight: 700;
+  box-shadow: 0 0.5rem 1.5rem rgb(0 9 25 / 25%);
+}
+
+.skip-link:focus-visible {
+  transform: translateY(0);
+}
+
+/* Menú móvil cerrado: fuera del orden de tabulación y del árbol de accesibilidad. */
+.mobile-navigation {
+  visibility: hidden;
+  transition:
+    opacity var(--dur-fast) var(--ease-out),
+    transform var(--dur-fast) var(--ease-out),
+    visibility 0s linear var(--dur-fast);
+}
+
+.mobile-navigation[data-open="true"] {
+  visibility: visible;
+  transition-delay: 0s;
+}
+
+/* Desplegable descartado con Escape (WCAG 1.4.13): permanece oculto hasta salir con el mouse/foco. */
+.group.is-dismissed .dropdown-menu {
+  display: none !important;
+}
+
+/* Modo de colores forzados (Windows alto contraste): los botones de color conservan su borde. */
+@media (forced-colors: active) {
+  .cta-button,
+  .cta-button-whatsapp,
+  .floating-whatsapp,
+  .floating-call,
+  .mobile-navigation-cta,
+  .contact-channel {
+    border: 2px solid ButtonText !important;
+  }
+
+  :is(a, button, summary):focus-visible {
+    outline-color: Highlight !important;
+  }
+}
+
+/* ==========================================================================
+   Heros — badge superior con ícono y palabras de acento en el título.
+   ========================================================================== */
+
+/* Badge: texto #a73a00 sobre #fff3ec ≈ 6.0:1 (AA). */
+.hero-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.4375rem 0.875rem;
+  border: 1px solid #ffd3c0;
+  border-radius: 0.5rem;
+  background: #fff3ec;
+  color: #a73a00;
+  font-family: 'Hanken Grotesk', sans-serif;
+  font-size: 0.75rem;
+  font-weight: 800;
+  line-height: 1.2;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  box-shadow: 0 1px 2px rgb(167 58 0 / 8%);
+}
+
+.hero-eyebrow .material-symbols-outlined {
+  min-width: 0;
+  color: #c2410c;
+  font-size: 1.125rem !important;
+  font-variation-settings: 'FILL' 1, 'wght' 500, 'GRAD' 0, 'opsz' 20;
+}
+
+@media (min-width: 640px) {
+  .hero-eyebrow {
+    font-size: 0.8125rem;
+  }
+}
+
+/*
+  Acento en el título: degradado naranja de marca.
+  Extremos #a73a00 (6.5:1) y #d9480f (4.3:1) sobre blanco → supera 3:1 exigido a texto grande.
+*/
+.text-accent {
+  color: #b93800;
+}
+
+@supports ((-webkit-background-clip: text) or (background-clip: text)) {
+  .text-accent {
+    background-image: linear-gradient(90deg, #a73a00 0%, #c2410c 55%, #d9480f 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    -webkit-box-decoration-break: clone;
+    box-decoration-break: clone;
+  }
+}
+
+@media (forced-colors: active) {
+  .text-accent {
+    background: none;
+    color: CanvasText;
+  }
+}
+/* ==========================================================================
+   Sombras de botones más naturales
+   ========================================================================== */
+.cta-button-whatsapp {
+  box-shadow: 0 1px 2px rgb(21 128 61 / 12%), 0 4px 10px -4px rgb(21 128 61 / 25%);
+}
+
+.cta-button-whatsapp:hover {
+  box-shadow: 0 2px 4px rgb(21 128 61 / 12%), 0 8px 18px -8px rgb(21 128 61 / 35%);
+}
+
+/* ==========================================================================
+   Recuadros de íconos sólidos — alternan naranja y azul oscuro.
+   Ícono blanco: sobre #c2410c ≈ 5.2:1, sobre #0f2137 ≈ 16:1.
+   ========================================================================== */
+.icon-tile {
+  background: linear-gradient(140deg, #1f3350 0%, #0f2137 100%) !important;
+  color: #ffffff !important;
+  box-shadow: inset 0 1px 0 rgb(255 255 255 / 10%), 0 4px 10px -4px rgb(15 33 55 / 35%);
+  transition: transform var(--dur-fast) var(--ease-out);
+}
+
+.icon-tile .material-symbols-outlined {
+  color: #ffffff !important;
+  font-variation-settings: 'FILL' 1, 'wght' 500, 'GRAD' 0, 'opsz' 24;
+}
+
+.icon-tile--orange,
+.grid > :nth-child(odd) .icon-tile {
+  background: linear-gradient(140deg, #f26a1b 0%, #c2410c 100%) !important;
+  box-shadow: inset 0 1px 0 rgb(255 255 255 / 18%), 0 4px 10px -4px rgb(194 65 12 / 45%);
+}
+
+/* Grillas de 2 columnas: patrón en damero para que no queden columnas de un solo color. */
+@media (min-width: 768px) {
+  .grid.md\:grid-cols-2:not(.lg\:grid-cols-3):not(.lg\:grid-cols-4) > :nth-child(4n + 3) .icon-tile {
+    background: linear-gradient(140deg, #1f3350 0%, #0f2137 100%) !important;
+    box-shadow: inset 0 1px 0 rgb(255 255 255 / 10%), 0 4px 10px -4px rgb(15 33 55 / 35%);
+  }
+
+  .grid.md\:grid-cols-2:not(.lg\:grid-cols-3):not(.lg\:grid-cols-4) > :nth-child(4n + 4) .icon-tile {
+    background: linear-gradient(140deg, #f26a1b 0%, #c2410c 100%) !important;
+    box-shadow: inset 0 1px 0 rgb(255 255 255 / 18%), 0 4px 10px -4px rgb(194 65 12 / 45%);
+  }
+}
+
+.grid > :hover .icon-tile {
+  transform: translateY(-1px) rotate(-3deg);
+}
+
+/* Anula la animación de giro anterior aplicada al glifo dentro del recuadro. */
+#servicios .grid > :is(div, article):hover .icon-tile .material-symbols-outlined,
+#confianza .grid > article:hover .icon-tile .material-symbols-outlined {
+  transform: none;
+}
+
+/* ==========================================================================
+   CTAs finales — una variante distinta por página.
+   ========================================================================== */
+
+/* Botón oscuro (CTA naranja de la home) — blanco sobre #0b1526 ≈ 18:1. */
+.cta-btn-dark {
+  min-height: var(--ui-control-min);
+  border: 1px solid rgb(255 255 255 / 10%);
+  background: #0b1526;
+  color: #ffffff;
+  box-shadow: 0 2px 4px rgb(0 0 0 / 12%), 0 10px 24px -12px rgb(0 0 0 / 45%);
+  transition:
+    transform var(--dur-fast) var(--ease-out),
+    background-color var(--dur-fast) var(--ease-out),
+    box-shadow var(--dur-fast) var(--ease-out);
+}
+
+.cta-btn-dark:hover {
+  background: #15233b;
+  transform: translateY(-1px);
+  box-shadow: 0 3px 6px rgb(0 0 0 / 12%), 0 14px 28px -14px rgb(0 0 0 / 50%);
+}
+
+.cta-btn-dark:active {
+  transform: translateY(0) scale(0.99);
+}
+
+/* 1 · Home — "Sunset": naranja cálido centrado. Blanco sobre #c2410c 5.2:1 / #b45309 5.0:1. */
+.cta-v-sunset {
+  background-color: #c2410c;
+  background-image:
+    radial-gradient(36rem 18rem at 15% 0%, rgb(255 255 255 / 10%), transparent 70%),
+    linear-gradient(110deg, #c2410c 0%, #bd450b 45%, #b45309 100%);
+}
+
+.cta-v-sunset::before {
+  top: auto;
+  right: auto;
+  bottom: -6rem;
+  left: -4rem;
+}
+
+/* 2 · Mantenimiento Edilicio — "Blueprint": navy con grilla de plano técnico. */
+.cta-v-blueprint {
+  position: relative;
+  background-color: #0f2137;
+  background-image:
+    radial-gradient(40rem 22rem at 100% 0%, rgb(194 65 12 / 22%), transparent 65%),
+    linear-gradient(rgb(255 255 255 / 4.5%) 1px, transparent 1px),
+    linear-gradient(90deg, rgb(255 255 255 / 4.5%) 1px, transparent 1px);
+  background-size: auto, 2rem 2rem, 2rem 2rem;
+}
+
+.cta-v-blueprint .cta-card {
+  border: 1px solid rgb(255 255 255 / 12%);
+  border-left: 4px solid #ea580c;
+  background: rgb(11 26 44 / 70%);
+  backdrop-filter: blur(2px);
+}
+
+/* 3 · Obras — "Concreto": tarjeta clara con franja naranja, texto oscuro. */
+.cta-v-concrete {
+  background-color: #f3f5fa;
+  background-image: repeating-linear-gradient(135deg, rgb(15 33 55 / 2.5%) 0 2px, transparent 2px 14px);
+  border-top: 1px solid rgb(196 198 205 / 60%);
+}
+
+.cta-v-concrete .cta-card {
+  position: relative;
+  overflow: hidden;
+  border: 1px solid rgb(196 198 205 / 70%);
+  background: #ffffff;
+  box-shadow: var(--ui-shadow-card);
+}
+
+.cta-v-concrete .cta-card::before {
+  position: absolute;
+  inset: 0 auto 0 0;
+  width: 6px;
+  background: linear-gradient(180deg, #ea580c, #a73a00);
+  content: "";
+}
+
+.cta-v-concrete h2 {
+  color: #0f2137;
+}
+
+.cta-v-concrete .text-secondary-fixed {
+  color: #a73a00 !important;
+}
+
+.cta-v-concrete .text-on-primary-container {
+  color: #44474d !important;
+}
+
+/* 4 · Climatización — "Frost": celeste helado, texto navy. */
+.cta-v-frost {
+  position: relative;
+  overflow: hidden;
+  background-color: #e8f0ff;
+  background-image:
+    radial-gradient(28rem 16rem at 0% 100%, rgb(255 255 255 / 75%), transparent 70%),
+    radial-gradient(30rem 18rem at 100% 0%, rgb(182 200 228 / 45%), transparent 70%),
+    linear-gradient(180deg, #eef4ff, #dde8ff);
+  border-top: 1px solid rgb(182 200 228 / 70%);
+}
+
+.cta-v-frost::before,
+.cta-v-frost::after {
+  position: absolute;
+  border: 1px solid rgb(15 33 55 / 8%);
+  border-radius: 9999px;
+  content: "";
+  pointer-events: none;
+}
+
+.cta-v-frost::before {
+  top: -5rem;
+  right: -3rem;
+  width: 16rem;
+  height: 16rem;
+}
+
+.cta-v-frost::after {
+  bottom: -7rem;
+  left: -4rem;
+  width: 20rem;
+  height: 20rem;
+}
+
+.cta-v-frost h2 {
+  color: #0f2137 !important;
+}
+
+.cta-v-frost .text-on-primary-container {
+  color: #374860 !important;
+}
+
+/* 5 · Electricidad — "Voltage": oscuro con brillo ámbar y línea de tensión superior. */
+.cta-v-voltage {
+  position: relative;
+  background-color: #0b1a2c;
+  background-image:
+    radial-gradient(36rem 20rem at 0% 0%, rgb(250 204 21 / 12%), transparent 65%),
+    radial-gradient(30rem 18rem at 100% 100%, rgb(194 65 12 / 16%), transparent 65%),
+    linear-gradient(135deg, #0b1a2c, #0f2137);
+}
+
+.cta-v-voltage::before {
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  height: 3px;
+  background: linear-gradient(90deg, #c2410c, #f59e0b, #facc15);
+  content: "";
+}
+
+.cta-v-voltage .cta-card {
+  border: 1px solid rgb(250 204 21 / 22%);
+  background: rgb(255 255 255 / 4%);
+  box-shadow: inset 0 1px 0 rgb(255 255 255 / 6%);
+}
+
+/* Foco sobre las variantes oscuras: contorno amarillo. */
+:is(.cta-v-sunset, .cta-v-blueprint, .cta-v-voltage)
+  :is(a, button, summary, [tabindex]:not([tabindex='-1'])):focus-visible {
+  outline-color: #facc15 !important;
+}
+
+@media (forced-colors: active) {
+  .cta-btn-dark {
+    border: 2px solid ButtonText;
   }
 }
